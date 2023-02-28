@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "@firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -9,13 +9,14 @@ import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
   apiKey: "AIzaSyCNXZdYpF7C82lV5hOlre-jWoLDosNLdjY",
   authDomain: "liteval.firebaseapp.com",
+  databaseURL: "https://liteval-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "liteval",
   storageBucket: "liteval.appspot.com",
   messagingSenderId: "337252383270",
-  appId: "1:337252383270:web:2b0f9e2ccf0535ecce84e7",
-  measurementId: "G-910XGQ5GWH"
+  appId: "1:337252383270:web:dbafe11167ecc773ce84e7",
+  measurementId: "G-44PFP6SK89"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const firestore = getFirestore(app);

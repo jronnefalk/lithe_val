@@ -14,3 +14,16 @@ const handleSubmit = (kursnamn) => {
     }
 }
 export default handleSubmit
+
+
+// Read data from the database
+database
+  .ref("path/to/data")
+  .once("value")
+  .then((snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

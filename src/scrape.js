@@ -93,7 +93,7 @@ async function scrape(addresses) {
     }
 
     // Write to database.json
-    fs.writeFile("database.json", JSON.stringify(kurser), err => {
+    fs.writeFile("database.json", JSON.stringify(kurser, null, 2), err => {
         if (err) throw err;
         console.log("Kurser written to database.json");
     });

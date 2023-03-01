@@ -1,1 +1,511 @@
-[{"kursnamn":"Ljudteknik","hp":"6","kurskod":"TNM103","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["1"],"block":["2"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM103"},{"kursnamn":"Avancerad bildbehandling","hp":"6","kurskod":"TNM034","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["2"],"block":["3"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM034"},{"kursnamn":"Procedurella metoder för bilder","hp":"6","kurskod":"TNM084","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["2"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM084"},{"kursnamn":"Grafisk design och kommunikation","hp":"6","kurskod":"TNM110","huvudomrade":["Medieteknik"],"utbildningsniva":"Grundnivå","termin":"7","period":["2"],"block":["1"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM110"},{"kursnamn":"Advanced Global Illumination and Rendering","hp":"6","kurskod":"TNCG15","huvudomrade":["Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["1"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNCG15"},{"kursnamn":"Vetenskaplig visualisering","hp":"6","kurskod":"TNM067","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["1"],"block":["3"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM067"},{"kursnamn":"Medieproduktion för immersiva miljöer","hp":"6","kurskod":"TNM091","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1","2"],"block":["2","1"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM091"},{"kursnamn":"Procedurella metoder för bilder","hp":"6","kurskod":"TNM084","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["2"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM084"},{"kursnamn":"VR-teknik","hp":"6","kurskod":"TNM086","huvudomrade":["Informationsteknologi","Datateknik","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"7","period":["2"],"block":["2"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM086"},{"kursnamn":"Bildreproduktion och bildkvalitet","hp":"6","kurskod":"TNM097","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["1"],"block":["2"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM097"},{"kursnamn":"Bild- och ljudkompression","hp":"6","kurskod":"TSBK38","huvudomrade":["Elektroteknik","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["1"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TSBK38"},{"kursnamn":"Procedurell ljuddesign för användargränssnitt","hp":"6","kurskod":"TNM113","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["2"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM113"},{"kursnamn":"Strukturerade metoder för användarupplevelse (UX)","hp":"6","kurskod":"TNM100","huvudomrade":["Datateknik","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["1","2"],"block":["1","3"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM100"},{"kursnamn":"Modellering och animering","hp":"6","kurskod":"TNM079","huvudomrade":["Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["2"],"block":["2"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM079"},{"kursnamn":"Informationsvisualisering","hp":"6","kurskod":"TNM111","huvudomrade":["Datateknik","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["1"],"block":["3"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM111"},{"kursnamn":"Avancerad visuell dataanalys","hp":"6","kurskod":"TNM098","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"8","period":["2"],"block":["4"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM098"},{"kursnamn":"Bildteknik","hp":"6","kurskod":"TNM089","huvudomrade":["Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1"],"block":["1"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM089"},{"kursnamn":"Deep Learning för medieteknik","hp":"6","kurskod":"TNM112","huvudomrade":["Datateknik","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["2"],"block":["2"],"ort":"Norrköping","url":"https://studieinfo.liu.se/kurs/TNM112"},{"kursnamn":"Design och programmering av datorspel","hp":"6","kurskod":"TDDD23","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap","Programmering"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1"],"block":["2"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDD23"},{"kursnamn":"Avancerad programvarudesign","hp":"6","kurskod":"TDDE45","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1"],"block":["4"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDE45"},{"kursnamn":"Teknik för avancerade datorspel","hp":"6","kurskod":"TSBK03","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1","2"],"block":["1","-"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TSBK03"},{"kursnamn":"Vetenskaplig metod","hp":"6","kurskod":"TDDD89","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["2"],"block":["3"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDD89"},{"kursnamn":"Interaktionsprogrammering","hp":"6","kurskod":"TDDC73","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap"],"utbildningsniva":"Grundnivå","termin":"9","period":["2"],"block":["1"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDC73"},{"kursnamn":"Multicore- och GPU-Programmering","hp":"6","kurskod":"TDDD56","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["2"],"block":["2"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDD56"},{"kursnamn":"Mjukvarutekniskt entreprenörskap","hp":"6","kurskod":"TDDE02","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["2"],"block":["2"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TDDE02"},{"kursnamn":"Teknik för avancerade datorspel","hp":"6","kurskod":"TSBK03","huvudomrade":["Informationsteknologi","Datateknik","Datavetenskap","Medieteknik"],"utbildningsniva":"Avancerad nivå","termin":"9","period":["1","2"],"block":["1","-"],"ort":"Linköping","url":"https://studieinfo.liu.se/kurs/TSBK03"}]
+[
+  {
+    "kursnamn": "Ljudteknik",
+    "hp": "6",
+    "kurskod": "TNM103",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM103"
+  },
+  {
+    "kursnamn": "Avancerad bildbehandling",
+    "hp": "6",
+    "kurskod": "TNM034",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "3"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM034"
+  },
+  {
+    "kursnamn": "Procedurella metoder för bilder",
+    "hp": "6",
+    "kurskod": "TNM084",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM084"
+  },
+  {
+    "kursnamn": "Grafisk design och kommunikation",
+    "hp": "6",
+    "kurskod": "TNM110",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Grundnivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "1"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM110"
+  },
+  {
+    "kursnamn": "Advanced Global Illumination and Rendering",
+    "hp": "6",
+    "kurskod": "TNCG15",
+    "huvudomrade": [
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNCG15"
+  },
+  {
+    "kursnamn": "Vetenskaplig visualisering",
+    "hp": "6",
+    "kurskod": "TNM067",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "3"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM067"
+  },
+  {
+    "kursnamn": "Medieproduktion för immersiva miljöer",
+    "hp": "6",
+    "kurskod": "TNM091",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1",
+      "2"
+    ],
+    "block": [
+      "2",
+      "1"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM091"
+  },
+  {
+    "kursnamn": "Procedurella metoder för bilder",
+    "hp": "6",
+    "kurskod": "TNM084",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM084"
+  },
+  {
+    "kursnamn": "VR-teknik",
+    "hp": "6",
+    "kurskod": "TNM086",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM086"
+  },
+  {
+    "kursnamn": "Bildreproduktion och bildkvalitet",
+    "hp": "6",
+    "kurskod": "TNM097",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM097"
+  },
+  {
+    "kursnamn": "Bild- och ljudkompression",
+    "hp": "6",
+    "kurskod": "TSBK38",
+    "huvudomrade": [
+      "Elektroteknik",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TSBK38"
+  },
+  {
+    "kursnamn": "Procedurell ljuddesign för användargränssnitt",
+    "hp": "6",
+    "kurskod": "TNM113",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM113"
+  },
+  {
+    "kursnamn": "Strukturerade metoder för användarupplevelse (UX)",
+    "hp": "6",
+    "kurskod": "TNM100",
+    "huvudomrade": [
+      "Datateknik",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "1",
+      "2"
+    ],
+    "block": [
+      "1",
+      "3"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM100"
+  },
+  {
+    "kursnamn": "Modellering och animering",
+    "hp": "6",
+    "kurskod": "TNM079",
+    "huvudomrade": [
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM079"
+  },
+  {
+    "kursnamn": "Informationsvisualisering",
+    "hp": "6",
+    "kurskod": "TNM111",
+    "huvudomrade": [
+      "Datateknik",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "3"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM111"
+  },
+  {
+    "kursnamn": "Avancerad visuell dataanalys",
+    "hp": "6",
+    "kurskod": "TNM098",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "8",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM098"
+  },
+  {
+    "kursnamn": "Bildteknik",
+    "hp": "6",
+    "kurskod": "TNM089",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "1"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM089"
+  },
+  {
+    "kursnamn": "Deep Learning för medieteknik",
+    "hp": "6",
+    "kurskod": "TNM112",
+    "huvudomrade": [
+      "Datateknik",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM112"
+  },
+  {
+    "kursnamn": "Design och programmering av datorspel",
+    "hp": "6",
+    "kurskod": "TDDD23",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Programmering"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDD23"
+  },
+  {
+    "kursnamn": "Avancerad programvarudesign",
+    "hp": "6",
+    "kurskod": "TDDE45",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDE45"
+  },
+  {
+    "kursnamn": "Teknik för avancerade datorspel",
+    "hp": "6",
+    "kurskod": "TSBK03",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1",
+      "2"
+    ],
+    "block": [
+      "1",
+      "-"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TSBK03"
+  },
+  {
+    "kursnamn": "Vetenskaplig metod",
+    "hp": "6",
+    "kurskod": "TDDD89",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "3"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDD89"
+  },
+  {
+    "kursnamn": "Interaktionsprogrammering",
+    "hp": "6",
+    "kurskod": "TDDC73",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap"
+    ],
+    "utbildningsniva": "Grundnivå",
+    "termin": "9",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "1"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDC73"
+  },
+  {
+    "kursnamn": "Multicore- och GPU-Programmering",
+    "hp": "6",
+    "kurskod": "TDDD56",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDD56"
+  },
+  {
+    "kursnamn": "Mjukvarutekniskt entreprenörskap",
+    "hp": "6",
+    "kurskod": "TDDE02",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "2"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TDDE02"
+  },
+  {
+    "kursnamn": "Teknik för avancerade datorspel",
+    "hp": "6",
+    "kurskod": "TSBK03",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1",
+      "2"
+    ],
+    "block": [
+      "1",
+      "-"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TSBK03"
+  }
+]

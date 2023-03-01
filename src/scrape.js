@@ -3,7 +3,7 @@ const fs = require("fs");
 
 // Ett kursobjekt som innehåller all information om varje kurs
 class Kurs {
-    constructor(kursnamn, hp, kurskod, huvudomrade, utbildningsniva, termin, period, block, ort) {
+    constructor(kursnamn, hp, kurskod, huvudomrade, utbildningsniva, termin, period, block, ort, url) {
         this.kursnamn = kursnamn;
         this.hp = hp;
         this.kurskod = kurskod;
@@ -13,6 +13,7 @@ class Kurs {
         this.period = period;
         this.block = block;
         this.ort = ort;
+        this.url = url; 
     }
 }
 
@@ -84,7 +85,7 @@ async function scrape(addresses) {
         });
         
         // lägg till all information i en kurs 
-        let tempKurs = new Kurs(kursnamn, hp, kurskod, huvudomrade, utbildningsniva, termin, period, block, ort);
+        let tempKurs = new Kurs(kursnamn, hp, kurskod, huvudomrade, utbildningsniva, termin, period, block, ort, addresses[i]);
         kurser.push(tempKurs); 
         console.log(tempKurs);
   

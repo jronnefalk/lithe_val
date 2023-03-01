@@ -91,5 +91,11 @@ async function scrape(addresses) {
         await browser.close();
     }
 
+    // Write to database.json
+    fs.writeFile("database.json", JSON.stringify(kurser), err => {
+        if (err) throw err;
+        console.log("Kurser written to database.json");
+    });
+    
     console.log("Antal kurser samlade: " + kurser.length + "\n")
 }

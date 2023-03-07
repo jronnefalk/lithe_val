@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+//import { BrowserRouter, Route } from "react-router-dom";
 import kurser from "./webscraping/database.json";
 import { useState } from "react";
 import Kurs from "./Kurs";
 import filterKurser from "./functions/filterKurser";
+import Signup from "./components/signup";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -20,6 +21,9 @@ function App() {
       {filteredKurser.map((kurs) => (
         <Kurs key={kurs.kurskod} kursdata={kurs} />
       ))}
+
+    <Signup/>
+
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthErrorCodes, createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../firebase_setup/firebase.js";
 
-function Signup() {
+export default function Signup() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
 
@@ -83,14 +83,12 @@ function Signup() {
           </button>
         </div>
       </form>
-      <div className="option">
+      {/* <div className="option">
         <p>
           Already have an account?
           <Link to="/login">Sign in</Link>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
-
-export default Signup;

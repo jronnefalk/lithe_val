@@ -1,9 +1,11 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import kurser from "./webscraping/database.json";
+import Signup from "./components/signup.js";
 
 function App() {
   return (
-    <div className="App">
+     <div className="App">
       {kurser.map((kurs) => (
         <>
           <h1>{kurs.kursnamn}</h1>

@@ -2,6 +2,7 @@ import React from "react";
 import kurser from "./webscraping/database.json";
 import {useState} from "react";
 
+import Kurs from "./Kurs";
 
 function App() {
   const [query, setQuery] = useState("")
@@ -32,6 +33,8 @@ function App() {
           <p>Ort: {kurs.ort}</p>
           <a href={kurs.url}>Kurshemsida</a>
           </div>
+      {kurser.map((kurs) => (
+        <Kurs key={kurs.kurskod} kursdata={kurs} />
       ))}
     </div>
   );

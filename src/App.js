@@ -1,10 +1,17 @@
+// Externa bibliotek
 import React from "react";
-//import { BrowserRouter, Route } from "react-router-dom";
-import kurser from "./webscraping/database.json";
 import { useState } from "react";
-import Kurs from "./Kurs";
+//import { BrowserRouter, Route } from "react-router-dom";
+
+// Data
+import kurser from "./webscraping/database.json";
+
+// Funktioner
 import filterKurser from "./functions/filterKurser";
-import Signup from "./components/signup";
+
+// Komponenter
+import Signup from "./components/Signup";
+import Kurs from "./components/Kurs";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -22,8 +29,7 @@ function App() {
         <Kurs key={kurs.kurskod} kursdata={kurs} />
       ))}
 
-    <Signup/>
-
+      <Signup />
     </div>
   );
 }

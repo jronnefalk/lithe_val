@@ -10,7 +10,9 @@ import kurser from "./webscraping/database.json";
 import filterKurser from "./functions/filterKurser";
 
 // Komponenter
-import Signup from "./components/Signup";
+// import googleSignin from "./components/Signup";
+// import googleSignout from "./components/Signup";
+import GoogleAuth from "./components/Signup";
 import Kurs from "./components/Kurs";
 
 function App() {
@@ -29,7 +31,10 @@ function App() {
         <Kurs key={kurs.kurskod} kursdata={kurs} />
       ))}
 
-      <Signup />
+      {/* <googleSignin />
+      <googleSignout/> */}
+      <GoogleAuth/>
+
     </div>
   );
 }

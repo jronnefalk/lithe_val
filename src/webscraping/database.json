@@ -133,6 +133,24 @@
     "url": "https://studieinfo.liu.se/kurs/TNM091"
   },
   {
+    "kursnamn": "Procedurella metoder för bilder",
+    "hp": "6",
+    "kurskod": "TNM084",
+    "huvudomrade": [
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "7",
+    "period": [
+      "2"
+    ],
+    "block": [
+      "4"
+    ],
+    "ort": "Norrköping",
+    "url": "https://studieinfo.liu.se/kurs/TNM084"
+  },
+  {
     "kursnamn": "VR-teknik",
     "hp": "6",
     "kurskod": "TNM086",
@@ -466,5 +484,28 @@
     ],
     "ort": "Linköping",
     "url": "https://studieinfo.liu.se/kurs/TDDE02"
+  },
+  {
+    "kursnamn": "Teknik för avancerade datorspel",
+    "hp": "6",
+    "kurskod": "TSBK03",
+    "huvudomrade": [
+      "Informationsteknologi",
+      "Datateknik",
+      "Datavetenskap",
+      "Medieteknik"
+    ],
+    "utbildningsniva": "Avancerad nivå",
+    "termin": "9",
+    "period": [
+      "1",
+      "2"
+    ],
+    "block": [
+      "1",
+      "-"
+    ],
+    "ort": "Linköping",
+    "url": "https://studieinfo.liu.se/kurs/TSBK03"
   }
 ]

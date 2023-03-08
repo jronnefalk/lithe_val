@@ -5,6 +5,7 @@ https://studieinfo.liu.se/kurs/TNM110
 https://studieinfo.liu.se/kurs/TNCG15
 https://studieinfo.liu.se/kurs/TNM067
 https://studieinfo.liu.se/kurs/TNM091
+https://studieinfo.liu.se/kurs/TNM084
 https://studieinfo.liu.se/kurs/TNM086
 https://studieinfo.liu.se/kurs/TNM097
 https://studieinfo.liu.se/kurs/TSBK38
@@ -22,3 +23,4 @@ https://studieinfo.liu.se/kurs/TDDD89
 https://studieinfo.liu.se/kurs/TDDC73
 https://studieinfo.liu.se/kurs/TDDD56
 https://studieinfo.liu.se/kurs/TDDE02
+https://studieinfo.liu.se/kurs/TSBK03

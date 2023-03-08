@@ -5,6 +5,7 @@ import { useState } from "react";
 import Kurs from "./Kurs";
 import filterKurser from "./functions/filterKurser";
 import Signup from "./components/signup";
+import Login from "./components/login";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -23,6 +24,7 @@ function App() {
       ))}
 
     <Signup/>
+    <Login/>
 
     </div>
   );

@@ -8,7 +8,6 @@ import kurser from "./webscraping/database.json";
 
 // Funktioner
 import filterKurser from "./functions/filterKurser";
-import Signup from "./components/Signup";
 
 // Komponenter
 import Signup from "./components/Signup";

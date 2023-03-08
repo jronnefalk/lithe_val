@@ -12,22 +12,11 @@ import filterKurser from "./functions/filterKurser";
 // Komponenter
 import Signup from "./components/Signup";
 import Kurs from "./components/Kurs";
-import Checkbox from "./components/Checkbox";
+import Filters from "./components/Filters";
 
 function App() {
   const [query, setQuery] = useState("");
   const filteredKurser = filterKurser(kurser, query);
-
-  const [checkedOne, setCheckedOne] = React.useState(false);
-  const [checkedTwo, setCheckedTwo] = React.useState(false);
-
-  const handleChangeOne = () => {
-    setCheckedOne(!checkedOne);
-  };
-
-  const handleChangeTwo = () => {
-    setCheckedTwo(!checkedTwo);
-  };
 
   return (
     <div className="App">
@@ -37,16 +26,7 @@ function App() {
           onChange={(event) => setQuery(event.target.value)}
         />
         <div>
-          <Checkbox
-            label="Period 1"
-            value={checkedOne}
-            onChange={handleChangeOne}
-          />
-          <Checkbox
-            label="Period 2"
-            value={checkedTwo}
-            onChange={handleChangeTwo}
-          />
+          <Filters />
         </div>
       </div>
       {filteredKurser.map((kurs) => (

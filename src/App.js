@@ -29,8 +29,8 @@ function App() {
           <Filters />
         </div>
       </div>
-      {filteredKurser.map((kurs) => (
-        <Kurs key={kurs.kurskod} kursdata={kurs} />
+      {filteredKurser.map((el) => (
+        <Kurs kursdata={el} />
       ))}
 
       <Signup />

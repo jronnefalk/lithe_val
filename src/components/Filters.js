@@ -1,10 +1,19 @@
 import React from "react";
-import Checkbox from "./Checkbox";
+//import Checkbox from "./Checkbox";
 //import { useState } from "react";
+function Checkbox({ label, value, onChange }) {
+  return (
+    <label>
+      <input type="checkbox" checked={value} onChange={onChange} />
+      {label}
+    </label>
+  );
+}
 
 export default function Filters({ label, value, onChange }) {
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
+  const [checkedThree, setCheckedThree] = React.useState(false);
 
   const handleChangeOne = () => {
     setCheckedOne(!checkedOne);
@@ -12,6 +21,9 @@ export default function Filters({ label, value, onChange }) {
 
   const handleChangeTwo = () => {
     setCheckedTwo(!checkedTwo);
+  };
+  const handleChangeThree = () => {
+    setCheckedThree(!checkedThree);
   };
   return (
     <div>
@@ -27,8 +39,8 @@ export default function Filters({ label, value, onChange }) {
       />
       <Checkbox
         label="Period 3"
-        value={checkedTwo}
-        onChange={handleChangeTwo}
+        value={checkedThree}
+        onChange={handleChangeThree}
       />
     </div>
   );

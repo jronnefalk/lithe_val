@@ -1,6 +1,5 @@
 import React from "react";
-//import Checkbox from "./Checkbox";
-//import { useState } from "react";
+
 function Checkbox({ label, value, onChange }) {
   return (
     <label>
@@ -10,7 +9,7 @@ function Checkbox({ label, value, onChange }) {
   );
 }
 
-export default function Filters({ label, value, onChange }) {
+export default function Filters() {
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
   const [checkedThree, setCheckedThree] = React.useState(false);

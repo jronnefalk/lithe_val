@@ -31,7 +31,6 @@ function App() {
       {filteredKurser.map((el) => (
         <Kurs kursdata={el} />
       ))}
-
     </div>
   );
 }

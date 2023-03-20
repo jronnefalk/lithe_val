@@ -10,7 +10,6 @@ import kurser from "./webscraping/database.json";
 import filterKurser from "./functions/filterKurser";
 
 // Komponenter
-import Signup from "./components/Signup";
 import Kurs from "./components/Kurs";
 import Filters from "./components/Filters";
 
@@ -33,11 +32,8 @@ function App() {
         <Kurs kursdata={el} />
       ))}
 
-      <Signup />
     </div>
   );
 }
 
 export default App;
-
-// Hej och hå

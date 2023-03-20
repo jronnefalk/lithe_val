@@ -12,7 +12,7 @@ import filterKurser from "./functions/filterKurser";
 // Komponenter
 // import googleSignin from "./components/Signup";
 // import googleSignout from "./components/Signup";
-import GoogleAuth from "./components/Signup";
+import GoogleAuth from "./components/signup";
 import Kurs from "./components/Kurs";
 
 function App() {

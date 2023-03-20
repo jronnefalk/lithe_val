@@ -1,5 +1,4 @@
 
-
 import app from "../firebase_setup/firebase.js";
 import {getAuth, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 
@@ -29,7 +28,7 @@ function GoogleAuth() {
       });
   }
   function googleSignout() {
-    app.auth()
+    app.Auth()
       .signOut()
       .then(function() {
         console.log('Signout Successful');

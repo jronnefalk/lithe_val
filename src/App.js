@@ -14,6 +14,10 @@ import Signup from "./components/Signup";
 import Kurs from "./components/Kurs";
 import Filters from "./components/Filters";
 
+//Kurser
+
+import "./design/kurser.css";
+
 function App() {
   const [query, setQuery] = useState("");
   const filteredKurser = filterKurser(kurser, query);
@@ -29,10 +33,13 @@ function App() {
           <Filters />
         </div>
       </div>
-      {filteredKurser.map((el) => (
+      <div className="container">
+       {filteredKurser.map((el) => (
+        <div className="course-container">
         <Kurs kursdata={el} />
-      ))}
-
+        </div>
+        ))} 
+      </div>
       <Signup />
     </div>
   );

@@ -14,6 +14,7 @@ import filterKurser from "./functions/filterKurser";
 // import googleSignout from "./components/Signup";
 import GoogleAuth from "./components/signup";
 import Kurs from "./components/Kurs";
+import Filters from "./components/Filters";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -26,9 +27,12 @@ function App() {
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
+        <div>
+          <Filters />
+        </div>
       </div>
-      {filteredKurser.map((kurs) => (
-        <Kurs key={kurs.kurskod} kursdata={kurs} />
+      {filteredKurser.map((el) => (
+        <Kurs kursdata={el} />
       ))}
 
       {/* <googleSignin />

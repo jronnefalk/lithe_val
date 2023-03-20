@@ -1,11 +1,13 @@
+//import Filters from "./Filters";
+
 function filterKurser(kurser, query) {
-  return kurser.filter((kurs) => {
+  return kurser.filter((kur) => {
     if (query === "") {
-      return kurs;
-    } else if (kurs.kursnamn.toLowerCase().includes(query.toLowerCase())) {
-      return kurs;
-    } else if (kurs.kurskod.toLowerCase().includes(query.toLowerCase())) {
-      return kurs;
+      return kur;
+    } else if (kur.kursnamn.toLowerCase().includes(query.toLowerCase())) {
+      return kur;
+    } else if (kur.kurskod.toLowerCase().includes(query.toLowerCase())) {
+      return kur;
     } else {
       return null;
     }

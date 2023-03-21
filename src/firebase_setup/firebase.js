@@ -1,5 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, remove } from "firebase/database";
+import { getAuth } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,5 +21,32 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const auth = getAuth();
 
+
+const saveKurs = (kursData) => {
+  const user = auth.currentUser;
+  if (user) {
+    push(ref(database, `savedKurser/${user.uid}`), kursData);
+  } else {
+    console.log("No user is signed in");
+  }
+};
+
+const deleteKurs = (kursId) => {
+  const user = auth.currentUser;
+  if (user) {
+    const kursRef = ref(database, `savedKurser/${user.uid}/${kursId}`);
+
+    remove(kursRef).then(() => {
+      console.log("Kurs removed successfully");
+    }).catch((error) => {
+      console.log("Error removing kurs:", error.message);
+    });
+  } else {
+    console.log("No user is signed in");
+  }
+};
+export { saveKurs, deleteKurs };
 export default app;

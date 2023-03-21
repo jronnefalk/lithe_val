@@ -9,37 +9,38 @@ function Checkbox({ label, value, onChange }) {
   );
 }
 
-export default function Filters() {
-  const [checkedOne, setCheckedOne] = React.useState(false);
-  const [checkedTwo, setCheckedTwo] = React.useState(false);
-  const [checkedThree, setCheckedThree] = React.useState(false);
+export default function Filters({ onSelectFilter }) {
+  const [checkedPeriod1, setCheckedPeriod1] = React.useState(false);
+  const [checkedPeriod2, setCheckedPeriod2] = React.useState(false);
 
-  const handleChangeOne = () => {
-    setCheckedOne(!checkedOne);
+  React.useEffect(() => {
+    onSelectFilter("period", checkedPeriod1 ? "1" : "");
+  }, [checkedPeriod1, onSelectFilter]);
+
+  React.useEffect(() => {
+    onSelectFilter("period", checkedPeriod2 ? "2" : "");
+  }, [checkedPeriod2, onSelectFilter]);
+
+  const handlePeriod1Change = () => {
+    setCheckedPeriod1(!checkedPeriod1);
+    //onSelectFilter("period", checkedPeriod1 ? "" : "1");
+  };
+  const handlePeriod2Change = () => {
+    setCheckedPeriod2(!checkedPeriod2);
+    //onSelectFilter("period", checkedPeriod2 ? "" : "2");
   };
 
-  const handleChangeTwo = () => {
-    setCheckedTwo(!checkedTwo);
-  };
-  const handleChangeThree = () => {
-    setCheckedThree(!checkedThree);
-  };
   return (
     <div>
       <Checkbox
         label="Period 1"
-        value={checkedOne}
-        onChange={handleChangeOne}
+        value={checkedPeriod1}
+        onChange={handlePeriod1Change}
       />
       <Checkbox
         label="Period 2"
-        value={checkedTwo}
-        onChange={handleChangeTwo}
-      />
-      <Checkbox
-        label="Period 3"
-        value={checkedThree}
-        onChange={handleChangeThree}
+        value={checkedPeriod2}
+        onChange={handlePeriod2Change}
       />
     </div>
   );

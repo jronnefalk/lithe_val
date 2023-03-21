@@ -11,6 +11,7 @@ function App() {
     <nav>
       <ul>
         <li>
+          {/* state={} if we want to pass info */}
           <Link to="/">Start</Link>
         </li>
         <li>

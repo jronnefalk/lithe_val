@@ -31,12 +31,13 @@ function App() {
           <Filters />
         </div>
       </div>
+      <div id="selectedCourse"></div>
+      <div className="kurs-container">
       {filteredKurser.map((el) => (
         <Kurs kursdata={el} />
       ))}
+      </div>
 
-      {/* <googleSignin />
-      <googleSignout/> */}
       <GoogleAuth/>
 
     </div>

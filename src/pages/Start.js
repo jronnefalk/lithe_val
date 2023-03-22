@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
-//import { BrowserRouter, Route } from "react-router-dom";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 // Data
 import kurser from "../webscraping/database.json";
+
+// Funktioner
 import filterKurser from "../functions/filterKurser";
+
+// Komponenter
 import Kurs from "../components/Kurs";
 //import Filters from "./components/Filters";
 
@@ -20,23 +23,27 @@ export function Start() {
     { label: "Block 1", key: "block", value: "1" },
     { label: "Block 2", key: "block", value: "2" },
     { label: "Block 3", key: "block", value: "3" },
+    { label: "Block 4", key: "block", value: "4" },
   ];
 
   // Funktion som hanterar när användaren klickar på ett filter
   const handleFilterChange = (filter) => {
-    if (activeFilters.includes(filter)) {
+    if (
+      activeFilters.some(
+        (f) => f.key === filter.key && f.value === filter.value
+      )
+    ) {
       // Om filter redan är aktiverat, ta bort det
-      setActiveFilters(activeFilters.filter((f) => f !== filter));
+      setActiveFilters(
+        activeFilters.filter(
+          (f) => !(f.key === filter.key && f.value === filter.value)
+        )
+      );
     } else {
       // Om filter inte är aktiverat, aktivera det
       setActiveFilters([...activeFilters, filter]);
     }
   };
-
-  // Logga aktiva filter i konsolen (DEBUG)
-  useEffect(() => {
-    console.log(activeFilters);
-  }, [activeFilters]);
 
   const filteredKurser = filterKurser(kurser, query, activeFilters);
 
@@ -55,13 +62,16 @@ export function Start() {
             <input
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
-              checked={activeFilters.includes(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
             />
             {filter.label}
           </label>
         ))}
-     <div/>
-     <div>
+      </div>
+
+      <div>
         {filteredKurser.map((kurs) => (
           <Kurs key={uuidv4()} kursdata={kurs} />
         ))}

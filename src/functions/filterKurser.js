@@ -1,24 +1,39 @@
-export default function filterKurser(kurser, query, filters) {
-  return kurser.filter((el) => {
-    // Sökning
-    if (
-      el.kursnamn.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-      el.kurskod.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-      el.huvudomrade[0].toLowerCase().indexOf(query.toLowerCase()) !== -1
-    ) {
-      // Filter
-
-      for (let i = 0; i < filters.length; i++) {
-        const filter = filters[i];
-        if (
-          filter.name === "period" &&
-          el.period.indexOf(filter.value) === -1
-        ) {
-          return false;
-        }
+function filterKurser(kurser, query, activeFilters) {
+  return kurser
+    .sort(function (a, b) {
+      // Sortera kurserna efter kursnamn (A-Ö)
+      if (a.kursnamn.toLowerCase() < b.kursnamn.toLowerCase()) return -1;
+      if (a.kursnamn.toLowerCase() > b.kursnamn.toLowerCase()) return 1;
+      return 0;
+    })
+    .filter((kurs) => {
+      if (query === "") {
+        // Om sökfältet är tomt, visa alla kurser
+        return true;
+      } else if (
+        kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
+        kurs.kurskod.toLowerCase().includes(query.toLowerCase())
+      ) {
+        // Om sökfältet innehåller något, visa kurser som matchar sökningen
+        return true;
+      } else {
+        // Sökningen matchar inte någon kurs
+        return false;
       }
-      return true;
-    }
-    return false;
-  });
+    })
+    .filter((kurs) => {
+      if (activeFilters.length === 0) {
+        // Om inga filter är aktiva, visa alla kurser
+        return true;
+      } else {
+        // Om filter är aktiva, visa kurser som matchar filter
+        for (const filter of activeFilters) {
+          if (kurs[filter.key].includes(filter.value)) {
+            return true;
+          }
+        }
+        // Om ingen kurs matchar filter, visa inte kursen
+        return false;
+      }
+    });
 }

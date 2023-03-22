@@ -4,6 +4,10 @@ import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
+//Kurser
+
+import "./design/kurser.css";
+
 function App() {
 
   return (

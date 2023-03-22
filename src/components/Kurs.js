@@ -1,5 +1,5 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 export default function Kurs(props) {
   const kurs = props.kursdata;

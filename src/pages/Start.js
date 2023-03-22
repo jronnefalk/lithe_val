@@ -39,11 +39,13 @@ export function Start() {
         <Filters />
       </div>
       
-    
+    <div className="container">
     {filteredKurser.map((el) => (
+      <div className="course-container">
       <Kurs kursdata={el} />
+      </div>
     ))}
-
+    </div>
   </div>
   );
 }

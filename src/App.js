@@ -1,6 +1,6 @@
 // Externa bibliotek
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //import { BrowserRouter, Route } from "react-router-dom";
 
 // Data
@@ -11,11 +11,37 @@ import filterKurser from "./functions/filterKurser";
 
 // Komponenter
 import Kurs from "./components/Kurs";
-import Filters from "./components/Filters";
+//import Filters from "./components/Filters";
 
 function App() {
   const [query, setQuery] = useState("");
-  const filteredKurser = filterKurser(kurser, query);
+  const [activeFilters, setActiveFilters] = useState([]);
+
+  const filters = [
+    { label: "Period 1", key: "period", value: "1" },
+    { label: "Period 2", key: "period", value: "2" },
+    { label: "Block 1", key: "block", value: "1" },
+    { label: "Block 2", key: "block", value: "2" },
+    { label: "Block 3", key: "block", value: "3" },
+  ];
+
+  // Funktion som hanterar när användaren klickar på ett filter
+  const handleFilterChange = (filter) => {
+    if (activeFilters.includes(filter)) {
+      // Om filter redan är aktiverat, ta bort det
+      setActiveFilters(activeFilters.filter((f) => f !== filter));
+    } else {
+      // Om filter inte är aktiverat, aktivera det
+      setActiveFilters([...activeFilters, filter]);
+    }
+  };
+
+  // Logga aktiva filter i konsolen (DEBUG)
+  useEffect(() => {
+    console.log(activeFilters);
+  }, [activeFilters]);
+
+  const filteredKurser = filterKurser(kurser, query, activeFilters);
 
   return (
     <div className="App">
@@ -24,13 +50,26 @@ function App() {
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
-        <div>
-          <Filters />
-        </div>
       </div>
-      {filteredKurser.map((el) => (
-        <Kurs kursdata={el} />
-      ))}
+
+      <div>
+        {filters.map((filter) => (
+          <label key={filter.label}>
+            <input
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.includes(filter)}
+            />
+            {filter.label}
+          </label>
+        ))}
+      </div>
+
+      <div>
+        {filteredKurser.map((kurs) => (
+          <Kurs key={kurs.kurskod} kursdata={kurs} />
+        ))}
+      </div>
     </div>
   );
 }

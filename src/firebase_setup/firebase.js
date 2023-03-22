@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, remove } from "firebase/database";
+import { getDatabase, ref, push, remove} from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,20 +25,20 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 
-const saveKurs = (kursData) => {
+const saveKurs = (kurs) => {
   const user = auth.currentUser;
   if (user) {
-    push(ref(database, `savedKurser/${user.uid}`), kursData);
+    push(ref(database, `users/${user.uid}/${kurs.kurskod}`), kurs);
   } else {
     console.log("No user is signed in");
   }
 };
 
-const deleteKurs = (kursId) => {
+const deleteKurs = (kurs) => {
   const user = auth.currentUser;
   if (user) {
-    const kursRef = ref(database, `savedKurser/${user.uid}/${kursId}`);
-
+    const kursRef = ref(database, `users/${user.uid}/${kurs.kurskod}`);
+    
     remove(kursRef).then(() => {
       console.log("Kurs removed successfully");
     }).catch((error) => {
@@ -48,5 +48,7 @@ const deleteKurs = (kursId) => {
     console.log("No user is signed in");
   }
 };
+
+
 export { saveKurs, deleteKurs };
 export default app;

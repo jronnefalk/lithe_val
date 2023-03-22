@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 //import { BrowserRouter, Route } from "react-router-dom";
 
 // Data
-import kurser from "./webscraping/database.json";
+import kurser from "../webscraping/database.json";
 
 // Funktioner
-import filterKurser from "./functions/filterKurser";
+import filterKurser from "../functions/filterKurser";
 
 // Komponenter
-import Kurs from "./components/Kurs";
+import Kurs from "../components/Kurs";
 //import Filters from "./components/Filters";
 
-function App() {
+import React from "react";
+
+export function Start() {
   const [query, setQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState([]);
 

@@ -4,7 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
-function App() {
+export default function App() {
   return (
     <>
       <nav>
@@ -26,5 +26,3 @@ function App() {
     </>
   );
 }
-
-export default App;

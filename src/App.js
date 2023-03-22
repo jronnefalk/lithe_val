@@ -4,14 +4,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
-// inkoner
-import{ BsSearch } from "react-icons/bs";
-
-//design 
-import './design/filter.css';
-import './design/kurser.css';
-import './design/sök.css';
-
 function App() {
 
   return (

@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Kurs(props) {
   const kurs = props.kursdata;
@@ -7,26 +8,26 @@ export default function Kurs(props) {
       <h1>{kurs.kursnamn}</h1>
       <p>Kurskod: {kurs.kurskod}</p>
       <p>HP: {kurs.hp}</p>
-      <p>
+      <div>
         Huvudområde:{" "}
         {kurs.huvudomrade.map((prop) => {
-          return <p>{prop}</p>;
+          return <p key={uuidv4()}>{prop}</p>;
         })}
-      </p>
+      </div>
       <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
       <p>Termin: {kurs.termin}</p>
-      <p>
+      <div>
         Period:{" "}
         {kurs.period.map((prop) => {
-          return <p>{prop}</p>;
+          return <p key={uuidv4()}>{prop}</p>;
         })}
-      </p>
-      <p>
+      </div>
+      <div>
         Block:{" "}
         {kurs.block.map((prop) => {
-          return <p>{prop}</p>;
+          return <p key={uuidv4()}>{prop}</p>;
         })}
-      </p>
+      </div>
       <p>Ort: {kurs.ort}</p>
       <a href={kurs.url}>Kurshemsida</a>
     </>

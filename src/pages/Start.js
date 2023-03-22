@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 //import { BrowserRouter, Route } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 // Data
 import kurser from "../webscraping/database.json";
@@ -54,7 +55,7 @@ export function Start() {
 
       <div>
         {filters.map((filter) => (
-          <label key={filter.label}>
+          <label key={uuidv4()}>
             <input
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
@@ -67,7 +68,7 @@ export function Start() {
 
       <div>
         {filteredKurser.map((kurs) => (
-          <Kurs key={kurs.kurskod} kursdata={kurs} />
+          <Kurs key={uuidv4()} kursdata={kurs} />
         ))}
       </div>
     </div>

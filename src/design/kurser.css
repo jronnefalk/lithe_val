@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .container {
     display: flex;
@@ -18,10 +19,17 @@
     border-radius: 20px;
     
 }
-
+/**
 .header-info {
 
 }
+**/
+
+.h1 {
+  font-family: 'Montserrat';
+}
+
+
 
 
 

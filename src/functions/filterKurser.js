@@ -1,5 +1,3 @@
-//import Filters from "./Filters";
-
 function filterKurser(kurser, query, activeFilters) {
   return kurser
     .sort(function (a, b) {
@@ -9,34 +7,19 @@ function filterKurser(kurser, query, activeFilters) {
       return 0;
     })
     .filter((kurs) => {
-      if (query === "") {
-        // Om sökfältet är tomt, visa alla kurser
-        return true;
-      } else if (
+      // Om sökfältet är tomt eller om sökfältet innehåller något som matchar kursen
+      const matchQuery =
+        query === "" ||
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
-        kurs.kurskod.toLowerCase().includes(query.toLowerCase())
-      ) {
-        // Om sökfältet innehåller något, visa kurser som matchar sökningen
-        return true;
-      } else {
-        // Sökningen matchar inte någon kurs
-        return false;
-      }
-    })
-    .filter((kurs) => {
-      if (activeFilters.length === 0) {
-        // Om inga filter är aktiva, visa alla kurser
-        return true;
-      } else {
-        // Om filter är aktiva, visa kurser som matchar filter
-        for (const filter of activeFilters) {
-          if (kurs[filter.key].includes(filter.value)) {
-            return true;
-          }
-        }
-        // Om ingen kurs matchar filter, visa inte kursen
-        return false;
-      }
+        kurs.kurskod.toLowerCase().includes(query.toLowerCase());
+
+      // Om inga filter är aktiva eller om något filter är aktivt matchar kursen
+      const matchFilters =
+        activeFilters.length === 0 ||
+        activeFilters.some((filter) => kurs[filter.key].includes(filter.value));
+
+      // Visa kursen om den matchar med både sökning och filtren
+      return matchQuery && matchFilters;
     });
 }
 

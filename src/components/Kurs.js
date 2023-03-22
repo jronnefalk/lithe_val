@@ -4,7 +4,8 @@ export default function Kurs(props) {
   const kurs = props.kursdata;
   return (
     <>
-      <h1>{kurs.kursnamn}</h1>
+      <h1 className="kursnamn">{kurs.kursnamn}</h1>
+      <h2 className="kursinfo">
       <p>Kurskod: {kurs.kurskod}</p>
       <p>HP: {kurs.hp}</p>
       <p>
@@ -28,7 +29,9 @@ export default function Kurs(props) {
         })}
       </p>
       <p>Ort: {kurs.ort}</p>
+      
       <a href={kurs.url}>Kurshemsida</a>
+      </h2>
     </>
   );
 }

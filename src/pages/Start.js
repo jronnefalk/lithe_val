@@ -25,7 +25,7 @@ export function Start() {
     const filteredKurser = filterKurser(kurser, query);
 
     return (<div className="App">
-     
+      <div className="container"></div>
       <div className="sök">
         <span className="sök_ikon"><BsSearch size={12}/></span>
       <input className="sök_text" 
@@ -34,18 +34,21 @@ export function Start() {
         onChange={(event) => setQuery(event.target.value)}
       />
       </div>
-      <div className="filter">
+  <div className="container">
+    <div className="filter">
         <p>Filter</p>
         <Filters />
-      </div>
-      
-    <div className="container">
-    {filteredKurser.map((el) => (
-      <div className="course-container">
-      <Kurs kursdata={el} />
-      </div>
-    ))}
     </div>
-  </div>
+      
+    <div className="course-container-wrapper">
+        {filteredKurser.map((el) => (
+          <div className="course-container">
+          <Kurs kursdata={el} />
+          </div>
+        ))}
+    </div>
+    </div>
+    </div>
+  
   );
 }

@@ -1,0 +1,23 @@
+.menybar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: yellow;
+  width: 100%;
+  flex-direction: row;
+}
+
+.start {
+  margin-right: 84rem;
+}
+
+.text {
+  font-size: 0.5em;
+  padding: 3px;
+  position: absolute;
+}
+
+.containerleft {
+  flex-direction: row;
+}

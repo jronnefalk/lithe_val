@@ -5,13 +5,12 @@ import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //design
-
 import "./design/meny.css";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
-import { BsPerson } from "react-icons/bs";
+
 // Komponenter
 // import googleSignin from "./components/Signup";
 // import googleSignout from "./components/Signup";
@@ -47,23 +46,8 @@ function App() {
             </span>
           </Link>
         </div>
-
-        <div class="loggain">
-          <Link to="/loggain">
-            <span class="loggain">
-              {" "}
-              <BsPerson size={30} style={{ padding: 0, margin: 0 }} />{" "}
-              <h1 class="text">Logga in</h1>
-            </span>
-          </Link>
-        </div>
+        <GoogleAuth />
       </div>
-      <div id="selectedCourse"></div>
-      {filteredKurser.map((el) => (
-        <Kurs kursdata={el} />
-      ))}
-
-      <GoogleAuth />
 
       <Routes>
         <Route path="/" element={<Start />} />

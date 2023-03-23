@@ -44,7 +44,7 @@ function App() {
 
         <div class="loggain">
           <Link to="/loggain">
-            <span class="loggain">
+            <span>
               {" "}
               <BsPerson size={30} style={{ padding: 0, margin: 0 }} />{" "}
               <h1 class="text">Logga in</h1>

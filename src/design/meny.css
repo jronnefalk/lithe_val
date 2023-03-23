@@ -26,8 +26,20 @@
 
 .text {
   font-size: 0.5em;
+  color: black;
 }
-
-.containerleft {
-  flex-direction: row;
+.menybar svg {
+  color: black;
+}
+.menybar svg:hover {
+  color: red;
+}
+.start:hover .text {
+  color: red;
+}
+.minasidor:hover .text {
+  color: red;
+}
+.loggain:hover .text {
+  color: red;
 }

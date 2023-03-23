@@ -30,8 +30,43 @@ export default function Kurs(props) {
 
   return (
     <>
+      
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
-      {!addkurs && (
+      <p className="kursinfo">
+      <p class= "firstheader">
+      <p>|</p>
+        <p>{kurs.kurskod}</p>
+        <p>|</p>
+        <p>Termin {kurs.termin}</p>
+        <p>|</p>
+        <p>
+          Period {" "}
+          {kurs.period.map((prop) => {
+            return <span>{prop}</span>;
+          })}
+        </p>
+        <p>|</p>
+        <p>
+          Block {" "}
+          {kurs.block.map((prop) => {
+            return <span>{prop}</span>;
+          })}
+        </p>
+        <p>|</p>
+        </p>
+        <p class="secondheader">
+        <p>{kurs.utbildningsniva}</p>
+        <p>
+          {" "}
+          {kurs.huvudomrade.map((prop) => {
+            return <span>{prop}</span>;
+          })}
+        </p>
+        </p>
+        
+      
+
+        {!addkurs && (
         <button className="Lägg-till-knapp" onClick={handleClick}>
           {" "}
           <BsFolderPlus size={20} /> Lägg till kurs
@@ -44,30 +79,6 @@ export default function Kurs(props) {
           Ta bort kurs
         </button>
       )}
-      <h2 className="kursinfo">
-        <p>Kurskod: {kurs.kurskod}</p>
-        <p>Termin: {kurs.termin}</p>
-        <p>
-          Period:{" "}
-          {kurs.period.map((prop) => {
-            return <p>{prop}</p>;
-          })}
-        </p>
-        <p>
-          Block:{" "}
-          {kurs.block.map((prop) => {
-            return <p>{prop}</p>;
-          })}
-        </p>
-        <p>
-          Huvudområde:{" "}
-          {kurs.huvudomrade.map((prop) => {
-            return <p>{prop}</p>;
-          })}
-        </p>
-
-        <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
-
         <span onClick={toggleReadMore} className="read-or-hide">
           {isReadMore ? (
             <p className="läsa_mer/mindre">
@@ -79,16 +90,17 @@ export default function Kurs(props) {
             </p>
           )}
         </span>
-
         {isReadMore && <p>HP: {kurs.hp}</p>}
         {isReadMore && <p>Ort: {kurs.ort}</p>}
         {isReadMore && (
           <a href={kurs.url}>
             {" "}
-            Linnköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
           </a>
         )}
-      </h2>
+        </p>
+        
+      
     </>
   );
 }

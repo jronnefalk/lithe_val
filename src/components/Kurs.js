@@ -31,8 +31,19 @@ export default function Kurs(props) {
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
-      {!addkurs && <button onClick={handleClick}>Lägg till kurs</button>}
-      {addkurs && <button onClick={handleDelete}>Ta bort kurs</button>}
+      {!addkurs && (
+        <button className="Lägg-till-knapp" onClick={handleClick}>
+          {" "}
+          <BsFolderPlus size={20} /> Lägg till kurs
+        </button>
+      )}
+      {addkurs && (
+        <button className="Lägg-till-knapp" onClick={handleDelete}>
+          {" "}
+          <BsTrash3 size={20} />
+          Ta bort kurs
+        </button>
+      )}
       <h2 className="kursinfo">
         <p>Kurskod: {kurs.kurskod}</p>
         <p>Termin: {kurs.termin}</p>

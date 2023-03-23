@@ -15,8 +15,6 @@ import { BsFolder } from "react-icons/bs";
 // import googleSignin from "./components/Signup";
 // import googleSignout from "./components/Signup";
 import GoogleAuth from "./components/signup";
-import Kurs from "./components/Kurs";
-import Filters from "./components/Filters";
 
 function App() {
   return (

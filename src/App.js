@@ -12,6 +12,12 @@ import "./design/meny.css";
 import { BsHouseDoorFill } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
+// Komponenter
+// import googleSignin from "./components/Signup";
+// import googleSignout from "./components/Signup";
+import GoogleAuth from "./components/signup";
+import Kurs from "./components/Kurs";
+import Filters from "./components/Filters";
 
 function App() {
   return (
@@ -52,6 +58,12 @@ function App() {
           </Link>
         </div>
       </div>
+      <div id="selectedCourse"></div>
+      {filteredKurser.map((el) => (
+        <Kurs kursdata={el} />
+      ))}
+
+      <GoogleAuth />
 
       <Routes>
         <Route path="/" element={<Start />} />

@@ -10,7 +10,7 @@ import "./design/meny.css";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
-import { BsBookmark } from "react-icons/bs";
+import { BsFolder } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
             <span>
               {" "}
               <BsHouseDoorFill
-                size={28}
+                size={30}
                 style={{ padding: 0, margin: 0 }}
               />{" "}
               <h1 class="text">Startsida</h1>
@@ -36,7 +36,7 @@ function App() {
           <Link to="/minasidor">
             <span>
               {" "}
-              <BsBookmark size={28} style={{ padding: 0, margin: 0 }} />{" "}
+              <BsFolder size={30} style={{ padding: 0, margin: 0 }} />{" "}
               <h1 class="text">Min sida</h1>
             </span>
           </Link>
@@ -46,13 +46,13 @@ function App() {
           <Link to="/loggain">
             <span class="loggain">
               {" "}
-              <BsPerson size={32} style={{ padding: 0, margin: 0 }} />{" "}
+              <BsPerson size={30} style={{ padding: 0, margin: 0 }} />{" "}
               <h1 class="text">Logga in</h1>
             </span>
           </Link>
         </div>
       </div>
-      h1.style.margin = "0";
+
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/minasidor" element={<MinSida />} />

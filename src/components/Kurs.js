@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
+//ikoner
+import { AiOutlineDown } from "react-icons/ai";
+import { AiOutlineUp } from "react-icons/ai";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+import { BsFolderPlus } from "react-icons/bs";
+import { BsTrash3 } from "react-icons/bs";
+
 export default function Kurs(props) {
   const kurs = props.kursdata;
 
@@ -36,12 +43,25 @@ export default function Kurs(props) {
         <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
 
         <span onClick={toggleReadMore} className="read-or-hide">
-          {isReadMore ? "Läs mindre" : " Läs mer"}
+          {isReadMore ? (
+            <p className="läsa_mer/mindre">
+              Läs mindre <AiOutlineUp />{" "}
+            </p>
+          ) : (
+            <p className="läsa_mer/mindre">
+              Läs mer <AiOutlineDown />{" "}
+            </p>
+          )}
         </span>
 
         {isReadMore && <p>HP: {kurs.hp}</p>}
         {isReadMore && <p>Ort: {kurs.ort}</p>}
-        {isReadMore && <a href={kurs.url}>Kurshemsida</a>}
+        {isReadMore && (
+          <a href={kurs.url}>
+            {" "}
+            Linnköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+          </a>
+        )}
       </h2>
     </>
   );

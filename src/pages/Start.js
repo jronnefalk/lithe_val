@@ -23,9 +23,6 @@ export function Start() {
   const [query, setQuery] = useState("");
   const filteredKurser = filterKurser(kurser, query);
 
-  const [query, setQuery] = useState("");
-  const filteredKurser = filterKurser(kurser, query);
-
   return (
     <div className="App">
       <div className="container"></div>

@@ -40,6 +40,14 @@
     font-family: 'Lato', sans-serif;
     font-size: 0.8rem;
 }
+.Lägg-till-knapp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: none;
+    font-size: 50%;
+}
 
 .firstheader {
     display: flex;

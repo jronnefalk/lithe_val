@@ -1,0 +1,49 @@
+.menybar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6 rem;
+  max-width: 100%;
+  flex-direction: row;
+  padding: 100px, 100px, 0px;
+}
+
+.start {
+  width: 50px;
+  height: 70px;
+  margin-left: 1%;
+}
+.minasidor {
+  margin-left: auto;
+  margin-right: 2%;
+  margin-bottom: auto;
+}
+.loggain {
+  margin-right: 1%;
+  margin-bottom: auto;
+}
+.loggin_knapp{
+  border: none;
+  background: none;
+
+}
+
+.text {
+  font-size: 0.5em;
+  color: black;
+}
+.menybar svg {
+  color: black;
+}
+.menybar svg:hover {
+  color: red;
+}
+.start:hover .text {
+  color: red;
+}
+.minasidor:hover .text {
+  color: red;
+}
+.loggain:hover .text {
+  color: red;
+}

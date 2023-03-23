@@ -47,16 +47,27 @@
     align-items: center;
     margin-top: -1rem;
     
+    
 
+}
+.firstheader p {
+    margin-right: 0.3rem;
+    
 }
 .secondheader {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: -1rem;
-
+    margin-top: -1.3rem;
+    margin-right: 0.5rem;
 
 }
+.secondheader p {
+    margin-right: 0.8rem; 
+  }
+.secondheader span {
+    margin-right: 0.8rem; 
+  }
 
 
 

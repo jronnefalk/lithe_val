@@ -7,27 +7,32 @@ export default function Kurs(props) {
       <div className="kursinfo">
       <h1 class="kursnamn">{kurs.kursnamn}</h1>
       <p class= "firstheader">
-      <p>| {kurs.kurskod} </p>
-      <p>| Termin {kurs.termin} </p>
+      <p>|</p>
+      <p>{kurs.kurskod} </p>
+      <p>|</p>
+      <p> Termin {kurs.termin} </p>
+      <p>|</p>
       <p>
-        | Period {" "}
+         Period {" "}
         {kurs.period.map((prop) => {
           return <span>{prop}</span>;
         })} 
       </p>
+      <p>|</p>
       <p>
-        | Block {" "}
+         Block {" "}
         {kurs.block.map((prop) => {
           return <span>{prop}</span>;
-        })} |
+        })} 
       </p>
+      <p>|</p>
       </p>
       <p class="secondheader">
-      <p> {kurs.utbildningsniva } </p>
-      <p>
+      <p> {kurs.utbildningsniva} </p>
+      <p> 
         {" "}
         {kurs.huvudomrade.map((prop) => {
-          return <span> {prop} </span>;
+          return <span>{prop} </span>;
         })}
       </p>
       </p>

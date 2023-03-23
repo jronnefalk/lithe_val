@@ -4,34 +4,39 @@ export default function Kurs(props) {
   const kurs = props.kursdata;
   return (
     <>
-      <h1 className="kursnamn">{kurs.kursnamn}</h1>
-      <h2 className="kursinfo">
-      <p>Kurskod: {kurs.kurskod}</p>
-      <p>HP: {kurs.hp}</p>
+      <div className="kursinfo">
+      <h1 class="kursnamn">{kurs.kursnamn}</h1>
+      <p class= "firstheader">
+      <p>| {kurs.kurskod} </p>
+      <p>| Termin {kurs.termin} </p>
       <p>
-        Huvudområde:{" "}
-        {kurs.huvudomrade.map((prop) => {
-          return <p>{prop}</p>;
-        })}
-      </p>
-      <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
-      <p>Termin: {kurs.termin}</p>
-      <p>
-        Period:{" "}
+        | Period {" "}
         {kurs.period.map((prop) => {
-          return <p>{prop}</p>;
-        })}
+          return <span>{prop}</span>;
+        })} 
       </p>
       <p>
-        Block:{" "}
+        | Block {" "}
         {kurs.block.map((prop) => {
-          return <p>{prop}</p>;
+          return <span>{prop}</span>;
+        })} |
+      </p>
+      </p>
+      <p class="secondheader">
+      <p> {kurs.utbildningsniva } </p>
+      <p>
+        {" "}
+        {kurs.huvudomrade.map((prop) => {
+          return <span> {prop} </span>;
         })}
       </p>
+      </p>
+      <p>HP: {kurs.hp}</p>
       <p>Ort: {kurs.ort}</p>
-      
+
       <a href={kurs.url}>Kurshemsida</a>
-      </h2>
+      </div>
+      
     </>
   );
 }

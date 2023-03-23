@@ -10,12 +10,14 @@
 .course-container-wrapper {
     display: flex;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
     /**flex: 1;**/
 }
 
 .course-container {
     background-color: #f9f9f9;
-    margin-bottom: 16px; /* add margin between course containers */
+    margin-bottom: 16px;/* add margin between course containers */
     margin-right: 450px;
     padding: 16px;
     border: 0.5px solid black; 
@@ -37,7 +39,23 @@
 .kursinfo {
     font-family: 'Lato', sans-serif;
     font-size: 0.8rem;
-   
+}
+
+.firstheader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1rem;
+    
+
+}
+.secondheader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1rem;
+
+
 }
 
 

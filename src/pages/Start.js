@@ -17,7 +17,6 @@ import { BsSearch } from "react-icons/bs";
 import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";
-//import "./design/meny.css";
 
 export function Start() {
   const [query, setQuery] = useState("");

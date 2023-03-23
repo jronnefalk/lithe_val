@@ -5,13 +5,18 @@ import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //design
-
 import "./design/meny.css";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
-import { BsPerson } from "react-icons/bs";
+
+// Komponenter
+// import googleSignin from "./components/Signup";
+// import googleSignout from "./components/Signup";
+import GoogleAuth from "./components/signup";
+import Kurs from "./components/Kurs";
+import Filters from "./components/Filters";
 
 function App() {
   return (
@@ -41,16 +46,7 @@ function App() {
             </span>
           </Link>
         </div>
-
-        <div class="loggain">
-          <Link to="/loggain">
-            <span>
-              {" "}
-              <BsPerson size={30} style={{ padding: 0, margin: 0 }} />{" "}
-              <h1 class="text">Logga in</h1>
-            </span>
-          </Link>
-        </div>
+        <GoogleAuth />
       </div>
 
       <Routes>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
 import { AiOutlineUp } from "react-icons/ai";
@@ -31,11 +34,20 @@ export default function Kurs(props) {
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
+
       {!addkurs && (
-        <button className="Lägg-till-knapp" onClick={handleClick}>
-          {" "}
-          <BsFolderPlus size={20} /> Lägg till kurs
-        </button>
+        <Dropdown>
+          <Dropdown.Toggle className="Lägg-till-knapp">
+            <BsFolderPlus size={20} />
+            Lägg till
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
+              {" "}
+              Termin: {kurs.termin}
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       )}
       {addkurs && (
         <button className="Lägg-till-knapp" onClick={handleDelete}>

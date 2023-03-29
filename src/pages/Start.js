@@ -1,17 +1,16 @@
 import { useState } from "react";
+import React from "react";
 import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
+//import { Link } from "react-router-dom";
 // Data
 import kurser from "../webscraping/database.json";
-
 // Funktioner
 import filterKurser from "../functions/filterKurser";
-
 // Komponenter
 import Kurs from "../components/Kurs";
-//import Filters from "./components/Filters";
-
-import React from "react";
+//import Filters from "../components/Filters";
+import GoogleAuth from "../components/signup";
 
 export function Start() {
   const [query, setQuery] = useState("");
@@ -90,6 +89,7 @@ export function Start() {
         {filteredKurser.map((kurs) => (
           <Kurs key={uuidv4()} kursdata={kurs} />
         ))}
+        <GoogleAuth />
       </div>
     </div>
   );

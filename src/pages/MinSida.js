@@ -1,3 +1,11 @@
+import React from "react";
+
 export function MinSida() {
-    return <h1>Min Sida</h1>
+  return (
+    <div>
+      <h2>Mina valda kurser</h2>
+    </div>
+  );
 }
+
+export default MinSida;

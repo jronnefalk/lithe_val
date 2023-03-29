@@ -1,5 +1,6 @@
 // Externa bibliotek
 import React from "react";
+//import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
@@ -20,7 +21,7 @@ export default function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Start />} />
+        <Route path="*" element={<Start />} />
         <Route path="/minasidor" element={<MinSida />} />
       </Routes>
     </>

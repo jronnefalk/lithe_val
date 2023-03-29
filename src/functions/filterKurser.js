@@ -8,18 +8,20 @@ function filterKurser(kurser, query, activeFilters) {
     })
     .filter((kurs) => {
       // Filtrera bort kurser som inte matchar sökfrasen
-      if (
-        query &&
-        !kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) &&
-        !kurs.kurskod.toLowerCase().includes(query.toLowerCase())
-      ) {
-        return false;
-      }
+      const matchQuery =
+        query === "" ||
+        kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
+        kurs.kurskod.toLowerCase().includes(query.toLowerCase());
 
-      // Filtrera kurser som inte matchar aktiva filter
-      return activeFilters.every(
-        (filter) => kurs[filter.key].toString() === filter.value
-      );
+      // Om inga filter är aktiva eller om något filter är aktivt matchar kursen
+      const matchFilters =
+        activeFilters.length === 0 ||
+        activeFilters.every((filter) =>
+          kurs[filter.key].includes(filter.value)
+        );
+
+      // Visa kursen om den matchar med både sökning och filtren
+      return matchQuery && matchFilters;
     });
 }
 

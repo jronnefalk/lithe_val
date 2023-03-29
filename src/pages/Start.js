@@ -51,7 +51,7 @@ export function Start() {
     <div className="App">
       <div>
         <input
-          placeholder="Sök"
+          placeholder="Sök då..."
           onChange={(event) => setQuery(event.target.value)}
         />
       </div>

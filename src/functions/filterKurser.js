@@ -7,19 +7,19 @@ function filterKurser(kurser, query, activeFilters) {
       return 0;
     })
     .filter((kurs) => {
-      // Om sökfältet är tomt eller om sökfältet innehåller något som matchar kursen
-      const matchQuery =
-        query === "" ||
-        kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
-        kurs.kurskod.toLowerCase().includes(query.toLowerCase());
+      // Filtrera bort kurser som inte matchar sökfrasen
+      if (
+        query &&
+        !kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) &&
+        !kurs.kurskod.toLowerCase().includes(query.toLowerCase())
+      ) {
+        return false;
+      }
 
-      // Om inga filter är aktiva eller om något filter är aktivt matchar kursen
-      const matchFilters =
-        activeFilters.length === 0 ||
-        activeFilters.some((filter) => kurs[filter.key].includes(filter.value));
-
-      // Visa kursen om den matchar med både sökning och filtren
-      return matchQuery && matchFilters;
+      // Filtrera kurser som inte matchar aktiva filter
+      return activeFilters.every(
+        (filter) => kurs[filter.key].toString() === filter.value
+      );
     });
 }
 

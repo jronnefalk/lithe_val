@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "liteval.appspot.com",
   messagingSenderId: "337252383270",
   appId: "1:337252383270:web:dbafe11167ecc773ce84e7",
-  measurementId: "G-44PFP6SK89"
+  measurementId: "G-44PFP6SK89",
 };
 
 // Initialize Firebase

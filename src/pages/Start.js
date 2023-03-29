@@ -9,6 +9,7 @@ import filterKurser from "../functions/filterKurser";
 // Komponenter
 import Kurs from "../components/Kurs";
 import Filters from "../components/Filters";
+import GoogleAuth from "../components/signup";
 
 export function Start() {
   const [query, setQuery] = useState("");
@@ -30,6 +31,8 @@ export function Start() {
       {filteredKurser.map((el) => (
         <Kurs key={el.kurskod} kursdata={el} />
       ))}
+
+      <GoogleAuth />
 
       <Link to="/minasidor">
         <button>Gå till Mina Sidor</button>

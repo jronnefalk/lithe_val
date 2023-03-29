@@ -16,9 +16,13 @@ function filterKurser(kurser, query, activeFilters) {
       // Om inga filter är aktiva eller om något filter är aktivt matchar kursen
       const matchFilters =
         activeFilters.length === 0 ||
-        activeFilters.some((filter) => kurs[filter.key].includes(filter.value));
+        activeFilters.every((filter) =>
+          kurs[filter.key].includes(filter.value)
+        );
 
       // Visa kursen om den matchar med både sökning och filtren
       return matchQuery && matchFilters;
     });
 }
+
+export default filterKurser;

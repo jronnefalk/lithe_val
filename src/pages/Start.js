@@ -51,11 +51,10 @@ export function Start() {
     <div className="App">
       <div>
         <input
-          placeholder="Sök"
+          placeholder="Sök då..."
           onChange={(event) => setQuery(event.target.value)}
         />
       </div>
-<<<<<<< Updated upstream
 
       <div>
         {filters.map((filter) => (
@@ -72,8 +71,6 @@ export function Start() {
         ))}
       </div>
 
-=======
->>>>>>> Stashed changes
       <div>
         {filteredKurser.map((kurs) => (
           <Kurs key={uuidv4()} kursdata={kurs} />

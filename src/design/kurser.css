@@ -10,24 +10,20 @@
 .course-container-wrapper {
     display: flex;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
     /**flex: 1;**/
 }
 
 .course-container {
-    background-color: #f9f9f9;
-    margin-bottom: 16px; /* add margin between course containers */
+    background-color: #ffffff;
+    margin-bottom: 16px;/* add margin between course containers */
     margin-right: 450px;
     padding: 16px;
     border: 0.5px solid black; 
     border-radius: 20px;
     width: 67%;
-    
 }
-/**
-.header-info {
-
-}
-**/
 
 .kursnamn {
     font-family: 'Montserrat', sans-serif;
@@ -37,20 +33,62 @@
 .kursinfo {
     font-family: 'Lato', sans-serif;
     font-size: 0.8rem;
-   
 }
-.Lägg-till-knapp{
+
+.Lägg-till-knapp {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: right;
     border: none;
     background: none;
     font-size: 50%;
+    position: relative;
+    top: -65px; 
+    left: 650px; 
 }
-.Lägg-till-text{
+
+.Lägg-till-knapp p {
+    font-size: 90%;
+    margin-left: -0.3rem
+}
+
+.firstheader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1rem;
+
+}
+
+.firstheader p {
+    margin-right: 0.3rem;
+    
+}
+
+.secondheader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1.3rem;
+    margin-right: 0.5rem;
+    margin-bottom: -1.8rem;
+}
+
+
+.secondheader span {
+    margin-right: 0.8rem; 
+    background-color:  #EBEBEB;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  .Lägg-till-text{
     color: black;
     text-decoration: none;
 }
+
+  
+  
+
 
 
 

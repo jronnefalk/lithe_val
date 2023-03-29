@@ -34,59 +34,67 @@ export default function Kurs(props) {
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
-
-      {!addkurs && (
-        <Dropdown>
-          <Dropdown.Toggle className="Lägg-till-knapp">
-            <BsFolderPlus size={20} />
-            Lägg till
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
-              {" "}
-              Termin: {kurs.termin}
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      )}
-      {addkurs && (
-        <button className="Lägg-till-knapp" onClick={handleDelete}>
-          {" "}
-          <BsTrash3 size={20} />
-          Ta bort kurs
-        </button>
-      )}
-      <h2 className="kursinfo">
-        <p>Kurskod: {kurs.kurskod}</p>
-        <p>Termin: {kurs.termin}</p>
-        <p>
-          Period:{" "}
-          {kurs.period.map((prop) => {
-            return <p>{prop}</p>;
-          })}
+      <p className="kursinfo">
+        <p class="firstheader">
+          <p>|</p>
+          <p>{kurs.kurskod}</p>
+          <p>|</p>
+          <p>Termin {kurs.termin}</p>
+          <p>|</p>
+          <p>
+            Period{" "}
+            {kurs.period.map((prop) => {
+              return <span>{prop}</span>;
+            })}
+          </p>
+          <p>|</p>
+          <p>
+            Block{" "}
+            {kurs.block.map((prop) => {
+              return <span>{prop}</span>;
+            })}
+          </p>
+          <p>|</p>
         </p>
-        <p>
-          Block:{" "}
-          {kurs.block.map((prop) => {
-            return <p>{prop}</p>;
-          })}
-        </p>
-        <p>
-          Huvudområde:{" "}
-          {kurs.huvudomrade.map((prop) => {
-            return <p>{prop}</p>;
-          })}
+        <p class="secondheader">
+          <span>{kurs.utbildningsniva}</span>
+          <p>
+            {" "}
+            {kurs.huvudomrade.map((prop) => {
+              return <span>{prop}</span>;
+            })}
+          </p>
         </p>
 
-        <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
+        {!addkurs && (
+          <Dropdown>
+            <Dropdown.Toggle className="Lägg-till-knapp">
+              <BsFolderPlus size={20} />
+              <p>Lägg till</p>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
+                {" "}
+                Termin: {kurs.termin}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
+        {addkurs && (
+          <button className="Lägg-till-knapp" onClick={handleDelete}>
+            {" "}
+            <BsTrash3 size={20} />
+            <p>Ta bort kurs</p>
+          </button>
+        )}
 
         <span onClick={toggleReadMore} className="read-or-hide">
           {isReadMore ? (
-            <p className="läsa_mer/mindre">
+            <p className="readless">
               Läs mindre <AiOutlineUp />{" "}
             </p>
           ) : (
-            <p className="läsa_mer/mindre">
+            <p className="readmore">
               Läs mer <AiOutlineDown />{" "}
             </p>
           )}
@@ -97,10 +105,10 @@ export default function Kurs(props) {
         {isReadMore && (
           <a href={kurs.url}>
             {" "}
-            Linnköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
           </a>
         )}
-      </h2>
+      </p>
     </>
   );
 }

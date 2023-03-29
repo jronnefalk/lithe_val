@@ -18,12 +18,27 @@ export function Start() {
   const [activeFilters, setActiveFilters] = useState([]);
 
   const filters = [
-    { label: "Period 1", key: "period", value: "1" },
-    { label: "Period 2", key: "period", value: "2" },
     { label: "Block 1", key: "block", value: "1" },
     { label: "Block 2", key: "block", value: "2" },
     { label: "Block 3", key: "block", value: "3" },
     { label: "Block 4", key: "block", value: "4" },
+    { label: "Termin 7", key: "termin", value: "7" },
+    { label: "Termin 8", key: "termin", value: "8" },
+    { label: "Termin 9", key: "termin", value: "9" },
+    {
+      label: "Avancerad nivå bitch",
+      key: "utbildningsniva",
+      value: "Avancerad nivå",
+    },
+    { label: "Grundnivå bitch", key: "utbildningsniva", value: "Grundnivå" },
+
+    { label: "Medieteknik", key: "huvudomrade", value: "Medieteknik" },
+    { label: "Datateknik", key: "huvudomrade", value: "Datateknik" },
+
+    { label: "Norrköping", key: "ort", value: "Norrköping" },
+    { label: "Linköping", key: "ort", value: "Linköping" },
+    { label: "Period 1", key: "period", value: "1" },
+    { label: "Period 2", key: "period", value: "2" },
   ];
 
   // Funktion som hanterar när användaren klickar på ett filter
@@ -51,7 +66,7 @@ export function Start() {
     <div className="App">
       <div>
         <input
-          placeholder="Sök då..."
+          placeholder="Sök mellan kursnamn och kurskod..."
           onChange={(event) => setQuery(event.target.value)}
         />
       </div>

@@ -3,14 +3,6 @@ import React from "react";
 export default function Kurs(props) {
   const kurs = props.kursdata;
 
-  const handleAddToCart = () => {
-    props.onAddToCart(kurs);
-  };
-  
-  const handleRemoveFromCart = () => {
-    props.onRemoveFromCart(kurs);
-  };
-
   return (
     <>
       <h1>{kurs.kursnamn}</h1>
@@ -23,10 +15,6 @@ export default function Kurs(props) {
       <p>Block: {kurs.block[0]}</p>
       <p>Ort: {kurs.ort}</p>
       <a href={kurs.url}>Kurshemsida</a>
-      <button onClick={handleAddToCart}>Lägg till kurs</button>
-      <button onClick={handleRemoveFromCart}>Ta bort kurs</button>
-      <p>Antal valda kurser: {props.cart.length}</p> {/* Display the number of courses in cart */}
-
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 // Data
 import kurser from "../webscraping/database.json";
 // Funktioner
@@ -9,28 +9,13 @@ import filterKurser from "../functions/filterKurser";
 // Komponenter
 import Kurs from "../components/Kurs";
 import Filters from "../components/Filters";
-import MinSida from "./MinSida";
-
 
 export function Start() {
+  const [query, setQuery] = useState("");
 
-    const [query, setQuery] = useState("");
-    const [cart, setCart] = useState([]);
+  const filteredKurser = filterKurser(kurser, query);
 
-    const addToCart = (kurs) => {
-      if (!cart.includes(kurs)) {
-        setCart([...cart, kurs]);
-      }
-    };
-  
-    const removeFromCart = (kurs) => {
-      setCart(cart.filter((c) => c !== kurs));
-    };
-
-    
-    const filteredKurser = filterKurser(kurser, query);
-
-    return (
+  return (
     <div className="App">
       <div>
         <input
@@ -43,21 +28,12 @@ export function Start() {
       </div>
 
       {filteredKurser.map((el) => (
-        <Kurs
-        key={el.kurskod}
-        kursdata={el}
-        cart={cart} // Pass the cart state as a prop
-        onAddToCart={addToCart}
-        onRemoveFromCart={removeFromCart}
-      />
-))}
+        <Kurs key={el.kurskod} kursdata={el} />
+      ))}
 
-
-      <Link to="/minasidor"><button>Gå till Mina Sidor</button></Link>
-        <Routes>
-        <Route path="/minasidor" element={<MinSida cart={cart} onRemoveFromCart={removeFromCart} onAddToCart={addToCart} />} />
-        </Routes>
-
+      <Link to="/minasidor">
+        <button>Gå till Mina Sidor</button>
+      </Link>
     </div>
   );
 }

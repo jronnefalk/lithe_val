@@ -1,7 +1,22 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
+import "firebase/compat/database";
+import { getAuth } from "firebase/auth";
 export default function Kurs(props) {
   const kurs = props.kursdata;
+  const auth = getAuth();
+
+  const [addkurs, exists] = useState(false);
+
+  function handleClick() {
+    saveKurs(kurs);
+    exists(true);
+  }
+
+  function handleDelete() {
+    deleteKurs(kurs);
+    exists(false);
+  }
 
   return (
     <>
@@ -15,6 +30,9 @@ export default function Kurs(props) {
       <p>Block: {kurs.block[0]}</p>
       <p>Ort: {kurs.ort}</p>
       <a href={kurs.url}>Kurshemsida</a>
+
+      {!addkurs && <button onClick={handleClick}>Lägg till kurs</button>}
+      {addkurs == true && <button onClick={handleDelete}>Ta bort kurs</button>}
     </>
   );
 }

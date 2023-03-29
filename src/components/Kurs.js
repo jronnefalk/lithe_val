@@ -15,7 +15,7 @@ export default function Kurs(props) {
         })}
       </div>
       <p>Utbildningsnivå: {kurs.utbildningsniva}</p>
-      <p>Termin: {kurs.termin}</p>
+      <p>Termin:{kurs.termin}</p>
       <div>
         Period:{" "}
         {kurs.period.map((prop) => {

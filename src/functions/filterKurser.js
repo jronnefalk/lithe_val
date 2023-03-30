@@ -7,7 +7,7 @@ function filterKurser(kurser, query, activeFilters) {
       return 0;
     })
     .filter((kurs) => {
-      // Om sökfältet är tomt eller om sökfältet innehåller något som matchar kursen
+      // Filtrera bort kurser som inte matchar sökfrasen
       const matchQuery =
         query === "" ||
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||

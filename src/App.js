@@ -1,15 +1,18 @@
 // Externa bibliotek
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //design
 import "./design/meny.css";
+//import React, { useState } from "react";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
+import { BsHouseDoor } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
+import { BsFolderFill } from "react-icons/bs";
 
 // Komponenter
 // import googleSignin from "./components/Signup";
@@ -19,6 +22,24 @@ import Kurs from "./components/Kurs";
 import Filters from "./components/Filters";
 
 function App() {
+  // Define the state variable for the icon
+  const [isDoorOpen, setIsDoorOpen] = useState(false);
+  //const [isHomePage, setIsHomePage] = useState(true);
+
+  // Define the click event handler
+  function handleClick() {
+    // Update the state variable to toggle the icon
+    setIsDoorOpen((prevIsDoorOpen) => !prevIsDoorOpen);
+  }
+
+  // function HandleIconClick() {
+  //   const handleIconClick = () => {
+  //     if (!isHomePage) {
+  //       setIsHomePage(true);
+  //     }
+  //   };
+  // }
+
   return (
     <>
       <div class="menybar">
@@ -28,11 +49,15 @@ function App() {
             {" "}
             <span>
               {" "}
-              <BsHouseDoorFill
-                size={30}
-                style={{ padding: 0, margin: 0 }}
-              />{" "}
-              <h1 class="text">Startsida</h1>
+              <button class="startknapp" onClick={handleClick}>
+                {isDoorOpen ? (
+                  <BsHouseDoorFill size={30} />
+                ) : (
+                  <BsHouseDoor size={30} />
+                )}
+
+                <h1 class="text">Startsida</h1>
+              </button>{" "}
             </span>
           </Link>
         </div>
@@ -41,8 +66,14 @@ function App() {
           <Link to="/minasidor">
             <span>
               {" "}
-              <BsFolder size={30} style={{ padding: 0, margin: 0 }} />{" "}
-              <h1 class="text">Min sida</h1>
+              <button class="minsidaknapp" onClick={handleClick}>
+                {isDoorOpen ? (
+                  <BsFolder size={30} />
+                ) : (
+                  <BsFolderFill size={30} />
+                )}
+                <h1 class="text">Startsida</h1>
+              </button>{" "}
             </span>
           </Link>
         </div>

@@ -13,12 +13,33 @@ function filterKurser(kurser, query, activeFilters) {
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
         kurs.kurskod.toLowerCase().includes(query.toLowerCase());
 
-      // Om inga filter är aktiva eller om något filter är aktivt matchar kursen
+      // Group the filters by key
+      const filtersByKeys = activeFilters.reduce((groups, filter) => {
+        if (!groups[filter.key]) {
+          groups[filter.key] = [];
+        }
+        groups[filter.key].push(filter);
+        return groups;
+      }, {});
+
+      // Check if the kurs matches any of the filter groups
       const matchFilters =
         activeFilters.length === 0 ||
-        activeFilters.every((filter) =>
-          kurs[filter.key].includes(filter.value)
-        );
+        Object.entries(filtersByKeys).every(([key, filters]) => {
+          if (kurs.hasOwnProperty(key)) {
+            const values = kurs[key];
+            if (Array.isArray(values)) {
+              // Combine filters within a group with "or" operator
+              return filters.some((filter) =>
+                values.some((value) => value.includes(filter.value))
+              );
+            } else {
+              // Combine filters within a group with "and" operator
+              return filters.every((filter) => values.includes(filter.value));
+            }
+          }
+          return false;
+        });
 
       // Visa kursen om den matchar med både sökning och filtren
       return matchQuery && matchFilters;

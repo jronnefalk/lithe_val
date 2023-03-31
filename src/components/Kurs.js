@@ -3,6 +3,7 @@ import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 //import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
+
 export default function Kurs(props) {
   const kurs = props.kursdata;
   //const auth = getAuth();

@@ -26,7 +26,6 @@ const auth = getAuth();
 
 const saveKurs = (kurs) => {
   const user = auth.currentUser;
-
   if (user) {
     const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 

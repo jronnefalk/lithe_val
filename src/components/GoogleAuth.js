@@ -6,6 +6,12 @@ import {
   signOut,
 } from "firebase/auth";
 
+//design
+import "../design/meny.css";
+//ikon
+import { BsPerson } from "react-icons/bs";
+import { BsPersonFill } from "react-icons/bs";
+
 var provider = new GoogleAuthProvider();
 const auth = getAuth();
 
@@ -57,8 +63,19 @@ function GoogleAuth() {
 
   return (
     <>
-      {!loggedIn && <button onClick={googleSignin}>Logga in med Google</button>}
-      {loggedIn && <button onClick={googleSignout}>Logga ut</button>}
+      <div class="loggain">
+        {!loggedIn && (
+          <button class="loggin_knapp" onClick={googleSignin}>
+            <BsPerson size={32} /> <h1 class="text">Logga in</h1>
+          </button>
+        )}
+        {loggedIn && (
+          <button class="loggin_knapp" onClick={googleSignout}>
+            {" "}
+            <BsPersonFill size={32} /> <h1 class="text">Logga ut</h1>
+          </button>
+        )}
+      </div>
     </>
   );
 }

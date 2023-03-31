@@ -40,22 +40,34 @@ export default function Kurs(props) {
         <p class="firstheader">
           <p>|</p>
           <p>{kurs.kurskod}</p>
-          <p>|</p>
-          <p>Termin {kurs.termin}</p>
-          <p>|</p>
-          <p>
-            Period{" "}
-            {kurs.period.map((prop) => {
-              return <span>{prop}</span>;
-            })}
-          </p>
-          <p>|</p>
-          <p>
-            Block{" "}
-            {kurs.block.map((prop) => {
-              return <span>{prop}</span>;
-            })}
-          </p>
+
+          {kurs.termin.map((prop) => {
+            return (
+              <p>
+                {" "}
+                | Termin <span>{prop}</span>{" "}
+              </p>
+            );
+          })}
+
+          {kurs.period.map((prop) => {
+            return (
+              <p>
+                {" "}
+                | Period <span>{prop}</span>{" "}
+              </p>
+            );
+          })}
+
+          {kurs.block.map((prop) => {
+            return (
+              <p>
+                {" "}
+                | Block <span>{prop}</span>{" "}
+              </p>
+            );
+          })}
+
           <p>|</p>
         </p>
         <p class="secondheader">

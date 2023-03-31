@@ -47,7 +47,7 @@
     left: 650px; 
 }
 
-.Lägg-till-knapp p {
+.Lägg-till-knapp div {
     font-size: 90%;
     margin-left: -0.3rem
 }
@@ -60,7 +60,7 @@
 
 }
 
-.firstheader p {
+.firstheader div {
     margin-right: 0.3rem;
     
 }

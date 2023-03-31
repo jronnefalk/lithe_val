@@ -4,7 +4,6 @@ import "firebase/compat/database";
 //import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -36,49 +35,46 @@ export default function Kurs(props) {
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
-      <p className="kursinfo">
-        <p class="firstheader">
+      <div className="kursinfo">
+        <div className="firstheader">
           <p>|</p>
           <p>{kurs.kurskod}</p>
 
           {kurs.termin.map((prop) => {
             return (
-              <p>
+              <div key={uuidv4()}>
                 {" "}
                 | Termin <span>{prop}</span>{" "}
-              </p>
+              </div>
             );
           })}
 
           {kurs.period.map((prop) => {
             return (
-              <p>
+              <div key={uuidv4()}>
                 {" "}
                 | Period <span>{prop}</span>{" "}
-              </p>
+              </div>
             );
           })}
 
           {kurs.block.map((prop) => {
             return (
-              <p>
+              <div key={uuidv4()}>
                 {" "}
                 | Block <span>{prop}</span>{" "}
-              </p>
+              </div>
             );
           })}
 
           <p>|</p>
-        </p>
-        <p class="secondheader">
-          <span>{kurs.utbildningsniva}</span>
-          <p>
-            {" "}
-            {kurs.huvudomrade.map((prop) => {
-              return <span>{prop}</span>;
-            })}
-          </p>
-        </p>
+        </div>
+        <div className="secondheader">
+          <span>{kurs.utbildningsniva}</span>{" "}
+          {kurs.huvudomrade.map((prop) => {
+            return <span key={uuidv4()}>{prop}</span>;
+          })}
+        </div>
 
         {!addkurs && (
           <Dropdown>
@@ -122,7 +118,7 @@ export default function Kurs(props) {
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
           </a>
         )}
-      </p>
+      </div>
     </>
   );
 }

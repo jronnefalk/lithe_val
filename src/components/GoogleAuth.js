@@ -63,16 +63,16 @@ function GoogleAuth() {
 
   return (
     <>
-      <div class="loggain">
+      <div className="loggain">
         {!loggedIn && (
-          <button class="loggin_knapp" onClick={googleSignin}>
-            <BsPerson size={32} /> <h1 class="text">Logga in</h1>
+          <button className="loggin_knapp" onClick={googleSignin}>
+            <BsPerson size={32} /> <h1 className="text">Logga in</h1>
           </button>
         )}
         {loggedIn && (
-          <button class="loggin_knapp" onClick={googleSignout}>
+          <button className="loggin_knapp" onClick={googleSignout}>
             {" "}
-            <BsPersonFill size={32} /> <h1 class="text">Logga ut</h1>
+            <BsPersonFill size={32} /> <h1 className="text">Logga ut</h1>
           </button>
         )}
       </div>

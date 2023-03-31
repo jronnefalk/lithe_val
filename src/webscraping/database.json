@@ -24,7 +24,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Genomgångna studier av de tre första åren i ett civilingenjörsprogram"
   },
   {
     "kursnamn": "Teknik och etik",
@@ -51,7 +51,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Inga rekommenderade förkunskaper"
   },
   {
     "kursnamn": "Advanced English",
@@ -78,7 +78,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Advanced Global Illumination and Rendering",
@@ -99,7 +99,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Nätverksprogrammering och säkerhet",
@@ -132,7 +132,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Vetenskaplig visualisering",
@@ -164,7 +164,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Datorgrafik, Fysikaliska modeller"
   },
   {
     "kursnamn": "Ljudteknik",
@@ -191,7 +191,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Kunskaper från kurser som Signaler och system, Tillämpad transformteori, Ljudfysik, eller motsvarande. Programmeringskunskaper, motsvarande Programmering grk."
   },
   {
     "kursnamn": "Maskininlärning för sociala medier",
@@ -218,7 +218,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Sannolikhetslära och statistik, matematisk analys, linjär algebra och grundläggande programmering."
   },
   {
     "kursnamn": "Immaterialrätt",
@@ -239,7 +239,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Inga rekommenderade förkunskaper"
   },
   {
     "kursnamn": "Matrismetoder för AI",
@@ -266,7 +266,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Linjär algebra, flervariabelanalys, matematisk statistik, tillämpad matematik, grundläggande kunskaper i MATLAB."
   },
   {
     "kursnamn": "Avancerad bildbehandling",
@@ -287,7 +287,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Bildbehandling och bildanalys. Programmeringskunskaper i Matlab."
   },
   {
     "kursnamn": "Procedurella metoder för bilder",
@@ -314,7 +314,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "VR-teknik",
@@ -341,7 +341,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Grafisk design och kommunikation",
@@ -374,7 +374,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Kommunikation och användargränssnitt, Grafisk teknik"
   },
   {
     "kursnamn": "Medieproduktion för immersiva miljöer",
@@ -401,7 +401,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Programmeringskunskaper i C++. Erfarenhet av 3D datorgrafik, grundläggande ljudfysik och videoproduktion."
   },
   {
     "kursnamn": "Industriell ekonomi",
@@ -428,7 +428,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Matematisk grundkurs För FL, SL: Matematik"
   },
   {
     "kursnamn": "Retorik i tal",
@@ -455,7 +455,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Inga rekommenderade förkunskaper"
   },
   {
     "kursnamn": "Bildreproduktion och bildkvalitet",
@@ -488,7 +488,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Kurser i Grafisk teknik och Bildbehandling och bildanalys. Grundläggande programmeringskunskaper i Matlab."
   },
   {
     "kursnamn": "Strukturerade metoder för användarupplevelse (UX)",
@@ -521,7 +521,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Kommunikation och användargränssnitt eller motsvarande."
   },
   {
     "kursnamn": "Informationsvisualisering",
@@ -548,7 +548,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Programmering."
   },
   {
     "kursnamn": "Bild- och ljudkompression",
@@ -575,7 +575,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Sannolikhetslära, grundläggande signalbehandling, grundläggande transformteori."
   },
   {
     "kursnamn": "Avancerad webbprogrammering",
@@ -596,7 +596,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "God programmeringsförmåga och förmåga att arbeta med ramverk. \nGod förståelse för hur HTML/CSS/Javascript utgör grunden för systemutveckling i webbläsaren.  \nGoda JavaScript kunskaper och kunskap om asynkron kommunikation med server och användning av ROUTS och JSON.  \nGod förståelse för webbens tekniker REST, microramverk som Flask och Express.js, integration av externa tjänster via REST-API. \nFörmåga att bygga större webbaserade interaktiva system och till att självständig driva mjukvaruprojekt."
   },
   {
     "kursnamn": "Modellering och animering",
@@ -623,7 +623,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Artificiell intelligens - principer och tekniker",
@@ -644,7 +644,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Programmering i ett imperativ programspråk. Kunskaper om datastrukturer och algoritmer."
   },
   {
     "kursnamn": "Avancerad visuell dataanalys",
@@ -671,7 +671,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Färdigheter i matematik, programmering och webbprogrammering."
   },
   {
     "kursnamn": "Procedurell ljuddesign för användargränssnitt",
@@ -698,7 +698,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Grundläggande kunskaper från kurser inom användargränssnitt, visualisering, och programmering, såväl som grundläggande ljudteknik och signalbehandling."
   },
   {
     "kursnamn": "Avancerad programvarudesign",
@@ -731,7 +731,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Programutvecklingsmetodik (inkl. UML)\n\tKunskaper i programmering i flera språk (inkl. objektorienterad programmering och hantering av pekare)\n\tDatastrukturer\n\tKunna läsa forskningsartiklar inom programvarukonstruktion (software engineering) och söka information i nya ämnesområden självständigt och kritiskt"
   },
   {
     "kursnamn": "Bildteknik",
@@ -752,7 +752,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Linjär algebra, Matematisk statistik, Transformteori, Bildbehandling och bildanalys, Matlabprogrammering. Kunskaper om färgsystem och färgrymder, samt kännedom om objektiva kvalitetsmått för bildkvalitet."
   },
   {
     "kursnamn": "Artificiell intelligens för interaktiv media",
@@ -778,7 +778,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Artificiell intelligens"
   },
   {
     "kursnamn": "Teknik för avancerade datorspel",
@@ -810,7 +810,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Vetenskaplig metod",
@@ -837,7 +837,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "30 hp på avancerad nivå inom sitt huvudområde. Erfarenhet av att läsa vetenskapliga, granskade artiklar inom sitt huvudområde."
   },
   {
     "kursnamn": "Interaktionsprogrammering",
@@ -858,7 +858,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Multicore- och GPU-Programmering",
@@ -890,7 +890,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Datorteknik. Datastrukturer och algoritmer. Processprogrammering och operativsystem. Programmering i C, viss kunskap i C++ rekommenderas."
   },
   {
     "kursnamn": "Deep Learning för medieteknik",
@@ -917,7 +917,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Sannolikhetslära och statistik, matematisk analys, linjär algebra och grundläggande programmering. Grunder i maskininlärning är fördelaktigt, men inte ett krav."
   },
   {
     "kursnamn": "Design och programmering av datorspel",
@@ -943,7 +943,7 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Programmering 10hp (varav minst 6hp objektorienterad programmering), Grundkurs i Användbara/interaktiva system eller liknande."
   },
   {
     "kursnamn": "Vetenskaplig metod",
@@ -970,7 +970,7 @@
         "betygsskala": "U, G"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   },
   {
     "kursnamn": "Mjukvarutekniskt entreprenörskap",
@@ -991,6 +991,6 @@
         "betygsskala": "U, 3, 4, 5"
       }
     ],
-    "forkunskaper": "temp"
+    "forkunskaper": "Lärandemål"
   }
 ]

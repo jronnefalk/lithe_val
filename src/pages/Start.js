@@ -89,8 +89,15 @@ export function Start() {
         {filteredKurser.map((kurs) => (
           <Kurs key={uuidv4()} kursdata={kurs} />
         ))}
-        <GoogleAuth />
       </div>
+
+      {/* <div>
+        {getCourseData.map((kurs) => (
+          <Kurs key={uuidv4()} kursdata={kurs} />
+        ))}
+      </div> */}
+
+      <GoogleAuth />
     </div>
   );
 }

@@ -37,8 +37,8 @@ export default function Kurs(props) {
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
       <div className="kursinfo">
         <div className="firstheader">
-          <p>|</p>
-          <p>{kurs.kurskod}</p>
+          <div>|</div>
+          <div>{kurs.kurskod}</div>
 
           {kurs.termin.map((prop) => {
             return (
@@ -67,7 +67,7 @@ export default function Kurs(props) {
             );
           })}
 
-          <p>|</p>
+          <div>|</div>
         </div>
         <div className="secondheader">
           <span>{kurs.utbildningsniva}</span>{" "}

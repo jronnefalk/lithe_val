@@ -17,7 +17,7 @@ import { BsFolderFill } from "react-icons/bs";
 // Komponenter
 // import googleSignin from "./components/Signup";
 // import googleSignout from "./components/Signup";
-import GoogleAuth from "./components/signup";
+import GoogleAuth from "./components/GoogleAuth";
 
 export default function App() {
   // Define the state variable for the icon
@@ -38,7 +38,7 @@ export default function App() {
             {" "}
             <span>
               {" "}
-              <button class="startknapp" onClick={handleClick}>
+              <button class="menyknapp" onClick={handleClick}>
                 {isDoorOpen ? (
                   <BsHouseDoorFill size={30} />
                 ) : (
@@ -55,7 +55,7 @@ export default function App() {
           <Link to="/minasidor">
             <span>
               {" "}
-              <button class="minsidaknapp" onClick={handleClick}>
+              <button class="menyknapp" onClick={handleClick}>
                 {isDoorOpen ? (
                   <BsFolder size={30} />
                 ) : (

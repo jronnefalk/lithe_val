@@ -71,32 +71,42 @@ export function Start() {
 
   return (
     <div className="App">
-      <div>
+      <div className="container"></div>
+      <div className="sök">
+        <span className="sök_ikon">
+          <BsSearch size={12} />
+        </span>
         <input
-          placeholder="Sök mellan kursnamn och kurskod..."
+          className="sök_text"
+          type="text"
+          placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
       </div>
 
-      <div>
-        {filters.map((filter) => (
-          <label key={uuidv4()}>
-            <input
-              type="checkbox"
-              onChange={() => handleFilterChange(filter)}
-              checked={activeFilters.some(
-                (f) => f.key === filter.key && f.value === filter.value
-              )}
-            />
-            {filter.label}
-          </label>
-        ))}
-      </div>
+      <div className="container">
+        <div className="filter">
+          {filters.map((filter) => (
+            <label key={uuidv4()}>
+              <input
+                type="checkbox"
+                onChange={() => handleFilterChange(filter)}
+                checked={activeFilters.some(
+                  (f) => f.key === filter.key && f.value === filter.value
+                )}
+              />
+              {filter.label}
+            </label>
+          ))}
+        </div>
 
-      <div>
-        {filteredKurser.map((kurs) => (
-          <Kurs key={uuidv4()} kursdata={kurs} />
-        ))}
+        <div className="course-container-wrapper">
+          {filteredKurser.map((kurs) => (
+            <div className="course-container">
+              <Kurs key={uuidv4()} kursdata={kurs} />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* <div>
@@ -104,37 +114,6 @@ export function Start() {
           <Kurs key={uuidv4()} kursdata={kurs} />
         ))}
       </div> */}
-
-      <GoogleAuth />
     </div>
   );
 }
-
-// return (
-//   <div className="App">
-//     <div className="container"></div>
-//     <div className="sök">
-//       <span className="sök_ikon">
-//         <BsSearch size={12} />
-//       </span>
-//       <input
-//         className="sök_text"
-//         type="text"
-//         placeholder="Sök"
-//         onChange={(event) => setQuery(event.target.value)}
-//       />
-//     </div>
-//     <div className="container">
-//       <div className="filter">
-//         <p>Filter</p>
-//         <Filters />
-//       </div>
-
-//       <div className="course-container-wrapper">
-//         {filteredKurser.map((el) => (
-//           <div className="course-container">
-//             <Kurs kursdata={el} />
-//           </div>
-//         ))}
-//       </div>
-//     </div>

@@ -10,7 +10,7 @@ import filterKurser from "../functions/filterKurser";
 // Komponenter
 import Kurs from "../components/Kurs";
 //import Filters from "../components/Filters";
-import GoogleAuth from "../components/signup";
+import GoogleAuth from "../components/GoogleAuth";
 
 export function Start() {
   const [query, setQuery] = useState("");

@@ -6,10 +6,6 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 export function MinSida() {
-  // key ska sen ändras till att matcha kurskoden som hämtas från firebase
-  const key = "TNM098";
-  const getCourseData = getData(key);
-
   const { currentUser } = getAuth();
   const [kursData, setKursData] = useState([]);
 
@@ -25,6 +21,13 @@ export function MinSida() {
             termin: data[key].Termin,
           }));
           setKursData(kursArray);
+
+          // Call getData for each kursKod in kursArray
+          kursArray.forEach((kurs) => {
+            const courseData = getData(kurs.kursKod);
+            console.log(courseData);
+            // Do something with courseData, e.g. update state
+          });
         } else {
           setKursData([]);
         }
@@ -36,11 +39,6 @@ export function MinSida() {
     <div>
       <h1>My Courses</h1>
       <div>
-        {getCourseData.map((kurs) => (
-          <Kurs key={uuidv4()} kursdata={kurs} />
-        ))}
-      </div>
-      <div>
         {kursData.map((kurs) => (
           <div key={kurs.kursKod}>
             <h2>{kurs.kursKod}</h2>
@@ -50,4 +48,12 @@ export function MinSida() {
       </div>
     </div>
   );
+}
+
+{
+  /* <div>
+        {getCourseData.map((kurs) => (
+          <Kurs key={uuidv4()} kursdata={kurs} />
+        ))}
+      </div> */
 }

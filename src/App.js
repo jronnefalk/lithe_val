@@ -17,9 +17,9 @@ import { BsFolderFill } from "react-icons/bs";
 // Komponenter
 // import googleSignin from "./components/Signup";
 // import googleSignout from "./components/Signup";
-import GoogleAuth from "./components/signup";
+import GoogleAuth from "./components/GoogleAuth";
 
-function App() {
+export default function App() {
   // Define the state variable for the icon
   const [isDoorOpen, setIsDoorOpen] = useState(false);
   //const [isHomePage, setIsHomePage] = useState(true);
@@ -29,48 +29,39 @@ function App() {
     // Update the state variable to toggle the icon
     setIsDoorOpen((prevIsDoorOpen) => !prevIsDoorOpen);
   }
-
-  // function HandleIconClick() {
-  //   const handleIconClick = () => {
-  //     if (!isHomePage) {
-  //       setIsHomePage(true);
-  //     }
-  //   };
-  // }
-
   return (
     <>
-      <div class="menybar">
+      <div className="menybar">
         {/* state={} if we want to pass info */}
-        <div class="start">
+        <div className="start">
           <Link to="">
             {" "}
             <span>
               {" "}
-              <button class="startknapp" onClick={handleClick}>
+              <button className="menyknapp" onClick={handleClick}>
                 {isDoorOpen ? (
                   <BsHouseDoorFill size={30} />
                 ) : (
                   <BsHouseDoor size={30} />
                 )}
 
-                <h1 class="text">Startsida</h1>
+                <h1 className="text">Startsida</h1>
               </button>{" "}
             </span>
           </Link>
         </div>
 
-        <div class="minasidor">
+        <div className="minasidor">
           <Link to="/minasidor">
             <span>
               {" "}
-              <button class="minsidaknapp" onClick={handleClick}>
+              <button className="menyknapp" onClick={handleClick}>
                 {isDoorOpen ? (
                   <BsFolder size={30} />
                 ) : (
                   <BsFolderFill size={30} />
                 )}
-                <h1 class="text">Startsida</h1>
+                <h1 className="text">Startsida</h1>
               </button>{" "}
             </span>
           </Link>
@@ -85,5 +76,3 @@ function App() {
     </>
   );
 }
-
-export default App;

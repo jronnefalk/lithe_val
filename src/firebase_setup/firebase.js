@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, remove, get, child } from "firebase/database";
+import { getDatabase, ref, set, remove } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -28,8 +28,15 @@ const saveKurs = (kurs) => {
   const user = auth.currentUser;
 
   if (user) {
-    push(ref(database, `users/${user.uid}/${kurs.kurskod}`), kurs);
-    console.log(" kursen har läggts till");
+    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
+
+    set(kursRef, { Termin: kurs.termin })
+      .then(() => {
+        console.log("Kursen har lagts till");
+      })
+      .catch((error) => {
+        console.log("Error adding kurs:", error.message);
+      });
   } else {
     console.log("No user is signed in");
   }
@@ -38,7 +45,7 @@ const saveKurs = (kurs) => {
 const deleteKurs = (kurs) => {
   const user = auth.currentUser;
   if (user) {
-    const kursRef = ref(database, `users/${user.uid}/${kurs.kurskod}`);
+    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
     remove(kursRef)
       .then(() => {

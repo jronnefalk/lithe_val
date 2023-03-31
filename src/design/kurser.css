@@ -47,7 +47,7 @@
     left: 95%; 
 }
 
-.Lägg-till-knapp p {
+.Lägg-till-knapp div {
     font-size: 90%;
 }
 
@@ -55,11 +55,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: -1rem;
+    margin-top: -0.5rem;
 
 }
 
-.firstheader p {
+.firstheader div {
     margin-right: 0.3rem;
     
 }
@@ -79,6 +79,7 @@
     background-color:  #EBEBEB;
     border-radius: 20px;
     padding: 5px;
+    margin-top: 2.0rem;
   }
   .Lägg-till-text{
     color: black;

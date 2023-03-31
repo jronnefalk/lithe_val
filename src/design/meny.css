@@ -5,12 +5,11 @@
   height: 6 rem;
   max-width: 100%;
   flex-direction: row;
-  padding: 100px, 100px, 0px;
+  text-decoration: none;
 }
 
 .start {
-  width: 50px;
-  height: 70px;
+  margin-bottom: auto;
   margin-left: 1%;
 }
 .minasidor {
@@ -22,28 +21,30 @@
   margin-right: 1%;
   margin-bottom: auto;
 }
-.loggin_knapp{
+.loggin_knapp {
   border: none;
   background: none;
-
 }
-
 .text {
   font-size: 0.5em;
   color: black;
 }
+
+.menyknapp {
+  background-color: white;
+  border: none;
+}
+
 .menybar svg {
   color: black;
+  
 }
-.menybar svg:hover {
+.menybar svg:hover, 
+.menybar svg:hover + .text{
   color: red;
 }
-.start:hover .text {
-  color: red;
+
+a:link {
+  text-decoration: none;
 }
-.minasidor:hover .text {
-  color: red;
-}
-.loggain:hover .text {
-  color: red;
-}
+

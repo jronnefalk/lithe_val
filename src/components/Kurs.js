@@ -84,7 +84,7 @@ export default function Kurs(props) {
           <button className="Lägg-till-knapp" onClick={handleDelete}>
             {" "}
             <BsTrash3 size={20} />
-            <p>Ta bort kurs</p>
+            <p>Ta bort</p>
           </button>
         )}
 

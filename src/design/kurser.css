@@ -44,12 +44,11 @@
     font-size: 50%;
     position: relative;
     top: -65px; 
-    left: 650px; 
+    left: 95%; 
 }
 
 .Lägg-till-knapp p {
     font-size: 90%;
-    margin-left: -0.3rem
 }
 
 .firstheader {

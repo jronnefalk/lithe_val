@@ -50,9 +50,9 @@ export default function App() {
             </span>
           </Link>
         </div>
-        <div className="rubrik">
-          <h1 className="loggatext">LITHEVAL</h1>
-        </div>
+
+        <h1 className="rubrik">LITHEVAL</h1>
+
         <div className="minasidor">
           <Link to="/minasidor">
             <span>

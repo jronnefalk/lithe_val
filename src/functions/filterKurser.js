@@ -13,13 +13,36 @@ function filterKurser(kurser, query, activeFilters) {
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
         kurs.kurskod.toLowerCase().includes(query.toLowerCase());
       // kolla filter för examination
-      const matchexamination =
-        !activeFilters.some((filter) => filter.key === "examination") ||
-        kurs.examination.some((f) =>
-          f.benamning.toLowerCase().includes("tentamen")
-        );
-      console.log(matchexamination);
+      let matchexamination = activeFilters.some((filter) => {
+        if (filter.key === "tentamen") {
+          return kurs.examination.some((f) =>
+            f.benamning.toLowerCase().includes("tentamen")
+          );
+        } else if (filter.key === "laboration") {
+          return kurs.examination.some((f) =>
+            f.benamning.toLowerCase().includes("lab")
+          );
+        } else if (filter.key === "projekt") {
+          return kurs.examination.some((f) =>
+            f.benamning.toLowerCase().includes("projekt")
+          );
+        }
+        return false;
+      });
 
+      // If there are no active examination filters, return true
+      if (
+        activeFilters.filter(
+          (filter) =>
+            filter.key === "tentamen" ||
+            filter.key === "laboration" ||
+            filter.key === "projekt"
+        ).length === 0
+      ) {
+        matchexamination = true;
+      }
+
+      console.log(matchexamination);
       // Check if the kurs matches any of the helfart or halvfart filters or both
       const matchHalvHelFart =
         ((!activeFilters.some((filter) => filter.key === "helfart") ||
@@ -47,7 +70,9 @@ function filterKurser(kurser, query, activeFilters) {
           if (
             key === "helfart" ||
             key === "halvfart" ||
-            key === "examination"
+            key === "tentamen" ||
+            key === "laboration" ||
+            key === "projekt"
           ) {
             // Skip helfart and halvfart filters as they have already been checked
             return true;

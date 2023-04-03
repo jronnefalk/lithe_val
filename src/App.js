@@ -50,7 +50,9 @@ export default function App() {
             </span>
           </Link>
         </div>
-
+        <div className="rubrik">
+          <h1 className="loggatext">LITHEVAL</h1>
+        </div>
         <div className="minasidor">
           <Link to="/minasidor">
             <span>
@@ -61,7 +63,7 @@ export default function App() {
                 ) : (
                   <BsFolderFill size={30} />
                 )}
-                <h1 className="text">Startsida</h1>
+                <h1 className="text">Min sida</h1>
               </button>{" "}
             </span>
           </Link>

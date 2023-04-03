@@ -9,10 +9,10 @@ import filterKurser from "../functions/filterKurser";
 // Komponenter
 import Kurs from "../components/Kurs";
 
-// inkoner
+// Ikoner
 import { BsSearch } from "react-icons/bs";
 
-//design
+// Design
 import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";

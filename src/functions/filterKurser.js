@@ -7,13 +7,24 @@ function filterKurser(kurser, query, activeFilters) {
       return 0;
     })
     .filter((kurs) => {
-      // Filtrera bort kurser som inte matchar sökfrasen
+      // Om sökfältet är tomt eller om sökfältet innehåller något som matchar kursen
       const matchQuery =
         query === "" ||
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
         kurs.kurskod.toLowerCase().includes(query.toLowerCase());
 
-      // Group the filters by key
+      // Check if the kurs matches any of the helfart or halvfart filters or both
+      const matchHalvHelFart =
+        ((!activeFilters.some((filter) => filter.key === "helfart") ||
+          (kurs.period.includes("1") && !kurs.period.includes("2")) ||
+          (!kurs.period.includes("1") && kurs.period.includes("2"))) &&
+          (!activeFilters.some((filter) => filter.key === "halvfart") ||
+            (kurs.period.includes("1") && kurs.period.includes("2")))) ||
+        (activeFilters.some((filter) => filter.key === "halvfart") &&
+          activeFilters.some((filter) => filter.key === "helfart") &&
+          (kurs.period.includes("1") || kurs.period.includes("2")));
+
+      // lägger alla filter med samma key i en group-array
       const filtersByKeys = activeFilters.reduce((groups, filter) => {
         if (!groups[filter.key]) {
           groups[filter.key] = [];
@@ -22,10 +33,14 @@ function filterKurser(kurser, query, activeFilters) {
         return groups;
       }, {});
 
-      // Check if the kurs matches any of the filter groups
+      // Check if the kurs matches any of the other filters
       const matchFilters =
         activeFilters.length === 0 ||
         Object.entries(filtersByKeys).every(([key, filters]) => {
+          if (key === "helfart" || key === "halvfart") {
+            // Skip helfart and halvfart filters as they have already been checked
+            return true;
+          }
           if (kurs.hasOwnProperty(key)) {
             const values = kurs[key];
             if (Array.isArray(values)) {
@@ -40,9 +55,8 @@ function filterKurser(kurser, query, activeFilters) {
           }
           return false;
         });
-
-      // Visa kursen om den matchar med både sökning och filtren
-      return matchQuery && matchFilters;
+      // Visa kursen om den matchar med både sökning, filtren, och halv-/helfart
+      return matchQuery && matchHalvHelFart && matchFilters;
     });
 }
 

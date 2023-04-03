@@ -29,6 +29,8 @@ export function Start() {
     { label: "Termin 7", key: "termin", value: "7" },
     { label: "Termin 8", key: "termin", value: "8" },
     { label: "Termin 9", key: "termin", value: "9" },
+    { label: "Helfart", key: "helfart", value: "helfart" },
+    { label: "Halvfart", key: "halvfart", value: "halvfart" },
     {
       label: "Avancerad nivå bitch",
       key: "utbildningsniva",

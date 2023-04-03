@@ -22,10 +22,10 @@ export function Start() {
   const [activeFilters, setActiveFilters] = useState([]);
 
   const filters = [
-    { label: "Block 1", key: "block", value: "1" },
-    { label: "Block 2", key: "block", value: "2" },
-    { label: "Block 3", key: "block", value: "3" },
-    { label: "Block 4", key: "block", value: "4" },
+    { label: "1", key: "block", value: "1" },
+    { label: "2", key: "block", value: "2" },
+    { label: "3", key: "block", value: "3" },
+    { label: "4", key: "block", value: "4" },
     { label: "Termin 7", key: "termin", value: "7" },
     { label: "Termin 8", key: "termin", value: "8" },
     { label: "Termin 9", key: "termin", value: "9" },

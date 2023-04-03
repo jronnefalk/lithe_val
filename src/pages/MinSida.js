@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import getData from "../functions/getData";
-import Kurs from "../components/Kurs";
-import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 export function MinSida() {
   const { currentUser } = getAuth();
   const [kursData, setKursData] = useState([]);
+  const [courseData, setCourseData] = useState({});
 
   useEffect(() => {
     if (currentUser) {
@@ -23,7 +22,7 @@ export function MinSida() {
           setKursData(kursArray);
 
           // Call getData for each kursKod in kursArray
-          kursArray.forEach((kurs) => {
+          kursArray.forEach(async (kurs) => {
             const courseData = getData(kurs.kursKod);
             console.log(courseData);
             // Do something with courseData, e.g. update state
@@ -41,19 +40,15 @@ export function MinSida() {
       <div>
         {kursData.map((kurs) => (
           <div key={kurs.kursKod}>
-            <h2>{kurs.kursKod}</h2>
-            <p>{kurs.termin}</p>
+            <ul>
+              {courseData[kurs.kursKod] &&
+                courseData[kurs.kursKod].map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+            </ul>
           </div>
         ))}
       </div>
     </div>
   );
-}
-
-{
-  /* <div>
-        {getCourseData.map((kurs) => (
-          <Kurs key={uuidv4()} kursdata={kurs} />
-        ))}
-      </div> */
 }

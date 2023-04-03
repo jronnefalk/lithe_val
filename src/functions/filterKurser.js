@@ -12,6 +12,13 @@ function filterKurser(kurser, query, activeFilters) {
         query === "" ||
         kurs.kursnamn.toLowerCase().includes(query.toLowerCase()) ||
         kurs.kurskod.toLowerCase().includes(query.toLowerCase());
+      // kolla filter för examination
+      const matchexamination =
+        !activeFilters.some((filter) => filter.key === "examination") ||
+        kurs.examination.some((f) =>
+          f.benamning.toLowerCase().includes("tentamen")
+        );
+      console.log(matchexamination);
 
       // Check if the kurs matches any of the helfart or halvfart filters or both
       const matchHalvHelFart =
@@ -37,7 +44,11 @@ function filterKurser(kurser, query, activeFilters) {
       const matchFilters =
         activeFilters.length === 0 ||
         Object.entries(filtersByKeys).every(([key, filters]) => {
-          if (key === "helfart" || key === "halvfart") {
+          if (
+            key === "helfart" ||
+            key === "halvfart" ||
+            key === "examination"
+          ) {
             // Skip helfart and halvfart filters as they have already been checked
             return true;
           }
@@ -56,7 +67,7 @@ function filterKurser(kurser, query, activeFilters) {
           return false;
         });
       // Visa kursen om den matchar med både sökning, filtren, och halv-/helfart
-      return matchQuery && matchHalvHelFart && matchFilters;
+      return matchQuery && matchHalvHelFart && matchFilters && matchexamination;
     });
 }
 

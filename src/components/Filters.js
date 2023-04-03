@@ -26,6 +26,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
     { label: "Linköping", key: "ort", value: "Linköping" },
     { label: "Period 1", key: "period", value: "1" },
     { label: "Period 2", key: "period", value: "2" },
+    { label: "Tentamen", key: "examination", value: "tentamen" },
   ];
 
   // Funktion som hanterar när användaren klickar på ett filter

@@ -5,3 +5,53 @@
     border: 0.5px solid black;
     border-radius: 20px;
 }
+
+
+.filter-section.blocks {
+    font-family: 'Lato', sans-serif;
+    grid-template-columns: 1fr 1fr; /* two columns */
+    grid-template-rows: auto auto; /* two rows */
+    row-gap: 1px;
+    column-gap: 1px;
+    display: grid;
+    
+}
+
+.filter h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+/**
+.blocks:nth-child(1) {
+    grid-row: 2;
+    grid-column: 1;
+}
+  
+.blocks:nth-child(2) {
+    grid-row: 1;
+    grid-column: 1;
+}
+  
+.blocks:nth-child(3) {
+    grid-row: 1;
+    grid-column: 2;
+}
+  
+.blocks:nth-child(4) {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+
+**/
+
+
+  
+  
+  
+  
+  
+  
+  
+  

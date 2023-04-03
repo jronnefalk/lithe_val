@@ -11,6 +11,8 @@
 .start {
   margin-bottom: auto;
   margin-left: 1%;
+
+
 }
 .minasidor {
   margin-left: auto;
@@ -21,6 +23,18 @@
   margin-right: 1%;
   margin-bottom: auto;
 }
+.rubrik{
+color: #317773;
+font-family: 'Futura-Bold', arial;
+font-size: 40px;
+margin-top: 0;
+margin-bottom: auto;
+margin-left: 40%;
+
+
+}
+
+
 .loggin_knapp {
   border: none;
   background: none;

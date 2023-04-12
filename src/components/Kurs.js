@@ -124,6 +124,14 @@ export default function Kurs(props) {
         {isReadMore && <p>HP: {kurs.hp}</p>}
         {isReadMore && <p>Ort: {kurs.ort}</p>}
         {isReadMore && (
+          <p>
+            Examination:{" "}
+            {kurs.examination.map((prop) => {
+              return <span key={uuidv4()}>{prop.benamning}</span>;
+            })}
+          </p>
+        )}
+        {isReadMore && (
           <a href={kurs.url}>
             {" "}
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />

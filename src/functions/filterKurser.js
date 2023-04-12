@@ -42,7 +42,6 @@ function filterKurser(kurser, query, activeFilters) {
         matchexamination = true;
       }
 
-      console.log(matchexamination);
       // Check if the kurs matches any of the helfart or halvfart filters or both
       const matchHalvHelFart =
         ((!activeFilters.some((filter) => filter.key === "helfart") ||

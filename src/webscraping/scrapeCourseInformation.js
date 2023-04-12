@@ -132,18 +132,21 @@ async function scrape(addresses) {
       });
     });
 
-    // hämtar förkunskaper OBS! MÅSTE ÄNDRAS OM DET OLIKA ELEMENT, VISSA ÄR P OCH VISSA äR VANLIG TEXT
+    // hämtar förkunskaper om det finns några
     const forkunskaper = await page.evaluate(() => {
       const h2 = Array.from(document.querySelectorAll("h2")).find(
         (el) => el.textContent === "Rekommenderade förkunskaper"
       );
 
       // Avgör om det finns förkunskaper eller inte
-      const p = h2 ? h2.nextElementSibling : null;
-      const text = p
-        ? p.textContent.trim()
-        : "Inga rekommenderade förkunskaper";
-      return text;
+      let forkunskaper;
+      if (h2) {
+        forkunskaper = h2.nextElementSibling.textContent.trim();
+      } else {
+        forkunskaper = "Inga rekommenderade förkunskaper";
+      }
+
+      return forkunskaper;
     });
 
     // lägg till all information i en kurs

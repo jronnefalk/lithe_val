@@ -77,18 +77,29 @@ export default function Kurs(props) {
         </div>
 
         {!addkurs && (
-          <Dropdown>
-            <Dropdown.Toggle className="Lägg-till-knapp">
-              <BsFolderPlus size={20} />
-              <p>Lägg till</p>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
-                {" "}
-                Termin: {kurs.termin}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <div>
+            <Dropdown>
+              <Dropdown.Toggle className="Lägg-till-knapp">
+                <BsFolderPlus size={20} />
+                <p>Lägg till</p>
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="Menu-droppdown" variant="dark">
+                {kurs.termin.map((prop) => {
+                  return (
+                    <Dropdown.Item
+                      className="Lägg-till-text"
+                      key={uuidv4()}
+                      onClick={handleClick}
+                      active
+                    >
+                      {" "}
+                      Termin: {prop}
+                    </Dropdown.Item>
+                  );
+                })}
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         )}
         {addkurs && (
           <button className="Lägg-till-knapp" onClick={handleDelete}>

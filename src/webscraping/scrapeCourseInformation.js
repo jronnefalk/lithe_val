@@ -14,8 +14,9 @@ class Kurs {
     block,
     ort,
     url,
-    examination,
-    forkunskaper
+    forkunskaper,
+    overlappning,
+    examination
   ) {
     this.kursnamn = kursnamn;
     this.hp = hp;
@@ -27,8 +28,9 @@ class Kurs {
     this.block = block;
     this.ort = ort;
     this.url = url;
-    this.examination = examination;
     this.forkunskaper = forkunskaper;
+    this.overlappning = overlappning;
+    this.examination = examination;
   }
 }
 
@@ -82,7 +84,6 @@ async function scrape(addresses) {
     });
 
     // hämtar termin, period, block och ort
-
     const [termin, period, block, ort] = await page.evaluate(() => {
       const rows = document.querySelectorAll("table tr");
 
@@ -134,6 +135,7 @@ async function scrape(addresses) {
 
     // hämtar förkunskaper om det finns några
     const forkunskaper = await page.evaluate(() => {
+      // Letar efter rubriken "Rekommenderade förkunskaper"
       const h2 = Array.from(document.querySelectorAll("h2")).find(
         (el) => el.textContent === "Rekommenderade förkunskaper"
       );
@@ -149,6 +151,9 @@ async function scrape(addresses) {
       return forkunskaper;
     });
 
+    // hämtar overlappning WIP
+    const overlappning = [];
+
     // lägg till all information i en kurs
     let tempKurs = new Kurs(
       kursnamn,
@@ -161,8 +166,9 @@ async function scrape(addresses) {
       block,
       ort,
       addresses[i],
-      examination,
-      forkunskaper
+      forkunskaper,
+      overlappning,
+      examination
     );
 
     // lägg till kursen i arrayen med alla kurser

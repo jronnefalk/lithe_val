@@ -14,8 +14,9 @@ class Kurs {
     block,
     ort,
     url,
-    examination,
-    forkunskaper
+    forkunskaper,
+    overlappning,
+    examination
   ) {
     this.kursnamn = kursnamn;
     this.hp = hp;
@@ -27,8 +28,9 @@ class Kurs {
     this.block = block;
     this.ort = ort;
     this.url = url;
-    this.examination = examination;
     this.forkunskaper = forkunskaper;
+    this.overlappning = overlappning;
+    this.examination = examination;
   }
 }
 
@@ -70,7 +72,14 @@ async function scrape(addresses) {
       const h2 = Array.from(document.querySelectorAll(".overview-label")).find(
         (el) => el.textContent.includes("Huvudområde")
       );
-      return h2.nextSibling.textContent.trim().split(" ");
+
+      let result = h2.nextSibling.textContent.trim().split(" ");
+
+      if (result[0] == "Inget" && result[1] == "huvudområde") {
+        return [];
+      }
+
+      return result;
     });
 
     // hämtar utbildningsnivå
@@ -82,7 +91,6 @@ async function scrape(addresses) {
     });
 
     // hämtar termin, period, block och ort
-
     const [termin, period, block, ort] = await page.evaluate(() => {
       const rows = document.querySelectorAll("table tr");
 
@@ -95,8 +103,21 @@ async function scrape(addresses) {
           const block = row.querySelector("td:nth-child(5)");
           const ort = row.querySelector("td:nth-child(7)");
 
+          let terminer = [];
+
+          // om terminen är 7 eller 9 läggs motsatt termin till
+          if (termin.textContent.charAt(0) === "7") {
+            terminer.push("7");
+            terminer.push("9");
+          } else if (termin.textContent.charAt(0) === "8") {
+            terminer.push("8");
+          } else {
+            terminer.push("7");
+            terminer.push("9");
+          }
+
           return (result = [
-            termin.textContent.charAt(0),
+            terminer,
             period.textContent.split(", "),
             block.textContent.split(", "),
             ort.textContent.trim(),
@@ -104,19 +125,6 @@ async function scrape(addresses) {
         }
       }
     });
-
-    let terminer = [];
-
-    // om terminen är 7 eller 9 läggs motsatt termin till
-    if (termin === "7") {
-      terminer.push("7");
-      terminer.push("9");
-    } else if (termin === "8") {
-      terminer.push("8");
-    } else {
-      terminer.push("7");
-      terminer.push("9");
-    }
 
     // hämtar alla examinationer
     const table = await page.$("table.table-striped.examinations-codes-table");
@@ -132,18 +140,52 @@ async function scrape(addresses) {
       });
     });
 
-    // hämtar förkunskaper OBS! MÅSTE ÄNDRAS OM DET OLIKA ELEMENT, VISSA ÄR P OCH VISSA äR VANLIG TEXT
-    const forkunskaper = await page.evaluate(() => {
+    // hämtar förkunskaper om det finns några
+    const forkunskaperElement = await page.evaluateHandle(() => {
+      // Letar efter rubriken "Rekommenderade förkunskaper"
       const h2 = Array.from(document.querySelectorAll("h2")).find(
         (el) => el.textContent === "Rekommenderade förkunskaper"
       );
 
-      // Avgör om det finns förkunskaper eller inte
-      const p = h2 ? h2.nextElementSibling : null;
-      const text = p
-        ? p.textContent.trim()
-        : "Inga rekommenderade förkunskaper";
-      return text;
+      let forkunskaper = "Inga rekommenderade förkunskaper";
+
+      // Om det finns förkunskaper
+      if (h2) {
+        let el = h2.nextSibling;
+
+        // letar efter nästa element som är en <p>
+        while (el.nodeType !== 1) {
+          el = el.nextSibling;
+        }
+
+        // Om nästa element är "Lärandemål" så backa ett steg
+        if (el.textContent.trim() == "Lärandemål") {
+          el = el.previousSibling;
+        }
+        forkunskaper = el.textContent.trim();
+      }
+
+      return forkunskaper;
+    });
+    const forkunskaperText = await forkunskaperElement.jsonValue();
+
+    // hämtar overlappningkurser om det finns några
+    const overlappning = await page.evaluate(() => {
+      // letar efter texten "Kursen får ej ingå i examen tillsammans med"
+      const p = Array.from(document.querySelectorAll("p")).find((el) =>
+        el.textContent.includes("Kursen får ej ingå i examen tillsammans med")
+      );
+
+      if (p) {
+        const text = p.textContent;
+        // returnerar all text efter "med" och tar bort punkt
+        return text
+          .slice(text.indexOf("med") + 4)
+          .trim()
+          .replace(/\.$/, "");
+      } else {
+        return "Ingen överlappning";
+      }
     });
 
     // lägg till all information i en kurs
@@ -153,19 +195,22 @@ async function scrape(addresses) {
       kurskod,
       huvudomrade,
       utbildningsniva,
-      terminer,
+      termin,
       period,
       block,
       ort,
       addresses[i],
-      examination,
-      forkunskaper
+      forkunskaperText,
+      overlappning,
+      examination
     );
 
     // lägg till kursen i arrayen med alla kurser
     kurser.push(tempKurs);
 
-    console.log(tempKurs);
+    console.log(
+      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.forkunskaper
+    );
 
     await browser.close();
   }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import getData from "../functions/getData";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import getData from "../functions/getData";
 
 export function MinSida() {
   const { currentUser } = getAuth();
@@ -12,7 +12,8 @@ export function MinSida() {
     if (currentUser) {
       const db = getDatabase();
       const kursRef = ref(db, `users/${currentUser.uid}/Kurser`);
-      onValue(kursRef, (snapshot) => {
+
+      onValue(kursRef, async (snapshot) => {
         const data = snapshot.val();
         if (data) {
           const kursArray = Object.keys(data).map((key) => ({
@@ -21,14 +22,27 @@ export function MinSida() {
           }));
           setKursData(kursArray);
 
-          // Call getData for each kursKod in kursArray
-          kursArray.forEach(async (kurs) => {
-            const courseData = getData(kurs.kursKod);
-            console.log(courseData);
-            // Do something with courseData, e.g. update state
-          });
+          // Call getData for each kursKod in kursArray and wait for all the promises to resolve
+          const courseDataArray = await Promise.all(
+            kursArray.map(async (kurs) => {
+              const data = await getData(kurs.kursKod);
+              return { [kurs.kursKod]: data };
+            })
+          );
+
+          // Combine all the course data into a single object
+          const newCourseData = courseDataArray.reduce(
+            (accumulator, currentValue) => ({
+              ...accumulator,
+              ...currentValue,
+            }),
+            {}
+          );
+
+          setCourseData(newCourseData);
         } else {
           setKursData([]);
+          setCourseData({});
         }
       });
     }
@@ -40,12 +54,9 @@ export function MinSida() {
       <div>
         {kursData.map((kurs) => (
           <div key={kurs.kursKod}>
-            <ul>
-              {courseData[kurs.kursKod] &&
-                courseData[kurs.kursKod].map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-            </ul>
+            <h2>{courseData[kurs.kursKod]?.kursnamn}</h2>
+            <p>Kurskod: {kurs.kursKod}</p>
+            <p>Block: {courseData[kurs.kursKod]?.block}</p>
           </div>
         ))}
       </div>

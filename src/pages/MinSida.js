@@ -56,8 +56,28 @@ export function MinSida() {
     }
   }, [currentUser]);
 
+  // Count how many courses have utbildningsniva set to 'grundnivå' and 'avancerad'
+  const initialCounts = { grundniva: 0, avancerad: 0, hp: 0 };
+
+  const counts = Object.values(courseData).reduce((acc, curr) => {
+    acc.hp = acc.hp + parseInt(curr.hp);
+    console.log(curr.hp);
+    if (curr.utbildningsniva === "Grundnivå") {
+      acc.grundniva++;
+    } else if (curr.utbildningsniva === "Avancerad nivå") {
+      acc.avancerad++;
+    }
+    return acc;
+  }, initialCounts);
+
   return (
     <div>
+      <h1>Visualisering</h1>
+      <div>
+        <p>Grundnivå: {counts.grundniva}</p>
+        <p>Avancerad nivå: {counts.avancerad}</p>
+        <p>hp: {counts.hp}</p>
+      </div>
       <h1>My Courses</h1>
       <div>
         {kursData.map((kurs) => (
@@ -65,6 +85,7 @@ export function MinSida() {
             <h2>{courseData[kurs.kurskod]?.kursnamn}</h2>
             <p>Kurskod: {kurs.kurskod}</p>
             <p>Block: {courseData[kurs.kurskod]?.block}</p>
+            <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
             <button
               className="Lägg-till-knapp"
               onClick={() => handleDelete(kurs)}

@@ -1,18 +1,63 @@
+import { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
-import Kurs from "../components/Kurs";
-import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 export function MinSida() {
-  // key ska sen ändras till att matcha kurskoden som hämtas från firebase
-  const key = "TNM098";
-  const getCourseData = getData(key);
+  const { currentUser } = getAuth();
+  const [kursData, setKursData] = useState([]);
+  const [courseData, setCourseData] = useState({});
+
+  useEffect(() => {
+    if (currentUser) {
+      const db = getDatabase();
+      const kursRef = ref(db, `users/${currentUser.uid}/Kurser`);
+
+      onValue(kursRef, async (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const kursArray = Object.keys(data).map((key) => ({
+            kursKod: key,
+            termin: data[key].Termin,
+          }));
+          setKursData(kursArray);
+
+          // Call getData for each kursKod in kursArray and wait for all the promises to resolve
+          const courseDataArray = await Promise.all(
+            kursArray.map(async (kurs) => {
+              const data = await getData(kurs.kursKod);
+              return { [kurs.kursKod]: data };
+            })
+          );
+
+          // Combine all the course data into a single object
+          const newCourseData = courseDataArray.reduce(
+            (accumulator, currentValue) => ({
+              ...accumulator,
+              ...currentValue,
+            }),
+            {}
+          );
+
+          setCourseData(newCourseData);
+        } else {
+          setKursData([]);
+          setCourseData({});
+        }
+      });
+    }
+  }, [currentUser]);
 
   return (
     <div>
       <h1>My Courses</h1>
       <div>
-        {getCourseData.map((kurs) => (
-          <Kurs key={uuidv4()} kursdata={kurs} />
+        {kursData.map((kurs) => (
+          <div key={kurs.kursKod}>
+            <h2>{courseData[kurs.kursKod]?.kursnamn}</h2>
+            <p>Kurskod: {kurs.kursKod}</p>
+            <p>Block: {courseData[kurs.kursKod]?.block}</p>
+          </div>
         ))}
       </div>
     </div>

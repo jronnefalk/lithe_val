@@ -5,8 +5,12 @@ import getData from "../functions/getData";
 
 export function MinSida() {
   const { currentUser } = getAuth();
-  const [kursData, setKursData] = useState([]);
-  const [courseData, setCourseData] = useState({});
+  const [kursData, setKursData] = useState(
+    JSON.parse(localStorage.getItem("kursData")) || []
+  );
+  const [courseData, setCourseData] = useState(
+    JSON.parse(localStorage.getItem("courseData")) || {}
+  );
 
   useEffect(() => {
     if (currentUser) {
@@ -40,9 +44,13 @@ export function MinSida() {
           );
 
           setCourseData(newCourseData);
+          localStorage.setItem("kursData", JSON.stringify(kursArray));
+          localStorage.setItem("courseData", JSON.stringify(newCourseData));
         } else {
           setKursData([]);
           setCourseData({});
+          localStorage.removeItem("kursData");
+          localStorage.removeItem("courseData");
         }
       });
     }

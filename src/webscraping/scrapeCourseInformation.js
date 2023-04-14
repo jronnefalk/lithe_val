@@ -72,7 +72,14 @@ async function scrape(addresses) {
       const h2 = Array.from(document.querySelectorAll(".overview-label")).find(
         (el) => el.textContent.includes("Huvudområde")
       );
-      return h2.nextSibling.textContent.trim().split(" ");
+
+      let result = h2.nextSibling.textContent.trim().split(" ");
+
+      if (result[0] == "Inget" && result[1] == "huvudområde") {
+        return [];
+      }
+
+      return result;
     });
 
     // hämtar utbildningsnivå
@@ -134,7 +141,7 @@ async function scrape(addresses) {
     });
 
     // hämtar förkunskaper om det finns några
-    const forkunskaper = await page.evaluate(() => {
+    const forkunskaperElement = await page.evaluateHandle(() => {
       // Letar efter rubriken "Rekommenderade förkunskaper"
       const h2 = Array.from(document.querySelectorAll("h2")).find(
         (el) => el.textContent === "Rekommenderade förkunskaper"
@@ -144,24 +151,23 @@ async function scrape(addresses) {
 
       // Om det finns förkunskaper
       if (h2) {
-        // hämtar nästa element
-        const element = h2.nextSibling;
+        let el = h2.nextSibling;
 
-        // Avgör typ av element
-        if (element.nodeName == "#text") {
-          forkunskaper = h2.nextSibling.textContent.trim();
+        // letar efter nästa element som är en <p>
+        while (el.nodeType !== 1) {
+          el = el.nextSibling;
         }
-        // Om element är en p-tagg
-        else {
-          while (element.nodeName !== "P") {
-            element = element.nextSibling;
-          }
-          forkunskaper = element.textContent.trim();
+
+        // Om nästa element är "Lärandemål" så backa ett steg
+        if (el.textContent.trim() == "Lärandemål") {
+          el = el.previousSibling;
         }
+        forkunskaper = el.textContent.trim();
       }
 
       return forkunskaper;
     });
+    const forkunskaperText = await forkunskaperElement.jsonValue();
 
     // hämtar overlappningkurser om det finns några
     const overlappning = await page.evaluate(() => {
@@ -194,7 +200,7 @@ async function scrape(addresses) {
       block,
       ort,
       addresses[i],
-      forkunskaper,
+      forkunskaperText,
       overlappning,
       examination
     );
@@ -202,7 +208,9 @@ async function scrape(addresses) {
     // lägg till kursen i arrayen med alla kurser
     kurser.push(tempKurs);
 
-    console.log(tempKurs.kurskod + ": " + tempKurs.forkunskaper);
+    console.log(
+      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.forkunskaper
+    );
 
     await browser.close();
   }

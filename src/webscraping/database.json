@@ -10,7 +10,7 @@
     "block": ["1", "1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TEIO87",
-    "forkunskaper": "",
+    "forkunskaper": "Genomgångna studier av de tre första åren i ett civilingenjörsprogram",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -31,7 +31,7 @@
     "kursnamn": "Teknik och etik",
     "hp": "6",
     "kurskod": "TGTU94",
-    "huvudomrade": ["Inget", "huvudområde"],
+    "huvudomrade": [],
     "utbildningsniva": "Grundnivå",
     "termin": ["7", "9"],
     "period": ["1"],
@@ -59,7 +59,7 @@
     "kursnamn": "Advanced English",
     "hp": "6",
     "kurskod": "THEN09",
-    "huvudomrade": ["Inget", "huvudområde"],
+    "huvudomrade": [],
     "utbildningsniva": "Grundnivå",
     "termin": ["7", "9"],
     "period": ["1", "2"],
@@ -155,7 +155,7 @@
     "block": ["3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM067",
-    "forkunskaper": "",
+    "forkunskaper": "Datorgrafik, Fysikaliska modeller",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -183,7 +183,7 @@
     "block": ["2"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM103",
-    "forkunskaper": "",
+    "forkunskaper": "Kunskaper från kurser som Signaler och system, Tillämpad transformteori, Ljudfysik, eller motsvarande. Programmeringskunskaper, motsvarande Programmering grk.",
     "overlappning": "TNM054",
     "examination": [
       {
@@ -211,7 +211,7 @@
     "block": ["3", "3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM108",
-    "forkunskaper": "",
+    "forkunskaper": "Sannolikhetslära och statistik, matematisk analys, linjär algebra och grundläggande programmering.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -232,7 +232,7 @@
     "kursnamn": "Immaterialrätt",
     "hp": "6",
     "kurskod": "TEAE11",
-    "huvudomrade": ["Inget", "huvudområde"],
+    "huvudomrade": [],
     "utbildningsniva": "Grundnivå",
     "termin": ["7", "9"],
     "period": ["2"],
@@ -261,7 +261,7 @@
     "block": ["2"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNA010",
-    "forkunskaper": "",
+    "forkunskaper": "Linjär algebra, flervariabelanalys, matematisk statistik, tillämpad matematik, grundläggande kunskaper i MATLAB.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -289,7 +289,7 @@
     "block": ["3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM034",
-    "forkunskaper": "",
+    "forkunskaper": "Bildbehandling och bildanalys. Programmeringskunskaper i Matlab.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -367,7 +367,7 @@
     "block": ["1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM110",
-    "forkunskaper": "",
+    "forkunskaper": "Kommunikation och användargränssnitt, Grafisk teknik",
     "overlappning": "TNM069",
     "examination": [
       {
@@ -401,7 +401,7 @@
     "block": ["2", "1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM091",
-    "forkunskaper": "",
+    "forkunskaper": "Programmeringskunskaper i C++. Erfarenhet av 3D datorgrafik, grundläggande ljudfysik och videoproduktion.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -429,7 +429,7 @@
     "block": ["1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TEIE53",
-    "forkunskaper": "",
+    "forkunskaper": "Matematisk grundkurs För FL, SL: Matematik",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -485,7 +485,7 @@
     "block": ["2"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM097",
-    "forkunskaper": "",
+    "forkunskaper": "Kurser i Grafisk teknik och Bildbehandling och bildanalys. Grundläggande programmeringskunskaper i Matlab.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -519,7 +519,7 @@
     "block": ["1", "3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM100",
-    "forkunskaper": "",
+    "forkunskaper": "Kommunikation och användargränssnitt eller motsvarande.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -553,7 +553,7 @@
     "block": ["3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM111",
-    "forkunskaper": "",
+    "forkunskaper": "Programmering.",
     "overlappning": "TNM048",
     "examination": [
       {
@@ -581,7 +581,7 @@
     "block": ["4"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TSBK38",
-    "forkunskaper": "",
+    "forkunskaper": "Sannolikhetslära, grundläggande signalbehandling, grundläggande transformteori.",
     "overlappning": "TSBK02 eller TSBK35",
     "examination": [
       {
@@ -609,7 +609,7 @@
     "block": ["3"],
     "ort": "Linköping",
     "url": "https://studieinfo.liu.se/kurs/TDDD27",
-    "forkunskaper": "",
+    "forkunskaper": "God programmeringsförmåga och förmåga att arbeta med ramverk. \nGod förståelse för hur HTML/CSS/Javascript utgör grunden för systemutveckling i webbläsaren.  \nGoda JavaScript kunskaper och kunskap om asynkron kommunikation med server och användning av ROUTS och JSON.  \nGod förståelse för webbens tekniker REST, microramverk som Flask och Express.js, integration av externa tjänster via REST-API. \nFörmåga att bygga större webbaserade interaktiva system och till att självständig driva mjukvaruprojekt.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -659,7 +659,7 @@
     "block": ["1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM096",
-    "forkunskaper": "",
+    "forkunskaper": "Programmering i ett imperativ programspråk. Kunskaper om datastrukturer och algoritmer.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -681,7 +681,7 @@
     "block": ["4"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM098",
-    "forkunskaper": "",
+    "forkunskaper": "Färdigheter i matematik, programmering och webbprogrammering.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -709,7 +709,7 @@
     "block": ["4"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM113",
-    "forkunskaper": "",
+    "forkunskaper": "Grundläggande kunskaper från kurser inom användargränssnitt, visualisering, och programmering, såväl som grundläggande ljudteknik och signalbehandling.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -737,7 +737,7 @@
     "block": ["4"],
     "ort": "Linköping",
     "url": "https://studieinfo.liu.se/kurs/TDDE45",
-    "forkunskaper": "",
+    "forkunskaper": "Programutvecklingsmetodik (inkl. UML)\n\tKunskaper i programmering i flera språk (inkl. objektorienterad programmering och hantering av pekare)\n\tDatastrukturer\n\tKunna läsa forskningsartiklar inom programvarukonstruktion (software engineering) och söka information i nya ämnesområden självständigt och kritiskt",
     "overlappning": "TDDB84",
     "examination": [
       {
@@ -771,7 +771,7 @@
     "block": ["1"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM089",
-    "forkunskaper": "",
+    "forkunskaper": "Linjär algebra, Matematisk statistik, Transformteori, Bildbehandling och bildanalys, Matlabprogrammering. Kunskaper om färgsystem och färgrymder, samt kännedom om objektiva kvalitetsmått för bildkvalitet.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -798,7 +798,7 @@
     "block": ["2"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM114",
-    "forkunskaper": "",
+    "forkunskaper": "Artificiell intelligens",
     "overlappning": "TNM095",
     "examination": [
       {
@@ -853,7 +853,7 @@
     "block": ["3"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM107",
-    "forkunskaper": "",
+    "forkunskaper": "30 hp på avancerad nivå inom sitt huvudområde. Erfarenhet av att läsa vetenskapliga, granskade artiklar inom sitt huvudområde.",
     "overlappning": "TDDD89",
     "examination": [
       {
@@ -908,7 +908,7 @@
     "block": ["2"],
     "ort": "Linköping",
     "url": "https://studieinfo.liu.se/kurs/TDDD56",
-    "forkunskaper": "",
+    "forkunskaper": "Datorteknik. Datastrukturer och algoritmer. Processprogrammering och operativsystem. Programmering i C, viss kunskap i C++ rekommenderas.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -936,7 +936,7 @@
     "block": ["2"],
     "ort": "Norrköping",
     "url": "https://studieinfo.liu.se/kurs/TNM112",
-    "forkunskaper": "",
+    "forkunskaper": "Sannolikhetslära och statistik, matematisk analys, linjär algebra och grundläggande programmering. Grunder i maskininlärning är fördelaktigt, men inte ett krav.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {
@@ -969,7 +969,7 @@
     "block": ["2"],
     "ort": "Linköping",
     "url": "https://studieinfo.liu.se/kurs/TDDD23",
-    "forkunskaper": "",
+    "forkunskaper": "Programmering 10hp (varav minst 6hp objektorienterad programmering), Grundkurs i Användbara/interaktiva system eller liknande.",
     "overlappning": "Ingen överlappning",
     "examination": [
       {

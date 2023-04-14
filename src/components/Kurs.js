@@ -5,6 +5,9 @@ import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
 
+//style
+import { Text } from "../styles/Text.styled.js";
+
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
 import { AiOutlineUp } from "react-icons/ai";
@@ -80,12 +83,12 @@ export default function Kurs(props) {
           <Dropdown>
             <Dropdown.Toggle className="Lägg-till-knapp">
               <BsFolderPlus size={20} />
-              <p>Lägg till</p>
+              <Text>Lägg till</Text>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
                 {" "}
-                Termin: {kurs.termin}
+                <Text>Termin: {kurs.termin}</Text>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -94,36 +97,38 @@ export default function Kurs(props) {
           <button className="Lägg-till-knapp" onClick={handleDelete}>
             {" "}
             <BsTrash3 size={20} />
-            <p>Ta bort kurs</p>
+            <Text>Ta bort kurs</Text>
           </button>
         )}
 
         <span onClick={toggleReadMore} className="read-or-hide">
           {isReadMore ? (
-            <p className="readless">
+            <Text>
               Läs mindre <AiOutlineUp />{" "}
-            </p>
+            </Text>
           ) : (
-            <p className="readmore">
+            <Text>
               Läs mer <AiOutlineDown />{" "}
-            </p>
+            </Text>
           )}
         </span>
 
-        {isReadMore && <p>HP: {kurs.hp}</p>}
-        {isReadMore && <p>Ort: {kurs.ort}</p>}
+        {isReadMore && <Text>HP: {kurs.hp}</Text>}
+        {isReadMore && <Text>Ort: {kurs.ort}</Text>}
         {isReadMore && (
-          <p>
+          <Text>
             Examination:{" "}
             {kurs.examination.map((prop) => {
               return <span key={uuidv4()}>{prop.benamning}</span>;
             })}
-          </p>
+          </Text>
         )}
         {isReadMore && (
           <a href={kurs.url}>
             {" "}
-            Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            <Text>
+              Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            </Text>
           </a>
         )}
       </div>

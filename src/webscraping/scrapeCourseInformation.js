@@ -96,8 +96,21 @@ async function scrape(addresses) {
           const block = row.querySelector("td:nth-child(5)");
           const ort = row.querySelector("td:nth-child(7)");
 
+          let terminer = [];
+
+          // om terminen är 7 eller 9 läggs motsatt termin till
+          if (termin.textContent.charAt(0) === "7") {
+            terminer.push("7");
+            terminer.push("9");
+          } else if (termin.textContent.charAt(0) === "8") {
+            terminer.push("8");
+          } else {
+            terminer.push("7");
+            terminer.push("9");
+          }
+
           return (result = [
-            termin.textContent.charAt(0),
+            terminer,
             period.textContent.split(", "),
             block.textContent.split(", "),
             ort.textContent.trim(),
@@ -105,19 +118,6 @@ async function scrape(addresses) {
         }
       }
     });
-
-    let terminer = [];
-
-    // om terminen är 7 eller 9 läggs motsatt termin till
-    if (termin === "7") {
-      terminer.push("7");
-      terminer.push("9");
-    } else if (termin === "8") {
-      terminer.push("8");
-    } else {
-      terminer.push("7");
-      terminer.push("9");
-    }
 
     // hämtar alla examinationer
     const table = await page.$("table.table-striped.examinations-codes-table");
@@ -140,19 +140,47 @@ async function scrape(addresses) {
         (el) => el.textContent === "Rekommenderade förkunskaper"
       );
 
-      // Avgör om det finns förkunskaper eller inte
-      let forkunskaper;
+      let forkunskaper = "Inga rekommenderade förkunskaper";
+
+      // Om det finns förkunskaper
       if (h2) {
-        forkunskaper = h2.nextElementSibling.textContent.trim();
-      } else {
-        forkunskaper = "Inga rekommenderade förkunskaper";
+        // hämtar nästa element
+        const element = h2.nextSibling;
+
+        // Avgör typ av element
+        if (element.nodeName == "#text") {
+          forkunskaper = h2.nextSibling.textContent.trim();
+        }
+        // Om element är en p-tagg
+        else {
+          while (element.nodeName !== "P") {
+            element = element.nextSibling;
+          }
+          forkunskaper = element.textContent.trim();
+        }
       }
 
       return forkunskaper;
     });
 
-    // hämtar overlappning WIP
-    const overlappning = [];
+    // hämtar overlappningkurser om det finns några
+    const overlappning = await page.evaluate(() => {
+      // letar efter texten "Kursen får ej ingå i examen tillsammans med"
+      const p = Array.from(document.querySelectorAll("p")).find((el) =>
+        el.textContent.includes("Kursen får ej ingå i examen tillsammans med")
+      );
+
+      if (p) {
+        const text = p.textContent;
+        // returnerar all text efter "med" och tar bort punkt
+        return text
+          .slice(text.indexOf("med") + 4)
+          .trim()
+          .replace(/\.$/, "");
+      } else {
+        return "Ingen överlappning";
+      }
+    });
 
     // lägg till all information i en kurs
     let tempKurs = new Kurs(
@@ -161,7 +189,7 @@ async function scrape(addresses) {
       kurskod,
       huvudomrade,
       utbildningsniva,
-      terminer,
+      termin,
       period,
       block,
       ort,
@@ -174,7 +202,7 @@ async function scrape(addresses) {
     // lägg till kursen i arrayen med alla kurser
     kurser.push(tempKurs);
 
-    console.log(tempKurs);
+    console.log(tempKurs.kurskod + ": " + tempKurs.forkunskaper);
 
     await browser.close();
   }

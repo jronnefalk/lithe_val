@@ -149,7 +149,7 @@ async function scrape(addresses) {
 
         // Avgör typ av element
         if (element.nodeName == "#text") {
-          forkunskaper = h2.nextSibling.textContent.trim();
+          forkunskaper = element.textContent.trim();
         }
         // Om element är en p-tagg
         else {

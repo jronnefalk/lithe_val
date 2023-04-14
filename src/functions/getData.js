@@ -12,5 +12,8 @@ export default function getData(key) {
     kursnamn: result.kursnamn,
     kurskod: result.kurskod,
     block: result.block,
+    utbildningsniva: result.utbildningsniva,
+    hp: result.hp,
+    huvudområde: result.huvudomrade,
   };
 }

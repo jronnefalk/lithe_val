@@ -65,16 +65,33 @@ export function MinSida() {
   }, [currentUser]);
 
   // Count how many courses have utbildningsniva set to 'grundnivå' and 'avancerad'
-  const initialCounts = { grundniva: 0, avancerad: 0, hp: 0 };
+  const initialCounts = {
+    grundniva: 0,
+    avancerad: 0,
+    hp: 0,
+    medieteknik: 0,
+    datateknik: 0,
+  };
 
   const counts = Object.values(courseData).reduce((acc, curr) => {
-    acc.hp = acc.hp + parseInt(curr.hp);
-    console.log(curr.hp);
+    acc.hp += parseInt(curr.hp);
+    console.log(curr.huvudomrade);
+    console.log(curr.utbildningsniva);
+
     if (curr.utbildningsniva === "Grundnivå") {
       acc.grundniva++;
     } else if (curr.utbildningsniva === "Avancerad nivå") {
       acc.avancerad++;
     }
+    const countMedieteknik = curr.huvudomrade.filter(
+      (item) => item === "Medieteknik"
+    ).length;
+    acc.medieteknik += countMedieteknik;
+    const countDatateknik = curr.huvudomrade.filter(
+      (item) => item === "Datateknik"
+    ).length;
+    acc.datateknik += countDatateknik;
+
     return acc;
   }, initialCounts);
 
@@ -85,6 +102,8 @@ export function MinSida() {
         <p>Grundnivå: {counts.grundniva}</p>
         <p>Avancerad nivå: {counts.avancerad}</p>
         <p>hp: {counts.hp}</p>
+        <p>Antal medieteknik: {counts.medieteknik}</p>
+        <p>Antal datateknik: {counts.datateknik}</p>
       </div>
       <h1>My Courses</h1>
       <div>
@@ -94,6 +113,14 @@ export function MinSida() {
             <p>Kurskod: {kurs.kurskod}</p>
             <p>Block: {courseData[kurs.kurskod]?.block}</p>
             <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
+
+            <p>
+              Huvudområde:{" "}
+              {courseData[kurs.kurskod]?.huvudomrade
+                ?.join(" ")
+                .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
+            </p>
+
             <button
               className="Lägg-till-knapp"
               onClick={() => handleDelete(kurs)}

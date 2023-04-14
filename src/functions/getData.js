@@ -14,6 +14,6 @@ export default function getData(key) {
     block: result.block,
     utbildningsniva: result.utbildningsniva,
     hp: result.hp,
-    huvudområde: result.huvudomrade,
+    huvudomrade: result.huvudomrade,
   };
 }

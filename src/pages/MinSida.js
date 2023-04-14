@@ -8,8 +8,12 @@ import { BsTrash3 } from "react-icons/bs";
 
 export function MinSida() {
   const { currentUser } = getAuth();
-  const [kursData, setKursData] = useState([]);
-  const [courseData, setCourseData] = useState({});
+  const [kursData, setKursData] = useState(
+    JSON.parse(localStorage.getItem("kursData")) || []
+  );
+  const [courseData, setCourseData] = useState(
+    JSON.parse(localStorage.getItem("courseData")) || {}
+  );
 
   function handleDelete(kurs) {
     deleteKurs(kurs);
@@ -48,9 +52,13 @@ export function MinSida() {
           );
 
           setCourseData(newCourseData);
+          localStorage.setItem("kursData", JSON.stringify(kursArray));
+          localStorage.setItem("courseData", JSON.stringify(newCourseData));
         } else {
           setKursData([]);
           setCourseData({});
+          localStorage.removeItem("kursData");
+          localStorage.removeItem("courseData");
         }
       });
     }

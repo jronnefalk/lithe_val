@@ -83,13 +83,15 @@ export function MinSida() {
     } else if (curr.utbildningsniva === "Avancerad nivå") {
       acc.avancerad++;
     }
-    const countMedieteknik = curr.huvudomrade.filter(
-      (item) => item === "Medieteknik"
-    ).length;
+    const countMedieteknik =
+      (curr.huvudomrade &&
+        curr.huvudomrade.filter((item) => item === "Medieteknik").length) ||
+      0;
     acc.medieteknik += countMedieteknik;
-    const countDatateknik = curr.huvudomrade.filter(
-      (item) => item === "Datateknik"
-    ).length;
+    const countDatateknik =
+      (curr.huvudomrade &&
+        curr.huvudomrade.filter((item) => item === "Datateknik").length) ||
+      0;
     acc.datateknik += countDatateknik;
 
     return acc;

@@ -17,6 +17,9 @@ import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";
 
+//Styles
+//import { Text } from "./components/styles/Text.styled";
+
 import Filters from "../components/Filters";
 
 export function Start() {
@@ -32,6 +35,7 @@ export function Start() {
         <span className="sök_ikon">
           <BsSearch size={12} />
         </span>
+
         <input
           className="sök_text"
           type="text"

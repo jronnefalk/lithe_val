@@ -9,42 +9,40 @@ import filterKurser from "../functions/filterKurser";
 // Komponenter
 import Kurs from "../components/Kurs";
 
-// inkoner
+// Ikoner
 import { BsSearch } from "react-icons/bs";
 
-//design
+// Design
 import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";
-
 //style
-import {
-  KursCont,
-  KursContWrapper,
-  Cont,
-  SökCont,
-} from "../styles/Container.styled";
-import { SökText } from "../styles/Text.styled";
+import { KursCont, KursContWrapper, Cont } from "../styles/Container.styled";
+
+//Styles
+//import { Text } from "./components/styles/Text.styled";
+
 import Filters from "../components/Filters";
 
 export function Start() {
   const [query, setQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState([]);
-
   const filteredKurser = filterKurser(kurser, query, activeFilters);
 
   return (
     <div className="App">
-      <SökCont>
+      <div className="sök">
         <span className="sök_ikon">
           <BsSearch size={12} />
         </span>
-        <SökText
+
+        <input
+          className="sök_text"
           type="text"
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
-      </SökCont>
+      </div>
 
       <Cont>
         <Filters

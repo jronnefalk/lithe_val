@@ -29,4 +29,9 @@ export const SökText = styled.input`
   width: 90%;
 `;
 
-export const FilterHeader = styled(InfoTitel)``;
+export const FilterHeader = styled(InfoTitel)`
+  font-size: 0.8rem;
+  font-family: "Lato", sans-serif;
+`;
+
+export const FilterText = styled(InfoText)``;

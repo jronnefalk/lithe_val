@@ -3,6 +3,15 @@ import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 import "../design/filter.css";
 
+// Style (text)
+import { FilterHeader, FilterText } from "../styles/Text.styled.js";
+
+//Style (container)
+import { FilterCont, FilterBlock } from "../styles/Container.styled";
+
+//Style (knappar)
+//import { BlockInput } from "../styles/Knappar.styled";
+
 export default function Filters({ activeFilters, setActiveFilters }) {
   const filters = [
     { label: "1", key: "block", value: "1" },
@@ -13,11 +22,11 @@ export default function Filters({ activeFilters, setActiveFilters }) {
     { label: "Termin 8", key: "termin", value: "8" },
     { label: "Termin 9", key: "termin", value: "9" },
     {
-      label: "Avancerad nivå bitch",
+      label: "Avancerad nivå",
       key: "utbildningsniva",
       value: "Avancerad nivå",
     },
-    { label: "Grundnivå bitch", key: "utbildningsniva", value: "Grundnivå" },
+    { label: "Grundnivå", key: "utbildningsniva", value: "Grundnivå" },
 
     { label: "Medieteknik", key: "huvudomrade", value: "Medieteknik" },
     { label: "Datateknik", key: "huvudomrade", value: "Datateknik" },
@@ -61,11 +70,12 @@ export default function Filters({ activeFilters, setActiveFilters }) {
   };
 
   return (
-    <div className="filter">
-      <h1 className="headline-filter"> Block</h1>
-      <div className="filter-section blocks">
+    <FilterCont>
+      <FilterHeader> Block </FilterHeader>
+
+      <FilterBlock>
         {blocks.map((filter) => (
-          <label key={uuidv4()}>
+          <FilterText key={uuidv4()}>
             <input
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
@@ -74,59 +84,13 @@ export default function Filters({ activeFilters, setActiveFilters }) {
               )}
             />
             {filter.label}
-          </label>
+          </FilterText>
         ))}
-      </div>
-      {terminer.map((filter) => (
-        <label key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
-        </label>
-      ))}
-      {utbildningsnivaer.map((filter) => (
-        <label key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
-        </label>
-      ))}
-      {huvudomraden.map((filter) => (
-        <label key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
-        </label>
-      ))}
-      {orter.map((filter) => (
-        <label key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
-        </label>
-      ))}
+      </FilterBlock>
+
+      <FilterHeader> Period </FilterHeader>
       {perioder.map((filter) => (
-        <label key={uuidv4()}>
+        <FilterText key={uuidv4()}>
           <input
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
@@ -135,8 +99,60 @@ export default function Filters({ activeFilters, setActiveFilters }) {
             )}
           />
           {filter.label}
-        </label>
+        </FilterText>
       ))}
-    </div>
+      <FilterHeader> Termin </FilterHeader>
+      {terminer.map((filter) => (
+        <FilterText key={uuidv4()}>
+          <input
+            type="checkbox"
+            onChange={() => handleFilterChange(filter)}
+            checked={activeFilters.some(
+              (f) => f.key === filter.key && f.value === filter.value
+            )}
+          />
+          {filter.label}
+        </FilterText>
+      ))}
+      <FilterHeader> Kursnivå </FilterHeader>
+      {utbildningsnivaer.map((filter) => (
+        <FilterText key={uuidv4()}>
+          <input
+            type="checkbox"
+            onChange={() => handleFilterChange(filter)}
+            checked={activeFilters.some(
+              (f) => f.key === filter.key && f.value === filter.value
+            )}
+          />
+          {filter.label}
+        </FilterText>
+      ))}
+      <FilterHeader> Huvudområde </FilterHeader>
+      {huvudomraden.map((filter) => (
+        <FilterText key={uuidv4()}>
+          <input
+            type="checkbox"
+            onChange={() => handleFilterChange(filter)}
+            checked={activeFilters.some(
+              (f) => f.key === filter.key && f.value === filter.value
+            )}
+          />
+          {filter.label}
+        </FilterText>
+      ))}
+      <FilterHeader> Plats </FilterHeader>
+      {orter.map((filter) => (
+        <FilterText key={uuidv4()}>
+          <input
+            type="checkbox"
+            onChange={() => handleFilterChange(filter)}
+            checked={activeFilters.some(
+              (f) => f.key === filter.key && f.value === filter.value
+            )}
+          />
+          {filter.label}
+        </FilterText>
+      ))}
+    </FilterCont>
   );
 }

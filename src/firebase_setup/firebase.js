@@ -52,6 +52,7 @@ const deleteKurs = (kurs) => {
       })
       .catch((error) => {
         console.log("Error removing kurs:", error.message);
+        console.log("kursRef:", kursRef.toString());
       });
   } else {
     console.log("No user is signed in");

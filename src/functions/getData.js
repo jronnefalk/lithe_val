@@ -1,15 +1,19 @@
 import kurser from "../webscraping/database.json";
 
-function getData(key) {
-  const results = [];
+export default function getData(key) {
+  const result = kurser.find((kurs) => kurs.kurskod === key);
 
-  for (let i = 0; i < kurser.length; i++) {
-    if (kurser[i].kurskod === key) {
-      results.push(kurser[i]);
-      console.log(results);
-    }
+  if (!result) {
+    console.error(`Course ${key} not found`);
+    return null;
   }
-  return results;
-}
 
-export default getData;
+  return {
+    kursnamn: result.kursnamn,
+    kurskod: result.kurskod,
+    block: result.block,
+    utbildningsniva: result.utbildningsniva,
+    hp: result.hp,
+    huvudomrade: result.huvudomrade,
+  };
+}

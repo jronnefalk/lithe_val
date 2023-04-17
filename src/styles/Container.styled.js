@@ -56,10 +56,9 @@ export const MenyCont = styled.div`
   text-decoration: none;
 `;
 export const FilterCont = styled.div`
-  width: 10%;
+  width: 17%;
   padding: 16px;
   margin-right: 5%;
-  margin-left: 2%;
   border: 0.5px solid black;
   border-radius: 20px;
 `;

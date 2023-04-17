@@ -28,3 +28,5 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
+
+export const FilterHeader = styled(InfoTitel)``;

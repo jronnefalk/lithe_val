@@ -45,7 +45,6 @@ export default function Kurs(props) {
   return (
     <>
       <InfoTitel>{kurs.kursnamn}</InfoTitel>
-
       <FirstInfoCont>
         <InfoText>| {kurs.kurskod} </InfoText>
 

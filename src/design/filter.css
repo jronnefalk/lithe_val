@@ -15,16 +15,12 @@
     margin-right: 10rem;
     
 }
-
 .filter-section.blocks label:nth-child(3) {
-    grid-row: 2 / span 1;
-    
+    grid-row: 2 / span 1;  
 }
   
 .filter-section.blocks label:nth-child(1) {
     grid-row: 1 / span 1;
-
-
 }
 
 .filter h1 {

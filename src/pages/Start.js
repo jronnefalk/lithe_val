@@ -17,6 +17,14 @@ import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";
 
+//style
+import {
+  KursCont,
+  KursContWrapper,
+  Cont,
+  SökCont,
+} from "../styles/Container.styled";
+import { SökText } from "../styles/Text.styled";
 import Filters from "../components/Filters";
 
 export function Start() {
@@ -27,32 +35,30 @@ export function Start() {
 
   return (
     <div className="App">
-      <div className="container"></div>
-      <div className="sök">
+      <SökCont>
         <span className="sök_ikon">
           <BsSearch size={12} />
         </span>
-        <input
-          className="sök_text"
+        <SökText
           type="text"
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
-      </div>
+      </SökCont>
 
-      <div className="container">
+      <Cont>
         <Filters
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
         />
-        <div className="course-container-wrapper">
+        <KursContWrapper>
           {filteredKurser.map((kurs) => (
-            <div key={uuidv4()} className="course-container">
+            <KursCont key={uuidv4()}>
               <Kurs key={uuidv4()} kursdata={kurs} />
-            </div>
+            </KursCont>
           ))}
-        </div>
-      </div>
+        </KursContWrapper>
+      </Cont>
     </div>
   );
 }

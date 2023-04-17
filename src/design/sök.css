@@ -1,27 +1,7 @@
-.sök{
-    display: flex;
-    
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
 
-    padding-left: 10px;
-
-    height: 30px;
-    width: 50%;
-
-    border: 0.5px solid black;
-    border-radius: 30px;
-    
-}
 .sök_ikon{
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 5px;
    
-}
-.sök_text{
-    border: none;
-    outline: none;
 }

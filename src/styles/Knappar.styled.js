@@ -6,7 +6,6 @@ export const LäggaTill = styled.button`
   justify-content: right;
   border: none;
   background: none;
-  font-size: 50%;
   position: relative;
   top: -65px;
   left: 650px;

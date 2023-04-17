@@ -6,6 +6,7 @@ import filterKurser from "../functions/filterKurser";
 import Kurs from "../components/Kurs";
 import Filters from "../components/Filters";
 
+// Ikoner
 import { BsSearch } from "react-icons/bs";
 
 import "../design/filter.css";
@@ -22,11 +23,7 @@ import { SökIcont } from "../styles/Knappar.styled";
 
 export function Start() {
   const [query, setQuery] = useState("");
-
-  // Sparar filtervalen mha local storage
-  const [activeFilters, setActiveFilters] = useState(
-    JSON.parse(localStorage.getItem("activeFilters")) || []
-  );
+  const [activeFilters, setActiveFilters] = useState([]);
   const filteredKurser = filterKurser(kurser, query, activeFilters);
 
   useEffect(() => {

@@ -55,3 +55,13 @@ export const MenyCont = styled.div`
   flex-direction: row;
   text-decoration: none;
 `;
+export const FilterCont = styled.div`
+  width: 10%;
+  padding: 16px;
+  margin-right: 5%;
+  margin-left: 2%;
+  border: 0.5px solid black;
+  border-radius: 20px;
+`;
+
+export const FilterBlock = styled.div``;

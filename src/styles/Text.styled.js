@@ -38,3 +38,9 @@ export const LänkText = styled.a`
   font-size: 0.8rem;
   text-decoration: none;
 `;
+export const FilterHeader = styled(InfoTitel)`
+  font-size: 0.8rem;
+  font-family: "Lato", sans-serif;
+`;
+
+export const FilterText = styled(InfoText)``;

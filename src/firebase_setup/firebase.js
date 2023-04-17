@@ -26,7 +26,6 @@ const auth = getAuth();
 
 const saveKurs = (kurs) => {
   const user = auth.currentUser;
-
   if (user) {
     const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
@@ -53,6 +52,7 @@ const deleteKurs = (kurs) => {
       })
       .catch((error) => {
         console.log("Error removing kurs:", error.message);
+        console.log("kursRef:", kursRef.toString());
       });
   } else {
     console.log("No user is signed in");

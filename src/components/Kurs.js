@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 //import { getAuth } from "firebase/auth";
@@ -26,19 +26,26 @@ import { BsTrash3 } from "react-icons/bs";
 export default function Kurs(props) {
   const kurs = props.kursdata;
 
-  const [addkurs, exists] = useState(false);
+  // Sparar info om "lägg till kurs" och "radera kurs" mha localstorage
+  const [addkurs, setAddKurs] = useState(
+    localStorage.getItem(kurs.kurskod) === "true"
+  );
+  const [isReadMore, setIsReadMore] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem(kurs.kurskod, addkurs);
+  }, [addkurs, kurs.kurskod]);
 
   function handleClick() {
     saveKurs(kurs);
-    exists(true);
+    setAddKurs(true);
   }
 
   function handleDelete() {
     deleteKurs(kurs);
-    exists(false);
+    setAddKurs(false);
   }
 
-  const [isReadMore, setIsReadMore] = useState(false);
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };

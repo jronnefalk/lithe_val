@@ -1,18 +1,13 @@
-import { useState } from "react";
-import React from "react";
-import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
+import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-// Data
 import kurser from "../webscraping/database.json";
-// Funktioner
 import filterKurser from "../functions/filterKurser";
-// Komponenter
 import Kurs from "../components/Kurs";
+import Filters from "../components/Filters";
 
-// inkoner
 import { BsSearch } from "react-icons/bs";
 
-//design
 import "../design/filter.css";
 
 //style
@@ -24,13 +19,19 @@ import {
 } from "../styles/Container.styled";
 import { SökText } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
-import Filters from "../components/Filters";
 
 export function Start() {
   const [query, setQuery] = useState("");
-  const [activeFilters, setActiveFilters] = useState([]);
 
+  // Sparar filtervalen mha local storage
+  const [activeFilters, setActiveFilters] = useState(
+    JSON.parse(localStorage.getItem("activeFilters")) || []
+  );
   const filteredKurser = filterKurser(kurser, query, activeFilters);
+
+  useEffect(() => {
+    localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
+  }, [activeFilters]);
 
   return (
     <div className="App">

@@ -1,5 +1,5 @@
 // Externa bibliotek
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";

@@ -20,7 +20,6 @@ import {
   SökCont,
 } from "../styles/Container.styled";
 import { SökText } from "../styles/Text.styled";
-import Filters from "../components/Filters";
 
 export function Start() {
   const [query, setQuery] = useState("");

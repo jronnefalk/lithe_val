@@ -25,8 +25,14 @@ export default function Kurs(props) {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
 
-  function handleClick() {
-    saveKurs(kurs);
+  function handleClick1() {
+    let nr = 0;
+    saveKurs(kurs, nr);
+    setAddKurs(true);
+  }
+  function handleClick2() {
+    let nr = 1;
+    saveKurs(kurs, nr);
     setAddKurs(true);
   }
 
@@ -90,13 +96,26 @@ export default function Kurs(props) {
               <p>Lägg till</p>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
+              <Dropdown.Item className="Lägg-till-text" onClick={handleClick1}>
                 {" "}
-                Termin: {kurs.termin}
+                Termin: {kurs.termin[0]}
               </Dropdown.Item>
+              {kurs.termin.length === 2 && (
+                <>
+                  <Dropdown.Divider />
+                  <Dropdown.Item
+                    className="Lägg-till-text"
+                    onClick={handleClick2}
+                  >
+                    {" "}
+                    Termin: {kurs.termin[1]}
+                  </Dropdown.Item>
+                </>
+              )}
             </Dropdown.Menu>
           </Dropdown>
         )}
+
         {addkurs && (
           <button className="Lägg-till-knapp" onClick={handleDelete}>
             {" "}

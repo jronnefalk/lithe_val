@@ -6,6 +6,10 @@ import { deleteKurs } from "../firebase_setup/firebase.js";
 
 import { BsTrash3 } from "react-icons/bs";
 
+//Style
+import { Progressbar } from "../styles/Visualiseringar.styled";
+import { RubrikProgressbar } from "../styles/Text.styled";
+
 export function MinSida() {
   const { currentUser } = getAuth();
   const [kursData, setKursData] = useState(
@@ -74,7 +78,7 @@ export function MinSida() {
   };
 
   const counts = Object.values(courseData).reduce((acc, curr) => {
-    acc.hp += parseInt(curr.hp);
+    acc.hp += 6;
 
     if (curr.utbildningsniva === "Grundnivå") {
       acc.grundniva++;
@@ -95,17 +99,34 @@ export function MinSida() {
     return acc;
   }, initialCounts);
 
+  const totalStudents = counts.grundniva + counts.avancerad;
+  const grundnivaPercent = Math.round((counts.grundniva / totalStudents) * 100);
+  const avanceradPercent = 100 - grundnivaPercent;
+
   return (
     <div>
       <h1>Visualisering</h1>
       <div>
-        <p>Grundnivå: {counts.grundniva}</p>
-        <p>Avancerad nivå: {counts.avancerad}</p>
-        <p>hp: {counts.hp}</p>
-        <p>Antal medieteknik: {counts.medieteknik}</p>
-        <p>Antal datateknik: {counts.datateknik}</p>
+        <p> {counts.grundniva}</p>
+
+        <div className="Progressbarochrubrik">
+          <RubrikProgressbar>
+            Avancerade kurser: {counts.avancerad}
+          </RubrikProgressbar>
+          <Progressbar value={avanceradPercent} max="10">
+            {avanceradPercent}%
+          </Progressbar>
+          <Progressbar value={grundnivaPercent} max="6">
+            {grundnivaPercent}%
+          </Progressbar>
+        </div>
+
+        <p> {counts.hp}</p>
+        <p> {counts.medieteknik}</p>
+
+        <p> {counts.datateknik}</p>
       </div>
-      <h1>My Courses</h1>
+      <h1>Mina kurser</h1>
       <div>
         {kursData.map((kurs) => (
           <div key={kurs.kurskod}>

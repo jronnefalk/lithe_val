@@ -34,7 +34,7 @@ export default function App() {
       return;
     }
 
-    setFilled((isFilled) => !isFilled);
+    setFilled((isFilled) => true);
   }
 
   function handleClickMyPage() {
@@ -44,7 +44,7 @@ export default function App() {
       return;
     }
 
-    setFilled((isFilled) => !isFilled);
+    setFilled((isFilled) => false);
   }
 
   return (

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 //Text till info om kurser
+
 export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
@@ -17,6 +18,7 @@ export const InfoText2 = styled(InfoText)`
 `;
 //Visa mer knappen
 export const InfoTextKnapp = styled(InfoText)`
+  margin-left: -0.3rem;
   font-size: 50%;
   color: black;
   text-decoration: none;

@@ -15,8 +15,6 @@ import { BsSearch } from "react-icons/bs";
 //design
 import "../design/filter.css";
 
-<<<<<<< Updated upstream
-=======
 //style
 import {
   KursCont,
@@ -26,8 +24,6 @@ import {
 } from "../styles/Container.styled";
 import { SökText } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
-
->>>>>>> Stashed changes
 import Filters from "../components/Filters";
 
 export function Start() {
@@ -38,40 +34,30 @@ export function Start() {
 
   return (
     <div className="App">
-<<<<<<< Updated upstream
-      <div className="container"></div>
-      <div className="sök">
-        <span className="sök_ikon">
-          <BsSearch size={12} />
-        </span>
-        <input
-          className="sök_text"
-=======
       <SökCont>
         <SökIcont>
           <BsSearch size={12} />
         </SökIcont>
         <SökText
->>>>>>> Stashed changes
           type="text"
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
-      </div>
+      </SökCont>
 
-      <div className="container">
+      <Cont>
         <Filters
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
         />
-        <div className="course-container-wrapper">
+        <KursContWrapper>
           {filteredKurser.map((kurs) => (
-            <div key={uuidv4()} className="course-container">
+            <KursCont key={uuidv4()}>
               <Kurs key={uuidv4()} kursdata={kurs} />
-            </div>
+            </KursCont>
           ))}
-        </div>
-      </div>
+        </KursContWrapper>
+      </Cont>
     </div>
   );
 }

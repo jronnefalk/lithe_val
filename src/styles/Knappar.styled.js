@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Dropdown from "react-bootstrap/Dropdown";
 
 //lägga  till kurser knappen
+
 export const LäggaTill = styled.button`
   display: flex;
   flex-direction: column;
@@ -28,4 +29,6 @@ export const SökIcont = styled.span`
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 5px;
+  top: -65px;
+  left: 650px;
 `;

@@ -33,14 +33,20 @@ export const SökText = styled.input`
 `;
 
 //Meny text
-export const LänkText = styled.a`
+export const Titel = styled.h1`
+  color: #317773;
+  font-family: "Futura-Bold", arial;
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: auto;
+  margin-left: 40%;
+`;
+export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.8rem;
-  text-decoration: none;
+  font-size: 0.4rem;
 `;
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
-  font-family: "Lato", sans-serif;
 `;
 
 export const FilterText = styled(InfoText)``;

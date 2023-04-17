@@ -2,8 +2,6 @@
 .start {
   margin-bottom: auto;
   margin-left: 1%;
-
-
 }
 .minasidor {
   margin-left: auto;
@@ -25,12 +23,4 @@ margin-left: 40%;
 
 
 
-.menybar svg {
-  color: black;
-  
-}
-.menybar svg:hover, 
-.menybar svg:hover + .text{
-  color: red;
-}
 

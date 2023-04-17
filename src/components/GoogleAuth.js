@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 //Style
 import { MenyKnapp } from "../styles/Knappar.styled";
-import { InfoText } from "../styles/Text.styled";
+import { MenyText } from "../styles/Text.styled";
 //design
 import "../design/meny.css";
 //ikon
@@ -68,13 +68,13 @@ function GoogleAuth() {
       <div className="loggain">
         {!loggedIn && (
           <MenyKnapp onClick={googleSignin}>
-            <BsPerson size={32} /> <InfoText>Logga in</InfoText>
+            <BsPerson size={32} /> <MenyText>Logga in</MenyText>
           </MenyKnapp>
         )}
         {loggedIn && (
           <MenyKnapp onClick={googleSignout}>
             {" "}
-            <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
+            <BsPersonFill size={32} /> <MenyText>Logga ut</MenyText>
           </MenyKnapp>
         )}
       </div>

@@ -8,8 +8,12 @@ import { BsTrash3 } from "react-icons/bs";
 
 export function MinSida() {
   const { currentUser } = getAuth();
-  const [kursData, setKursData] = useState([]);
-  const [courseData, setCourseData] = useState({});
+  const [kursData, setKursData] = useState(
+    JSON.parse(localStorage.getItem("kursData")) || []
+  );
+  const [courseData, setCourseData] = useState(
+    JSON.parse(localStorage.getItem("courseData")) || {}
+  );
 
   function handleDelete(kurs) {
     deleteKurs(kurs);
@@ -48,16 +52,59 @@ export function MinSida() {
           );
 
           setCourseData(newCourseData);
+          localStorage.setItem("kursData", JSON.stringify(kursArray));
+          localStorage.setItem("courseData", JSON.stringify(newCourseData));
         } else {
           setKursData([]);
           setCourseData({});
+          localStorage.removeItem("kursData");
+          localStorage.removeItem("courseData");
         }
       });
     }
   }, [currentUser]);
 
+  // Count how many courses have utbildningsniva set to 'grundnivå' and 'avancerad'
+  const initialCounts = {
+    grundniva: 0,
+    avancerad: 0,
+    hp: 0,
+    medieteknik: 0,
+    datateknik: 0,
+  };
+
+  const counts = Object.values(courseData).reduce((acc, curr) => {
+    acc.hp += parseInt(curr.hp);
+
+    if (curr.utbildningsniva === "Grundnivå") {
+      acc.grundniva++;
+    } else if (curr.utbildningsniva === "Avancerad nivå") {
+      acc.avancerad++;
+    }
+    const countMedieteknik =
+      (curr.huvudomrade &&
+        curr.huvudomrade.filter((item) => item === "Medieteknik").length) ||
+      0;
+    acc.medieteknik += countMedieteknik;
+    const countDatateknik =
+      (curr.huvudomrade &&
+        curr.huvudomrade.filter((item) => item === "Datateknik").length) ||
+      0;
+    acc.datateknik += countDatateknik;
+
+    return acc;
+  }, initialCounts);
+
   return (
     <div>
+      <h1>Visualisering</h1>
+      <div>
+        <p>Grundnivå: {counts.grundniva}</p>
+        <p>Avancerad nivå: {counts.avancerad}</p>
+        <p>hp: {counts.hp}</p>
+        <p>Antal medieteknik: {counts.medieteknik}</p>
+        <p>Antal datateknik: {counts.datateknik}</p>
+      </div>
       <h1>My Courses</h1>
       <div>
         {kursData.map((kurs) => (
@@ -65,6 +112,15 @@ export function MinSida() {
             <h2>{courseData[kurs.kurskod]?.kursnamn}</h2>
             <p>Kurskod: {kurs.kurskod}</p>
             <p>Block: {courseData[kurs.kurskod]?.block}</p>
+            <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
+
+            <p>
+              Huvudområde:{" "}
+              {courseData[kurs.kurskod]?.huvudomrade
+                ?.join(" ")
+                .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
+            </p>
+
             <button
               className="Lägg-till-knapp"
               onClick={() => handleDelete(kurs)}

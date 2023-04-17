@@ -26,6 +26,7 @@ export function MinSida() {
 
       onValue(kursRef, async (snapshot) => {
         const data = snapshot.val();
+
         if (data) {
           const kursArray = Object.keys(data).map((key) => ({
             kurskod: key,
@@ -37,7 +38,7 @@ export function MinSida() {
           const courseDataArray = await Promise.all(
             kursArray.map(async (kurs) => {
               const data = await getData(kurs.kurskod);
-
+              data.termin = kurs.termin;
               return { [kurs.kurskod]: data };
             })
           );
@@ -52,6 +53,7 @@ export function MinSida() {
           );
 
           setCourseData(newCourseData);
+
           localStorage.setItem("kursData", JSON.stringify(kursArray));
           localStorage.setItem("courseData", JSON.stringify(newCourseData));
         } else {
@@ -72,7 +74,7 @@ export function MinSida() {
     medieteknik: 0,
     datateknik: 0,
   };
-
+  // Visualisering beräkning
   const counts = Object.values(courseData).reduce((acc, curr) => {
     acc.hp += parseInt(curr.hp);
 
@@ -94,7 +96,7 @@ export function MinSida() {
 
     return acc;
   }, initialCounts);
-
+  // mappar ut visualisering och kurserna
   return (
     <div>
       <h1>Visualisering</h1>
@@ -113,7 +115,7 @@ export function MinSida() {
             <p>Kurskod: {kurs.kurskod}</p>
             <p>Block: {courseData[kurs.kurskod]?.block}</p>
             <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
-
+            <p>termin: {courseData[kurs.kurskod]?.termin}</p>
             <p>
               Huvudområde:{" "}
               {courseData[kurs.kurskod]?.huvudomrade

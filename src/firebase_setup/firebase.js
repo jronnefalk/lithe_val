@@ -24,12 +24,12 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-const saveKurs = (kurs) => {
+const saveKurs = (kurs, nr) => {
   const user = auth.currentUser;
   if (user) {
     const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
-    set(kursRef, { Termin: kurs.termin })
+    set(kursRef, { Termin: kurs.termin[nr] })
       .then(() => {
         console.log("Kursen har lagts till");
       })

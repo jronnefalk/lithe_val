@@ -73,10 +73,18 @@ async function scrape(addresses) {
         (el) => el.textContent.includes("Huvudområde")
       );
 
-      let result = h2.nextSibling.textContent.trim().split(" ");
+      let str = h2.nextSibling.textContent.trim();
 
-      if (result[0] == "Inget" && result[1] == "huvudområde") {
+      if (str == "Inget huvudområde") {
         return [];
+      }
+
+      // delar upp strängen i med avseende på stor bokstav
+      const result = str.split(/(?=[A-Z])/);
+
+      // tar bort mellanslag
+      for (let i = 0; i < result.length; i++) {
+        result[i] = result[i].trim();
       }
 
       return result;
@@ -209,7 +217,7 @@ async function scrape(addresses) {
     kurser.push(tempKurs);
 
     console.log(
-      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.forkunskaper
+      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.huvudomrade
     );
 
     await browser.close();

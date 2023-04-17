@@ -1,12 +1,11 @@
 // Externa bibliotek
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //design
 import "./design/meny.css";
-//import React, { useState } from "react";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -14,42 +13,41 @@ import { BsHouseDoor } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
 import { BsFolderFill } from "react-icons/bs";
 
-// Komponenter
-// import googleSignin from "./components/Signup";
-// import googleSignout from "./components/Signup";
+// Komponenter;
 import GoogleAuth from "./components/GoogleAuth";
 
 export default function App() {
-  // Define the state variable for the icon
-  const [isFilled, setFilled] = useState(true);
+  const [isFilled, setFilled] = useState();
 
-  //const [isHomePage, setIsHomePage] = useState(true);
+  //kollar var den är när man uppdaterar sidan
+  useState(() => {
+    if (window.location.pathname === "/") {
+      setFilled(true);
+    } else {
+      setFilled(false);
+    }
+  });
 
-  // Define the click event handler
+  // fyll i husknappen när man klickar på den
   function handleClickHouse() {
-    // Update the state variable to toggle the icon
-
     if (window.location.pathname === "/") {
       return;
     }
-
-    setFilled((isFilled) => !isFilled);
+    setFilled((isFilled) => true);
   }
 
+  // fyll i hemknappen när man klickar på den
   function handleClickMyPage() {
-    // Update the state variable to toggle the icon
-
     if (window.location.pathname === "/minasidor") {
       return;
     }
-
-    setFilled((isFilled) => !isFilled);
+    setFilled((isFilled) => false);
   }
 
   return (
     <>
       <div className="menybar">
-        {/* state={} if we want to pass info */}
+        {}
         <div className="start">
           <Link to="">
             {" "}

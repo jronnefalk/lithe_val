@@ -16,9 +16,15 @@ import { BsSearch } from "react-icons/bs";
 import "../design/filter.css";
 import "../design/kurser.css";
 import "../design/sök.css";
-//style
-import { KursCont, KursContWrapper, Cont } from "../styles/Container.styled";
 
+//style
+import {
+  KursCont,
+  KursContWrapper,
+  Cont,
+  SökCont,
+} from "../styles/Container.styled";
+import { SökText } from "../styles/Text.styled";
 import Filters from "../components/Filters";
 
 export function Start() {
@@ -29,17 +35,16 @@ export function Start() {
 
   return (
     <div className="App">
-      <div className="sök">
+      <SökCont>
         <span className="sök_ikon">
           <BsSearch size={12} />
         </span>
-        <input
-          className="sök_text"
+        <SökText
           type="text"
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}
         />
-      </div>
+      </SökCont>
 
       <Cont>
         <Filters

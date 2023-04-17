@@ -31,3 +31,10 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
+
+//Meny text
+export const LänkText = styled.a`
+  font-family: "Lato", sans-serif;
+  font-size: 0.8rem;
+  text-decoration: none;
+`;

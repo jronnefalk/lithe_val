@@ -6,6 +6,8 @@ import { Start } from "./pages/Start";
 
 //style
 import { MenyCont } from "./styles/Container.styled";
+import { MenyKnapp } from "./styles/Knappar.styled";
+import { InfoText } from "./styles/Text.styled";
 //design
 import "./design/meny.css";
 
@@ -55,15 +57,15 @@ export default function App() {
             {" "}
             <span>
               {" "}
-              <button className="menyknapp" onClick={handleClickHouse}>
+              <MenyKnapp onClick={handleClickHouse}>
                 {isFilled ? (
                   <BsHouseDoorFill size={30} />
                 ) : (
                   <BsHouseDoor size={30} />
                 )}
 
-                <h1 className="text">Startsida</h1>
-              </button>{" "}
+                <InfoText>Startsida</InfoText>
+              </MenyKnapp>{" "}
             </span>
           </Link>
         </div>
@@ -74,10 +76,10 @@ export default function App() {
           <Link to="/minasidor">
             <span>
               {" "}
-              <button className="menyknapp" onClick={handleClickMyPage}>
+              <MenyKnapp onClick={handleClickMyPage}>
                 {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-                <h1 className="text">Min sida</h1>
-              </button>{" "}
+                <InfoText>Min sida</InfoText>
+              </MenyKnapp>{" "}
             </span>
           </Link>
         </div>

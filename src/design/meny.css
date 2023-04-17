@@ -1,12 +1,3 @@
-.menybar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 6 rem;
-  max-width: 100%;
-  flex-direction: row;
-  text-decoration: none;
-}
 
 .start {
   margin-bottom: auto;
@@ -29,24 +20,9 @@ font-size: 40px;
 margin-top: 0;
 margin-bottom: auto;
 margin-left: 40%;
-
-
 }
 
 
-.loggin_knapp {
-  border: none;
-  background: none;
-}
-.text {
-  font-size: 0.5em;
-  color: black;
-}
-
-.menyknapp {
-  background-color: white;
-  border: none;
-}
 
 .menybar svg {
   color: black;
@@ -55,9 +31,5 @@ margin-left: 40%;
 .menybar svg:hover, 
 .menybar svg:hover + .text{
   color: red;
-}
-
-a:link {
-  text-decoration: none;
 }
 

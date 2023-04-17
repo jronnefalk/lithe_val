@@ -5,7 +5,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-
+//Style
+import { MenyKnapp } from "../styles/Knappar.styled";
+import { InfoText } from "../styles/Text.styled";
 //design
 import "../design/meny.css";
 //ikon
@@ -65,15 +67,15 @@ function GoogleAuth() {
     <>
       <div className="loggain">
         {!loggedIn && (
-          <button className="loggin_knapp" onClick={googleSignin}>
-            <BsPerson size={32} /> <h1 className="text">Logga in</h1>
-          </button>
+          <MenyKnapp onClick={googleSignin}>
+            <BsPerson size={32} /> <InfoText>Logga in</InfoText>
+          </MenyKnapp>
         )}
         {loggedIn && (
-          <button className="loggin_knapp" onClick={googleSignout}>
+          <MenyKnapp onClick={googleSignout}>
             {" "}
-            <BsPersonFill size={32} /> <h1 className="text">Logga ut</h1>
-          </button>
+            <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
+          </MenyKnapp>
         )}
       </div>
     </>

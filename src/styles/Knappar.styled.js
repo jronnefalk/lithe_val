@@ -24,6 +24,12 @@ export const LäggaTillDroppD = styled(Dropdown.Toggle)`
   margin-left: 94%;
 `;
 
+//Meny
+export const MenyKnapp = styled.button`
+  border: none;
+  background: none;
+`;
+
 //Ikone
 export const SökIcont = styled.span`
   margin-top: auto;

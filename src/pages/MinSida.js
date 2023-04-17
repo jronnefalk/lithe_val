@@ -75,8 +75,6 @@ export function MinSida() {
 
   const counts = Object.values(courseData).reduce((acc, curr) => {
     acc.hp += parseInt(curr.hp);
-    console.log(curr.huvudomrade);
-    console.log(curr.utbildningsniva);
 
     if (curr.utbildningsniva === "Grundnivå") {
       acc.grundniva++;

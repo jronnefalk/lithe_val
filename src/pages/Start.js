@@ -14,9 +14,20 @@ import { BsSearch } from "react-icons/bs";
 
 //design
 import "../design/filter.css";
-import "../design/kurser.css";
-import "../design/sök.css";
 
+<<<<<<< Updated upstream
+=======
+//style
+import {
+  KursCont,
+  KursContWrapper,
+  Cont,
+  SökCont,
+} from "../styles/Container.styled";
+import { SökText } from "../styles/Text.styled";
+import { SökIcont } from "../styles/Knappar.styled";
+
+>>>>>>> Stashed changes
 import Filters from "../components/Filters";
 
 export function Start() {
@@ -27,6 +38,7 @@ export function Start() {
 
   return (
     <div className="App">
+<<<<<<< Updated upstream
       <div className="container"></div>
       <div className="sök">
         <span className="sök_ikon">
@@ -34,6 +46,13 @@ export function Start() {
         </span>
         <input
           className="sök_text"
+=======
+      <SökCont>
+        <SökIcont>
+          <BsSearch size={12} />
+        </SökIcont>
+        <SökText
+>>>>>>> Stashed changes
           type="text"
           placeholder="Sök"
           onChange={(event) => setQuery(event.target.value)}

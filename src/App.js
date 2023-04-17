@@ -4,9 +4,10 @@ import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
+//style
+import { MenyCont } from "./styles/Container.styled";
 //design
 import "./design/meny.css";
-//import React, { useState } from "react";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -48,7 +49,7 @@ export default function App() {
 
   return (
     <>
-      <div className="menybar">
+      <MenyCont>
         {/* state={} if we want to pass info */}
         <div className="start">
           <Link to="">
@@ -82,7 +83,7 @@ export default function App() {
           </Link>
         </div>
         <GoogleAuth />
-      </div>
+      </MenyCont>
 
       <Routes>
         <Route path="/" element={<Start />} />

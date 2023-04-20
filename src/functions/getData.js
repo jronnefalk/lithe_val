@@ -15,5 +15,6 @@ export default function getData(key) {
     utbildningsniva: result.utbildningsniva,
     hp: result.hp,
     huvudomrade: result.huvudomrade,
+    termin: result.termin,
   };
 }

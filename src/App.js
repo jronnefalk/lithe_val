@@ -7,7 +7,7 @@ import { Start } from "./pages/Start";
 //style
 import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
 import { MenyKnapp } from "./styles/Knappar.styled";
-import { InfoText, Titel, MenyText } from "./styles/Text.styled";
+import { Titel, MenyText } from "./styles/Text.styled";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -60,7 +60,7 @@ export default function App() {
                 <BsHouseDoor size={30} />
               )}
 
-              <InfoText>Startsida</InfoText>
+              <MenyText>Startsida</MenyText>
             </MenyKnapp>{" "}
           </span>
         </Link>

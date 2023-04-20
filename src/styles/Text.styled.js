@@ -39,11 +39,11 @@ export const Titel = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   margin-top: 0%;
-  margin-left: 37%;
+  margin-left: 39%;
 `;
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.4rem;
+  font-size: 0.6rem;
 `;
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;

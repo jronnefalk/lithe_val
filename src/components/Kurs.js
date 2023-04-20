@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
-import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
+import { getAuth } from "firebase/auth";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -11,10 +11,10 @@ import { AiOutlineUp } from "react-icons/ai";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BsFolderPlus } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
-//import { updateCurrentUser } from "firebase/auth";
 
 export default function Kurs(props) {
   const kurs = props.kursdata;
+  const { currentUser } = getAuth();
 
   // Sparar info om "lägg till kurs" och "radera kurs" mha localstorage
   const [addkurs, setAddKurs] = useState(
@@ -26,15 +26,15 @@ export default function Kurs(props) {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
 
-  function handleUser() {
-    const { currentUser } = getAuth();
-    console.log(currentUser);
-  }
   function handleClick() {
-    saveKurs(kurs);
-    setAddKurs(true);
+    if (!currentUser) {
+      alert("Please log in to add a course!");
+      return;
+    } else {
+      saveKurs(kurs);
+      setAddKurs(true);
+    }
   }
-
   function handleDelete() {
     deleteKurs(kurs);
     setAddKurs(false);
@@ -43,7 +43,6 @@ export default function Kurs(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>
@@ -90,20 +89,16 @@ export default function Kurs(props) {
 
         {!addkurs && (
           <Dropdown>
-            <Dropdown.Toggle className="Lägg-till-knapp" onClick={handleUser}>
+            <Dropdown.Toggle className="Lägg-till-knapp">
               <BsFolderPlus size={20} />
               <p>Lägg till</p>
             </Dropdown.Toggle>
-            {currentUser ? (
-              <Dropdown.Menu>
-                <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
-                  {" "}
-                  Termin: {kurs.termin}
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            ) : (
-              console.log("inte inloggad")
-            )}
+            <Dropdown.Menu>
+              <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
+                {" "}
+                Termin: {kurs.termin}
+              </Dropdown.Item>
+            </Dropdown.Menu>
           </Dropdown>
         )}
         {addkurs && (

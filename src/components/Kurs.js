@@ -23,12 +23,13 @@ export default function Kurs(props) {
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
-
+  //sparar om man väljer termin 7 eller 8
   function handleClick1() {
     let nr = 0;
     saveKurs(kurs, nr);
     setAddKurs(true);
   }
+  //sparar om man väljer termin 9
   function handleClick2() {
     let nr = 1;
     saveKurs(kurs, nr);

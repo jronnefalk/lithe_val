@@ -33,11 +33,6 @@ export const SökText = styled.input`
 `;
 
 //Meny text
-export const LänkText = styled.a`
-  font-family: "Lato", sans-serif;
-  font-size: 0.8rem;
-  text-decoration: none;
-`;
 
 export const Titel = styled.h1`
   color: #317773;
@@ -46,3 +41,12 @@ export const Titel = styled.h1`
   margin-top: 0%;
   margin-left: 37%;
 `;
+export const MenyText = styled.p`
+  font-family: "Lato", sans-serif;
+  font-size: 0.4rem;
+`;
+export const FilterHeader = styled(InfoTitel)`
+  font-size: 0.8rem;
+`;
+
+export const FilterText = styled(InfoText)``;

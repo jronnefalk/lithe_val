@@ -66,3 +66,14 @@ export const MinaSidorCont = styled.div`
   margin-left: auto;
   margin-right: 2%;
 `;
+
+//Filter
+export const FilterCont = styled.div`
+  width: 17%;
+  padding: 16px;
+  margin-right: 5%;
+  border: 0.5px solid black;
+  border-radius: 20px;
+`;
+
+export const FilterBlock = styled.div``;

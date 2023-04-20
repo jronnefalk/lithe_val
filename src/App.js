@@ -73,7 +73,7 @@ export default function App() {
               {" "}
               <MenyKnapp onClick={handleClickMyPage}>
                 {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-                <InfoText>Min sida</InfoText>
+                <MenyText>Min sida</MenyText>
               </MenyKnapp>{" "}
             </span>
           </Link>

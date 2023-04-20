@@ -9,9 +9,11 @@ import { BsTrash3 } from "react-icons/bs";
 export function MinSida() {
   // skapar variabler för att spara data i
   const { currentUser } = getAuth();
+  // Kursdata innehåller sparade kurskod och termin där indexen är 0,1,2 osv
   const [kursData, setKursData] = useState(
     JSON.parse(localStorage.getItem("kursData")) || []
   );
+  // courseData innehåller alla kursers information från getData() med index i kurskod
   const [courseData, setCourseData] = useState(
     JSON.parse(localStorage.getItem("courseData")) || {}
   );
@@ -31,6 +33,7 @@ export function MinSida() {
     }
   }
   // hämtar data från firebase och lägger in i variablerna
+
   useEffect(() => {
     if (currentUser) {
       const db = getDatabase();

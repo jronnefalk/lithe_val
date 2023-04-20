@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
-//import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
+import { getAuth } from "firebase/auth";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -14,6 +14,7 @@ import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
   const kurs = props.kursdata;
+  const { currentUser } = getAuth();
 
   // Sparar info om "lägg till kurs" och "radera kurs" mha localstorage
   const [addkurs, setAddKurs] = useState(
@@ -26,14 +27,24 @@ export default function Kurs(props) {
   }, [addkurs, kurs.kurskod]);
 
   function handleClick1() {
-    let nr = 0;
-    saveKurs(kurs, nr);
-    setAddKurs(true);
+    if (!currentUser) {
+      alert("Please log in to add a course!");
+      return;
+    } else {
+      let nr = 0;
+      saveKurs(kurs, nr);
+      setAddKurs(true);
+    }
   }
   function handleClick2() {
-    let nr = 1;
-    saveKurs(kurs, nr);
-    setAddKurs(true);
+    if (!currentUser) {
+      alert("Please log in to add a course!");
+      return;
+    } else {
+      let nr = 1;
+      saveKurs(kurs, nr);
+      setAddKurs(true);
+    }
   }
 
   function handleDelete() {
@@ -44,7 +55,6 @@ export default function Kurs(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-
   return (
     <>
       <h1 className="kursnamn">{kurs.kursnamn}</h1>

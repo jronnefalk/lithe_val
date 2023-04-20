@@ -7,6 +7,7 @@ import { deleteKurs } from "../firebase_setup/firebase.js";
 import { BsTrash3 } from "react-icons/bs";
 
 export function MinSida() {
+  // skapar variabler för att spara data i
   const { currentUser } = getAuth();
   const [kursData, setKursData] = useState(
     JSON.parse(localStorage.getItem("kursData")) || []
@@ -14,7 +15,7 @@ export function MinSida() {
   const [courseData, setCourseData] = useState(
     JSON.parse(localStorage.getItem("courseData")) || {}
   );
-
+  // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
     deleteKurs(kurs);
   }
@@ -29,7 +30,7 @@ export function MinSida() {
       setCourseData(updatedCourseData);
     }
   }
-
+  // hämtar data från firebase och lägger in i variablerna
   useEffect(() => {
     if (currentUser) {
       const db = getDatabase();
@@ -134,7 +135,7 @@ export function MinSida() {
                 .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
             </p>
 
-            <button
+            <button // delete knapp
               className="Lägg-till-knapp"
               onClick={() => handleDelete(kurs)}
             >
@@ -144,7 +145,7 @@ export function MinSida() {
             </button>
 
             {courseData[kurs.kurskod]?.termin !== "8" && (
-              <button
+              <button // om terminen inte är 8 visas flytta-knappen
                 className="Lägg-till-knapp"
                 onClick={() => handleMove(kurs)}
               >

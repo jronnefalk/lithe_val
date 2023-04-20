@@ -38,6 +38,7 @@ const saveKurs = (kurs, nr) => {
       });
   } else {
     console.log("No user is signed in");
+    alert("Du måste logga in för att lägga till en kurs.");
   }
 };
 

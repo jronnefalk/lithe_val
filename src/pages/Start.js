@@ -9,8 +9,6 @@ import Filters from "../components/Filters";
 // Ikoner
 import { BsSearch } from "react-icons/bs";
 
-import "../design/filter.css";
-
 //style
 import {
   KursCont,

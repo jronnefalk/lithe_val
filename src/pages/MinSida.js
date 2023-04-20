@@ -3,7 +3,6 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
 import { deleteKurs } from "../firebase_setup/firebase.js";
-
 import { BsTrash3 } from "react-icons/bs";
 
 export function MinSida() {

@@ -21,6 +21,7 @@ export default function Kurs(props) {
     localStorage.getItem(kurs.kurskod) === "true"
   );
   const [isReadMore, setIsReadMore] = useState(false);
+  const [showOverlapping, setShowOverlapping] = useState(false); // överlappningspopup
 
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
@@ -29,21 +30,19 @@ export default function Kurs(props) {
   function handleClick() {
     saveKurs(kurs);
     setAddKurs(true);
-    setShowPopup(!showPopup); // redigera så att den inte bara switchar mellan två lägen
+    if (kurs.kurskod === "THEN09") {
+      setShowOverlapping(true);
+    }
   }
 
   function handleDelete() {
     deleteKurs(kurs);
     setAddKurs(false);
-    setShowPopup(!showPopup);
   }
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-
-  // För Överlappningspopup
-  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
@@ -140,11 +139,8 @@ export default function Kurs(props) {
           </a>
         )}
 
-        {showPopup && (
-          <OverlappningPopup
-            showPopup={showPopup}
-            setShowPopup={setShowPopup}
-          />
+        {showOverlapping && (
+          <OverlappningPopup setShowOverlapping={setShowOverlapping} />
         )}
       </div>
     </>

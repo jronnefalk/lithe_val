@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function OverlappningPopup({ showPopup, setShowPopup }) {
+export default function OverlappningPopup({ setShowOverlapping }) {
   const popupStyle = {
     position: "fixed",
     top: "0",
@@ -13,6 +13,7 @@ export default function OverlappningPopup({ showPopup, setShowPopup }) {
     alignItems: "center",
     zIndex: "9999",
   };
+
   const messageStyle = {
     fontSize: "1.5rem",
     textAlign: "center",
@@ -32,11 +33,8 @@ export default function OverlappningPopup({ showPopup, setShowPopup }) {
   };
 
   function handlePopup() {
-    setShowPopup(!showPopup);
+    setShowOverlapping(false);
   }
-
-  //   style={popupStyle}
-  //   style={messageStyle}
 
   return (
     <div style={popupStyle}>

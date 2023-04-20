@@ -4,32 +4,10 @@
   margin-left: 1%;
 
 }
-.minasidor {
-  margin-left: auto;
-  margin-right: 2%;
-  margin-bottom: auto;
-}
+
 .loggain {
   margin-right: 1%;
   margin-bottom: auto;
 }
-.rubrik{
-color: #317773;
-font-family: 'Futura-Bold', arial;
-font-size: 40px;
-margin-top: 0;
-margin-bottom: auto;
-margin-left: 40%;
-}
 
-
-
-.menybar svg {
-  color: black;
-  
-}
-.menybar svg:hover, 
-.menybar svg:hover + .text{
-  color: red;
-}
 

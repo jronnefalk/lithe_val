@@ -38,3 +38,11 @@ export const LänkText = styled.a`
   font-size: 0.8rem;
   text-decoration: none;
 `;
+
+export const Titel = styled.h1`
+  color: #317773;
+  font-family: "Futura-Bold", arial;
+  font-size: 40px;
+  margin-top: 0%;
+  margin-left: 37%;
+`;

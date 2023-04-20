@@ -8,8 +8,7 @@ import {
 //Style
 import { MenyKnapp } from "../styles/Knappar.styled";
 import { InfoText } from "../styles/Text.styled";
-//design
-import "../design/meny.css";
+
 //ikon
 import { BsPerson } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
@@ -65,19 +64,17 @@ function GoogleAuth() {
 
   return (
     <>
-      <div className="loggain">
-        {!loggedIn && (
-          <MenyKnapp onClick={googleSignin}>
-            <BsPerson size={32} /> <InfoText>Logga in</InfoText>
-          </MenyKnapp>
-        )}
-        {loggedIn && (
-          <MenyKnapp onClick={googleSignout}>
-            {" "}
-            <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
-          </MenyKnapp>
-        )}
-      </div>
+      {!loggedIn && (
+        <MenyKnapp onClick={googleSignin}>
+          <BsPerson size={32} /> <InfoText>Logga in</InfoText>
+        </MenyKnapp>
+      )}
+      {loggedIn && (
+        <MenyKnapp onClick={googleSignout}>
+          {" "}
+          <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
+        </MenyKnapp>
+      )}
     </>
   );
 }

@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
-import { deleteKurs } from "../firebase_setup/firebase.js";
+import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 
 import { BsTrash3 } from "react-icons/bs";
 
 export function MinSida() {
   // skapar variabler för att spara data i
   const { currentUser } = getAuth();
-  // Kursdata innehåller sparade kurskod och termin där indexen är 0,1,2 osv
+  // Kursdata innehåller kurser från firebase sparade kurskod och termin där indexen är 0,1,2 osv
   const [kursData, setKursData] = useState(
     JSON.parse(localStorage.getItem("kursData")) || []
   );
@@ -29,13 +29,20 @@ export function MinSida() {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
       (term) => term !== courseData[kurs.kurskod]?.termin
     );
+
     if (availableTerms.length > 0) {
+      moveKurs(kurs, availableTerms[0]);
       const newTerm = availableTerms[0];
-      const updatedCourseData = { ...courseData };
-      updatedCourseData[kurs.kurskod].termin = newTerm;
-      setCourseData(updatedCourseData);
+      const updatedKursData = [...kursData];
+      const index = updatedKursData.findIndex(
+        (k) => k.kurskod === kurs.kurskod
+      );
+      updatedKursData[index] = { ...kurs, termin: newTerm };
+
+      setKursData(updatedKursData);
     }
   }
+
   // hämtar data från firebase och lägger in i variablerna
 
   useEffect(() => {

@@ -16,7 +16,11 @@ export function MinSida() {
   );
 
   function handleDelete(kurs) {
+    // Remove the kurs from the database
     deleteKurs(kurs);
+
+    // Update the kursData state variable
+    setKursData(kursData.filter((k) => k.kurskod !== kurs.kurskod));
   }
 
   useEffect(() => {

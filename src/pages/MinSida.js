@@ -9,6 +9,10 @@ import { BsTrash3 } from "react-icons/bs";
 //Style
 import { Progressbar } from "../styles/Visualiseringar.styled";
 import { RubrikProgressbar } from "../styles/Text.styled";
+import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
+import { Cirkel } from "../styles/Visualiseringar.styled";
+import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
+import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
 
 export function MinSida() {
   const { currentUser } = getAuth();
@@ -78,7 +82,7 @@ export function MinSida() {
   };
 
   const counts = Object.values(courseData).reduce((acc, curr) => {
-    acc.hp += 6;
+    acc.hp += parseInt(curr.hp);
 
     if (curr.utbildningsniva === "Grundnivå") {
       acc.grundniva++;
@@ -100,34 +104,35 @@ export function MinSida() {
   }, initialCounts);
 
   const totalStudents = counts.grundniva + counts.avancerad;
-  const grundnivaPercent = Math.round((counts.grundniva / totalStudents) * 100);
-  const avanceradPercent = 100 - grundnivaPercent;
+  const avanceradPercent = Math.round(counts.avancerad);
+  const medieteknikPercent = Math.round(counts.medieteknik);
+  const datateknikPercent = Math.round(counts.datateknik);
+  const hpPercent = Math.round(counts.hp);
 
   return (
-    <div>
+    <>
       <h1>Visualisering</h1>
-      <div>
-        <p> {counts.grundniva}</p>
 
-        <div className="Progressbarochrubrik">
-          <RubrikProgressbar>
-            Avancerade kurser: {counts.avancerad}
-          </RubrikProgressbar>
-          <Progressbar value={avanceradPercent} max="10">
-            {avanceradPercent}%
-          </Progressbar>
-          <Progressbar value={grundnivaPercent} max="6">
-            {grundnivaPercent}%
-          </Progressbar>
-        </div>
+      <Progressbarochrubrik>
+        <RubrikProgressbar>
+          Avancerade kurser: {counts.avancerad}
+        </RubrikProgressbar>
+        <Progressbar value={avanceradPercent} max="10"></Progressbar>
+        <RubrikProgressbar>
+          Poäng inom medieteknik: {counts.medieteknik}
+        </RubrikProgressbar>
+        <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+        <RubrikProgressbar>
+          Poäng inom datateknik: {counts.datateknik}
+        </RubrikProgressbar>
+        <Progressbar value={datateknikPercent} max="6"></Progressbar>
+      </Progressbarochrubrik>
 
-        <p> {counts.hp}</p>
-        <p> {counts.medieteknik}</p>
+      <CirkelRubrikMinakurser>
+        <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
+        <Cirkel value={hpPercent} max="90"></Cirkel>
 
-        <p> {counts.datateknik}</p>
-      </div>
-      <h1>Mina kurser</h1>
-      <div>
+        <h1>Mina kurser</h1>
         {kursData.map((kurs) => (
           <div key={kurs.kurskod}>
             <h2>{courseData[kurs.kurskod]?.kursnamn}</h2>
@@ -152,7 +157,7 @@ export function MinSida() {
             </button>
           </div>
         ))}
-      </div>
-    </div>
+      </CirkelRubrikMinakurser>
+    </>
   );
 }

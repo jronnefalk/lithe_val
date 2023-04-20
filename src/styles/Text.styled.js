@@ -29,7 +29,8 @@ export const SökText = styled.input`
   width: 90%;
 `;
 export const RubrikProgressbar = styled(InfoTitel)`
-  width: 40%;
   float: right;
-  margin-right: 5%;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: row;
 `;

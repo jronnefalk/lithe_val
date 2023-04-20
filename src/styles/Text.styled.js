@@ -32,15 +32,18 @@ export const SökText = styled.input`
   width: 90%;
 `;
 
-//Meny text
+// Meny text
 export const LänkText = styled.a`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
   text-decoration: none;
 `;
+
+// Block, Period, Ort.... rubrik
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
   font-family: "Lato", sans-serif;
 `;
 
+// Checkboxarna
 export const FilterText = styled(InfoText)``;

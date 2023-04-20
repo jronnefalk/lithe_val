@@ -54,7 +54,20 @@ export const MenyCont = styled.div`
   max-width: 100%;
   flex-direction: row;
   text-decoration: none;
+
+  svg:hover {
+    color: red;
+  }
+  svg:hover + .text {
+    color: red;
+  }
 `;
+export const MinaSidorCont = styled.div`
+  margin-left: auto;
+  margin-right: 2%;
+`;
+
+//Filter
 export const FilterCont = styled.div`
   width: 17%;
   padding: 16px;

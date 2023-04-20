@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
-//import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
 
@@ -14,7 +13,7 @@ import {
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
 
-import { LäggaTill, LäggaTillDroppD } from "../styles/Knappar.styled.js";
+import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -35,9 +34,16 @@ export default function Kurs(props) {
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
-
-  function handleClick() {
-    saveKurs(kurs);
+  //sparar om man väljer termin 7 eller 8
+  function handleClick1() {
+    let nr = 0;
+    saveKurs(kurs, nr);
+    setAddKurs(true);
+  }
+  //sparar om man väljer termin 9
+  function handleClick2() {
+    let nr = 1;
+    saveKurs(kurs, nr);
     setAddKurs(true);
   }
 
@@ -49,7 +55,6 @@ export default function Kurs(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-
   return (
     <>
       <InfoTitel>{kurs.kursnamn}</InfoTitel>
@@ -95,24 +100,36 @@ export default function Kurs(props) {
       {!addkurs && (
         <Dropdown>
           <LäggaTillDroppD>
-            {" "}
             <BsFolderPlus size={20} />
             <InfoTextKnapp>Lägg till</InfoTextKnapp>
           </LäggaTillDroppD>
           <Dropdown.Menu>
-            <Dropdown.Item onClick={handleClick}>
+            <Dropdown.Item className="Lägg-till-text" onClick={handleClick1}>
               {" "}
-              <InfoTextKnapp>Termin: {kurs.termin}</InfoTextKnapp>
+              <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
             </Dropdown.Item>
+            {kurs.termin.length === 2 && (
+              <>
+                <Dropdown.Divider />
+                <Dropdown.Item
+                  className="Lägg-till-text"
+                  onClick={handleClick2}
+                >
+                  {" "}
+                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                </Dropdown.Item>
+              </>
+            )}
           </Dropdown.Menu>
         </Dropdown>
       )}
+
       {addkurs && (
-        <LäggaTill onClick={handleDelete}>
-          {""}
+        <TaBort onClick={handleDelete}>
+          {" "}
           <BsTrash3 size={20} />
           <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
-        </LäggaTill>
+        </TaBort>
       )}
 
       <span onClick={toggleReadMore} className="read-or-hide">

@@ -3,25 +3,34 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 //lägga  till kurser knappen
 
-export const LäggaTill = styled.button`
+export const TaBort = styled.button`
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  align-items: center;
   border: none;
   background: none;
   position: relative;
   top: -100px;
   margin-left: 94%;
+
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
 `;
 export const LäggaTillDroppD = styled(Dropdown.Toggle)`
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  align-items: baseline;
   border: none;
   background: none;
   position: relative;
   top: -100px;
   margin-left: 94%;
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
 `;
 
 //Meny

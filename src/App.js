@@ -5,11 +5,9 @@ import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //style
-import { MenyCont } from "./styles/Container.styled";
+import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
 import { MenyKnapp } from "./styles/Knappar.styled";
-import { InfoText } from "./styles/Text.styled";
-//design
-import "./design/meny.css";
+import { Titel, MenyText } from "./styles/Text.styled";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -51,38 +49,35 @@ export default function App() {
   return (
     <>
       <MenyCont>
-        {/* state={} if we want to pass info */}
-        <div className="start">
-          <Link to="">
+        <Link to="">
+          {" "}
+          <span>
             {" "}
-            <span>
-              {" "}
-              <MenyKnapp onClick={handleClickHouse}>
-                {isFilled ? (
-                  <BsHouseDoorFill size={30} />
-                ) : (
-                  <BsHouseDoor size={30} />
-                )}
+            <MenyKnapp onClick={handleClickHouse}>
+              {isFilled ? (
+                <BsHouseDoorFill size={30} />
+              ) : (
+                <BsHouseDoor size={30} />
+              )}
 
-                <InfoText>Startsida</InfoText>
-              </MenyKnapp>{" "}
-            </span>
-          </Link>
-        </div>
+              <MenyText>Startsida</MenyText>
+            </MenyKnapp>{" "}
+          </span>
+        </Link>
 
-        <h1 className="rubrik">LITHEVAL</h1>
+        <Titel>LITHEVAL</Titel>
 
-        <div className="minasidor">
+        <MinaSidorCont>
           <Link to="/minasidor">
             <span>
               {" "}
               <MenyKnapp onClick={handleClickMyPage}>
                 {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-                <InfoText>Min sida</InfoText>
+                <MenyText>Min sida</MenyText>
               </MenyKnapp>{" "}
             </span>
           </Link>
-        </div>
+        </MinaSidorCont>
         <GoogleAuth />
       </MenyCont>
 

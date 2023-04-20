@@ -7,9 +7,8 @@ import {
 } from "firebase/auth";
 //Style
 import { MenyKnapp } from "../styles/Knappar.styled";
-import { InfoText } from "../styles/Text.styled";
-//design
-import "../design/meny.css";
+import { MenyText } from "../styles/Text.styled";
+
 //ikon
 import { BsPerson } from "react-icons/bs";
 import { BsPersonFill } from "react-icons/bs";
@@ -33,21 +32,19 @@ function GoogleAuth() {
     provider.setCustomParameters({ prompt: "select_account" });
     signInWithPopup(auth, provider)
       .then(function (result) {
-        //const credential = GoogleAuthProvider.credentialFromResult(result);
-        //var token = credential.accessToken;
-        //console.log(token);
         setLoggedIn(true);
-        //var user = result.user;
-        //console.log(user);
+        setTimeout(() => {
+          googleSignout();
+        }, 7200000); // sign out after 2 hours
       })
       .catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-
         console.log(errorCode);
         console.log(errorMessage);
       });
   }
+
   function googleSignout() {
     if (auth.currentUser) {
       signOut(auth)
@@ -65,19 +62,17 @@ function GoogleAuth() {
 
   return (
     <>
-      <div className="loggain">
-        {!loggedIn && (
-          <MenyKnapp onClick={googleSignin}>
-            <BsPerson size={32} /> <InfoText>Logga in</InfoText>
-          </MenyKnapp>
-        )}
-        {loggedIn && (
-          <MenyKnapp onClick={googleSignout}>
-            {" "}
-            <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
-          </MenyKnapp>
-        )}
-      </div>
+      {!loggedIn && (
+        <MenyKnapp onClick={googleSignin}>
+          <BsPerson size={32} /> <MenyText>Logga in</MenyText>
+        </MenyKnapp>
+      )}
+      {loggedIn && (
+        <MenyKnapp onClick={googleSignout}>
+          {" "}
+          <BsPersonFill size={32} /> <MenyText>Logga ut</MenyText>
+        </MenyKnapp>
+      )}
     </>
   );
 }

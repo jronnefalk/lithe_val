@@ -16,9 +16,9 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
-//Visa mer knappen
+
+//Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  margin-left: -0.3rem;
   font-size: 50%;
   color: black;
   text-decoration: none;
@@ -33,16 +33,22 @@ export const SökText = styled.input`
 `;
 
 // Meny text
-export const LänkText = styled.a`
+
+export const Titel = styled.h1`
+  color: #317773;
+  font-family: "Futura-Bold", arial;
+  font-size: 40px;
+  margin-top: 0%;
+  margin-left: 39%;
+`;
+export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.8rem;
-  text-decoration: none;
+  font-size: 0.6rem;
 `;
 
 // Block, Period, Ort.... rubrik
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
-  font-family: "Lato", sans-serif;
 `;
 
 // Checkboxarna

@@ -24,7 +24,7 @@ export function MinSida() {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
       (term) => term !== courseData[kurs.kurskod]?.termin
     );
-    console.log("gammal: ", kursData);
+
     if (availableTerms.length > 0) {
       moveKurs(kurs, availableTerms[0]);
       const newTerm = availableTerms[0];
@@ -33,7 +33,7 @@ export function MinSida() {
         (k) => k.kurskod === kurs.kurskod
       );
       updatedKursData[index] = { ...kurs, termin: newTerm };
-      console.log("ny: ", updatedKursData);
+
       setKursData(updatedKursData);
     }
   }

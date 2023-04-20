@@ -447,7 +447,7 @@
     ]
   },
   {
-    "kursnamn": "Retorik i tal",
+    "kursnamn": "Retorik i tal, text och bild",
     "hp": "6",
     "kurskod": "TNKA10",
     "huvudomrade": ["Grafisk design och kommunikation"],
@@ -783,7 +783,7 @@
     ]
   },
   {
-    "kursnamn": "Artificiell intelligens för interaktiv media",
+    "kursnamn": "Artificiell intelligens för interaktiv media, projektkurs",
     "hp": "6",
     "kurskod": "TNM114",
     "huvudomrade": [

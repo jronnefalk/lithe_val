@@ -19,7 +19,11 @@ export function MinSida() {
   );
   // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
+    // Remove the kurs from the database
     deleteKurs(kurs);
+
+    // Update the kursData state variable
+    setKursData(kursData.filter((k) => k.kurskod !== kurs.kurskod));
   }
   function handleMove(kurs) {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(

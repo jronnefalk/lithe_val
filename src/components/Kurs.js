@@ -4,6 +4,7 @@ import "firebase/compat/database";
 //import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
+import OverlappningPopup from "./OverlappningPopup";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -28,16 +29,21 @@ export default function Kurs(props) {
   function handleClick() {
     saveKurs(kurs);
     setAddKurs(true);
+    setShowPopup(!showPopup); // redigera så att den inte bara switchar mellan två lägen
   }
 
   function handleDelete() {
     deleteKurs(kurs);
     setAddKurs(false);
+    setShowPopup(!showPopup);
   }
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+
+  // För Överlappningspopup
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
@@ -132,6 +138,13 @@ export default function Kurs(props) {
             {" "}
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
           </a>
+        )}
+
+        {showPopup && (
+          <OverlappningPopup
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
+          />
         )}
       </div>
     </>

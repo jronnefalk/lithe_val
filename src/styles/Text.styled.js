@@ -16,9 +16,9 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
-//Visa mer knappen
+
+//Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  margin-left: -0.3rem;
   font-size: 50%;
   color: black;
   text-decoration: none;

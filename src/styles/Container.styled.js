@@ -26,7 +26,7 @@ export const KursContWrapper = styled.div`
   width: 51%;
 `;
 export const KursCont = styled.div`
-  margin-bottom: 3%; /* add margin between course containers */
+  margin-bottom: 3%;
   padding: 16px;
   border: 0.5px solid black;
   border-radius: 20px;
@@ -76,4 +76,10 @@ export const FilterCont = styled.div`
   border-radius: 20px;
 `;
 
-export const FilterBlock = styled.div``;
+export const FilterBlock = styled.div`
+  display: grid;
+  grid-template-columns: 20% 20%;
+  grid-template-rows: 35% 20%;
+  margin-bottom: -10%;
+  margin-top: -5%;
+`;

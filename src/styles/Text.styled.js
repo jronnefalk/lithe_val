@@ -16,7 +16,10 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
-
+export const LäsMerText = styled(InfoText)`
+  display: flex;
+  align-items: end;
+`;
 //Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
   font-size: 50%;

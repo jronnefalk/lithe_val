@@ -18,6 +18,17 @@ export function MinSida() {
   function handleDelete(kurs) {
     deleteKurs(kurs);
   }
+  function handleMove(kurs) {
+    const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
+      (term) => term !== courseData[kurs.kurskod]?.termin
+    );
+    if (availableTerms.length > 0) {
+      const newTerm = availableTerms[0];
+      const updatedCourseData = { ...courseData };
+      updatedCourseData[kurs.kurskod].termin = newTerm;
+      setCourseData(updatedCourseData);
+    }
+  }
 
   useEffect(() => {
     if (currentUser) {
@@ -131,6 +142,21 @@ export function MinSida() {
               <BsTrash3 size={20} />
               <p>Ta bort kurs</p>
             </button>
+
+            {courseData[kurs.kurskod]?.termin !== "8" && (
+              <button
+                className="Lägg-till-knapp"
+                onClick={() => handleMove(kurs)}
+              >
+                Flytta kurs från termin {courseData[kurs.kurskod]?.termin} till
+                termin
+                {Object.values(getData(kurs.kurskod).termin)
+                  .filter((term) => term !== courseData[kurs.kurskod]?.termin)
+                  .map((term) => (
+                    <span key={term}>{term} </span>
+                  ))}
+              </button>
+            )}
           </div>
         ))}
       </div>

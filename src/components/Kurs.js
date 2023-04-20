@@ -13,7 +13,7 @@ import {
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
 
-import { LäggaTill, LäggaTillDroppD } from "../styles/Knappar.styled.js";
+import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -125,11 +125,11 @@ export default function Kurs(props) {
       )}
 
       {addkurs && (
-        <LäggaTill onClick={handleDelete}>
+        <TaBort onClick={handleDelete}>
           {" "}
           <BsTrash3 size={20} />
-          <p>Ta bort kurs</p>
-        </LäggaTill>
+          <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
+        </TaBort>
       )}
 
       <span onClick={toggleReadMore} className="read-or-hide">

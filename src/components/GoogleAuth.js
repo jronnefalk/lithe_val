@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 //Style
 import { MenyKnapp } from "../styles/Knappar.styled";
-import { InfoText } from "../styles/Text.styled";
+import { MenyText } from "../styles/Text.styled";
 
 //ikon
 import { BsPerson } from "react-icons/bs";
@@ -64,13 +64,13 @@ function GoogleAuth() {
     <>
       {!loggedIn && (
         <MenyKnapp onClick={googleSignin}>
-          <BsPerson size={32} /> <InfoText>Logga in</InfoText>
+          <BsPerson size={32} /> <MenyText>Logga in</MenyText>
         </MenyKnapp>
       )}
       {loggedIn && (
         <MenyKnapp onClick={googleSignout}>
           {" "}
-          <BsPersonFill size={32} /> <InfoText>Logga ut</InfoText>
+          <BsPersonFill size={32} /> <MenyText>Logga ut</MenyText>
         </MenyKnapp>
       )}
     </>

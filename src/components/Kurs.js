@@ -166,6 +166,7 @@ export default function Kurs(props) {
           })}
         </InfoText>
       )}
+
       {isReadMore && (
         <a href={kurs.url}>
           {" "}

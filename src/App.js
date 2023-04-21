@@ -4,8 +4,10 @@ import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
-//design
-import "./design/meny.css";
+//style
+import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
+import { MenyKnapp } from "./styles/Knappar.styled";
+import { Titel, MenyText } from "./styles/Text.styled";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -46,41 +48,38 @@ export default function App() {
 
   return (
     <>
-      <div className="menybar">
-        {}
-        <div className="start">
-          <Link to="">
+      <MenyCont>
+        <Link to="">
+          {" "}
+          <span>
             {" "}
-            <span>
-              {" "}
-              <button className="menyknapp" onClick={handleClickHouse}>
-                {isFilled ? (
-                  <BsHouseDoorFill size={30} />
-                ) : (
-                  <BsHouseDoor size={30} />
-                )}
+            <MenyKnapp onClick={handleClickHouse}>
+              {isFilled ? (
+                <BsHouseDoorFill size={30} />
+              ) : (
+                <BsHouseDoor size={30} />
+              )}
 
-                <h1 className="text">Startsida</h1>
-              </button>{" "}
-            </span>
-          </Link>
-        </div>
+              <MenyText>Startsida</MenyText>
+            </MenyKnapp>{" "}
+          </span>
+        </Link>
 
-        <h1 className="rubrik">LITHEVAL</h1>
+        <Titel>LITHEVAL</Titel>
 
-        <div className="minasidor">
+        <MinaSidorCont>
           <Link to="/minasidor">
             <span>
               {" "}
-              <button className="menyknapp" onClick={handleClickMyPage}>
+              <MenyKnapp onClick={handleClickMyPage}>
                 {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-                <h1 className="text">Min sida</h1>
-              </button>{" "}
+                <MenyText>Min sida</MenyText>
+              </MenyKnapp>{" "}
             </span>
           </Link>
-        </div>
+        </MinaSidorCont>
         <GoogleAuth />
-      </div>
+      </MenyCont>
 
       <Routes>
         <Route path="/" element={<Start />} />

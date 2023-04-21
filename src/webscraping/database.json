@@ -447,8 +447,8 @@
     ]
   },
   {
-    "kursnamn": "Retorik i tal",
-    "hp": "t",
+    "kursnamn": "Retorik i tal, text och bild",
+    "hp": "6",
     "kurskod": "TNKA10",
     "huvudomrade": ["Grafisk design och kommunikation"],
     "utbildningsniva": "Grundnivå",
@@ -783,8 +783,8 @@
     ]
   },
   {
-    "kursnamn": "Artificiell intelligens för interaktiv media",
-    "hp": "p",
+    "kursnamn": "Artificiell intelligens för interaktiv media, projektkurs",
+    "hp": "6",
     "kurskod": "TNM114",
     "huvudomrade": [
       "Informationsteknologi",

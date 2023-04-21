@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
+import { saveKurs, deleteKurs, getKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 //import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
@@ -14,25 +14,37 @@ import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
   const kurs = props.kursdata;
+  const kurskod = kurs.kurskod;
 
-  // Sparar info om "lägg till kurs" och "radera kurs" mha localstorage
-  const [addkurs, setAddKurs] = useState(
-    localStorage.getItem(kurs.kurskod) === "true"
-  );
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isInFirebase, setIsInFirebase] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem(kurs.kurskod, addkurs);
-  }, [addkurs, kurs.kurskod]);
+    const getKursFromFirebase = async () => {
+      const kursData = await getKurs(kurskod);
+      if (kursData) {
+        setIsInFirebase(true);
+      }
+    };
+
+    const isInLocalStorage = localStorage.getItem(kurskod);
+    if (isInLocalStorage === "true") {
+      setIsInFirebase(true);
+    }
+
+    getKursFromFirebase();
+  }, [kurskod]);
 
   function handleClick() {
     saveKurs(kurs);
-    setAddKurs(true);
+    localStorage.setItem(kurs, "true");
+    setIsInFirebase(true);
   }
 
   function handleDelete() {
     deleteKurs(kurs);
-    setAddKurs(false);
+    localStorage.removeItem(kurskod);
+    setIsInFirebase(false);
   }
 
   const toggleReadMore = () => {
@@ -83,7 +95,12 @@ export default function Kurs(props) {
           })}
         </div>
 
-        {!addkurs && (
+        {isInFirebase ? (
+          <button className="Lägg-till-knapp" onClick={handleDelete}>
+            <BsTrash3 size={20} />
+            <p>Ta bort kurs</p>
+          </button>
+        ) : (
           <Dropdown>
             <Dropdown.Toggle className="Lägg-till-knapp">
               <BsFolderPlus size={20} />
@@ -96,13 +113,6 @@ export default function Kurs(props) {
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        )}
-        {addkurs && (
-          <button className="Lägg-till-knapp" onClick={handleDelete}>
-            {" "}
-            <BsTrash3 size={20} />
-            <p>Ta bort kurs</p>
-          </button>
         )}
 
         <span onClick={toggleReadMore} className="read-or-hide">

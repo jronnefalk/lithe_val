@@ -10,6 +10,7 @@ import {
   InfoText2,
   InfoTitel,
   InfoTextKnapp,
+  InfoTitel2,
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
 
@@ -144,11 +145,11 @@ export default function Kurs(props) {
         )}
       </span>
 
-      {isReadMore && <InfoText>HP: {kurs.hp}</InfoText>}
-      {isReadMore && <InfoText>Ort: {kurs.ort}</InfoText>}
+      {isReadMore && <InfoText>Antal hp: {kurs.hp}</InfoText>}
+      {isReadMore && <InfoText>Plats: {kurs.ort}</InfoText>}
       {isReadMore && (
         <InfoText>
-          Examination:{" "}
+          <InfoTitel2>Examination:</InfoTitel2>{" "}
           {kurs.examination.map((prop) => {
             return <span key={uuidv4()}>{prop.benamning}</span>;
           })}

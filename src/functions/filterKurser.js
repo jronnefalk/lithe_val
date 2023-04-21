@@ -14,15 +14,15 @@ function filterKurser(kurser, query, activeFilters) {
         kurs.kurskod.toLowerCase().includes(query.toLowerCase());
       // kolla filter för examination
       let matchexamination = activeFilters.some((filter) => {
-        if (filter.key === "tentamen") {
+        if (filter.value === "tentamen") {
           return kurs.examination.some((f) =>
             f.benamning.toLowerCase().includes("tentamen")
           );
-        } else if (filter.key === "laboration") {
+        } else if (filter.value === "laboration") {
           return kurs.examination.some((f) =>
             f.benamning.toLowerCase().includes("lab")
           );
-        } else if (filter.key === "projekt") {
+        } else if (filter.value === "projekt") {
           return kurs.examination.some((f) =>
             f.benamning.toLowerCase().includes("projekt")
           );
@@ -34,9 +34,9 @@ function filterKurser(kurser, query, activeFilters) {
       if (
         activeFilters.filter(
           (filter) =>
-            filter.key === "tentamen" ||
-            filter.key === "laboration" ||
-            filter.key === "projekt"
+            filter.value === "tentamen" ||
+            filter.value === "laboration" ||
+            filter.value === "projekt"
         ).length === 0
       ) {
         matchexamination = true;
@@ -44,13 +44,13 @@ function filterKurser(kurser, query, activeFilters) {
 
       // Check if the kurs matches any of the helfart or halvfart filters or both
       const matchHalvHelFart =
-        ((!activeFilters.some((filter) => filter.key === "helfart") ||
+        ((!activeFilters.some((filter) => filter.value === "helfart") ||
           (kurs.period.includes("1") && !kurs.period.includes("2")) ||
           (!kurs.period.includes("1") && kurs.period.includes("2"))) &&
-          (!activeFilters.some((filter) => filter.key === "halvfart") ||
+          (!activeFilters.some((filter) => filter.value === "halvfart") ||
             (kurs.period.includes("1") && kurs.period.includes("2")))) ||
-        (activeFilters.some((filter) => filter.key === "halvfart") &&
-          activeFilters.some((filter) => filter.key === "helfart") &&
+        (activeFilters.some((filter) => filter.value === "halvfart") &&
+          activeFilters.some((filter) => filter.value === "helfart") &&
           (kurs.period.includes("1") || kurs.period.includes("2")));
 
       // lägger alla filter med samma key i en group-array
@@ -66,13 +66,7 @@ function filterKurser(kurser, query, activeFilters) {
       const matchFilters =
         activeFilters.length === 0 ||
         Object.entries(filtersByKeys).every(([key, filters]) => {
-          if (
-            key === "helfart" ||
-            key === "halvfart" ||
-            key === "tentamen" ||
-            key === "laboration" ||
-            key === "projekt"
-          ) {
+          if (key === "studietakt" || key === "examination") {
             // Skip helfart and halvfart filters as they have already been checked
             return true;
           }

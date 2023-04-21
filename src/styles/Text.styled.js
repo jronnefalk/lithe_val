@@ -5,10 +5,16 @@ export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
 `;
+
 export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
 `;
+
+export const InfoTitel2 = styled(InfoText)`
+  weight: 100;
+`;
+
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
   background-color: #ebebeb;
@@ -41,6 +47,7 @@ export const Titel = styled.h1`
   margin-top: 0%;
   margin-left: 39%;
 `;
+
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.6rem;

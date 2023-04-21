@@ -3,7 +3,7 @@
     "kursnamn": "Projektledning",
     "hp": "6",
     "kurskod": "TEIO87",
-    "huvudomrade": ["Industriell", "ekonomi"],
+    "huvudomrade": ["Industriell ekonomi"],
     "utbildningsniva": "Grundnivå",
     "termin": ["7", "9"],
     "period": ["1", "2"],
@@ -254,7 +254,7 @@
     "kursnamn": "Matrismetoder för AI",
     "hp": "6",
     "kurskod": "TNA010",
-    "huvudomrade": ["Matematik", "Tillämpad", "matematik"],
+    "huvudomrade": ["Matematik", "Tillämpad matematik"],
     "utbildningsniva": "Grundnivå",
     "termin": ["7", "9"],
     "period": ["2"],
@@ -422,7 +422,7 @@
     "kursnamn": "Industriell ekonomi",
     "hp": "6",
     "kurskod": "TEIE53",
-    "huvudomrade": ["Industriell", "ekonomi"],
+    "huvudomrade": ["Industriell ekonomi"],
     "utbildningsniva": "Grundnivå",
     "termin": ["8"],
     "period": ["1"],
@@ -447,10 +447,10 @@
     ]
   },
   {
-    "kursnamn": "Retorik i tal",
-    "hp": "t",
+    "kursnamn": "Retorik i tal, text och bild",
+    "hp": "6",
     "kurskod": "TNKA10",
-    "huvudomrade": ["Grafisk", "design", "och", "kommunikation"],
+    "huvudomrade": ["Grafisk design och kommunikation"],
     "utbildningsniva": "Grundnivå",
     "termin": ["8"],
     "period": ["1", "2"],
@@ -783,8 +783,8 @@
     ]
   },
   {
-    "kursnamn": "Artificiell intelligens för interaktiv media",
-    "hp": "p",
+    "kursnamn": "Artificiell intelligens för interaktiv media, projektkurs",
+    "hp": "6",
     "kurskod": "TNM114",
     "huvudomrade": [
       "Informationsteknologi",

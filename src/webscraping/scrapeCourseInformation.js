@@ -57,9 +57,14 @@ async function scrape(addresses) {
     // hämtar kursnamn och hp
     let [kursnamn, hp] = await page.evaluate(() => {
       const kursnamnOchHp = document.querySelector("h1").textContent;
-      return kursnamnOchHp.split(", ");
+      const lastCommaIndex = kursnamnOchHp.lastIndexOf(",");
+      const kursnamn = kursnamnOchHp.substring(0, lastCommaIndex);
+      const hp = kursnamnOchHp.substring(
+        lastCommaIndex + 2,
+        kursnamnOchHp.length - 3
+      );
+      return [kursnamn, hp];
     });
-    hp = hp.charAt(0); // tar bort texten hp
 
     // hämtar kurskod
     const kurskod = await page.evaluate(() => {
@@ -73,10 +78,18 @@ async function scrape(addresses) {
         (el) => el.textContent.includes("Huvudområde")
       );
 
-      let result = h2.nextSibling.textContent.trim().split(" ");
+      let str = h2.nextSibling.textContent.trim();
 
-      if (result[0] == "Inget" && result[1] == "huvudområde") {
+      if (str === "Inget huvudområde") {
         return [];
+      }
+
+      // delar upp strängen i med avseende på stor bokstav
+      const result = str.split(/(?=[A-Z])/);
+
+      // tar bort mellanslag
+      for (let i = 0; i < result.length; i++) {
+        result[i] = result[i].trim();
       }
 
       return result;
@@ -116,12 +129,12 @@ async function scrape(addresses) {
             terminer.push("9");
           }
 
-          return (result = [
+          return [
             terminer,
             period.textContent.split(", "),
             block.textContent.split(", "),
             ort.textContent.trim(),
-          ]);
+          ];
         }
       }
     });
@@ -159,7 +172,7 @@ async function scrape(addresses) {
         }
 
         // Om nästa element är "Lärandemål" så backa ett steg
-        if (el.textContent.trim() == "Lärandemål") {
+        if (el.textContent.trim() === "Lärandemål") {
           el = el.previousSibling;
         }
         forkunskaper = el.textContent.trim();
@@ -208,8 +221,15 @@ async function scrape(addresses) {
     // lägg till kursen i arrayen med alla kurser
     kurser.push(tempKurs);
 
+    // skriv ut kursens som skrapats i terminalen
     console.log(
-      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.forkunskaper
+      "\x1b[1m" +
+        tempKurs.kurskod +
+        "\x1b[0m: " +
+        tempKurs.kursnamn +
+        ", " +
+        tempKurs.hp +
+        " hp"
     );
 
     await browser.close();

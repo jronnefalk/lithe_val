@@ -16,5 +16,6 @@ export default function getData(key) {
     hp: result.hp,
     huvudomrade: result.huvudomrade,
     termin: result.termin,
+    period: result.period,
   };
 }

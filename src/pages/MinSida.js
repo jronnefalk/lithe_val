@@ -6,6 +6,14 @@ import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 
 import { BsTrash3 } from "react-icons/bs";
 
+//Style
+import { Progressbar } from "../styles/Visualiseringar.styled";
+import { RubrikProgressbar } from "../styles/Text.styled";
+import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
+import { Cirkel } from "../styles/Visualiseringar.styled";
+import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
+import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
+
 export function MinSida() {
   // skapar variabler för att spara data i
   const { currentUser } = getAuth();
@@ -122,59 +130,103 @@ export function MinSida() {
 
     return acc;
   }, initialCounts);
+
+  const totalStudents = counts.grundniva + counts.avancerad;
+  const avanceradPercent = Math.round(counts.avancerad);
+  const medieteknikPercent = Math.round(counts.medieteknik);
+  const datateknikPercent = Math.round(counts.datateknik);
+  const hpPercent = Math.round(counts.hp);
+
   // mappar ut visualisering och kurserna
   return (
-    <div>
+    <>
       <h1>Visualisering</h1>
-      <div>
-        <p>Grundnivå: {counts.grundniva}</p>
-        <p>Avancerad nivå: {counts.avancerad}</p>
-        <p>hp: {counts.hp}</p>
-        <p>Antal medieteknik: {counts.medieteknik}</p>
-        <p>Antal datateknik: {counts.datateknik}</p>
-      </div>
-      <h1>My Courses</h1>
-      <div>
-        {kursData.map((kurs) => (
-          <div key={kurs.kurskod}>
-            <h2>{courseData[kurs.kurskod]?.kursnamn}</h2>
-            <p>Kurskod: {kurs.kurskod}</p>
-            <p>Block: {courseData[kurs.kurskod]?.block}</p>
-            <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
-            <p>termin: {courseData[kurs.kurskod]?.termin}</p>
-            <p>
-              Huvudområde:{" "}
-              {courseData[kurs.kurskod]?.huvudomrade
-                ?.join(" ")
-                .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
-            </p>
+      <Progressbarochrubrik>
+        <RubrikProgressbar>
+          Avancerade kurser: {counts.avancerad}
+        </RubrikProgressbar>
+        <Progressbar value={avanceradPercent} max="10"></Progressbar>
+        <RubrikProgressbar>
+          Poäng inom medieteknik: {counts.medieteknik}
+        </RubrikProgressbar>
+        <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+        <RubrikProgressbar>
+          Poäng inom datateknik: {counts.datateknik}
+        </RubrikProgressbar>
+        <Progressbar value={datateknikPercent} max="6"></Progressbar>
+      </Progressbarochrubrik>
 
-            <button // delete knapp
-              className="Lägg-till-knapp"
-              onClick={() => handleDelete(kurs)}
-            >
-              {" "}
-              <BsTrash3 size={20} />
-              <p>Ta bort kurs</p>
-            </button>
+      <CirkelRubrikMinakurser>
+        <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
+        <Cirkel value={hpPercent} max="90"></Cirkel>
+        <h1>My Courses</h1>
 
-            {courseData[kurs.kurskod]?.termin !== "8" && (
-              <button // om terminen inte är 8 visas flytta-knappen
-                className="Lägg-till-knapp"
-                onClick={() => handleMove(kurs)}
-              >
-                Flytta kurs från termin {courseData[kurs.kurskod]?.termin} till
-                termin
-                {Object.values(getData(kurs.kurskod).termin)
-                  .filter((term) => term !== courseData[kurs.kurskod]?.termin)
-                  .map((term) => (
-                    <span key={term}>{term} </span>
+        {[7, 8, 9].map((termin) => (
+          <div key={termin}>
+            <h2 style={{ color: "blue" }}>Termin {termin}</h2>
+            {[1, 2].map((period) => (
+              <div key={period}>
+                <h3 style={{ color: "green" }}>Period {period}</h3>
+                {kursData
+                  .filter(
+                    (kurs) =>
+                      courseData[kurs.kurskod]?.termin === String(termin) &&
+                      (String(courseData[kurs.kurskod]?.period[0]) ===
+                        String(period) ||
+                        String(courseData[kurs.kurskod]?.period[1]) ===
+                          String(period))
+                  )
+                  .map((kurs) => (
+                    <div key={kurs.kurskod}>
+                      <h4>{courseData[kurs.kurskod]?.kursnamn}</h4>
+                      <p>Kurskod: {kurs.kurskod}</p>
+                      <p>Block: {courseData[kurs.kurskod]?.block}</p>
+                      <p>
+                        Utbildninganivå:{" "}
+                        {courseData[kurs.kurskod]?.utbildningsniva}
+                      </p>
+                      <p>termin: {courseData[kurs.kurskod]?.termin}</p>
+                      <p>period: {courseData[kurs.kurskod]?.period}</p>
+                      <p>
+                        Huvudområde:{" "}
+                        {courseData[kurs.kurskod]?.huvudomrade
+                          ?.join(" ")
+                          .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
+                      </p>
+
+                      <button // delete knapp
+                        className="Lägg-till-knapp"
+                        onClick={() => handleDelete(kurs)}
+                      >
+                        {" "}
+                        <BsTrash3 size={20} />
+                        <p>Ta bort kurs</p>
+                      </button>
+
+                      {termin !== 8 && (
+                        <button // om terminen inte är 8 visas flytta-knappen
+                          className="Lägg-till-knapp"
+                          onClick={() => handleMove(kurs)}
+                        >
+                          Flytta kurs från termin{" "}
+                          {courseData[kurs.kurskod]?.termin} till termin
+                          {Object.values(getData(kurs.kurskod).termin)
+                            .filter(
+                              (term) =>
+                                term !== courseData[kurs.kurskod]?.termin
+                            )
+                            .map((term) => (
+                              <span key={term}>{term} </span>
+                            ))}
+                        </button>
+                      )}
+                    </div>
                   ))}
-              </button>
-            )}
+              </div>
+            ))}
           </div>
         ))}
-      </div>
-    </div>
+      </CirkelRubrikMinakurser>
+    </>
   );
 }

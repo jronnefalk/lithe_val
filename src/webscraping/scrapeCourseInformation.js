@@ -16,6 +16,7 @@ class Kurs {
     url,
     forkunskaper,
     overlappning,
+    studietakt,
     examination
   ) {
     this.kursnamn = kursnamn;
@@ -30,6 +31,7 @@ class Kurs {
     this.url = url;
     this.forkunskaper = forkunskaper;
     this.overlappning = overlappning;
+    this.studietakt = studietakt;
     this.examination = examination;
   }
 }
@@ -139,6 +141,14 @@ async function scrape(addresses) {
       }
     });
 
+    // Bestämmer studietakt utifrån antal perioder
+    let studietakt;
+    if (period.length === 2) {
+      studietakt = "Halvfart";
+    } else {
+      studietakt = "Helfart";
+    }
+
     // hämtar alla examinationer
     const table = await page.$("table.table-striped.examinations-codes-table");
     const examination = await table.$$eval("tr:not(:first-child)", (rows) => {
@@ -215,6 +225,7 @@ async function scrape(addresses) {
       addresses[i],
       forkunskaperText,
       overlappning,
+      studietakt,
       examination
     );
 
@@ -223,13 +234,7 @@ async function scrape(addresses) {
 
     // skriv ut kursens som skrapats i terminalen
     console.log(
-      "\x1b[1m" +
-        tempKurs.kurskod +
-        "\x1b[0m: " +
-        tempKurs.kursnamn +
-        ", " +
-        tempKurs.hp +
-        " hp"
+      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.studietakt
     );
 
     await browser.close();

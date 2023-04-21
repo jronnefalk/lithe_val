@@ -34,6 +34,12 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
+export const RubrikProgressbar = styled(InfoTitel)`
+  float: right;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: row;
+`;
 
 //Meny text
 

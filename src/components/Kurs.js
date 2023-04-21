@@ -55,6 +55,7 @@ export default function Kurs(props) {
     setAddKurs(false);
   }
 
+  // Hanterar popupen ifall en överlappning noteras
   function handleOverlappningPopup() {
     if (kurs.kurskod === "THEN09") {
       setShowOverlapping(true);
@@ -63,7 +64,6 @@ export default function Kurs(props) {
 
   // Kollar ifall en kurs har en överlappningkurs eller ej
   const [hasOverlappning, setHasOverlappning] = useState(false);
-
   useEffect(() => {
     if (kurs.overlappning !== "Ingen överlappning") {
       setHasOverlappning(true);

@@ -10,7 +10,6 @@ import {
   InfoText2,
   InfoTitel,
   InfoTextKnapp,
-  InfoTitel2,
   LäsMerText,
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
@@ -143,11 +142,25 @@ export default function Kurs(props) {
         )}
       </span>
 
-      {isReadMore && <InfoText>Antal hp: {kurs.hp}</InfoText>}
-      {isReadMore && <InfoText>Plats: {kurs.ort}</InfoText>}
       {isReadMore && (
         <InfoText>
-          <InfoTitel2>Examination:</InfoTitel2>{" "}
+          <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
+          {kurs.studietakt}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Antal hp:</span> {kurs.hp}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Plats:</span> {kurs.ort}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Examination:</span>{" "}
           {kurs.examination.map((prop) => {
             return <span key={uuidv4()}>{prop.benamning}</span>;
           })}

@@ -11,10 +11,6 @@ export const InfoTitel = styled.h1`
   font-size: 1.13rem;
 `;
 
-export const InfoTitel2 = styled(InfoText)`
-  weight: 100;
-`;
-
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
   background-color: #ebebeb;

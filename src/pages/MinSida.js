@@ -122,6 +122,7 @@ export function MinSida() {
 
     return acc;
   }, initialCounts);
+
   // mappar ut visualisering och kurserna
   return (
     <div>
@@ -134,44 +135,71 @@ export function MinSida() {
         <p>Antal datateknik: {counts.datateknik}</p>
       </div>
       <h1>My Courses</h1>
+
       <div>
-        {kursData.map((kurs) => (
-          <div key={kurs.kurskod}>
-            <h2>{courseData[kurs.kurskod]?.kursnamn}</h2>
-            <p>Kurskod: {kurs.kurskod}</p>
-            <p>Block: {courseData[kurs.kurskod]?.block}</p>
-            <p>Utbildninganivå: {courseData[kurs.kurskod]?.utbildningsniva}</p>
-            <p>termin: {courseData[kurs.kurskod]?.termin}</p>
-            <p>
-              Huvudområde:{" "}
-              {courseData[kurs.kurskod]?.huvudomrade
-                ?.join(" ")
-                .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
-            </p>
+        {[7, 8, 9].map((termin) => (
+          <div key={termin}>
+            <h2 style={{ color: "blue" }}>Termin {termin}</h2>
+            {[1, 2].map((period) => (
+              <div key={period}>
+                <h3 style={{ color: "green" }}>Period {period}</h3>
+                {kursData
+                  .filter(
+                    (kurs) =>
+                      courseData[kurs.kurskod]?.termin === String(termin) &&
+                      (String(courseData[kurs.kurskod]?.period[0]) ===
+                        String(period) ||
+                        String(courseData[kurs.kurskod]?.period[1]) ===
+                          String(period))
+                  )
+                  .map((kurs) => (
+                    <div key={kurs.kurskod}>
+                      <h4>{courseData[kurs.kurskod]?.kursnamn}</h4>
+                      <p>Kurskod: {kurs.kurskod}</p>
+                      <p>Block: {courseData[kurs.kurskod]?.block}</p>
+                      <p>
+                        Utbildninganivå:{" "}
+                        {courseData[kurs.kurskod]?.utbildningsniva}
+                      </p>
+                      <p>termin: {courseData[kurs.kurskod]?.termin}</p>
+                      <p>period: {courseData[kurs.kurskod]?.period}</p>
+                      <p>
+                        Huvudområde:{" "}
+                        {courseData[kurs.kurskod]?.huvudomrade
+                          ?.join(" ")
+                          .replace(/(?<=[a-z ])(?=[A-Z])/g, ", ")}
+                      </p>
 
-            <button // delete knapp
-              className="Lägg-till-knapp"
-              onClick={() => handleDelete(kurs)}
-            >
-              {" "}
-              <BsTrash3 size={20} />
-              <p>Ta bort kurs</p>
-            </button>
+                      <button // delete knapp
+                        className="Lägg-till-knapp"
+                        onClick={() => handleDelete(kurs)}
+                      >
+                        {" "}
+                        <BsTrash3 size={20} />
+                        <p>Ta bort kurs</p>
+                      </button>
 
-            {courseData[kurs.kurskod]?.termin !== "8" && (
-              <button // om terminen inte är 8 visas flytta-knappen
-                className="Lägg-till-knapp"
-                onClick={() => handleMove(kurs)}
-              >
-                Flytta kurs från termin {courseData[kurs.kurskod]?.termin} till
-                termin
-                {Object.values(getData(kurs.kurskod).termin)
-                  .filter((term) => term !== courseData[kurs.kurskod]?.termin)
-                  .map((term) => (
-                    <span key={term}>{term} </span>
+                      {termin !== 8 && (
+                        <button // om terminen inte är 8 visas flytta-knappen
+                          className="Lägg-till-knapp"
+                          onClick={() => handleMove(kurs)}
+                        >
+                          Flytta kurs från termin{" "}
+                          {courseData[kurs.kurskod]?.termin} till termin
+                          {Object.values(getData(kurs.kurskod).termin)
+                            .filter(
+                              (term) =>
+                                term !== courseData[kurs.kurskod]?.termin
+                            )
+                            .map((term) => (
+                              <span key={term}>{term} </span>
+                            ))}
+                        </button>
+                      )}
+                    </div>
                   ))}
-              </button>
-            )}
+              </div>
+            ))}
           </div>
         ))}
       </div>

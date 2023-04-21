@@ -130,7 +130,6 @@ export function MinSida() {
 
     return acc;
   }, initialCounts);
-<<<<<<< HEAD
 
   const totalStudents = counts.grundniva + counts.avancerad;
   const avanceradPercent = Math.round(counts.avancerad);
@@ -138,9 +137,7 @@ export function MinSida() {
   const datateknikPercent = Math.round(counts.datateknik);
   const hpPercent = Math.round(counts.hp);
 
-=======
   // mappar ut visualisering och kurserna
->>>>>>> frontend
   return (
     <>
       <h1>Visualisering</h1>

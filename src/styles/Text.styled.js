@@ -34,14 +34,12 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
-<<<<<<< HEAD
 export const RubrikProgressbar = styled(InfoTitel)`
   float: right;
   margin-right: 1%;
   display: flex;
   flex-direction: row;
 `;
-=======
 
 //Meny text
 
@@ -61,4 +59,3 @@ export const FilterHeader = styled(InfoTitel)`
 `;
 
 export const FilterText = styled(InfoText)``;
->>>>>>> frontend

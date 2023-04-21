@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
-//import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
 import OverlappningPopup from "./OverlappningPopup";
+
+//style
+import {
+  InfoText,
+  InfoText2,
+  InfoTitel,
+  InfoTextKnapp,
+} from "../styles/Text.styled.js";
+import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
+
+import { LäggaTill, LäggaTillDroppD } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -26,9 +36,16 @@ export default function Kurs(props) {
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
-
-  function handleClick() {
-    saveKurs(kurs);
+  //sparar om man väljer termin 7 eller 8
+  function handleClick1() {
+    let nr = 0;
+    saveKurs(kurs, nr);
+    setAddKurs(true);
+  }
+  //sparar om man väljer termin 9
+  function handleClick2() {
+    let nr = 1;
+    saveKurs(kurs, nr);
     setAddKurs(true);
     if (kurs.kurskod === "THEN09") {
       setShowOverlapping(true);
@@ -43,106 +60,117 @@ export default function Kurs(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
-
   return (
     <>
-      <h1 className="kursnamn">{kurs.kursnamn}</h1>
-      <div className="kursinfo">
-        <div className="firstheader">
-          <div>|</div>
-          <div>{kurs.kurskod}</div>
+      <InfoTitel>{kurs.kursnamn}</InfoTitel>
+      <FirstInfoCont>
+        <InfoText>| {kurs.kurskod} </InfoText>
 
-          {kurs.termin.map((prop) => {
-            return (
-              <div key={uuidv4()}>
-                {" "}
-                | Termin <span>{prop}</span>{" "}
-              </div>
-            );
-          })}
+        {kurs.termin.map((prop) => {
+          return (
+            <InfoText key={uuidv4()}>
+              {" "}
+              | Termin <span>{prop}</span>{" "}
+            </InfoText>
+          );
+        })}
 
-          {kurs.period.map((prop) => {
-            return (
-              <div key={uuidv4()}>
-                {" "}
-                | Period <span>{prop}</span>{" "}
-              </div>
-            );
-          })}
+        {kurs.period.map((prop) => {
+          return (
+            <InfoText key={uuidv4()}>
+              {" "}
+              | Period <span>{prop}</span>{" "}
+            </InfoText>
+          );
+        })}
 
-          {kurs.block.map((prop) => {
-            return (
-              <div key={uuidv4()}>
-                {" "}
-                | Block <span>{prop}</span>{" "}
-              </div>
-            );
-          })}
+        {kurs.block.map((prop) => {
+          return (
+            <InfoText key={uuidv4()}>
+              {" "}
+              | Block <span>{prop}</span>{" "}
+            </InfoText>
+          );
+        })}
 
-          <div>|</div>
-        </div>
-        <div className="secondheader">
-          <span>{kurs.utbildningsniva}</span>{" "}
-          {kurs.huvudomrade.map((prop) => {
-            return <span key={uuidv4()}>{prop}</span>;
-          })}
-        </div>
+        <InfoText>|</InfoText>
+      </FirstInfoCont>
+      <SecondInfoCont>
+        <InfoText2>{kurs.utbildningsniva}</InfoText2>{" "}
+        {kurs.huvudomrade.map((prop) => {
+          return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
+        })}
+      </SecondInfoCont>
 
-        {!addkurs && (
-          <Dropdown>
-            <Dropdown.Toggle className="Lägg-till-knapp">
-              <BsFolderPlus size={20} />
-              <p>Lägg till</p>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item className="Lägg-till-text" onClick={handleClick}>
-                {" "}
-                Termin: {kurs.termin}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+      {!addkurs && (
+        <Dropdown>
+          <LäggaTillDroppD>
+            <BsFolderPlus size={20} />
+            <InfoTextKnapp>Lägg till</InfoTextKnapp>
+          </LäggaTillDroppD>
+          <Dropdown.Menu>
+            <Dropdown.Item className="Lägg-till-text" onClick={handleClick1}>
+              {" "}
+              <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+            </Dropdown.Item>
+            {kurs.termin.length === 2 && (
+              <>
+                <Dropdown.Divider />
+                <Dropdown.Item
+                  className="Lägg-till-text"
+                  onClick={handleClick2}
+                >
+                  {" "}
+                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                </Dropdown.Item>
+              </>
+            )}
+          </Dropdown.Menu>
+        </Dropdown>
+      )}
+
+      {addkurs && (
+        <LäggaTill onClick={handleDelete}>
+          {" "}
+          <BsTrash3 size={20} />
+          <p>Ta bort kurs</p>
+        </LäggaTill>
+      )}
+
+      <span onClick={toggleReadMore} className="read-or-hide">
+        {isReadMore ? (
+          <InfoText>
+            Läs mindre <AiOutlineUp />{" "}
+          </InfoText>
+        ) : (
+          <InfoText>
+            Läs mer <AiOutlineDown />{" "}
+          </InfoText>
         )}
-        {addkurs && (
-          <button className="Lägg-till-knapp" onClick={handleDelete}>
-            {" "}
-            <BsTrash3 size={20} />
-            <p>Ta bort kurs</p>
-          </button>
-        )}
+      </span>
 
-        <span onClick={toggleReadMore} className="read-or-hide">
-          {isReadMore ? (
-            <p className="readless">
-              Läs mindre <AiOutlineUp />{" "}
-            </p>
-          ) : (
-            <p className="readmore">
-              Läs mer <AiOutlineDown />{" "}
-            </p>
-          )}
-        </span>
-
-        {isReadMore && <p>HP: {kurs.hp}</p>}
-        {isReadMore && <p>Ort: {kurs.ort}</p>}
-        {isReadMore && (
-          <p>
-            Examination:{" "}
-            {kurs.examination.map((prop) => {
-              return <span key={uuidv4()}>{prop.benamning}</span>;
-            })}
-          </p>
-        )}
-        {isReadMore && (
-          <a href={kurs.url}>
-            {" "}
+      {isReadMore && <InfoText>HP: {kurs.hp}</InfoText>}
+      {isReadMore && <InfoText>Ort: {kurs.ort}</InfoText>}
+      {isReadMore && (
+        <InfoText>
+          Examination:{" "}
+          {kurs.examination.map((prop) => {
+            return <span key={uuidv4()}>{prop.benamning}</span>;
+          })}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <a href={kurs.url}>
+          {" "}
+          <InfoText>
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
-          </a>
-        )}
+          </InfoText>
+        </a>
+      )}
 
-        {showOverlapping && (
-          <OverlappningPopup setShowOverlapping={setShowOverlapping} />
-        )}
-      </div>
+      {showOverlapping && (
+        <OverlappningPopup setShowOverlapping={setShowOverlapping} />
+      )}
     </>
   );
 }

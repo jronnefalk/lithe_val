@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, remove } from "firebase/database";
+import { getDatabase, ref, set, remove, update } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,12 +24,12 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-const saveKurs = (kurs) => {
+const saveKurs = (kurs, nr) => {
   const user = auth.currentUser;
   if (user) {
     const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
-    set(kursRef, { Termin: kurs.termin })
+    set(kursRef, { Termin: kurs.termin[nr] })
       .then(() => {
         console.log("Kursen har lagts till");
       })
@@ -38,6 +38,7 @@ const saveKurs = (kurs) => {
       });
   } else {
     console.log("No user is signed in");
+    alert("Du måste logga in för att lägga till en kurs.");
   }
 };
 
@@ -58,6 +59,22 @@ const deleteKurs = (kurs) => {
     console.log("No user is signed in");
   }
 };
+const moveKurs = (kurs, ny) => {
+  const user = auth.currentUser;
+  if (user) {
+    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
-export { saveKurs, deleteKurs };
+    update(kursRef, { Termin: ny })
+      .then(() => {
+        console.log("Kurs updated successfully");
+      })
+      .catch((error) => {
+        console.log("Error updating kurs:", error.message);
+      });
+  } else {
+    console.log("No user is signed in");
+  }
+};
+
+export { saveKurs, deleteKurs, moveKurs };
 export default app;

@@ -31,7 +31,7 @@ export default function Kurs(props) {
     localStorage.getItem(kurs.kurskod) === "true"
   );
   const [isReadMore, setIsReadMore] = useState(false);
-  const [showOverlapping, setShowOverlapping] = useState(false); // överlappningspopup
+  const [showOverlapping, setShowOverlapping] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
@@ -42,14 +42,12 @@ export default function Kurs(props) {
     saveKurs(kurs, nr);
     setAddKurs(true);
   }
+
   //sparar om man väljer termin 9
   function handleClick2() {
     let nr = 1;
     saveKurs(kurs, nr);
     setAddKurs(true);
-    if (kurs.kurskod === "THEN09") {
-      setShowOverlapping(true);
-    }
   }
 
   function handleDelete() {
@@ -57,9 +55,25 @@ export default function Kurs(props) {
     setAddKurs(false);
   }
 
+  function handleOverlappningPopup() {
+    if (kurs.kurskod === "THEN09") {
+      setShowOverlapping(true);
+    }
+  }
+
+  // Kollar ifall en kurs har en överlappningkurs eller ej
+  const [hasOverlappning, setHasOverlappning] = useState(false);
+
+  useEffect(() => {
+    if (kurs.overlappning !== "Ingen överlappning") {
+      setHasOverlappning(true);
+    }
+  }, [kurs.overlappning]);
+
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+
   return (
     <>
       <InfoTitel>{kurs.kursnamn}</InfoTitel>
@@ -103,7 +117,7 @@ export default function Kurs(props) {
       </SecondInfoCont>
 
       {!addkurs && (
-        <Dropdown>
+        <Dropdown onClick={handleOverlappningPopup}>
           <LäggaTillDroppD>
             <BsFolderPlus size={20} />
             <InfoTextKnapp>Lägg till</InfoTextKnapp>
@@ -151,6 +165,12 @@ export default function Kurs(props) {
 
       {isReadMore && <InfoText>HP: {kurs.hp}</InfoText>}
       {isReadMore && <InfoText>Ort: {kurs.ort}</InfoText>}
+      {isReadMore && hasOverlappning && (
+        <InfoText>
+          Kursen får ej ingå i examen tillsammans med {kurs.overlappning}
+        </InfoText>
+      )}
+
       {isReadMore && (
         <InfoText>
           Examination:{" "}

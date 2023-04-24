@@ -133,6 +133,7 @@ export function MinSida() {
   }, initialCounts);
 
   //const totalStudents = counts.grundniva + counts.avancerad;
+
   const avanceradPercent = Math.round(counts.avancerad);
   const medieteknikPercent = Math.round(counts.medieteknik);
   const datateknikPercent = Math.round(counts.datateknik);

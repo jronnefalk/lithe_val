@@ -2,7 +2,12 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 
 // Style (text)
-import { FilterHeader, FilterText, InfoTitel } from "../styles/Text.styled.js";
+import {
+  FilterHeader,
+  FilterText,
+  InfoTitel,
+  FilterTextBlock,
+} from "../styles/Text.styled.js";
 
 //Style (container)
 import { FilterCont, FilterBlock } from "../styles/Container.styled";
@@ -77,7 +82,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
 
       <FilterBlock>
         {blocks.map((filter) => (
-          <FilterText key={uuidv4()}>
+          <FilterTextBlock key={uuidv4()}>
             <input
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
@@ -86,7 +91,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
               )}
             />
             {filter.label}
-          </FilterText>
+          </FilterTextBlock>
         ))}
       </FilterBlock>
 

@@ -80,8 +80,11 @@ export const FilterCont = styled.div`
 
 export const FilterBlock = styled.div`
   display: grid;
-  grid-template-columns: 20% 20%;
-  grid-template-rows: 35% 20%;
-  margin-bottom: -10%;
-  margin-top: -5%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
 `;

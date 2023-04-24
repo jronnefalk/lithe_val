@@ -64,4 +64,10 @@ export const FilterHeader = styled(InfoTitel)`
 `;
 
 // Checkboxarna
-export const FilterText = styled(InfoText)``;
+export const FilterText = styled(InfoText)`
+  margin: 2px 0px;
+`;
+
+export const FilterTextBlock = styled(InfoText)`
+  margin: 2px 0 1px 0;
+`;

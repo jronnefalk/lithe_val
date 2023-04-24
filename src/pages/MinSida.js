@@ -7,6 +7,11 @@ import Schema from "../components/Schema";
 import Visualisering from "../components/Visualisering";
 
 //Style
+import { Progressbar } from "../styles/Visualiseringar.styled";
+import { RubrikProgressbar } from "../styles/Text.styled";
+import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
+import { Cirkel } from "../styles/Visualiseringar.styled";
+import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
 
 export function MinSida() {
@@ -103,13 +108,12 @@ export function MinSida() {
         <Visualisering courseData={courseData} />
         <h1>My Courses</h1>
 
-        <Schema
-          FireBaseData={FireBaseData}
-          courseData={courseData}
-          handleDelete={handleDelete}
-          handleMove={handleMove}
-        />
-      </CirkelRubrikMinakurser>
+      <Schema
+        FireBaseData={FireBaseData}
+        courseData={courseData}
+        handleDelete={handleDelete}
+        handleMove={handleMove}
+      />
     </>
   );
 }

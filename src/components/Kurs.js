@@ -14,7 +14,7 @@ import {
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
 
-import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
+import { TaBort, Dropd, DropdownB } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -99,31 +99,34 @@ export default function Kurs(props) {
       </SecondInfoCont>
 
       {!addkurs && (
-        <Dropdown>
-          <LäggaTillDroppD>
-            <BsFolderPlus size={20} />
-          </LäggaTillDroppD>
-          <Dropdown.Menu>
-            <Dropdown.Item
-              onClick={handleClick1}
-              style={{ textDecoration: "none" }}
-            >
-              {" "}
-              <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-            </Dropdown.Item>
-            {kurs.termin.length === 2 && (
-              <>
-                <Dropdown.Item
-                  onClick={handleClick2}
-                  style={{ textDecoration: "none" }}
-                >
-                  {" "}
-                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                </Dropdown.Item>
-              </>
-            )}
-          </Dropdown.Menu>
-        </Dropdown>
+        <Dropd>
+          <Dropdown>
+            {" "}
+            <DropdownB>
+              <BsFolderPlus size={20} />
+            </DropdownB>
+            <Dropdown.Menu>
+              <Dropdown.Item
+                onClick={handleClick1}
+                style={{ textDecoration: "none" }}
+              >
+                {" "}
+                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+              </Dropdown.Item>
+              {kurs.termin.length === 2 && (
+                <>
+                  <Dropdown.Item
+                    onClick={handleClick2}
+                    style={{ textDecoration: "none" }}
+                  >
+                    {" "}
+                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  </Dropdown.Item>
+                </>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Dropd>
       )}
 
       {addkurs && (

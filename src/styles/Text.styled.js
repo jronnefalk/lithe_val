@@ -22,7 +22,7 @@ export const LäsMerText = styled(InfoText)`
 `;
 //Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  font-size: 50%;
+  font-size: 70%;
   color: black;
   text-decoration: none;
 `;

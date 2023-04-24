@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Dropdown from "react-bootstrap/Dropdown";
+import styled from "styled-components";
 
 //lägga  till kurser knappen
 
@@ -18,15 +18,16 @@ export const TaBort = styled.button`
     border-radius: 20%;
   }
 `;
-export const LäggaTillDroppD = styled(Dropdown.Toggle)`
+export const Dropd = styled.button`
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: center;
   border: none;
   background: none;
   position: relative;
   top: -100px;
   margin-left: 94%;
+
   &:hover {
     background-color: #ededed;
     border-radius: 20%;
@@ -46,4 +47,8 @@ export const SökIcont = styled.span`
   margin-right: 5px;
   top: -65px;
   left: 650px;
+`;
+export const DropdownB = styled(Dropdown.Toggle)`
+  border: none;
+  background: none;
 `;

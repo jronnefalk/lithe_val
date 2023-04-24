@@ -10,10 +10,11 @@ import {
   InfoText2,
   InfoTitel,
   InfoTextKnapp,
+  LäsMerText,
 } from "../styles/Text.styled.js";
 import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
 
-import { LäggaTill, LäggaTillDroppD } from "../styles/Knappar.styled.js";
+import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -136,18 +137,20 @@ export default function Kurs(props) {
         <Dropdown>
           <LäggaTillDroppD>
             <BsFolderPlus size={20} />
-            <InfoTextKnapp>Lägg till</InfoTextKnapp>
           </LäggaTillDroppD>
           <Dropdown.Menu>
-            <Dropdown.Item className="Lägg-till-text" onClick={handleClick1}>
+            <Dropdown.Item
+              onClick={handleClick1}
+              style={{ textDecoration: "none" }}
+            >
+              {" "}
               <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
             </Dropdown.Item>
             {kurs.termin.length === 2 && (
               <>
-                <Dropdown.Divider />
                 <Dropdown.Item
-                  className="Lägg-till-text"
                   onClick={handleClick2}
+                  style={{ textDecoration: "none" }}
                 >
                   <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
                 </Dropdown.Item>
@@ -157,15 +160,15 @@ export default function Kurs(props) {
         </Dropdown>
       )}
 
-      <span onClick={toggleReadMore} className="read-or-hide">
+      <span onClick={toggleReadMore}>
         {isReadMore ? (
-          <InfoText>
+          <LäsMerText>
             Läs mindre <AiOutlineUp />{" "}
-          </InfoText>
+          </LäsMerText>
         ) : (
-          <InfoText>
+          <LäsMerText>
             Läs mer <AiOutlineDown />{" "}
-          </InfoText>
+          </LäsMerText>
         )}
       </span>
 

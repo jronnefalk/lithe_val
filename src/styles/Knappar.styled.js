@@ -3,7 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 //lägga  till kurser knappen
 
-export const LäggaTill = styled.button`
+export const TaBort = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;

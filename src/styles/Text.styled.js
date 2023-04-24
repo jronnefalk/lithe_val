@@ -16,10 +16,13 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
-
+export const LäsMerText = styled(InfoText)`
+  display: flex;
+  align-items: end;
+`;
 //Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  font-size: 50%;
+  font-size: 70%;
   color: black;
   text-decoration: none;
 `;
@@ -31,6 +34,12 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
+export const RubrikProgressbar = styled(InfoTitel)`
+  float: right;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: row;
+`;
 
 //Meny text
 
@@ -39,11 +48,11 @@ export const Titel = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   margin-top: 0%;
-  margin-left: 37%;
+  margin-left: 39%;
 `;
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.4rem;
+  font-size: 0.6rem;
 `;
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;

@@ -83,3 +83,24 @@ export const FilterBlock = styled.div`
   margin-bottom: -10%;
   margin-top: -5%;
 `;
+
+//schema
+export const HelaSchemaCont = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const SchemaKurserCont = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const SchemaKursInfoCont = styled(SchemaKurserCont)`
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid black;
+  border-radius: 20px;
+  margin-top: 5%;
+  margin-right: 9%;
+  margin-left: -8%;
+  padding-left: 1%;
+  width: 50%;
+`;

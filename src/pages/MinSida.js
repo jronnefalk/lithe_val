@@ -12,6 +12,7 @@ import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
+import { HelaSchemaCont } from "../styles/Container.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -159,13 +160,14 @@ export function MinSida() {
         <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
         <Cirkel value={hpPercent} max="90"></Cirkel>
         <h1>My Courses</h1>
-
-        <Schema
-          FireBaseData={FireBaseData}
-          courseData={courseData}
-          handleDelete={handleDelete}
-          handleMove={handleMove}
-        />
+        <HelaSchemaCont>
+          <Schema
+            FireBaseData={FireBaseData}
+            courseData={courseData}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+          />
+        </HelaSchemaCont>
       </CirkelRubrikMinakurser>
     </>
   );

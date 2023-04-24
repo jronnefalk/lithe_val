@@ -4,8 +4,6 @@ import getData from "../functions/getData";
 import { BsTrash3 } from "react-icons/bs";
 
 export default function Schema(props) {
-  console.log(props.FireBaseData);
-
   return (
     <>
       {props.FireBaseData.length > 0 &&

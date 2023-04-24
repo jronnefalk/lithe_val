@@ -40,11 +40,13 @@ export default function Schema(props) {
 
     return acc;
   }, initialCounts);
+
   //const totalStudents = counts.grundniva + counts.avancerad;
   const avanceradPercent = Math.round(counts.avancerad);
   const medieteknikPercent = Math.round(counts.medieteknik);
   const datateknikPercent = Math.round(counts.datateknik);
   const hpPercent = Math.round(counts.hp);
+
   return (
     <>
       <h1>Visualisering</h1>

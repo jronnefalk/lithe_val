@@ -129,10 +129,10 @@ export default function Kurs(props) {
       </SecondInfoCont>
 
       {isInFirebase || addedKurs === "1" ? (
-        <LäggaTill onClick={handleDelete}>
+        <TaBort onClick={handleDelete}>
           <BsTrash3 size={20} />
           <p>Ta bort kurs</p>
-        </LäggaTill>
+        </TaBort>
       ) : (
         <Dropdown>
           <LäggaTillDroppD>

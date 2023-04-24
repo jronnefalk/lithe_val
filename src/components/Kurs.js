@@ -102,17 +102,21 @@ export default function Kurs(props) {
         <Dropdown>
           <LäggaTillDroppD>
             <BsFolderPlus size={20} />
-            <InfoTextKnapp>Lägg till</InfoTextKnapp>
           </LäggaTillDroppD>
           <Dropdown.Menu>
-            <Dropdown.Item onClick={handleClick1}>
+            <Dropdown.Item
+              onClick={handleClick1}
+              style={{ textDecoration: "none" }}
+            >
               {" "}
               <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
             </Dropdown.Item>
             {kurs.termin.length === 2 && (
               <>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={handleClick2}>
+                <Dropdown.Item
+                  onClick={handleClick2}
+                  style={{ textDecoration: "none" }}
+                >
                   {" "}
                   <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
                 </Dropdown.Item>

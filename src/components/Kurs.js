@@ -23,37 +23,68 @@ import { BsFolderPlus } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
+  // Creates variables for the course data and course code by
+  // extracting them from the props passed down to the component.
   const kurs = props.kursdata;
   const kurskod = kurs.kurskod;
 
+  // Creates state variables for toggling the
+  // read more/less feature in the course description.
   const [isReadMore, setIsReadMore] = useState(false);
+
+  // Creates a state variable for checking if the course is already saved in Firebase.
   const [isInFirebase, setIsInFirebase] = useState(false);
 
+  // Creates a state variable for keeping track of whether the course has been
+  // added to the user's list of saved courses in localStorage, with an initial
+  // value of "0". If the course code is already in localStorage, it sets the
+  // initial value to the existing value in localStorage.
+  const [addedKurs, setAddedKurs] = useState(
+    localStorage.getItem(kurskod) || "0"
+  );
+
+  // Effect hook that runs when the course code changes, and checks if the
+  // course data is already saved in Firebase. If the course data exists
+  // in Firebase, it sets the state variable isInFirebase to true.
   useEffect(() => {
-    localStorage.setItem(kurs.kurskod, addkurs);
-  }, [addkurs, kurs.kurskod]);
-  //sparar om man väljer termin 7 eller 8
+    async function checkKurs() {
+      const kursData = await getKurs(kurskod);
+      setIsInFirebase(kursData !== null);
+    }
+    checkKurs();
+  }, [kurskod]);
+
+  // Effect hook that runs whenever the addedKurs or kurskod variables change.
+  // It saves the current addedKurs value to localStorage under the kurskod key.
+  useEffect(() => {
+    localStorage.setItem(kurskod, addedKurs);
+  }, [addedKurs, kurskod]);
+
+  // Event handlers for clicking the "Add course" and "Remove course" buttons.
+  // handleClick1() and handleClick2() add the course to localStorage with the
+  // value "1", while handleDelete() removes the course from localStorage
+  // with the value "0".
   function handleClick1() {
+    setAddedKurs("1");
     let nr = 0;
     saveKurs(kurs, nr);
-    setAddKurs(true);
   }
-  //sparar om man väljer termin 9
+
   function handleClick2() {
+    setAddedKurs("1");
     let nr = 1;
     saveKurs(kurs, nr);
-    setAddKurs(true);
   }
 
   function handleDelete() {
+    setAddedKurs("0");
     deleteKurs(kurs);
-    localStorage.removeItem(kurskod);
-    setIsInFirebase(false);
   }
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+
   return (
     <>
       <InfoTitel>{kurs.kursnamn}</InfoTitel>
@@ -96,7 +127,12 @@ export default function Kurs(props) {
         })}
       </SecondInfoCont>
 
-      {!addkurs && (
+      {isInFirebase || addedKurs === "1" ? (
+        <LäggaTill onClick={handleDelete}>
+          <BsTrash3 size={20} />
+          <p>Ta bort kurs</p>
+        </LäggaTill>
+      ) : (
         <Dropdown>
           <LäggaTillDroppD>
             <BsFolderPlus size={20} />
@@ -104,7 +140,6 @@ export default function Kurs(props) {
           </LäggaTillDroppD>
           <Dropdown.Menu>
             <Dropdown.Item className="Lägg-till-text" onClick={handleClick1}>
-              {" "}
               <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
             </Dropdown.Item>
             {kurs.termin.length === 2 && (
@@ -114,21 +149,12 @@ export default function Kurs(props) {
                   className="Lägg-till-text"
                   onClick={handleClick2}
                 >
-                  {" "}
                   <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
                 </Dropdown.Item>
               </>
             )}
           </Dropdown.Menu>
         </Dropdown>
-      )}
-
-      {addkurs && (
-        <LäggaTill onClick={handleDelete}>
-          {" "}
-          <BsTrash3 size={20} />
-          <p>Ta bort kurs</p>
-        </LäggaTill>
       )}
 
       <span onClick={toggleReadMore} className="read-or-hide">
@@ -157,7 +183,7 @@ export default function Kurs(props) {
         <a href={kurs.url}>
           {" "}
           <InfoText>
-            Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            Linköpings universitet - Läs mer om kurser <BsBoxArrowUpRight />
           </InfoText>
         </a>
       )}

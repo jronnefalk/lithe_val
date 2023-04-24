@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, remove, update } from "firebase/database";
+import { getDatabase, ref, set, remove, update, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -59,6 +59,7 @@ const deleteKurs = (kurs) => {
     console.log("No user is signed in");
   }
 };
+
 const moveKurs = (kurs, ny) => {
   const user = auth.currentUser;
   if (user) {
@@ -76,5 +77,26 @@ const moveKurs = (kurs, ny) => {
   }
 };
 
-export { saveKurs, deleteKurs, moveKurs };
+// Kollar om kurs finns i Firebase. Används till soptunnorna
+const getKurs = async (kurskod) => {
+  const user = auth.currentUser;
+  if (user) {
+    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurskod}`);
+    try {
+      const kursSnapshot = await get(kursRef);
+      if (kursSnapshot.exists()) {
+        return kursSnapshot.val();
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.log("Error getting kurs:", error.message);
+      return null;
+    }
+  } else {
+    return null;
+  }
+};
+
+export { saveKurs, deleteKurs, moveKurs, database, getKurs };
 export default app;

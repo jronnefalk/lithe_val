@@ -6,14 +6,6 @@ import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 import Visualisering from "../components/Visualisering";
 
-//Style
-import { Progressbar } from "../styles/Visualiseringar.styled";
-import { RubrikProgressbar } from "../styles/Text.styled";
-import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
-import { Cirkel } from "../styles/Visualiseringar.styled";
-import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
-import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
-
 export function MinSida() {
   // skapar variabler för att spara data i
   const { currentUser } = getAuth();
@@ -104,9 +96,8 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
-      <CirkelRubrikMinakurser>
-        <Visualisering courseData={courseData} />
-        <h1>My Courses</h1>
+      <Visualisering courseData={courseData} />
+      <h1>My Courses</h1>
 
       <Schema
         FireBaseData={FireBaseData}

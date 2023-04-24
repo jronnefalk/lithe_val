@@ -11,7 +11,7 @@ import { InfoTitel } from "../styles/Text.styled";
 import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 //import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
-import { Minsida } from "../styles/Visualiseringar.styled";
+//import { Minsida } from "../styles/Visualiseringar.styled";
 import { LimitLine } from "../styles/Visualiseringar.styled";
 
 export function MinSida() {

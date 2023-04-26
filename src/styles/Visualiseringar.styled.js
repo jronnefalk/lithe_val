@@ -16,11 +16,21 @@ export const Progressbar = styled.progress`
   margin-bottom: 2rem;
   max-width: 460pt;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative; /* set position to relative for absolute positioning of ::before */
   &::-webkit-progress-value {
     background-color: #317773; /* ändra färgen här */
   }
   &::-webkit-progress-bar {
     background-color: #d9d9d9;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 83.3%; /* position the vertical line in the middle of the progress bar */
+    width: 4px; /* set the width of the vertical line */
+    background-color: white; /* set the color of the vertical line */
   }
 `;
 
@@ -32,14 +42,14 @@ export const Progressbarochrubrik = styled.div`
   align-items: center;
 `;
 
-export const LimitLine = styled.div`
-  position: absolute;
-  bottom: ${(props) => props.hpPercent}%;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-color: #00000;
-`;
+// export const LimitLine = styled.div`
+//   position: absolute;
+//   bottom: ${(props) => props.hpPercent}%;
+//   left: 0;
+//   right: 0;
+//   height: 100px;
+//   background-color: #00000;
+// `;
 
 export const Cirkel = styled.progress`
   width: 10rem;

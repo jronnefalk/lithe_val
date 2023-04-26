@@ -12,7 +12,6 @@ import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 //import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 //import { Minsida } from "../styles/Visualiseringar.styled";
-import { LimitLine } from "../styles/Visualiseringar.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -146,8 +145,7 @@ export function MinSida() {
         <InfoTitel>
           Poäng inom avancerade kurser: {counts.avancerad * 6} hp
         </InfoTitel>
-        <Progressbar value={avanceradPercent} max="10"></Progressbar>
-        <LimitLine hpPercent={hpPercent} />
+        <Progressbar value={avanceradPercent} max="12"></Progressbar>
         <InfoTitel>
           Poäng inom medieteknik: {counts.medieteknik * 6} hp
         </InfoTitel>

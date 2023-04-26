@@ -42,15 +42,6 @@ export const Progressbarochrubrik = styled.div`
   align-items: center;
 `;
 
-// export const LimitLine = styled.div`
-//   position: absolute;
-//   bottom: ${(props) => props.hpPercent}%;
-//   left: 0;
-//   right: 0;
-//   height: 100px;
-//   background-color: #00000;
-// `;
-
 export const Cirkel = styled.progress`
   width: 10rem;
   height: 20rem;

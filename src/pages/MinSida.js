@@ -143,14 +143,16 @@ export function MinSida() {
       <h1>Visualisering</h1>
       <Progressbarochrubrik>
         <InfoTitel>
-          Poäng inom avancerade kurser: {counts.avancerad * 6} hp
+          Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
         </InfoTitel>
         <Progressbar value={avanceradPercent} max="12"></Progressbar>
         <InfoTitel>
-          Poäng inom medieteknik: {counts.medieteknik * 6} hp
+          Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
         </InfoTitel>
         <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-        <InfoTitel>Poäng inom datateknik: {counts.datateknik * 6} hp</InfoTitel>
+        <InfoTitel>
+          Poäng inom datateknik: {counts.datateknik * 6}/30 hp
+        </InfoTitel>
         <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
       </Progressbarochrubrik>
 

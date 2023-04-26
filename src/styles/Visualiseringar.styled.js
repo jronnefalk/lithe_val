@@ -41,26 +41,3 @@ export const Progressbarochrubrik = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-// export const LimitLine = styled.div`
-//   position: absolute;
-//   bottom: ${(props) => props.hpPercent}%;
-//   left: 0;
-//   right: 0;
-//   height: 100px;
-//   background-color: #00000;
-// `;
-
-export const Cirkel = styled.progress`
-  width: 10rem;
-  height: 20rem;
-  background: conic-gradient(
-    border-radius: 50%;
-    &::-webkit-progress-value {
-      background-image: conic-gradient(#333 0% ${(props) =>
-        (props.value / props.max) * 360}deg, #eee ${(props) =>
-  (props.value / props.max) * 360}deg 100%);
-      border-radius: inherit;
-    }
-    transform: rotate(-90deg);
-  `;

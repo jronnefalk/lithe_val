@@ -32,6 +32,10 @@ export const InfoTextKnapp = styled(InfoText)`
   font-size: 70%;
   color: black;
   text-decoration: none;
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
 `;
 // Sök texten
 export const SökText = styled.input`

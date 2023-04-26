@@ -1,16 +1,16 @@
 import styled from "styled-components";
-//Text till info om kurser
-
+// Text till info om kurser
 export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
 `;
-
+// Titel i kursboxarna
 export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
 `;
 
+// Huvudområde
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
   background-color: #ebebeb;
@@ -18,7 +18,7 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
-
+// Utbildningsnivå
 export const InfoText3 = styled(InfoText2)`
   background-color: #e2f3f2;
 `;
@@ -27,7 +27,7 @@ export const LäsMerText = styled(InfoText)`
   display: flex;
   align-items: end;
 `;
-//Visa mer knappen och Lägga till knapp
+// Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
   font-size: 70%;
   color: black;
@@ -49,7 +49,6 @@ export const RubrikProgressbar = styled(InfoTitel)`
 `;
 
 // Meny text
-
 export const Titel = styled.h1`
   color: #317773;
   font-family: "Futura-Bold", arial;

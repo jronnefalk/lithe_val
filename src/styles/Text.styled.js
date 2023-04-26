@@ -5,10 +5,12 @@ export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
 `;
+
 export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
 `;
+
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
   background-color: #ebebeb;
@@ -41,7 +43,7 @@ export const RubrikProgressbar = styled(InfoTitel)`
   flex-direction: row;
 `;
 
-//Meny text
+// Meny text
 
 export const Titel = styled.h1`
   color: #317773;
@@ -50,12 +52,22 @@ export const Titel = styled.h1`
   margin-top: 0%;
   margin-left: 39%;
 `;
+
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.6rem;
 `;
+
+// Block, Period, Ort.... rubrik
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
 `;
 
-export const FilterText = styled(InfoText)``;
+// Checkboxarna
+export const FilterText = styled(InfoText)`
+  margin: 2px 0px;
+`;
+
+export const FilterTextBlock = styled(InfoText)`
+  margin: 2px 0 1px 0;
+`;

@@ -23,7 +23,8 @@ export const Cont = styled.div`
 export const KursContWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 51%;
+  width: 50%;
+  margin-left: 1.5%;
 `;
 export const KursCont = styled.div`
   margin-bottom: 3%;
@@ -69,17 +70,21 @@ export const MinaSidorCont = styled.div`
 
 //Filter
 export const FilterCont = styled.div`
-  width: 17%;
+  width: 9%;
   padding: 16px;
   margin-right: 5%;
+  margin-left: 7%;
   border: 0.5px solid black;
   border-radius: 20px;
 `;
 
 export const FilterBlock = styled.div`
   display: grid;
-  grid-template-columns: 20% 20%;
-  grid-template-rows: 35% 20%;
-  margin-bottom: -10%;
-  margin-top: -5%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
 `;

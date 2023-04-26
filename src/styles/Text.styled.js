@@ -13,7 +13,7 @@ export const InfoTitel = styled.h1`
 // Huvudområde
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
-  background-color: #ebebeb;
+  background-color: #e4eaf1;
   border-radius: 20px;
   padding: 5px;
   margin-top: 2rem;

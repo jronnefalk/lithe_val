@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-//Info om kurser divar
+// Info om kurser divar
 export const FirstInfoCont = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +14,7 @@ export const SecondInfoCont = styled(FirstInfoCont)`
   margin-bottom: -1.8rem;
 `;
 
-//Kurser divar
+// Kurser divar
 export const Cont = styled.div`
   display: flex;
   align-items: flex-start;
@@ -68,7 +68,7 @@ export const MinaSidorCont = styled.div`
   margin-right: 2%;
 `;
 
-//Filter
+// Filter
 export const FilterCont = styled.div`
   width: 9%;
   padding: 16px;
@@ -78,6 +78,7 @@ export const FilterCont = styled.div`
   border-radius: 20px;
 `;
 
+// Justerar enbart blocken i filtret
 export const FilterBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;

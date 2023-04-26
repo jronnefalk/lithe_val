@@ -18,6 +18,11 @@ export const InfoText2 = styled(InfoText)`
   padding: 5px;
   margin-top: 2rem;
 `;
+
+export const InfoText3 = styled(InfoText2)`
+  background-color: #e2f3f2;
+`;
+
 export const LäsMerText = styled(InfoText)`
   display: flex;
   align-items: end;

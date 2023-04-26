@@ -8,6 +8,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import {
   InfoText,
   InfoText2,
+  InfoText3,
   InfoTitel,
   InfoTextKnapp,
   LäsMerText,
@@ -92,7 +93,7 @@ export default function Kurs(props) {
         <InfoText>|</InfoText>
       </FirstInfoCont>
       <SecondInfoCont>
-        <InfoText2>{kurs.utbildningsniva}</InfoText2>{" "}
+        <InfoText3>{kurs.utbildningsniva}</InfoText3>{" "}
         {kurs.huvudomrade.map((prop) => {
           return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
         })}

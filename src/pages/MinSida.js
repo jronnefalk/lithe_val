@@ -7,12 +7,12 @@ import Schema from "../components/Schema";
 
 //Style
 import { Progressbar } from "../styles/Visualiseringar.styled";
-import { RubrikProgressbar } from "../styles/Text.styled";
+import { MittSchemaText, RubrikProgressbar } from "../styles/Text.styled";
 import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
-import { HelaSchemaCont } from "../styles/Container.styled";
+import { HelaSchemaCont, MinSidaCont } from "../styles/Container.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -140,26 +140,30 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
-      <h1>Visualisering</h1>
-      <Progressbarochrubrik>
-        <RubrikProgressbar>
-          Avancerade kurser: {counts.avancerad}
-        </RubrikProgressbar>
-        <Progressbar value={avanceradPercent} max="10"></Progressbar>
-        <RubrikProgressbar>
-          Poäng inom medieteknik: {counts.medieteknik}
-        </RubrikProgressbar>
-        <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-        <RubrikProgressbar>
-          Poäng inom datateknik: {counts.datateknik}
-        </RubrikProgressbar>
-        <Progressbar value={datateknikPercent} max="6"></Progressbar>
-      </Progressbarochrubrik>
+      <MinSidaCont>
+        <div>
+          <h1>Visualisering</h1>
+          <Progressbarochrubrik>
+            <RubrikProgressbar>
+              Avancerade kurser: {counts.avancerad}
+            </RubrikProgressbar>
+            <Progressbar value={avanceradPercent} max="10"></Progressbar>
+            <RubrikProgressbar>
+              Poäng inom medieteknik: {counts.medieteknik}
+            </RubrikProgressbar>
+            <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+            <RubrikProgressbar>
+              Poäng inom datateknik: {counts.datateknik}
+            </RubrikProgressbar>
+            <Progressbar value={datateknikPercent} max="6"></Progressbar>
+          </Progressbarochrubrik>
 
-      <CirkelRubrikMinakurser>
-        <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
-        <Cirkel value={hpPercent} max="90"></Cirkel>
-        <h1>My Courses</h1>
+          <CirkelRubrikMinakurser>
+            <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
+            <Cirkel value={hpPercent} max="90"></Cirkel>
+          </CirkelRubrikMinakurser>
+        </div>
+        <MittSchemaText>MITT SCHEMA</MittSchemaText>
         <HelaSchemaCont>
           <Schema
             FireBaseData={FireBaseData}
@@ -168,7 +172,7 @@ export function MinSida() {
             handleMove={handleMove}
           />
         </HelaSchemaCont>
-      </CirkelRubrikMinakurser>
+      </MinSidaCont>
     </>
   );
 }

@@ -4,21 +4,24 @@ import styled from "styled-components";
 export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
+  margin: 0;
 `;
 export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
+  margin: 0;
 `;
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
   background-color: #ebebeb;
   border-radius: 20px;
   padding: 5px;
-  margin-top: 2rem;
 `;
 export const LäsMerText = styled(InfoText)`
   display: flex;
   align-items: end;
+  margin-top: 5%;
+  text-decoration-line: underline;
 `;
 //Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
@@ -59,3 +62,32 @@ export const FilterHeader = styled(InfoTitel)`
 `;
 
 export const FilterText = styled(InfoText)``;
+
+//Schema
+export const MittSchemaText = styled.h1`
+  font-family: "Futura-Bold", arial;
+  font-size: 40px;
+  color: #317773;
+  text-align: center;
+`;
+export const PeriodSchema = styled(InfoText)`
+  font-size: 1rem;
+  margin-left: 1%;
+  padding-bottom: 2%;
+  padding-top: 4%;
+`;
+export const FlyttaSchemaText = styled(InfoText)`
+  font-size: 70%;
+`;
+export const SchemaTitelKurs = styled(InfoTitel)`
+  font-size: 0.8rem;
+`;
+export const SchemaTextInfo = styled(InfoText)`
+  font-size: 0.6rem;
+`;
+export const SchemaLäsMerText = styled(LäsMerText)`
+  font-size: 0.6rem;
+`;
+export const SchemaInfoText2 = styled(InfoText2)`
+  font-size: 0.6rem;
+`;

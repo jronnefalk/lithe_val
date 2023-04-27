@@ -17,5 +17,9 @@ export default function getData(key) {
     huvudomrade: result.huvudomrade,
     termin: result.termin,
     period: result.period,
+    ort: result.ort,
+    url: result.url,
+    examination: result.examination,
+    studietakt: result.studietakt,
   };
 }

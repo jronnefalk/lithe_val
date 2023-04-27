@@ -9,10 +9,6 @@ export const TaBort = styled.button`
   align-items: center;
   border: none;
   background: none;
-  position: relative;
-  top: -100px;
-  margin-left: 94%;
-
   &:hover {
     background-color: #ededed;
     border-radius: 20%;
@@ -21,12 +17,10 @@ export const TaBort = styled.button`
 export const LäggaTillDroppD = styled(Dropdown.Toggle)`
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: center;
   border: none;
   background: none;
-  position: relative;
-  top: -100px;
-  margin-left: 94%;
+
   &:hover {
     background-color: #ededed;
     border-radius: 20%;
@@ -46,4 +40,19 @@ export const SökIcont = styled.span`
   margin-right: 5px;
   top: -65px;
   left: 650px;
+`;
+//Schema
+
+export const FlyttaKnappSchema = styled.button`
+  margin-right: auto;
+  margin-top: 7%;
+  background-color: #b7e1df;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 1px 1px #317773;
+
+  &:hover {
+    background-color: #f1f9f9;
+    border: none;
+  }
 `;

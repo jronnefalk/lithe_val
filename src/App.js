@@ -5,7 +5,7 @@ import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //style
-import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
+import { MenyCont } from "./styles/Container.styled";
 import { MenyKnapp } from "./styles/Knappar.styled";
 import { Titel, MenyText } from "./styles/Text.styled";
 
@@ -67,17 +67,16 @@ export default function App() {
 
         <Titel>LITHEVAL</Titel>
 
-        <MinaSidorCont>
-          <Link to="/minasidor">
-            <span>
-              {" "}
-              <MenyKnapp onClick={handleClickMyPage}>
-                {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-                <MenyText>Min sida</MenyText>
-              </MenyKnapp>{" "}
-            </span>
-          </Link>
-        </MinaSidorCont>
+        <Link to="/minasidor">
+          <span>
+            {" "}
+            <MenyKnapp onClick={handleClickMyPage}>
+              {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
+              <MenyText>Min sida</MenyText>
+            </MenyKnapp>{" "}
+          </span>
+        </Link>
+
         <GoogleAuth />
       </MenyCont>
 

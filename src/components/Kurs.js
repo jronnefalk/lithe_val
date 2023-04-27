@@ -12,7 +12,11 @@ import {
   InfoTextKnapp,
   LäsMerText,
 } from "../styles/Text.styled.js";
-import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
+import {
+  FirstInfoCont,
+  TitelKnappCont,
+  SecondInfoCont,
+} from "../styles/Container.styled.js";
 
 import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
 
@@ -58,7 +62,42 @@ export default function Kurs(props) {
   };
   return (
     <>
-      <InfoTitel>{kurs.kursnamn}</InfoTitel>
+      <TitelKnappCont>
+        <InfoTitel>{kurs.kursnamn}</InfoTitel>
+
+        {!addkurs && (
+          <Dropdown>
+            <LäggaTillDroppD>
+              <BsFolderPlus size={20} />
+              <InfoTextKnapp>Lägg till</InfoTextKnapp>
+            </LäggaTillDroppD>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={handleClick1}>
+                {" "}
+                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+              </Dropdown.Item>
+              {kurs.termin.length === 2 && (
+                <>
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleClick2}>
+                    {" "}
+                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  </Dropdown.Item>
+                </>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
+
+        {addkurs && (
+          <TaBort onClick={handleDelete}>
+            {" "}
+            <BsTrash3 size={20} />
+            <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
+          </TaBort>
+        )}
+      </TitelKnappCont>
+
       <FirstInfoCont>
         <InfoText>| {kurs.kurskod} </InfoText>
 
@@ -93,42 +132,12 @@ export default function Kurs(props) {
       </FirstInfoCont>
       <SecondInfoCont>
         <InfoText2>{kurs.utbildningsniva}</InfoText2>{" "}
-        {kurs.huvudomrade.map((prop) => {
-          return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
-        })}
+        {kurs.huvudomrade !== undefined &&
+          kurs.huvudomrade !== null &&
+          kurs.huvudomrade.map((prop) => {
+            return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
+          })}
       </SecondInfoCont>
-
-      {!addkurs && (
-        <Dropdown>
-          <LäggaTillDroppD>
-            <BsFolderPlus size={20} />
-            <InfoTextKnapp>Lägg till</InfoTextKnapp>
-          </LäggaTillDroppD>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={handleClick1}>
-              {" "}
-              <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-            </Dropdown.Item>
-            {kurs.termin.length === 2 && (
-              <>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={handleClick2}>
-                  {" "}
-                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                </Dropdown.Item>
-              </>
-            )}
-          </Dropdown.Menu>
-        </Dropdown>
-      )}
-
-      {addkurs && (
-        <TaBort onClick={handleDelete}>
-          {" "}
-          <BsTrash3 size={20} />
-          <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
-        </TaBort>
-      )}
 
       <span onClick={toggleReadMore}>
         {isReadMore ? (
@@ -144,14 +153,16 @@ export default function Kurs(props) {
 
       {isReadMore && <InfoText>HP: {kurs.hp}</InfoText>}
       {isReadMore && <InfoText>Ort: {kurs.ort}</InfoText>}
-      {isReadMore && (
-        <InfoText>
-          Examination:{" "}
-          {kurs.examination.map((prop) => {
-            return <span key={uuidv4()}>{prop.benamning}</span>;
-          })}
-        </InfoText>
-      )}
+      {isReadMore &&
+        kurs.examination !== undefined &&
+        kurs.examination !== null && (
+          <InfoText>
+            Examination:{" "}
+            {kurs.examination.map((prop) => {
+              return <span key={uuidv4()}>{prop.benamning}</span>;
+            })}
+          </InfoText>
+        )}
       {isReadMore && (
         <a href={kurs.url}>
           {" "}

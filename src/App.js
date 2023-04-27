@@ -7,7 +7,7 @@ import { Start } from "./pages/Start";
 //style
 import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
 import { MenyKnapp } from "./styles/Knappar.styled";
-import { Titel, MenyText } from "./styles/Text.styled";
+import { Titel, MenyText, RubrikMenyKnapp } from "./styles/Text.styled";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";
@@ -50,29 +50,20 @@ export default function App() {
     <>
       <MenyCont>
         <Link to="">
-          {" "}
-          <span>
-            {" "}
-            <MenyKnapp onClick={handleClickHouse}>
-              {isFilled ? (
-                <BsHouseDoorFill size={30} />
-              ) : (
-                <BsHouseDoor size={30} />
-              )}
-
-              <MenyText>Startsida</MenyText>
-            </MenyKnapp>{" "}
-          </span>
+          <MenyKnapp className="meny-knapp" onClick={handleClickHouse}>
+            <RubrikMenyKnapp>
+              {" "}
+              {isFilled ? " LITHEVAL" : "LITHEVAL"}
+            </RubrikMenyKnapp>
+          </MenyKnapp>
         </Link>
-
-        <Titel>LITHEVAL</Titel>
 
         <MinaSidorCont>
           <Link to="/minasidor">
             <span>
               {" "}
               <MenyKnapp onClick={handleClickMyPage}>
-                {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
+                {isFilled ? <BsFolder size={31} /> : <BsFolderFill size={30} />}
                 <MenyText>Min sida</MenyText>
               </MenyKnapp>{" "}
             </span>

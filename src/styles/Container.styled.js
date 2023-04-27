@@ -64,7 +64,7 @@ export const MenyCont = styled.div`
 `;
 export const MinaSidorCont = styled.div`
   margin-left: auto;
-  margin-right: 2%;
+  margin-right: 1%;
 `;
 
 //Filter

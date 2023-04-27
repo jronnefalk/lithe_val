@@ -7,7 +7,11 @@ import Schema from "../components/Schema";
 
 //Style
 import { Progressbar } from "../styles/Visualiseringar.styled";
+import { OmsluterBubble } from "../styles/Visualiseringar.styled";
+import { Bubble } from "../styles/Visualiseringar.styled";
+import { SpeechBubble } from "../styles/Visualiseringar.styled";
 import { InfoTitel } from "../styles/Text.styled";
+import { BubbleText } from "../styles/Text.styled";
 import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 //import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
@@ -142,18 +146,35 @@ export function MinSida() {
     <>
       <h1>Visualisering</h1>
       <Progressbarochrubrik>
-        <InfoTitel>
-          Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
-        </InfoTitel>
-        <Progressbar value={avanceradPercent} max="12"></Progressbar>
-        <InfoTitel>
-          Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
-        </InfoTitel>
-        <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-        <InfoTitel>
-          Poäng inom datateknik: {counts.datateknik * 6}/30 hp
-        </InfoTitel>
-        <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
+        <Bubble>
+          <InfoTitel>
+            Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
+          </InfoTitel>
+          <OmsluterBubble>
+            <Progressbar value={avanceradPercent} max="12"></Progressbar>
+            <SpeechBubble data-id="n1">
+              <BubbleText>Minimumkrav</BubbleText>
+            </SpeechBubble>
+          </OmsluterBubble>
+          <InfoTitel>
+            Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
+          </InfoTitel>
+          <OmsluterBubble>
+            <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+            <SpeechBubble data-id="nr2">
+              <BubbleText>Minimumkrav</BubbleText>
+            </SpeechBubble>
+          </OmsluterBubble>
+          <InfoTitel>
+            Poäng inom datateknik: {counts.datateknik * 6}/30 hp
+          </InfoTitel>
+          <OmsluterBubble>
+            <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
+            <SpeechBubble data-id="nr3">
+              <BubbleText>Minimumkrav</BubbleText>
+            </SpeechBubble>
+          </OmsluterBubble>
+        </Bubble>
       </Progressbarochrubrik>
 
       <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>

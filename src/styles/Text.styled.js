@@ -9,6 +9,10 @@ export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
 `;
+// Minimumkraven
+export const BubbleText = styled(InfoText)`
+  font-size: 90%;
+`;
 
 // Huvudområde
 export const InfoText2 = styled(InfoText)`

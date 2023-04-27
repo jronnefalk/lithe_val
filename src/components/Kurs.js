@@ -8,7 +8,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import {
   InfoText,
   InfoText2,
-  InfoText3,
   InfoTitel,
   InfoTextKnapp,
   LäsMerText,
@@ -67,11 +66,11 @@ export default function Kurs(props) {
         <InfoTitel>{kurs.kursnamn}</InfoTitel>
 
         {!addkurs && (
-          <Dropdown>
-            <LäggaTillDroppD>
+          <Dropd>
+            <DropdownB>
               <BsFolderPlus size={20} />
               <InfoTextKnapp>Lägg till</InfoTextKnapp>
-            </LäggaTillDroppD>
+            </DropdownB>
             <Dropdown.Menu>
               <Dropdown.Item onClick={handleClick1}>
                 {" "}
@@ -87,7 +86,7 @@ export default function Kurs(props) {
                 </>
               )}
             </Dropdown.Menu>
-          </Dropdown>
+          </Dropd>
         )}
 
         {addkurs && (
@@ -139,45 +138,6 @@ export default function Kurs(props) {
             return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
           })}
       </SecondInfoCont>
-
-      {!addkurs && (
-        <Dropd>
-          <Dropdown>
-            {" "}
-            <DropdownB>
-              <BsFolderPlus size={20} />
-            </DropdownB>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                onClick={handleClick1}
-                style={{ textDecoration: "none" }}
-              >
-                {" "}
-                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-              </Dropdown.Item>
-              {kurs.termin.length === 2 && (
-                <>
-                  <Dropdown.Item
-                    onClick={handleClick2}
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                  </Dropdown.Item>
-                </>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Dropd>
-      )}
-
-      {addkurs && (
-        <TaBort onClick={handleDelete}>
-          {" "}
-          <BsTrash3 size={20} />
-          <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
-        </TaBort>
-      )}
 
       <span onClick={toggleReadMore}>
         {isReadMore ? (

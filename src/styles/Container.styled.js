@@ -29,9 +29,9 @@ export const KursCont = styled.div`
   border-radius: 20px;
   margin-top: 1%;
   margin-bottom: 3%;
-  padding-left: 0.6rem;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
+  padding-left: 1.3rem;
+  padding-top: 1.3rem;
+  padding-bottom: 1rem;
 `;
 // Sökfunktionen
 export const SökCont = styled.div`
@@ -118,8 +118,10 @@ export const SchemaKurserCont = styled.div`
 `;
 export const SchemaKursInfoCont = styled(KursCont)`
   width: min(136%, 14rem);
-
   background-color: white;
+  padding-left: 0.6rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 `;
 export const TitelKnappCont = styled.div`
   display: flex;

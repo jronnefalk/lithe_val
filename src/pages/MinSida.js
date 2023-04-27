@@ -10,7 +10,6 @@ import { Progressbar } from "../styles/Visualiseringar.styled";
 import { MittSchemaText, InfoTitel } from "../styles/Text.styled";
 import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
-import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
 import { HelaSchemaCont, MinSidaCont } from "../styles/Container.styled";
 
@@ -152,11 +151,6 @@ export function MinSida() {
             <InfoTitel>Datateknik: {counts.datateknik * 6}/30 hp</InfoTitel>
             <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
           </Progressbarochrubrik>
-
-          <CirkelRubrikMinakurser>
-            <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
-            <Cirkel value={hpPercent} max="90"></Cirkel>
-          </CirkelRubrikMinakurser>
         </div>
         <MittSchemaText>MITT SCHEMA</MittSchemaText>
         <HelaSchemaCont>

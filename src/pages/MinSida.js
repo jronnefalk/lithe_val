@@ -7,7 +7,7 @@ import Schema from "../components/Schema";
 
 //Style
 import { Progressbar } from "../styles/Visualiseringar.styled";
-import { MittSchemaText, RubrikProgressbar } from "../styles/Text.styled";
+import { MittSchemaText, InfoTitel } from "../styles/Text.styled";
 import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
@@ -131,7 +131,6 @@ export function MinSida() {
     return acc;
   }, initialCounts);
 
-  const totalStudents = counts.grundniva + counts.avancerad;
   const avanceradPercent = Math.round(counts.avancerad);
   const medieteknikPercent = Math.round(counts.medieteknik);
   const datateknikPercent = Math.round(counts.datateknik);
@@ -144,18 +143,14 @@ export function MinSida() {
         <div>
           <h1>Visualisering</h1>
           <Progressbarochrubrik>
-            <RubrikProgressbar>
-              Avancerade kurser: {counts.avancerad}
-            </RubrikProgressbar>
-            <Progressbar value={avanceradPercent} max="10"></Progressbar>
-            <RubrikProgressbar>
-              Poäng inom medieteknik: {counts.medieteknik}
-            </RubrikProgressbar>
+            <InfoTitel>
+              Avancerade kurser: {counts.avancerad * 6}/60 hp
+            </InfoTitel>
+            <Progressbar value={avanceradPercent} max="12"></Progressbar>
+            <InfoTitel>Medieteknik: {counts.medieteknik * 6}/30 hp</InfoTitel>
             <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-            <RubrikProgressbar>
-              Poäng inom datateknik: {counts.datateknik}
-            </RubrikProgressbar>
-            <Progressbar value={datateknikPercent} max="6"></Progressbar>
+            <InfoTitel>Datateknik: {counts.datateknik * 6}/30 hp</InfoTitel>
+            <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
           </Progressbarochrubrik>
 
           <CirkelRubrikMinakurser>

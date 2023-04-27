@@ -8,6 +8,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import {
   InfoText,
   InfoText2,
+  InfoText3,
   InfoTitel,
   InfoTextKnapp,
   LäsMerText,
@@ -18,7 +19,7 @@ import {
   SecondInfoCont,
 } from "../styles/Container.styled.js";
 
-import { LäggaTillDroppD, TaBort } from "../styles/Knappar.styled.js";
+import { TaBort, Dropd, DropdownB } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -139,6 +140,45 @@ export default function Kurs(props) {
           })}
       </SecondInfoCont>
 
+      {!addkurs && (
+        <Dropd>
+          <Dropdown>
+            {" "}
+            <DropdownB>
+              <BsFolderPlus size={20} />
+            </DropdownB>
+            <Dropdown.Menu>
+              <Dropdown.Item
+                onClick={handleClick1}
+                style={{ textDecoration: "none" }}
+              >
+                {" "}
+                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+              </Dropdown.Item>
+              {kurs.termin.length === 2 && (
+                <>
+                  <Dropdown.Item
+                    onClick={handleClick2}
+                    style={{ textDecoration: "none" }}
+                  >
+                    {" "}
+                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  </Dropdown.Item>
+                </>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Dropd>
+      )}
+
+      {addkurs && (
+        <TaBort onClick={handleDelete}>
+          {" "}
+          <BsTrash3 size={20} />
+          <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
+        </TaBort>
+      )}
+
       <span onClick={toggleReadMore}>
         {isReadMore ? (
           <LäsMerText>
@@ -151,18 +191,31 @@ export default function Kurs(props) {
         )}
       </span>
 
-      {isReadMore && <InfoText>HP: {kurs.hp}</InfoText>}
-      {isReadMore && <InfoText>Ort: {kurs.ort}</InfoText>}
-      {isReadMore &&
-        kurs.examination !== undefined &&
-        kurs.examination !== null && (
-          <InfoText>
-            Examination:{" "}
-            {kurs.examination.map((prop) => {
-              return <span key={uuidv4()}>{prop.benamning}</span>;
-            })}
-          </InfoText>
-        )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
+          {kurs.studietakt}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Antal hp:</span> {kurs.hp}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Plats:</span> {kurs.ort}
+        </InfoText>
+      )}
+      {isReadMore && (
+        <InfoText>
+          <span style={{ fontWeight: "bold" }}>Examination:</span>{" "}
+          {kurs.examination.map((prop) => {
+            return <span key={uuidv4()}>{prop.benamning}</span>;
+          })}
+        </InfoText>
+      )}
+
       {isReadMore && (
         <a href={kurs.url}>
           {" "}

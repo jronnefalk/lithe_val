@@ -1,33 +1,44 @@
 import styled from "styled-components";
-//Text till info om kurser
-
+// Text till info om kurser
 export const InfoText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
   margin: 0;
 `;
+// Titel i kursboxarna
 export const InfoTitel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.13rem;
   margin: 0;
 `;
+
+// Huvudområde
 export const InfoText2 = styled(InfoText)`
   margin-right: 0.8rem;
-  background-color: #ebebeb;
+  background-color: #e4eaf1;
   border-radius: 20px;
   padding: 5px;
 `;
+// Utbildningsnivå
+export const InfoText3 = styled(InfoText2)`
+  background-color: #e2f3f2;
+`;
+
 export const LäsMerText = styled(InfoText)`
   display: flex;
   align-items: end;
   margin-top: 5%;
   text-decoration-line: underline;
 `;
-//Visa mer knappen och Lägga till knapp
+// Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  font-size: 50%;
+  font-size: 70%;
   color: black;
   text-decoration: none;
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
 `;
 // Sök texten
 export const SökText = styled.input`
@@ -44,8 +55,7 @@ export const RubrikProgressbar = styled(InfoTitel)`
   flex-direction: row;
 `;
 
-//Meny text
-
+// Meny text
 export const Titel = styled.h1`
   color: #317773;
   font-family: "Futura-Bold", arial;
@@ -53,15 +63,16 @@ export const Titel = styled.h1`
   margin-top: 0%;
   margin-left: 39%;
 `;
+
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.6rem;
 `;
+
+// Block, Period, Ort.... rubrik
 export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
 `;
-
-export const FilterText = styled(InfoText)``;
 
 //Schema
 export const MittSchemaText = styled.h1`
@@ -90,4 +101,12 @@ export const SchemaLäsMerText = styled(LäsMerText)`
 `;
 export const SchemaInfoText2 = styled(InfoText2)`
   font-size: 0.6rem;
+`;
+// Checkboxarna
+export const FilterText = styled(InfoText)`
+  margin: 2px 0px;
+`;
+
+export const FilterTextBlock = styled(InfoText)`
+  margin: 2px 0 1px 0;
 `;

@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Dropdown from "react-bootstrap/Dropdown";
+import styled from "styled-components";
 
 //lägga  till kurser knappen
 
@@ -14,7 +14,7 @@ export const TaBort = styled.button`
     border-radius: 20%;
   }
 `;
-export const LäggaTillDroppD = styled(Dropdown.Toggle)`
+export const Dropd = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,4 +55,8 @@ export const FlyttaKnappSchema = styled.button`
     background-color: #f1f9f9;
     border: none;
   }
+`;
+export const DropdownB = styled(Dropdown.Toggle)`
+  border: none;
+  background: none;
 `;

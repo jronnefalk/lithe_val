@@ -11,6 +11,10 @@ export const InfoTitel = styled.h1`
   font-size: 1.13rem;
   margin: 0;
 `;
+// Minimumkraven
+export const BubbleText = styled(InfoText)`
+  font-size: 90%;
+`;
 
 // Huvudområde
 export const InfoText2 = styled(InfoText)`

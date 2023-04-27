@@ -6,16 +6,17 @@ import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 
 //Style
-import { Progressbar } from "../styles/Visualiseringar.styled";
-import { MittSchemaText, InfoTitel } from "../styles/Text.styled";
-import { OmsluterBubble } from "../styles/Visualiseringar.styled";
-import { Bubble } from "../styles/Visualiseringar.styled";
-import { SpeechBubble } from "../styles/Visualiseringar.styled";
-import { InfoTitel } from "../styles/Text.styled";
-import { BubbleText } from "../styles/Text.styled";
-import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
-import { Cirkel } from "../styles/Visualiseringar.styled";
-import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
+
+import { MittSchemaText, InfoTitel, BubbleText } from "../styles/Text.styled";
+import {
+  OmsluterBubble,
+  Bubble,
+  SpeechBubble,
+  Progressbarochrubrik,
+  Cirkel,
+  Progressbar,
+} from "../styles/Visualiseringar.styled";
+
 import { HelaSchemaCont, MinSidaCont } from "../styles/Container.styled";
 
 export function MinSida() {

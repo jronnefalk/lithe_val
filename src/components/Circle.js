@@ -48,7 +48,7 @@ class Circle extends React.Component {
 
   render() {
     return (
-      <svg viewBox="0 0 400 400" width="40%" height="40%">
+      <svg viewBox="0 0 400 400" width="30%" height="30%">
         <VictoryPie
           standalone={false}
           animate={{ duration: 1000 }}

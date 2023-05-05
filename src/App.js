@@ -8,6 +8,7 @@ import { Start } from "./pages/Start";
 import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
 import { MenyKnapp } from "./styles/Knappar.styled";
 import { Titel, MenyText } from "./styles/Text.styled";
+import { GlobalStyles } from "./styles/General.styled";
 
 //icons
 import { BsHouseDoorFill } from "react-icons/bs";

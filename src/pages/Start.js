@@ -15,6 +15,7 @@ import {
   KursContWrapper,
   Cont,
   SökCont,
+  Filter,
 } from "../styles/Container.styled";
 import { SökText } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
@@ -29,23 +30,22 @@ export function Start() {
   }, [activeFilters]);
 
   return (
+    /** 
+    <>
+      <GlobalStyles /> */
     <div className="App">
-      <SökCont>
-        <SökIcont>
-          <BsSearch size={12} />
-        </SökIcont>
-        <SökText
-          type="text"
-          placeholder="Sök"
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </SökCont>
-
       <Cont>
-        <Filters
-          activeFilters={activeFilters}
-          setActiveFilters={setActiveFilters}
-        />
+        <SökCont>
+          <SökIcont>
+            <BsSearch size={12} />
+          </SökIcont>
+          <SökText
+            type="text"
+            placeholder="Sök"
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </SökCont>
+
         <KursContWrapper>
           {filteredKurser.map((kurs) => (
             <KursCont key={uuidv4()}>
@@ -54,6 +54,14 @@ export function Start() {
           ))}
         </KursContWrapper>
       </Cont>
+
+      <Filter>
+        <Filters
+          activeFilters={activeFilters}
+          setActiveFilters={setActiveFilters}
+        />
+      </Filter>
     </div>
+    /*</>*/
   );
 }

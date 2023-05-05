@@ -39,7 +39,7 @@ export const SökText = styled.input`
   font-size: 0.8rem;
   border: none;
   outline: none;
-  width: 90%;
+  width: 97%;
 `;
 export const RubrikProgressbar = styled(InfoTitel)`
   float: right;

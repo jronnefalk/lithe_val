@@ -1,11 +1,4 @@
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    background-color: #8bd0cc;
-  }
-`;
 
 // Info om kurser divar
 export const FirstInfoCont = styled.div`
@@ -58,6 +51,7 @@ export const SökCont = styled.div`
   border: 0.5px solid black;
   border-radius: 30px;
   box-sizing: border-box;
+  background-color: #ffffff;
 `;
 
 //Menyn
@@ -96,6 +90,7 @@ export const Filter = styled.div`
   margin-left: 10%;
   top: 19%;
   position: absolute;
+  background-color: #ffffff;
 `;
 
 // Justerar enbart blocken i filtret

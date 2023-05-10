@@ -5,6 +5,7 @@ import getData from "../functions/getData";
 import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 import Visualisering from "../components/Visualisering";
+import { HelaSchemaCont } from "../styles/Container.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -98,13 +99,14 @@ export function MinSida() {
     <>
       <Visualisering courseData={courseData} />
       <h1>My Courses</h1>
-
-      <Schema
-        FireBaseData={FireBaseData}
-        courseData={courseData}
-        handleDelete={handleDelete}
-        handleMove={handleMove}
-      />
+      <HelaSchemaCont>
+        <Schema
+          FireBaseData={FireBaseData}
+          courseData={courseData}
+          handleDelete={handleDelete}
+          handleMove={handleMove}
+        />
+      </HelaSchemaCont>
     </>
   );
 }

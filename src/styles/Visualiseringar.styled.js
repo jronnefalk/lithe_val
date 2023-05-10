@@ -1,12 +1,27 @@
 import styled from "styled-components";
 
-export const Cirkelochrubrik = styled.div``;
 export const Minsida = styled.div`
   float: left;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
 `;
+
+export const Visualiseringar = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+`;
+//cirkelbar
+export const Cirkelochrubrik = styled.div``;
+export const CirkelWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+`;
+//progressbars
 export const OmsluterBubble = styled.div`
   display: flex;
   flex-direction: column-reverse;
@@ -44,7 +59,7 @@ export const Progressbar = styled.progress`
   border-radius: 2rem;
   overflow: hidden;
   height: 1rem;
-  width: 30rem;
+  width: 25rem;
   margin-bottom: 2rem;
   max-width: 460pt;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

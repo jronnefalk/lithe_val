@@ -2,9 +2,14 @@ import React from "react";
 import Circle from ".//Circle.js";
 
 //Style
-import { Progressbar } from "../styles/Visualiseringar.styled";
+import {
+  Progressbar,
+  Visualiseringar,
+  CirkelWrapper,
+  Progressbarochrubrik,
+} from "../styles/Visualiseringar.styled";
 import { RubrikProgressbar as InfoTitel } from "../styles/Text.styled";
-import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
+
 //import { Cirkel } from "../styles/Visualiseringar.styled";
 //import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 //import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
@@ -51,24 +56,32 @@ export default function Schema(props) {
   return (
     <>
       <h1>Visualisering</h1>
-      <div>
+      <Visualiseringar>
         <Progressbarochrubrik>
           <InfoTitel>
             Poäng inom avancerade kurser: {counts.avancerad * 6} hp
           </InfoTitel>
           <Progressbar value={avanceradPercent} max="10"></Progressbar>
-          <InfoTitel>
-            Poäng inom medieteknik: {counts.medieteknik * 6} hp
-          </InfoTitel>
-          <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-          <InfoTitel>
-            Poäng inom datateknik: {counts.datateknik * 6} hp
-          </InfoTitel>
-          <Progressbar value={datateknikPercent} max="6"></Progressbar>
+          <div>
+            <div>
+              <InfoTitel>
+                Poäng inom medieteknik: {counts.medieteknik * 6} hp
+              </InfoTitel>
+              <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+            </div>
+            <div>
+              <InfoTitel>
+                Poäng inom datateknik: {counts.datateknik * 6} hp
+              </InfoTitel>
+              <Progressbar value={datateknikPercent} max="6"></Progressbar>
+            </div>
+          </div>
         </Progressbarochrubrik>{" "}
-        <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>
-        <Circle hp={hpPercent}></Circle>
-      </div>
+        <CirkelWrapper>
+          <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>
+          <Circle hp={hpPercent}></Circle>
+        </CirkelWrapper>
+      </Visualiseringar>
     </>
   );
 }

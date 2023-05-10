@@ -18,7 +18,6 @@ import {
 import {
   FlyttaSchemaText,
   SchemaInfoText2,
-  InfoTextKnapp,
   SchemaLäsMerText,
   SchemaTextInfo,
   SchemaTitelKurs,
@@ -64,16 +63,24 @@ export default function KursSchema(props) {
         </span>
 
         {isReadMore && (
-          <SchemaTextInfo>HP: {props.courseData.hp}</SchemaTextInfo>
-        )}
-
-        {isReadMore && (
-          <SchemaTextInfo>Ort: {props.courseData.ort}</SchemaTextInfo>
+          <SchemaTextInfo>
+            {" "}
+            <span style={{ fontWeight: "bold" }}>HP:</span>{" "}
+            {props.courseData.hp}
+          </SchemaTextInfo>
         )}
 
         {isReadMore && (
           <SchemaTextInfo>
-            Huvudområde:
+            {" "}
+            <span style={{ fontWeight: "bold" }}>Ort:</span>{" "}
+            {props.courseData.ort}
+          </SchemaTextInfo>
+        )}
+
+        {isReadMore && (
+          <SchemaTextInfo>
+            <span style={{ fontWeight: "bold" }}> Huvudområde:</span>
             {props.courseData.huvudomrade.map((prop) => {
               return <span key={uuidv4()}> {prop} </span>;
             })}
@@ -81,7 +88,7 @@ export default function KursSchema(props) {
         )}
         {isReadMore && (
           <SchemaTextInfo>
-            Examination:{" "}
+            <span style={{ fontWeight: "bold" }}> Examination: </span>
             {props.courseData.examination.map((prop) => {
               return <span key={uuidv4()}>{prop.benamning}, </span>;
             })}

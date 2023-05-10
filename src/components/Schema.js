@@ -1,10 +1,11 @@
+import { v4 as uuidv4 } from "uuid";
 //Style
 import {
   SchemaKursInfoCont,
   SchemaKurserCont,
   TerminWrapperSchema,
 } from "../styles/Container.styled";
-import { InfoTitel, PeriodSchema } from "../styles/Text.styled";
+import { Titel, PeriodSchema } from "../styles/Text.styled";
 
 import KursSchema from "./KursSchema";
 
@@ -14,7 +15,7 @@ export default function Schema(props) {
       {props.FireBaseData.length > 0 &&
         [7, 8, 9].map((termin) => (
           <TerminWrapperSchema key={termin}>
-            <InfoTitel>Termin {termin}</InfoTitel>
+            <Titel>Termin {termin}</Titel>
             {[1, 2].map((period) => (
               <>
                 <PeriodSchema>Period {period}</PeriodSchema>
@@ -34,6 +35,7 @@ export default function Schema(props) {
                         handleDelete={props.handleDelete}
                         handleMove={props.handleMove}
                         kurs={kurs}
+                        key={uuidv4()}
                       />
                     </SchemaKursInfoCont>
                   ))}

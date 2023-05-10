@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid"; // Key generator for React komponenter
 import {
   FilterHeader,
   FilterText,
-  InfoTitel,
+  Titel,
   FilterTextBlock,
 } from "../styles/Text.styled.js";
 
@@ -77,7 +77,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
 
   return (
     <FilterCont>
-      <InfoTitel> Filtrera </InfoTitel>
+      <Titel> Filtrera </Titel>
       <FilterHeader> Block </FilterHeader>
 
       <FilterBlock>

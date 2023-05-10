@@ -7,7 +7,7 @@ import Schema from "../components/Schema";
 
 //Style
 
-import { MittSchemaText, InfoTitel, BubbleText } from "../styles/Text.styled";
+import { MittSchemaText, Titel, BubbleText } from "../styles/Text.styled";
 import {
   OmsluterBubble,
   Bubble,
@@ -149,27 +149,27 @@ export function MinSida() {
           <h1>Visualisering</h1>
           <Progressbarochrubrik>
             <Bubble>
-              <InfoTitel>
+              <Titel>
                 Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
-              </InfoTitel>
+              </Titel>
               <OmsluterBubble>
                 <Progressbar value={avanceradPercent} max="12"></Progressbar>
                 <SpeechBubble data-id="n1">
                   <BubbleText>Minimumkrav</BubbleText>
                 </SpeechBubble>
               </OmsluterBubble>
-              <InfoTitel>
+              <Titel>
                 Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
-              </InfoTitel>
+              </Titel>
               <OmsluterBubble>
                 <Progressbar value={medieteknikPercent} max="6"></Progressbar>
                 <SpeechBubble data-id="nr2">
                   <BubbleText>Minimumkrav</BubbleText>
                 </SpeechBubble>
               </OmsluterBubble>
-              <InfoTitel>
+              <Titel>
                 Poäng inom datateknik: {counts.datateknik * 6}/30 hp
-              </InfoTitel>
+              </Titel>
               <OmsluterBubble>
                 <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
                 <SpeechBubble data-id="nr3">
@@ -179,7 +179,7 @@ export function MinSida() {
             </Bubble>
           </Progressbarochrubrik>
 
-          <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>
+          <Titel>Totalt antal hp: {counts.hp}</Titel>
           <Cirkel value={hpPercent} max="90"></Cirkel>
         </div>
         <MittSchemaText>MITT SCHEMA</MittSchemaText>

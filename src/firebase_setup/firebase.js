@@ -76,5 +76,18 @@ const moveKurs = (kurs, ny) => {
   }
 };
 
-export { saveKurs, deleteKurs, moveKurs };
+// En funktion som samlar alla kurser en användare har valt
+function getAllCourses() {
+  const user = auth.currentUser;
+
+  if (user) {
+    const allCourses = ref(database, `users/${user.uid}`);
+    return allCourses;
+  } else {
+    console.log("No user is signed in");
+    alert("Du måste logga in för att hämta till en kurser.");
+  }
+}
+
+export { saveKurs, deleteKurs, moveKurs, getAllCourses };
 export default app;

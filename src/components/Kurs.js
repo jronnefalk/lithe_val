@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
+import {
+  saveKurs,
+  deleteKurs,
+  getAllCourses,
+} from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -33,6 +37,8 @@ export default function Kurs(props) {
   const [isReadMore, setIsReadMore] = useState(false);
   const [showOverlapping, setShowOverlapping] = useState(false);
 
+  const allCourses = getAllCourses();
+
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
@@ -62,7 +68,7 @@ export default function Kurs(props) {
     }
   }
 
-  // Kollar ifall en kurs har en överlappningkurs eller ej
+  // Avgör om en överlappningskurs ska skrivas ut eller inte i kurs-komponent
   const [hasOverlappning, setHasOverlappning] = useState(false);
   useEffect(() => {
     if (kurs.overlappning !== "Ingen överlappning") {
@@ -191,6 +197,12 @@ export default function Kurs(props) {
       {showOverlapping && (
         <OverlappningPopup setShowOverlapping={setShowOverlapping} />
       )}
+
+      <div>
+        {allCourses.map((course) => {
+          return <p>{course}</p>;
+        })}
+      </div>
     </>
   );
 }

@@ -68,7 +68,7 @@ export default function Schema(props) {
             <OmsluterBubble>
               <Progressbar value={avanceradPercent} max="12"></Progressbar>
               <SpeechBubble data-id="n1">
-                <BubbleText>Minimumkraven</BubbleText>
+                <BubbleText>Minimumkrav</BubbleText>
               </SpeechBubble>
             </OmsluterBubble>
 
@@ -76,7 +76,7 @@ export default function Schema(props) {
             <OmsluterBubble>
               <Progressbar value={medieteknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n2">
-                <BubbleText>Minimumkraven</BubbleText>
+                <BubbleText>Minimumkrav</BubbleText>
               </SpeechBubble>
             </OmsluterBubble>
 
@@ -84,7 +84,7 @@ export default function Schema(props) {
             <OmsluterBubble>
               <Progressbar value={datateknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n3">
-                <BubbleText>Minimumkraven</BubbleText>
+                <BubbleText>Minimumkrav</BubbleText>
               </SpeechBubble>
             </OmsluterBubble>
           </Bubble>

@@ -47,12 +47,12 @@ export const Bubble = styled.div`
 `;
 export const SpeechBubble = styled.div`
   display: none;
-  max-width: 70pt;
+  max-width: 70%;
   position: absolute;
   top: -3.3rem;
-  left: 69%;
+  left: 76%;
   background: rgb(255, 92, 100);
-  padding: 0.4rem 0.9rem;
+  padding: 0.3rem 0.8rem;
   text-align: center;
   color: rgb(255, 255, 255);
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -74,7 +74,7 @@ export const Progressbar = styled.progress`
   border-radius: 2rem;
   overflow: hidden;
   height: 1rem;
-  width: 25rem;
+  width: 110%;
   margin-bottom: 2rem;
   max-width: 460pt;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

@@ -17,7 +17,7 @@ export const TextUnderLäsMer = styled(Text)`
 `;
 // Minimumkraven
 export const BubbleText = styled(Text)`
-  font-size: 90%;
+  font-size: 80%;
 `;
 
 // Huvudområde

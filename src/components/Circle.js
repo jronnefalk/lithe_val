@@ -66,11 +66,8 @@ class Circle extends React.Component {
           innerRadius={120}
           style={{
             data: {
-              fill: ({ datum }) => {
-                console.log(datum.x);
+              fill: "gray",
 
-                return "gray";
-              },
               stroke: "none",
             },
           }}

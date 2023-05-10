@@ -150,7 +150,7 @@ export function MinSida() {
           <Progressbarochrubrik>
             <Bubble>
               <Titel>
-                Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
+                Totalt avancerade poäng: {counts.avancerad * 6}/60 hp
               </Titel>
               <OmsluterBubble>
                 <Progressbar value={avanceradPercent} max="12"></Progressbar>

@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
 import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
-import Visualisering from "../components/Visualisering";
+import Visualisering from "../components/Visualisering.js";
 //Style
 import { HelaSchemaCont } from "../styles/Container.styled";
 import { TitelSOchV } from "../styles/Text.styled";
@@ -26,7 +26,7 @@ export function MinSida() {
     // Remove the kurs from the database
     deleteKurs(kurs);
     // Update the kursData state variable
-    setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs.kurskod));
+    setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs));
   }
 
   function handleMove(kurs) {

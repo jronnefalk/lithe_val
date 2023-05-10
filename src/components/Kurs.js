@@ -19,7 +19,7 @@ import {
   SecondInfoCont,
 } from "../styles/Container.styled.js";
 
-import { TaBort, Dropd, DropdownB } from "../styles/Knappar.styled.js";
+import { TaBort, DropdownB } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";

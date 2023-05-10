@@ -15,7 +15,7 @@ export const Visualiseringar = styled.div`
   gap: 3rem;
 `;
 //cirkelbar
-export const Cirkelochrubrik = styled.div``;
+
 export const CirkelWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;

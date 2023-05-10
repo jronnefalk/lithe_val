@@ -33,7 +33,7 @@ export const LäsMerText = styled(InfoText)`
 `;
 // Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(InfoText)`
-  font-size: 70%;
+  font-size: 90%;
   color: black;
   text-decoration: none;
   &:hover {

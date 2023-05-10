@@ -67,7 +67,7 @@ export default function Kurs(props) {
         <Titel>{kurs.kursnamn}</Titel>
 
         {!addkurs && (
-          <Dropd>
+          <div>
             <Dropdown>
               <DropdownB>
                 <BsFolderPlus size={20} />
@@ -94,7 +94,7 @@ export default function Kurs(props) {
                 )}
               </Dropdown.Menu>
             </Dropdown>
-          </Dropd>
+          </div>
         )}
 
         {addkurs && (

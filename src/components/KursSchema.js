@@ -117,7 +117,7 @@ export default function KursSchema(props) {
               {Object.values(getData(props.courseData.kurskod).termin)
                 .filter((term) => term !== props.courseData.termin)
                 .map((term) => (
-                  <span key={term}>{term}</span>
+                  <span key={uuidv4()}>{term}</span>
                 ))}
             </FlyttaSchemaText>
           </FlyttaKnappSchema>

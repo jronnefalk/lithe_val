@@ -35,6 +35,7 @@ export default function Schema(props) {
                         handleDelete={props.handleDelete}
                         handleMove={props.handleMove}
                         kurs={kurs}
+                        period={period}
                         key={uuidv4()}
                       />
                     </SchemaKursInfoCont>

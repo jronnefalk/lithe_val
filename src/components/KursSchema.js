@@ -30,6 +30,7 @@ export default function KursSchema(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+
   return (
     <>
       <TitelKnappCont>
@@ -43,7 +44,11 @@ export default function KursSchema(props) {
       </TitelKnappCont>
       <FirstInfoCont key={props.courseData.kurskod}>
         <SchemaTextInfo> |{props.courseData.kurskod}</SchemaTextInfo>
-        <SchemaTextInfo> | Block: {props.courseData.block}</SchemaTextInfo>
+        {props.courseData.block.length > 1 && props.period === 2 ? (
+          <SchemaTextInfo> | Block: {props.courseData.block[1]}</SchemaTextInfo>
+        ) : (
+          <SchemaTextInfo> | Block: {props.courseData.block[0]}</SchemaTextInfo>
+        )}
         <SchemaTextInfo>|</SchemaTextInfo>
       </FirstInfoCont>
       <SecondInfoCont>

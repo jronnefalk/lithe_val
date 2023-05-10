@@ -96,16 +96,16 @@ export const FlyttaSchemaText = styled(Text)`
   font-size: 70%;
 `;
 export const SchemaTitelKurs = styled(Titel)`
-  font-size: 0.8rem;
+  font-size: 1rem;
 `;
 export const SchemaTextInfo = styled(Text)`
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 `;
 export const SchemaLäsMerText = styled(LäsMerText)`
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 `;
 export const SchemaInfoText2 = styled(TextHuvudnivå)`
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 `;
 // Filter Checkboxarna
 export const FilterText = styled(Text)`

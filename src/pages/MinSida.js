@@ -4,20 +4,7 @@ import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
 import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
-
-//Style
-
-import { MittSchemaText, Titel, BubbleText } from "../styles/Text.styled";
-import {
-  OmsluterBubble,
-  Bubble,
-  SpeechBubble,
-  Progressbarochrubrik,
-  Cirkel,
-  Progressbar,
-} from "../styles/Visualiseringar.styled";
-
-import { HelaSchemaCont, MinSidaCont } from "../styles/Container.styled";
+import Visualisering from "../components/Visualisering";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -30,14 +17,15 @@ export function MinSida() {
   const [courseData, setCourseData] = useState(
     JSON.parse(localStorage.getItem("courseData")) || {}
   );
+
   // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
     // Remove the kurs from the database
     deleteKurs(kurs);
-
     // Update the kursData state variable
     setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs.kurskod));
   }
+
   function handleMove(kurs) {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
       (term) => term !== courseData[kurs.kurskod]?.termin
@@ -105,93 +93,18 @@ export function MinSida() {
     }
   }, [currentUser]);
 
-  // Count how many courses have utbildningsniva set to 'grundnivå' and 'avancerad'
-  const initialCounts = {
-    grundniva: 0,
-    avancerad: 0,
-    hp: 0,
-    medieteknik: 0,
-    datateknik: 0,
-  };
-  // Visualisering beräkning
-  const counts = Object.values(courseData).reduce((acc, curr) => {
-    acc.hp += parseInt(curr.hp);
-
-    if (curr.utbildningsniva === "Grundnivå") {
-      acc.grundniva++;
-    } else if (curr.utbildningsniva === "Avancerad nivå") {
-      acc.avancerad++;
-    }
-    const countMedieteknik =
-      (curr.huvudomrade &&
-        curr.huvudomrade.filter((item) => item === "Medieteknik").length) ||
-      0;
-    acc.medieteknik += countMedieteknik;
-    const countDatateknik =
-      (curr.huvudomrade &&
-        curr.huvudomrade.filter((item) => item === "Datateknik").length) ||
-      0;
-    acc.datateknik += countDatateknik;
-
-    return acc;
-  }, initialCounts);
-
-  const avanceradPercent = Math.round(counts.avancerad);
-  const medieteknikPercent = Math.round(counts.medieteknik);
-  const datateknikPercent = Math.round(counts.datateknik);
-  const hpPercent = Math.round(counts.hp);
-
   // mappar ut visualisering och kurserna
   return (
     <>
-      <MinSidaCont>
-        <div>
-          <h1>Visualisering</h1>
-          <Progressbarochrubrik>
-            <Bubble>
-              <Titel>
-                Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
-              </Titel>
-              <OmsluterBubble>
-                <Progressbar value={avanceradPercent} max="12"></Progressbar>
-                <SpeechBubble data-id="n1">
-                  <BubbleText>Minimumkrav</BubbleText>
-                </SpeechBubble>
-              </OmsluterBubble>
-              <Titel>
-                Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
-              </Titel>
-              <OmsluterBubble>
-                <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-                <SpeechBubble data-id="nr2">
-                  <BubbleText>Minimumkrav</BubbleText>
-                </SpeechBubble>
-              </OmsluterBubble>
-              <Titel>
-                Poäng inom datateknik: {counts.datateknik * 6}/30 hp
-              </Titel>
-              <OmsluterBubble>
-                <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
-                <SpeechBubble data-id="nr3">
-                  <BubbleText>Minimumkrav</BubbleText>
-                </SpeechBubble>
-              </OmsluterBubble>
-            </Bubble>
-          </Progressbarochrubrik>
+      <Visualisering courseData={courseData} />
+      <h1>My Courses</h1>
 
-          <Titel>Totalt antal hp: {counts.hp}</Titel>
-          <Cirkel value={hpPercent} max="90"></Cirkel>
-        </div>
-        <MittSchemaText>MITT SCHEMA</MittSchemaText>
-        <HelaSchemaCont>
-          <Schema
-            FireBaseData={FireBaseData}
-            courseData={courseData}
-            handleDelete={handleDelete}
-            handleMove={handleMove}
-          />
-        </HelaSchemaCont>
-      </MinSidaCont>
+      <Schema
+        FireBaseData={FireBaseData}
+        courseData={courseData}
+        handleDelete={handleDelete}
+        handleMove={handleMove}
+      />
     </>
   );
 }

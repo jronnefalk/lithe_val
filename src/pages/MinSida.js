@@ -6,16 +6,18 @@ import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 
 //Style
-import { Progressbar } from "../styles/Visualiseringar.styled";
-import { OmsluterBubble } from "../styles/Visualiseringar.styled";
-import { Bubble } from "../styles/Visualiseringar.styled";
-import { SpeechBubble } from "../styles/Visualiseringar.styled";
-import { InfoTitel } from "../styles/Text.styled";
-import { BubbleText } from "../styles/Text.styled";
-import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
-import { Cirkel } from "../styles/Visualiseringar.styled";
-//import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
-//import { Minsida } from "../styles/Visualiseringar.styled";
+
+import { MittSchemaText, Titel, BubbleText } from "../styles/Text.styled";
+import {
+  OmsluterBubble,
+  Bubble,
+  SpeechBubble,
+  Progressbarochrubrik,
+  Cirkel,
+  Progressbar,
+} from "../styles/Visualiseringar.styled";
+
+import { HelaSchemaCont, MinSidaCont } from "../styles/Container.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -134,8 +136,6 @@ export function MinSida() {
     return acc;
   }, initialCounts);
 
-  //const totalStudents = counts.grundniva + counts.avancerad;
-
   const avanceradPercent = Math.round(counts.avancerad);
   const medieteknikPercent = Math.round(counts.medieteknik);
   const datateknikPercent = Math.round(counts.datateknik);
@@ -144,49 +144,54 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
-      <h1>Visualisering</h1>
-      <Progressbarochrubrik>
-        <Bubble>
-          <InfoTitel>
-            Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
-          </InfoTitel>
-          <OmsluterBubble>
-            <Progressbar value={avanceradPercent} max="12"></Progressbar>
-            <SpeechBubble data-id="n1">
-              <BubbleText>Minimumkrav</BubbleText>
-            </SpeechBubble>
-          </OmsluterBubble>
-          <InfoTitel>
-            Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
-          </InfoTitel>
-          <OmsluterBubble>
-            <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-            <SpeechBubble data-id="nr2">
-              <BubbleText>Minimumkrav</BubbleText>
-            </SpeechBubble>
-          </OmsluterBubble>
-          <InfoTitel>
-            Poäng inom datateknik: {counts.datateknik * 6}/30 hp
-          </InfoTitel>
-          <OmsluterBubble>
-            <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
-            <SpeechBubble data-id="nr3">
-              <BubbleText>Minimumkrav</BubbleText>
-            </SpeechBubble>
-          </OmsluterBubble>
-        </Bubble>
-      </Progressbarochrubrik>
+      <MinSidaCont>
+        <div>
+          <h1>Visualisering</h1>
+          <Progressbarochrubrik>
+            <Bubble>
+              <Titel>
+                Poäng inom avancerade kurser: {counts.avancerad * 6}/60 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={avanceradPercent} max="12"></Progressbar>
+                <SpeechBubble data-id="n1">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+              <Titel>
+                Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+                <SpeechBubble data-id="nr2">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+              <Titel>
+                Poäng inom datateknik: {counts.datateknik * 6}/30 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
+                <SpeechBubble data-id="nr3">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+            </Bubble>
+          </Progressbarochrubrik>
 
-      <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>
-      <Cirkel value={hpPercent} max="90"></Cirkel>
-      <h1>My Courses</h1>
-
-      <Schema
-        FireBaseData={FireBaseData}
-        courseData={courseData}
-        handleDelete={handleDelete}
-        handleMove={handleMove}
-      />
+          <Titel>Totalt antal hp: {counts.hp}</Titel>
+          <Cirkel value={hpPercent} max="90"></Cirkel>
+        </div>
+        <MittSchemaText>MITT SCHEMA</MittSchemaText>
+        <HelaSchemaCont>
+          <Schema
+            FireBaseData={FireBaseData}
+            courseData={courseData}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+          />
+        </HelaSchemaCont>
+      </MinSidaCont>
     </>
   );
 }

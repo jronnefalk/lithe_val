@@ -6,14 +6,18 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 //style
 import {
-  InfoText,
-  InfoText2,
-  InfoText3,
-  InfoTitel,
+  Text,
+  TextHuvudnivå,
+  Titel,
   InfoTextKnapp,
   LäsMerText,
+  TextUnderLäsMer,
 } from "../styles/Text.styled.js";
-import { FirstInfoCont, SecondInfoCont } from "../styles/Container.styled.js";
+import {
+  FirstInfoCont,
+  TitelKnappCont,
+  SecondInfoCont,
+} from "../styles/Container.styled.js";
 
 import { TaBort, Dropd, DropdownB } from "../styles/Knappar.styled.js";
 
@@ -59,84 +63,88 @@ export default function Kurs(props) {
   };
   return (
     <>
-      <InfoTitel>{kurs.kursnamn}</InfoTitel>
+      <TitelKnappCont>
+        <Titel>{kurs.kursnamn}</Titel>
+
+        {!addkurs && (
+          <Dropd>
+            <Dropdown>
+              <DropdownB>
+                <BsFolderPlus size={20} />
+              </DropdownB>
+
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={handleClick1}
+                  style={{ textDecoration: "none" }}
+                >
+                  {" "}
+                  <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+                </Dropdown.Item>
+                {kurs.termin.length === 2 && (
+                  <>
+                    <Dropdown.Item
+                      onClick={handleClick2}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                    </Dropdown.Item>
+                  </>
+                )}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Dropd>
+        )}
+
+        {addkurs && (
+          <TaBort onClick={handleDelete}>
+            {" "}
+            <BsTrash3 size={20} />
+          </TaBort>
+        )}
+      </TitelKnappCont>
+
       <FirstInfoCont>
-        <InfoText>| {kurs.kurskod} </InfoText>
+        <Text>| {kurs.kurskod} </Text>
 
         {kurs.termin.map((prop) => {
           return (
-            <InfoText key={uuidv4()}>
+            <Text key={uuidv4()}>
               {" "}
               | Termin <span>{prop}</span>{" "}
-            </InfoText>
+            </Text>
           );
         })}
 
         {kurs.period.map((prop) => {
           return (
-            <InfoText key={uuidv4()}>
+            <Text key={uuidv4()}>
               {" "}
               | Period <span>{prop}</span>{" "}
-            </InfoText>
+            </Text>
           );
         })}
 
         {kurs.block.map((prop) => {
           return (
-            <InfoText key={uuidv4()}>
+            <Text key={uuidv4()}>
               {" "}
               | Block <span>{prop}</span>{" "}
-            </InfoText>
+            </Text>
           );
         })}
 
-        <InfoText>|</InfoText>
+        <Text>|</Text>
       </FirstInfoCont>
       <SecondInfoCont>
-        <InfoText3>{kurs.utbildningsniva}</InfoText3>{" "}
-        {kurs.huvudomrade.map((prop) => {
-          return <InfoText2 key={uuidv4()}>{prop}</InfoText2>;
-        })}
+        <TextHuvudnivå>{kurs.utbildningsniva}</TextHuvudnivå>{" "}
+        {kurs.huvudomrade !== undefined &&
+          kurs.huvudomrade !== null &&
+          kurs.huvudomrade.map((prop) => {
+            return <TextHuvudnivå key={uuidv4()}>{prop}</TextHuvudnivå>;
+          })}
       </SecondInfoCont>
-
-      {!addkurs && (
-        <Dropd>
-          <Dropdown>
-            {" "}
-            <DropdownB>
-              <BsFolderPlus size={20} />
-            </DropdownB>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                onClick={handleClick1}
-                style={{ textDecoration: "none" }}
-              >
-                {" "}
-                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-              </Dropdown.Item>
-              {kurs.termin.length === 2 && (
-                <>
-                  <Dropdown.Item
-                    onClick={handleClick2}
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                  </Dropdown.Item>
-                </>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Dropd>
-      )}
-
-      {addkurs && (
-        <TaBort onClick={handleDelete}>
-          {" "}
-          <BsTrash3 size={20} />
-          <InfoTextKnapp>Ta bort kurs</InfoTextKnapp>
-        </TaBort>
-      )}
 
       <span onClick={toggleReadMore}>
         {isReadMore ? (
@@ -151,36 +159,36 @@ export default function Kurs(props) {
       </span>
 
       {isReadMore && (
-        <InfoText>
+        <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
           {kurs.studietakt}
-        </InfoText>
+        </TextUnderLäsMer>
       )}
       {isReadMore && (
-        <InfoText>
+        <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Antal hp:</span> {kurs.hp}
-        </InfoText>
+        </TextUnderLäsMer>
       )}
       {isReadMore && (
-        <InfoText>
+        <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Plats:</span> {kurs.ort}
-        </InfoText>
+        </TextUnderLäsMer>
       )}
       {isReadMore && (
-        <InfoText>
+        <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Examination:</span>{" "}
           {kurs.examination.map((prop) => {
             return <span key={uuidv4()}>{prop.benamning}</span>;
           })}
-        </InfoText>
+        </TextUnderLäsMer>
       )}
 
       {isReadMore && (
         <a href={kurs.url}>
           {" "}
-          <InfoText>
+          <TextUnderLäsMer>
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
-          </InfoText>
+          </TextUnderLäsMer>
         </a>
       )}
     </>

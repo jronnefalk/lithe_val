@@ -28,18 +28,22 @@ export default function Schema(props) {
                         String(period) ||
                         String(props.courseData[kurs.kurskod]?.period[1]) ===
                           String(period))
-                  ).map((kurs) => (
-                    <SchemaKursInfoCont>
-                      <KursSchema
-                        courseData={props.courseData[kurs.kurskod]}
-                        handleDelete={props.handleDelete}
-                        handleMove={props.handleMove}
-                        kurs={kurs}
-                        period={period}
-                        key={uuidv4()}
-                      />
-                    </SchemaKursInfoCont>
-                  ))}
+                  )
+                    .sort(
+                      (a, b) =>
+                        props.courseData[a.kurskod].block[0] -
+                        props.courseData[b.kurskod].block[0]
+                    ) // Sort the items by block number
+                    .map((kurs) => (
+                      <SchemaKursInfoCont>
+                        <KursSchema
+                          courseData={props.courseData[kurs.kurskod]}
+                          handleDelete={props.handleDelete}
+                          handleMove={props.handleMove}
+                          kurs={kurs}
+                        />
+                      </SchemaKursInfoCont>
+                    ))}
                 </SchemaKurserCont>
               </>
             ))}

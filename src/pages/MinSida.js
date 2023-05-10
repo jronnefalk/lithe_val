@@ -38,6 +38,7 @@ export function MinSida() {
     // Update the kursData state variable
     setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs.kurskod));
   }
+
   function handleMove(kurs) {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
       (term) => term !== courseData[kurs.kurskod]?.termin
@@ -154,7 +155,7 @@ export function MinSida() {
               </Titel>
               <OmsluterBubble>
                 <Progressbar value={avanceradPercent} max="12"></Progressbar>
-                <SpeechBubble data-id="n1">
+                <SpeechBubble data-id="nr1">
                   <BubbleText>Minimumkrav</BubbleText>
                 </SpeechBubble>
               </OmsluterBubble>

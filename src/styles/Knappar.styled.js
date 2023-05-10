@@ -10,7 +10,7 @@ export const TaBort = styled.button`
   border: none;
   background: none;
   &:hover {
-    background-color: #ededed;
+    background-color: none;
     border-radius: 20%;
   }
 `;

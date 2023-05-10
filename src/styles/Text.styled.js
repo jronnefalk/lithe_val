@@ -9,8 +9,8 @@ export const Text = styled.p`
 // Titel i kursboxarna
 export const Titel = styled.h1`
   font-family: "Montserrat", sans-serif;
-  font-size: 1.13rem;
-  margin: 0;
+  font-size: 1.05rem;
+  margin-bottom: 3%;
 `;
 export const TextUnderLäsMer = styled(Text)`
   margin-top: 10px;

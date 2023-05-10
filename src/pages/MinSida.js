@@ -97,16 +97,54 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
-      <Visualisering courseData={courseData} />
-      <h1>My Courses</h1>
-      <HelaSchemaCont>
-        <Schema
-          FireBaseData={FireBaseData}
-          courseData={courseData}
-          handleDelete={handleDelete}
-          handleMove={handleMove}
-        />
-      </HelaSchemaCont>
+      <MinSidaCont>
+        <div>
+          <h1>Visualisering</h1>
+          <Progressbarochrubrik>
+            <Bubble>
+              <Titel>
+                Totalt avancerade poäng: {counts.avancerad * 6}/60 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={avanceradPercent} max="12"></Progressbar>
+                <SpeechBubble data-id="n1">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+              <Titel>
+                Poäng inom medieteknik: {counts.medieteknik * 6}/30 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={medieteknikPercent} max="6"></Progressbar>
+                <SpeechBubble data-id="nr2">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+              <Titel>
+                Poäng inom datateknik: {counts.datateknik * 6}/30 hp
+              </Titel>
+              <OmsluterBubble>
+                <Progressbar value={datateknikPercent} max="6" hp></Progressbar>
+                <SpeechBubble data-id="nr3">
+                  <BubbleText>Minimumkrav</BubbleText>
+                </SpeechBubble>
+              </OmsluterBubble>
+            </Bubble>
+          </Progressbarochrubrik>
+
+          <Titel>Totalt antal hp: {counts.hp}</Titel>
+          <Cirkel value={hpPercent} max="90"></Cirkel>
+        </div>
+        <MittSchemaText>MITT SCHEMA</MittSchemaText>
+        <HelaSchemaCont>
+          <Schema
+            FireBaseData={FireBaseData}
+            courseData={courseData}
+            handleDelete={handleDelete}
+            handleMove={handleMove}
+          />
+        </HelaSchemaCont>
+      </MinSidaCont>
     </>
   );
 }

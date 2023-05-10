@@ -25,6 +25,7 @@ export const CirkelWrapper = styled.div`
 export const OmsluterBubble = styled.div`
   display: flex;
   flex-direction: column-reverse;
+  position: relative;
 `;
 export const Bubble = styled.div`
   display: flex;
@@ -33,11 +34,11 @@ export const Bubble = styled.div`
 export const SpeechBubble = styled.div`
   display: none;
   max-width: 70pt;
-  position: relative;
-  top: -1.4rem;
-  left: 72.4%;
+  position: absolute;
+  top: -3.3rem;
+  left: 71.8%;
   background: rgb(255, 92, 100);
-  padding: 0rem 0.5rem;
+  padding: 0.4rem 0.9rem;
   text-align: center;
   color: rgb(255, 255, 255);
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;

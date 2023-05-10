@@ -42,6 +42,7 @@ export default function Schema(props) {
                           courseData={props.courseData[kurs.kurskod]}
                           handleDelete={props.handleDelete}
                           handleMove={props.handleMove}
+                          kurs={kurs}
                         />
                       </SchemaKursInfoCont>
                     ))}

@@ -109,6 +109,7 @@ export const TerminWrapperSchema = styled.div`
   background-color: #ededed;
   padding-bottom: 2%;
   padding-top: 2%;
+  padding-right: 3%;
 `;
 export const SchemaKurserCont = styled.div`
   display: flex;
@@ -117,7 +118,7 @@ export const SchemaKurserCont = styled.div`
   gap: 1rem;
 `;
 export const SchemaKursInfoCont = styled(KursCont)`
-  width: min(136%, 15rem);
+  width: min(136%, 100%);
   background-color: white;
   padding-left: 0.6rem;
   padding-top: 0.6rem;

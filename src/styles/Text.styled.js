@@ -80,7 +80,7 @@ export const MenyText = styled.p`
 `;
 
 //Schema
-export const MittSchemaText = styled.h1`
+export const TitelSOchV = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   color: #317773;

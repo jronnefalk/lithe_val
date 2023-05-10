@@ -7,8 +7,11 @@ import {
   Visualiseringar,
   CirkelWrapper,
   Progressbarochrubrik,
+  Bubble,
+  OmsluterBubble,
+  SpeechBubble,
 } from "../styles/Visualiseringar.styled";
-import { RubrikProgressbar as InfoTitel } from "../styles/Text.styled";
+import { BubbleText, Titel, TitelSOchV } from "../styles/Text.styled";
 
 //import { Cirkel } from "../styles/Visualiseringar.styled";
 //import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
@@ -55,30 +58,39 @@ export default function Schema(props) {
 
   return (
     <>
-      <h1>Visualisering</h1>
+      <TitelSOchV>Visualisering</TitelSOchV>
       <Visualiseringar>
         <Progressbarochrubrik>
-          <InfoTitel>
-            Poäng inom avancerade kurser: {counts.avancerad * 6} hp
-          </InfoTitel>
-          <Progressbar value={avanceradPercent} max="10"></Progressbar>
-          <div>
-            <div>
-              <InfoTitel>
-                Poäng inom medieteknik: {counts.medieteknik * 6} hp
-              </InfoTitel>
+          <Bubble>
+            <Titel>
+              Poäng inom avancerade kurser: {counts.avancerad * 6} hp
+            </Titel>
+            <OmsluterBubble>
+              <Progressbar value={avanceradPercent} max="12"></Progressbar>
+              <SpeechBubble data-id="n1">
+                <BubbleText>Minimumkraven</BubbleText>
+              </SpeechBubble>
+            </OmsluterBubble>
+
+            <Titel>Poäng inom medieteknik: {counts.medieteknik * 6} hp</Titel>
+            <OmsluterBubble>
               <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-            </div>
-            <div>
-              <InfoTitel>
-                Poäng inom datateknik: {counts.datateknik * 6} hp
-              </InfoTitel>
+              <SpeechBubble data-id="n2">
+                <BubbleText>Minimumkraven</BubbleText>
+              </SpeechBubble>
+            </OmsluterBubble>
+
+            <Titel>Poäng inom datateknik: {counts.datateknik * 6} hp</Titel>
+            <OmsluterBubble>
               <Progressbar value={datateknikPercent} max="6"></Progressbar>
-            </div>
-          </div>
+              <SpeechBubble data-id="n3">
+                <BubbleText>Minimumkraven</BubbleText>
+              </SpeechBubble>
+            </OmsluterBubble>
+          </Bubble>
         </Progressbarochrubrik>{" "}
         <CirkelWrapper>
-          <InfoTitel>Totalt antal hp: {counts.hp}</InfoTitel>
+          <Titel>Totalt antal hp: {counts.hp}</Titel>
           <Circle hp={hpPercent}></Circle>
         </CirkelWrapper>
       </Visualiseringar>

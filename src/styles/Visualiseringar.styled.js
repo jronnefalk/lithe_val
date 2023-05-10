@@ -21,6 +21,20 @@ export const CirkelWrapper = styled.div`
   flex-direction: column-reverse;
   align-items: center;
 `;
+export const Cirkel = styled.progress`
+  width: 10rem;
+  height: 20rem;
+  background: conic-gradient(
+    border-radius: 50%;
+    &::-webkit-progress-value {
+      background-image: conic-gradient(#333 0% ${(props) =>
+        (props.value / props.max) * 360}deg, #eee ${(props) =>
+  (props.value / props.max) * 360}deg 100%);
+      border-radius: inherit;
+    }
+    transform: rotate(-90deg);
+  `;
+
 //progressbars
 export const OmsluterBubble = styled.div`
   display: flex;
@@ -36,7 +50,7 @@ export const SpeechBubble = styled.div`
   max-width: 70pt;
   position: absolute;
   top: -3.3rem;
-  left: 71.8%;
+  left: 69%;
   background: rgb(255, 92, 100);
   padding: 0.4rem 0.9rem;
   text-align: center;
@@ -93,17 +107,3 @@ export const Progressbarochrubrik = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-export const Cirkel = styled.progress`
-  width: 10rem;
-  height: 20rem;
-  background: conic-gradient(
-    border-radius: 50%;
-    &::-webkit-progress-value {
-      background-image: conic-gradient(#333 0% ${(props) =>
-        (props.value / props.max) * 360}deg, #eee ${(props) =>
-  (props.value / props.max) * 360}deg 100%);
-      border-radius: inherit;
-    }
-    transform: rotate(-90deg);
-  `;

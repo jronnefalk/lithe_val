@@ -10,6 +10,8 @@ import { Titel, PeriodSchema } from "../styles/Text.styled";
 import KursSchema from "./KursSchema";
 
 export default function Schema(props) {
+  // funtioner för att ta bort och flytta kurser
+
   return (
     <>
       {props.FireBaseData.length > 0 &&
@@ -18,7 +20,7 @@ export default function Schema(props) {
             <Titel>Termin {termin}</Titel>
             {[1, 2].map((period) => (
               <>
-                <PeriodSchema key={uuidv4()}>Period {period}</PeriodSchema>
+                <PeriodSchema>Period {period}</PeriodSchema>
                 <SchemaKurserCont key={uuidv4()}>
                   {props.FireBaseData.filter(
                     (kurs) =>
@@ -40,7 +42,6 @@ export default function Schema(props) {
                           courseData={props.courseData[kurs.kurskod]}
                           handleDelete={props.handleDelete}
                           handleMove={props.handleMove}
-                          kurs={kurs}
                         />
                       </SchemaKursInfoCont>
                     ))}

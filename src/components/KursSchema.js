@@ -35,6 +35,7 @@ export default function KursSchema(props) {
     <>
       <TitelKnappCont>
         <SchemaTitelKurs>{props.courseData.kursnamn}</SchemaTitelKurs>
+
         <TaBort // delete knapp
           onClick={() => props.handleDelete(props.courseData.kurskod)}
         >

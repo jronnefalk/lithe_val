@@ -33,16 +33,20 @@ class Circle extends React.Component {
   }
 
   getData(percent) {
-    let y;
-    if (percent <= 100) {
-      y = percent;
-    } else {
-      y = 100;
+    let color = "#317773";
+    let y1 = percent;
+    let y2 = 0;
+
+    if (percent > 100) {
+      color = "red";
+      y1 = 100;
+      y2 = percent - 100;
     }
+
     return [
-      { x: 1, y },
-      { x: 2, y: 100 - y },
-      { x: 3, y: percent - 100 },
+      { x: 1, y: y1, fill: color },
+      { x: 2, y: -y2, fill: color },
+      { x: 3, y: 100 - y1, fill: "gray" },
     ];
   }
 
@@ -62,7 +66,11 @@ class Circle extends React.Component {
           innerRadius={120}
           style={{
             data: {
-              fill: "gray",
+              fill: ({ datum }) => {
+                console.log(datum.x);
+
+                return "gray";
+              },
               stroke: "none",
             },
           }}
@@ -79,11 +87,7 @@ class Circle extends React.Component {
           style={{
             data: {
               fill: ({ datum }) => {
-                if (datum.x === 1 || datum.x === 2) {
-                  return "#317773";
-                } else {
-                  return "blue";
-                }
+                return datum.fill;
               },
             },
           }}

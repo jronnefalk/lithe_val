@@ -12,6 +12,7 @@ import {
   InfoTextKnapp,
   LäsMerText,
   TextUnderLäsMer,
+  TextUtbildningsnivå,
 } from "../styles/Text.styled.js";
 import {
   FirstInfoCont,
@@ -138,7 +139,7 @@ export default function Kurs(props) {
         <Text>|</Text>
       </FirstInfoCont>
       <SecondInfoCont>
-        <TextHuvudnivå>{kurs.utbildningsniva}</TextHuvudnivå>{" "}
+        <TextUtbildningsnivå>{kurs.utbildningsniva}</TextUtbildningsnivå>{" "}
         {kurs.huvudomrade !== undefined &&
           kurs.huvudomrade !== null &&
           kurs.huvudomrade.map((prop) => {

@@ -17,7 +17,7 @@ import {
 } from "../styles/Container.styled";
 import {
   FlyttaSchemaText,
-  SchemaInfoText2,
+  SchemaTextUtbildningsnivå,
   SchemaLäsMerText,
   SchemaTextInfo,
   SchemaTitelKurs,
@@ -53,7 +53,10 @@ export default function KursSchema(props) {
         <SchemaTextInfo>|</SchemaTextInfo>
       </FirstInfoCont>
       <SecondInfoCont>
-        <SchemaInfoText2> {props.courseData.utbildningsniva}</SchemaInfoText2>
+        <SchemaTextUtbildningsnivå>
+          {" "}
+          {props.courseData.utbildningsniva}
+        </SchemaTextUtbildningsnivå>
       </SecondInfoCont>
       <SchemaMerInfo>
         <span onClick={toggleReadMore}>

@@ -114,7 +114,7 @@ export const SchemaTextInfo = styled(Text)`
 export const SchemaLäsMerText = styled(LäsMerText)`
   font-size: 0.8rem;
 `;
-export const SchemaInfoText2 = styled(TextHuvudnivå)`
+export const SchemaTextUtbildningsnivå = styled(TextUtbildningsnivå)`
   font-size: 0.8rem;
 `;
 

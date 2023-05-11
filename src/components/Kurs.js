@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   saveKurs,
   deleteKurs,
-  getAllCourses,
+  getUserData,
 } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
@@ -37,7 +37,8 @@ export default function Kurs(props) {
   const [isReadMore, setIsReadMore] = useState(false);
   const [showOverlapping, setShowOverlapping] = useState(false);
 
-  const allCourses = getAllCourses();
+  // WIP
+  // const userData = getUserData();
 
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
@@ -197,12 +198,6 @@ export default function Kurs(props) {
       {showOverlapping && (
         <OverlappningPopup setShowOverlapping={setShowOverlapping} />
       )}
-
-      <div>
-        {allCourses.map((course) => {
-          return <p>{course}</p>;
-        })}
-      </div>
     </>
   );
 }

@@ -40,15 +40,11 @@ export const LäsMerText = styled(Text)`
 `;
 // Visa mer knappen och Lägga till knapp
 export const InfoTextKnapp = styled(Text)`
-  font-size: 82%;
+  font-size: 85%;
   color: black;
   text-decoration: none;
   margin-bottom: 8px;
   margin-top: 4px;
-  &:hover {
-    background-color: #ededed;
-    border-radius: 20%;
-  }
 `;
 // Sök texten
 export const SökText = styled.input`

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
-import Dropdown from "react-bootstrap/Dropdown";
+// import Dropdown from "react-bootstrap/Dropdown";
 
 //style
 import {
@@ -19,7 +19,13 @@ import {
   SecondInfoCont,
 } from "../styles/Container.styled.js";
 
-import { TaBort, Dropd, DropdownB } from "../styles/Knappar.styled.js";
+import {
+  TaBort,
+  Dropdown,
+  DropdownItem,
+  DropdownB,
+  DropdownMenu,
+} from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -67,34 +73,32 @@ export default function Kurs(props) {
         <Titel>{kurs.kursnamn}</Titel>
 
         {!addkurs && (
-          <div>
-            <Dropdown>
-              <DropdownB>
-                <BsFolderPlus size={20} />
-              </DropdownB>
+          <Dropdown>
+            <DropdownB>
+              <BsFolderPlus size={20} />
+            </DropdownB>
 
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  onClick={handleClick1}
-                  style={{ textDecoration: "none" }}
-                >
-                  {" "}
-                  <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-                </Dropdown.Item>
-                {kurs.termin.length === 2 && (
-                  <>
-                    <Dropdown.Item
-                      onClick={handleClick2}
-                      style={{ textDecoration: "none" }}
-                    >
-                      {" "}
-                      <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                    </Dropdown.Item>
-                  </>
-                )}
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
+            <DropdownMenu>
+              <DropdownItem
+                onClick={handleClick1}
+                style={{ textDecoration: "none" }}
+              >
+                {" "}
+                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+              </DropdownItem>
+              {kurs.termin.length === 2 && (
+                <>
+                  <DropdownItem
+                    onClick={handleClick2}
+                    style={{ textDecoration: "none" }}
+                  >
+                    {" "}
+                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  </DropdownItem>
+                </>
+              )}
+            </DropdownMenu>
+          </Dropdown>
         )}
 
         {addkurs && (

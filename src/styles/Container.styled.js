@@ -129,6 +129,7 @@ export const TitelKnappCont = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 99%;
+  height: 3rem;
 `;
 export const SchemaMerInfo = styled.div`
   gap: 0.4rem;

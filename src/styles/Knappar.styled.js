@@ -1,4 +1,4 @@
-import Dropdown from "react-bootstrap/Dropdown";
+//import Dropdown from "react-bootstrap/Dropdown";
 import styled from "styled-components";
 
 //lägga  till kurser knappen
@@ -9,24 +9,12 @@ export const TaBort = styled.button`
   align-items: center;
   border: none;
   background: none;
+  margin-right: 1.8rem;
   &:hover {
     background-color: none;
     border-radius: 20%;
   }
 `;
-export const Dropd = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: none;
-  background: none;
-
-  &:hover {
-    background-color: #ededed;
-    border-radius: 20%;
-  }
-`;
-
 //Meny
 export const MenyKnapp = styled.button`
   border: none;
@@ -56,7 +44,55 @@ export const FlyttaKnappSchema = styled.button`
     border: none;
   }
 `;
-export const DropdownB = styled(Dropdown.Toggle)`
+
+export const DropdownMenu = styled.div`
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 2px;
+  z-index: 1;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+`;
+
+export const Dropdown = styled.div`
   border: none;
-  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:hover ${DropdownMenu} {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+  }
+`;
+
+export const DropdownItem = styled.button`
+  border: none;
+
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+`;
+export const DropdownB = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  margin-right: 1.8rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+
+  ${Dropdown}:hover & {
+    background-color: lightgrey;
+  }
 `;

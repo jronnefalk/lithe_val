@@ -5,16 +5,12 @@ export const FirstInfoCont = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: -0.5rem;
-  margin-right: 0.3rem;
 `;
 export const SecondInfoCont = styled(FirstInfoCont)`
-  margin-top: -1.3rem;
-  margin-right: 0.5rem;
-  margin-bottom: -1.8rem;
+  margin-top: 2%;
 `;
 
-// Kurser divar
+//Kurser hur de ligger divar
 export const Cont = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -36,10 +32,15 @@ export const KursContWrapper = styled.div`
 `;
 
 export const KursCont = styled.div`
-  margin-bottom: 3%;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
   border: 0.5px solid black;
   border-radius: 20px;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  padding-left: 1.3rem;
+  padding-top: 1.3rem;
+  padding-bottom: 1rem;
   background-color: #ffffff;
 `;
 // Sökfunktionen
@@ -64,17 +65,10 @@ export const MenyCont = styled.div`
   max-width: 100%;
   flex-direction: row;
   text-decoration: none;
-
-  svg:hover {
-    color: red;
-  }
-  svg:hover + .text {
-    color: red;
-  }
 `;
 export const MinaSidorCont = styled.div`
   margin-left: auto;
-  margin-right: 2%;
+  margin-right: 1%;
 `;
 
 // Filter
@@ -90,7 +84,7 @@ export const Filter = styled.div`
   margin-right: auto;
   margin-left: 10%;
   top: 18.5%;
-  position: ${(props) => (props.fixed ? "fixed" : "absolute")};
+  position: absolute;
   background-color: #ffffff;
   border-radius: 20px;
   background-clip: padding-box;
@@ -111,4 +105,55 @@ export const FilterBlock = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
   }
+`;
+
+export const MinSidaCont = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+//schema
+export const HelaSchemaCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  justify-content: center;
+`;
+export const TerminWrapperSchema = styled.div`
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2%;
+  background-color: #ededed;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  padding-right: 3%;
+`;
+export const SchemaKurserCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+`;
+export const SchemaKursInfoCont = styled(KursCont)`
+  width: min(136%, 100%);
+  background-color: white;
+  padding-left: 0.6rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+`;
+export const TitelKnappCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 99%;
+`;
+export const SchemaMerInfo = styled.div`
+  gap: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
 `;

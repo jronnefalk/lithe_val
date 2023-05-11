@@ -4,15 +4,11 @@ import { getAuth } from "firebase/auth";
 import getData from "../functions/getData";
 import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
-
+import Visualisering from "../components/Visualisering.js";
 //Style
-import { Progressbar } from "../styles/Visualiseringar.styled";
-import { RubrikProgressbar } from "../styles/Text.styled";
-import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
-import { Cirkel } from "../styles/Visualiseringar.styled";
-import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
-import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
-import { GlobalStyles } from "../styles/General.styled";
+
+import { HelaSchemaCont } from "../styles/Container.styled";
+import { TitelSOchV } from "../styles/Text.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -25,14 +21,15 @@ export function MinSida() {
   const [courseData, setCourseData] = useState(
     JSON.parse(localStorage.getItem("courseData")) || {}
   );
+
   // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
     // Remove the kurs from the database
     deleteKurs(kurs);
-
     // Update the kursData state variable
-    setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs.kurskod));
+    setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs));
   }
+
   function handleMove(kurs) {
     const availableTerms = Object.values(getData(kurs.kurskod).termin).filter(
       (term) => term !== courseData[kurs.kurskod]?.termin
@@ -100,75 +97,19 @@ export function MinSida() {
     }
   }, [currentUser]);
 
-  // Count how many courses have utbildningsniva set to 'grundnivå' and 'avancerad'
-  const initialCounts = {
-    grundniva: 0,
-    avancerad: 0,
-    hp: 0,
-    medieteknik: 0,
-    datateknik: 0,
-  };
-  // Visualisering beräkning
-  const counts = Object.values(courseData).reduce((acc, curr) => {
-    acc.hp += parseInt(curr.hp);
-
-    if (curr.utbildningsniva === "Grundnivå") {
-      acc.grundniva++;
-    } else if (curr.utbildningsniva === "Avancerad nivå") {
-      acc.avancerad++;
-    }
-    const countMedieteknik =
-      (curr.huvudomrade &&
-        curr.huvudomrade.filter((item) => item === "Medieteknik").length) ||
-      0;
-    acc.medieteknik += countMedieteknik;
-    const countDatateknik =
-      (curr.huvudomrade &&
-        curr.huvudomrade.filter((item) => item === "Datateknik").length) ||
-      0;
-    acc.datateknik += countDatateknik;
-
-    return acc;
-  }, initialCounts);
-
-  const totalStudents = counts.grundniva + counts.avancerad;
-  const avanceradPercent = Math.round(counts.avancerad);
-  const medieteknikPercent = Math.round(counts.medieteknik);
-  const datateknikPercent = Math.round(counts.datateknik);
-  const hpPercent = Math.round(counts.hp);
-
   // mappar ut visualisering och kurserna
   return (
     <>
-      <GlobalStyles />
-      <h1>Visualisering</h1>
-      <Progressbarochrubrik>
-        <RubrikProgressbar>
-          Avancerade kurser: {counts.avancerad}
-        </RubrikProgressbar>
-        <Progressbar value={avanceradPercent} max="10"></Progressbar>
-        <RubrikProgressbar>
-          Poäng inom medieteknik: {counts.medieteknik}
-        </RubrikProgressbar>
-        <Progressbar value={medieteknikPercent} max="6"></Progressbar>
-        <RubrikProgressbar>
-          Poäng inom datateknik: {counts.datateknik}
-        </RubrikProgressbar>
-        <Progressbar value={datateknikPercent} max="6"></Progressbar>
-      </Progressbarochrubrik>
-
-      <CirkelRubrikMinakurser>
-        <RubrikProgressbar>Totalt antal hp: {counts.hp}</RubrikProgressbar>
-        <Cirkel value={hpPercent} max="90"></Cirkel>
-        <h1>My Courses</h1>
-
+      <Visualisering courseData={courseData} />
+      <TitelSOchV>My Courses</TitelSOchV>
+      <HelaSchemaCont>
         <Schema
           FireBaseData={FireBaseData}
           courseData={courseData}
           handleDelete={handleDelete}
           handleMove={handleMove}
         />
-      </CirkelRubrikMinakurser>
+      </HelaSchemaCont>
     </>
   );
 }

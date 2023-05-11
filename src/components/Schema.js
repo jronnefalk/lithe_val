@@ -17,9 +17,12 @@ export default function Schema(props) {
       {props.FireBaseData.length > 0 &&
         [7, 8, 9].map((termin) => (
           <TerminWrapperSchema key={uuidv4()}>
+            {console.log(termin)}
             <Titel>Termin {termin}</Titel>
+
             {[1, 2].map((period) => (
               <>
+                {console.log(period)}
                 <PeriodSchema>Period {period}</PeriodSchema>
                 <SchemaKurserCont key={uuidv4()}>
                   {props.FireBaseData.filter(
@@ -38,6 +41,7 @@ export default function Schema(props) {
                     ) // Sort the items by block number
                     .map((kurs) => (
                       <SchemaKursInfoCont key={uuidv4()}>
+                        {console.log(kurs)}
                         <KursSchema
                           courseData={props.courseData[kurs.kurskod]}
                           handleDelete={props.handleDelete}

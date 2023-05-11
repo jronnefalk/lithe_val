@@ -7,7 +7,7 @@ import { Start } from "./pages/Start";
 //style
 import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
 import { MenyKnapp, MenyKnappLITHEVAL } from "./styles/Knappar.styled";
-import { MenyText, RubrikMenyKnapp } from "./styles/Text.styled";
+import { MenyText, RubrikHemsida } from "./styles/Text.styled";
 
 //icons
 //import { BsHouseDoorFill } from "react-icons/bs";
@@ -50,11 +50,11 @@ export default function App() {
     <>
       <MenyCont>
         <Link to="">
-          <MenyKnappLITHEVAL className="meny-knapp" onClick={handleClickHouse}>
-            <RubrikMenyKnapp>
+          <MenyKnappLITHEVAL onClick={handleClickHouse}>
+            <RubrikHemsida>
               {" "}
               {isFilled ? " LITHEVAL" : "LITHEVAL"}
-            </RubrikMenyKnapp>
+            </RubrikHemsida>
           </MenyKnappLITHEVAL>
         </Link>
 

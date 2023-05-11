@@ -1,35 +1,37 @@
 import styled from "styled-components";
+
 //Kurser
-// Text till info om kurser
+// Standard text för all liten text
 export const Text = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
   margin: 0;
 `;
-// Titel i kursboxarna
+// Standard text för alla rubriker på sidan
 export const Titel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.05rem;
   margin-bottom: 3%;
 `;
+//Texten som syns när man har tryckt på läs mer
 export const TextUnderLäsMer = styled(Text)`
   margin-top: 10px;
 `;
-// Minimumkraven
-export const BubbleText = styled(Text)`
-  font-size: 80%;
-`;
-
-// Huvudområde
+// Huvudområde, Text med bakgrund
 export const TextHuvudnivå = styled(Text)`
   margin-right: 0.8rem;
   background-color: #e4eaf1;
   border-radius: 20px;
   padding: 5px;
 `;
-// Utbildningsnivå
+// Utbildningsnivå, Text med bakgrund
 export const TextUtbildningsnivå = styled(TextHuvudnivå)`
   background-color: #e2f3f2;
+`;
+
+// Minimumkraven
+export const BubbleText = styled(Text)`
+  font-size: 80%;
 `;
 
 export const LäsMerText = styled(Text)`
@@ -102,11 +104,7 @@ export const SchemaTextInfo = styled(Text)``;
 
 //för att göra rubriken LITEVAL mindre
 
-export const RubrikMenyKnapp = styled(Titel)`
-  font-size: 30px;
-`;
-
-export const FilterHeader = styled(InfoTitel)`
+export const FilterHeader = styled(Titel)`
   font-size: 0.8rem;
 `;
 export const SchemaLäsMerText = styled(LäsMerText)`
@@ -128,9 +126,4 @@ export const FilterTextBlock = styled(Text)`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-// Block, Period, Ort.... rubrik
-export const FilterHeader = styled(Titel)`
-  font-size: 0.8rem;
-  margin-top: 9px;
 `;

@@ -30,7 +30,8 @@ export const KursContWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 20px;
   background-color: #f3f3f0;
 `;
 
@@ -88,9 +89,16 @@ export const Filter = styled.div`
   width: 16%;
   margin-right: auto;
   margin-left: 10%;
-  top: 19%;
-  position: absolute;
+  top: 18.5%;
+  position: ${(props) => (props.fixed ? "fixed" : "absolute")};
   background-color: #ffffff;
+  border-radius: 20px;
+  background-clip: padding-box;
+  transition: top 0.5s ease, position 0.5s ease;
+
+  @media (min-height: 1000px) {
+    position: fixed;
+  }
 `;
 
 // Justerar enbart blocken i filtret

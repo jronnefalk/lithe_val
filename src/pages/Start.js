@@ -28,12 +28,27 @@ export function Start() {
 
   useEffect(() => {
     localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
+
+    const filter = document.querySelector(".filter");
+    const filterTop = filter.getBoundingClientRect().top;
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > filterTop) {
+        filter.style.position = "fixed";
+      } else {
+        filter.style.position = "absolute";
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
   }, [activeFilters]);
 
   return (
     <>
-      <GlobalStyles />
       <div className="App">
+        <GlobalStyles />
         <Cont>
           <SökCont>
             <SökIcont>
@@ -55,7 +70,7 @@ export function Start() {
           </KursContWrapper>
         </Cont>
 
-        <Filter>
+        <Filter className="filter">
           <Filters
             activeFilters={activeFilters}
             setActiveFilters={setActiveFilters}

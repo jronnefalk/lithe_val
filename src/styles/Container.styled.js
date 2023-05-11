@@ -54,13 +54,6 @@ export const MenyCont = styled.div`
   max-width: 100%;
   flex-direction: row;
   text-decoration: none;
-
-  svg:hover {
-    color: red;
-  }
-  svg:hover + .text {
-    color: red;
-  }
 `;
 export const MinaSidorCont = styled.div`
   margin-left: auto;

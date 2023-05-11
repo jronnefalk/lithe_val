@@ -107,7 +107,7 @@ export default function Kurs(props) {
           <Dropdown.Menu>
             <Dropdown.Item onClick={handleClick1}>
               {" "}
-              <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
+              <InfoTextKnapp>Termin: {kurs.termin[0]} </InfoTextKnapp>
             </Dropdown.Item>
             {kurs.termin.length === 2 && (
               <>

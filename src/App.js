@@ -6,12 +6,12 @@ import { Start } from "./pages/Start";
 
 //style
 import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
-import { MenyKnapp } from "./styles/Knappar.styled";
-import { Titel, MenyText, RubrikMenyKnapp } from "./styles/Text.styled";
+import { MenyKnapp, MenyKnappLITHEVAL } from "./styles/Knappar.styled";
+import { MenyText, RubrikMenyKnapp } from "./styles/Text.styled";
 
 //icons
-import { BsHouseDoorFill } from "react-icons/bs";
-import { BsHouseDoor } from "react-icons/bs";
+//import { BsHouseDoorFill } from "react-icons/bs";
+//import { BsHouseDoor } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
 import { BsFolderFill } from "react-icons/bs";
 
@@ -50,12 +50,12 @@ export default function App() {
     <>
       <MenyCont>
         <Link to="">
-          <MenyKnapp className="meny-knapp" onClick={handleClickHouse}>
+          <MenyKnappLITHEVAL className="meny-knapp" onClick={handleClickHouse}>
             <RubrikMenyKnapp>
               {" "}
               {isFilled ? " LITHEVAL" : "LITHEVAL"}
             </RubrikMenyKnapp>
-          </MenyKnapp>
+          </MenyKnappLITHEVAL>
         </Link>
 
         <MinaSidorCont>

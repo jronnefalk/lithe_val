@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-//Kurser
+//Kurser på start sida
 // Standard text för all liten text
 export const Text = styled.p`
   font-family: "Lato", sans-serif;
@@ -28,19 +28,15 @@ export const TextHuvudnivå = styled(Text)`
 export const TextUtbildningsnivå = styled(TextHuvudnivå)`
   background-color: #e2f3f2;
 `;
-
-// Minimumkraven
-export const BubbleText = styled(Text)`
-  font-size: 80%;
-`;
-
+//Texten på Knappen läsa mer
 export const LäsMerText = styled(Text)`
   display: flex;
   align-items: end;
   margin-top: 5%;
   text-decoration-line: underline;
 `;
-// Visa mer knappen och Lägga till knapp
+
+// texten som ligger på lägg till knappen i droppdown
 export const InfoTextKnapp = styled(Text)`
   font-size: 82%;
   color: black;
@@ -52,42 +48,53 @@ export const InfoTextKnapp = styled(Text)`
     border-radius: 20%;
   }
 `;
+
+//Sökfunktion
 // Sök texten
 export const SökText = styled.input`
   font-family: "Lato", sans-serif;
   font-size: 0.8rem;
   border: none;
   outline: none;
-  width: 97%;
-`;
-export const RubrikProgressbar = styled(Titel)`
-  float: right;
-  margin-right: 1%;
-  display: flex;
-  flex-direction: row;
+  width: 90%;
 `;
 
 // Meny text
+//Rubriken på sidan
 export const RubrikHemsida = styled.h1`
   color: #317773;
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   margin-top: 0%;
 `;
-
+//Text på menyknapparna
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.6rem;
   margin-top: 0;
 `;
 
-//Schema
+//Rubrik till visulaiseringar och schema
 export const TitelSOchV = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   color: #317773;
   text-align: center;
 `;
+
+//Visulaiseringar text
+export const RubrikProgressbar = styled(Titel)`
+  float: right;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: row;
+`;
+// Minimumkraven
+export const BubbleText = styled(Text)`
+  font-size: 80%;
+`;
+
+//Schema
 export const PeriodSchema = styled(Text)`
   font-size: 1rem;
   margin-left: 1%;
@@ -100,11 +107,7 @@ export const FlyttaSchemaText = styled(Text)`
 export const SchemaTitelKurs = styled(Titel)`
   font-size: 1rem;
 `;
-export const SchemaTextInfo = styled(Text)``;
-
-//för att göra rubriken LITEVAL mindre
-
-export const FilterHeader = styled(Titel)`
+export const SchemaTextInfo = styled(Text)`
   font-size: 0.8rem;
 `;
 export const SchemaLäsMerText = styled(LäsMerText)`
@@ -113,14 +116,20 @@ export const SchemaLäsMerText = styled(LäsMerText)`
 export const SchemaInfoText2 = styled(TextHuvudnivå)`
   font-size: 0.8rem;
 `;
-// Filter Checkboxarna
+
+//Filter
+//Rubrik i filtret
+export const FilterHeader = styled(Titel)`
+  font-size: 0.8rem;
+`;
+// texten till alla andra alternativ i Filter
 export const FilterText = styled(Text)`
   margin: 7px 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
-
+// Texten till blocken
 export const FilterTextBlock = styled(Text)`
   margin: 3px 2px 2px 0;
   display: flex;

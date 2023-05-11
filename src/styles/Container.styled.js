@@ -107,11 +107,6 @@ export const FilterBlock = styled.div`
   }
 `;
 
-export const MinSidaCont = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 //schema
 export const HelaSchemaCont = styled.div`
   display: flex;
@@ -138,7 +133,7 @@ export const SchemaKurserCont = styled.div`
   gap: 1rem;
 `;
 export const SchemaKursInfoCont = styled(KursCont)`
-  width: min(136%, 100%);
+  width: min(18rem, 17rem);
   background-color: white;
   padding-left: 0.6rem;
   padding-top: 0.6rem;

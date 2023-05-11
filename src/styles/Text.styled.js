@@ -87,11 +87,12 @@ export const TitelSOchV = styled.h1`
   font-size: 40px;
   color: #317773;
   text-align: center;
+  margin-top: 1%;
 `;
 export const PeriodSchema = styled(Text)`
   font-size: 1rem;
   margin-left: 1%;
-  padding-bottom: 2%;
+  padding-bottom: 4%;
   padding-top: 4%;
 `;
 export const FlyttaSchemaText = styled(Text)`

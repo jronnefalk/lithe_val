@@ -9,6 +9,7 @@ import Visualisering from "../components/Visualisering.js";
 
 import { HelaSchemaCont } from "../styles/Container.styled";
 import { TitelSOchV } from "../styles/Text.styled";
+import { GlobalStyles } from "../styles/General.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -100,6 +101,7 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
+      <GlobalStyles />
       <Visualisering courseData={courseData} />
       <TitelSOchV>My Courses</TitelSOchV>
       <HelaSchemaCont>

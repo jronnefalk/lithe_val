@@ -40,12 +40,14 @@ export function Start() {
           onChange={(event) => setQuery(event.target.value)}
         />
       </SökCont>
+      <p>Antal sökresultat: {filteredKurser.length}</p>
 
       <Cont>
         <Filters
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
         />
+
         <KursContWrapper>
           {filteredKurser.map((kurs) => (
             <KursCont key={uuidv4()}>

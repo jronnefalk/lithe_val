@@ -67,8 +67,6 @@ class Circle extends React.Component {
           style={{
             data: {
               fill: ({ datum }) => {
-                console.log(datum.x);
-
                 return "gray";
               },
               stroke: "none",
@@ -92,6 +90,7 @@ class Circle extends React.Component {
             },
           }}
         />
+
         <VictoryAnimation duration={1000} data={this.state}>
           {(newProps) => {
             return (

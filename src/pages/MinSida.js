@@ -12,6 +12,7 @@ import { Progressbarochrubrik } from "../styles/Visualiseringar.styled";
 import { Cirkel } from "../styles/Visualiseringar.styled";
 import { Cirkelochrubrik } from "../styles/Visualiseringar.styled";
 import { CirkelRubrikMinakurser } from "../styles/Visualiseringar.styled";
+import { GlobalStyles } from "../styles/General.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -139,6 +140,7 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
+      <GlobalStyles />
       <h1>Visualisering</h1>
       <Progressbarochrubrik>
         <RubrikProgressbar>

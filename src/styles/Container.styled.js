@@ -121,10 +121,12 @@ export const TerminWrapperSchema = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding-left: 2%;
-  background-color: #ededed;
+  background-color: 
   padding-bottom: 2%;
-  padding-top: 2%;
+  padding-top: 1%;
   padding-right: 3%;
+  background-color: #f3f3f0;
+  border-radius: 20px;
 `;
 export const SchemaKurserCont = styled.div`
   display: flex;

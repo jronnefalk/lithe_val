@@ -44,7 +44,7 @@ class Circle extends React.Component {
     return [
       { x: 1, y: y1, fill: color },
       { x: 2, y: -y2, fill: color },
-      { x: 3, y: 100 - y1, fill: "#d9d9d9" },
+      { x: 3, y: 100 - y1, fill: "#ffffff" },
     ];
   }
 
@@ -60,11 +60,11 @@ class Circle extends React.Component {
           data={[
             { x: 1, y: 100 },
             { x: 2, y: 0 },
-          ]} // Gray background
+          ]} // White background
           innerRadius={120}
           style={{
             data: {
-              fill: "#d9d9d9",
+              fill: "#ffffff",
               stroke: "none",
             },
           }}

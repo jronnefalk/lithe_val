@@ -16,11 +16,3 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 // Meny
-
-export const HeaderGlobalStyles = createGlobalStyle`
-
-body header {
-    background-color: #ffffff;
-}
-
-`;

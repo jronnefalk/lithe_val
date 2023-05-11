@@ -15,9 +15,11 @@ import {
   KursContWrapper,
   Cont,
   SökCont,
+  Filter,
 } from "../styles/Container.styled";
 import { SökText } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
+import { GlobalStyles } from "../styles/General.styled";
 
 export function Start() {
   const [query, setQuery] = useState("");
@@ -26,34 +28,55 @@ export function Start() {
 
   useEffect(() => {
     localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
+
+    const filter = document.querySelector(".filter");
+    const filterTop = filter.getBoundingClientRect().top;
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > filterTop) {
+        filter.style.position = "fixed";
+      } else {
+        filter.style.position = "absolute";
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
   }, [activeFilters]);
 
   return (
-    <div className="App">
-      <SökCont>
-        <SökIcont>
-          <BsSearch size={12} />
-        </SökIcont>
-        <SökText
-          type="text"
-          placeholder="Sök"
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </SökCont>
+    <>
+      <div className="App">
+        <GlobalStyles />
+        <Cont>
+          <SökCont>
+            <SökIcont>
+              <BsSearch size={12} />
+            </SökIcont>
+            <SökText
+              type="text"
+              placeholder="Sök"
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </SökCont>
 
-      <Cont>
-        <Filters
-          activeFilters={activeFilters}
-          setActiveFilters={setActiveFilters}
-        />
-        <KursContWrapper>
-          {filteredKurser.map((kurs) => (
-            <KursCont key={uuidv4()}>
-              <Kurs key={uuidv4()} kursdata={kurs} />
-            </KursCont>
-          ))}
-        </KursContWrapper>
-      </Cont>
-    </div>
+          <KursContWrapper>
+            {filteredKurser.map((kurs) => (
+              <KursCont key={uuidv4()}>
+                <Kurs key={uuidv4()} kursdata={kurs} />
+              </KursCont>
+            ))}
+          </KursContWrapper>
+        </Cont>
+
+        <Filter className="filter">
+          <Filters
+            activeFilters={activeFilters}
+            setActiveFilters={setActiveFilters}
+          />
+        </Filter>
+      </div>
+    </>
   );
 }

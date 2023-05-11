@@ -13,15 +13,24 @@ export const SecondInfoCont = styled(FirstInfoCont)`
 //Kurser hur de ligger divar
 export const Cont = styled.div`
   display: flex;
-  align-items: flex-start;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 20%;
+  width: 100%;
+  max-width: 80%;
 `;
+
 export const KursContWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-left: 1.5%;
+  width: 70%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #f3f3f0;
 `;
+
 export const KursCont = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,19 +41,19 @@ export const KursCont = styled.div`
   padding-left: 1.3rem;
   padding-top: 1.3rem;
   padding-bottom: 1rem;
+  background-color: #ffffff;
 `;
 // Sökfunktionen
 export const SökCont = styled.div`
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 20px;
   margin-top: 20px;
-  padding-left: 10px;
-  height: 30px;
-  width: 50%;
+  padding: 5px 20px;
+  width: 70%;
   border: 0.5px solid black;
   border-radius: 30px;
+  box-sizing: border-box;
+  background-color: #ffffff;
 `;
 
 //Menyn
@@ -63,13 +72,27 @@ export const MinaSidorCont = styled.div`
 `;
 
 // Filter
+
 export const FilterCont = styled.div`
-  width: 9%;
   padding: 16px;
-  margin-right: 5%;
-  margin-left: 7%;
-  border: 0.5px solid black;
   border-radius: 20px;
+  border: 0.5px solid black;
+`;
+
+export const Filter = styled.div`
+  width: 16%;
+  margin-right: auto;
+  margin-left: 10%;
+  top: 18.5%;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 20px;
+  background-clip: padding-box;
+  transition: top 0.5s ease, position 0.5s ease;
+
+  @media (min-height: 1000px) {
+    position: fixed;
+  }
 `;
 
 // Justerar enbart blocken i filtret

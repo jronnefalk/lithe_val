@@ -31,6 +31,15 @@ export const Dropd = styled.button`
 export const MenyKnapp = styled.button`
   border: none;
   background: none;
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
+`;
+export const MenyKnappLITHEVAL = styled.button`
+  border: none;
+  background: none;
+  }
 `;
 
 //Ikone

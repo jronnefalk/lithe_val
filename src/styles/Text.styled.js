@@ -71,12 +71,12 @@ export const RubrikHemsida = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   margin-top: 0%;
-  margin-left: 39%;
 `;
 
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
   font-size: 0.6rem;
+  margin-top: 0;
 `;
 
 //Schema
@@ -98,7 +98,15 @@ export const FlyttaSchemaText = styled(Text)`
 export const SchemaTitelKurs = styled(Titel)`
   font-size: 1rem;
 `;
-export const SchemaTextInfo = styled(Text)`
+export const SchemaTextInfo = styled(Text)``;
+
+//för att göra rubriken LITEVAL mindre
+
+export const RubrikMenyKnapp = styled(Titel)`
+  font-size: 30px;
+`;
+
+export const FilterHeader = styled(InfoTitel)`
   font-size: 0.8rem;
 `;
 export const SchemaLäsMerText = styled(LäsMerText)`

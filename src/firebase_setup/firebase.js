@@ -82,13 +82,18 @@ async function getUserData() {
   const user = auth.currentUser;
   if (user) {
     const kursRef = ref(database, `users/${user.uid}/Kurser/`);
-    console.log("kursRef:", kursRef.toString());
 
     try {
       const kursSnapshot = await get(kursRef);
-      const kursData = kursSnapshot.val();
-      console.log("kursData:", kursData);
-      // return kursData;
+      const kursData = kursSnapshot.val(); // kursData är ett objekt med alla kurser
+      let kursArray = [];
+
+      // Omvandlar objektet till en array
+      for (const courseCode in kursData) {
+        kursArray.push(courseCode);
+      }
+
+      return kursArray;
     } catch (error) {
       console.error(error);
     }

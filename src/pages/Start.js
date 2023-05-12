@@ -5,7 +5,6 @@ import kurser from "../webscraping/database.json";
 import filterKurser from "../functions/filterKurser";
 import Kurs from "../components/Kurs";
 import Filters from "../components/Filters";
-import Test from "../components/Test";
 
 // Ikoner
 import { BsSearch } from "react-icons/bs";
@@ -55,8 +54,6 @@ export function Start() {
           ))}
         </KursContWrapper>
       </Cont>
-
-      <Test />
     </div>
   );
 }

@@ -37,9 +37,6 @@ export default function Kurs(props) {
   const [isReadMore, setIsReadMore] = useState(false);
   const [showOverlapping, setShowOverlapping] = useState(false);
 
-  // WIP
-  // const userData = getUserData();
-
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
   }, [addkurs, kurs.kurskod]);
@@ -62,10 +59,26 @@ export default function Kurs(props) {
     setAddKurs(false);
   }
 
-  // Hanterar popupen ifall en överlappning noteras
-  function handleOverlappningPopup() {
-    if (kurs.kurskod === "THEN09") {
-      setShowOverlapping(true);
+  // Hanterar popupen ifall en överlappning noteras WIP
+  async function handleOverlappningPopup(kurs) {
+    try {
+      const userCourseCodes = await getUserData();
+
+      for (const courseCode of userCourseCodes) {
+        // DEBUG
+        console.log("courseCode:", courseCode);
+        console.log("kurs:", kurs); // Hittar inte kurs - LÖS!
+        console.log("kurs.overlappning:", kurs.overlappning);
+
+        if (kurs.overlappning === courseCode) {
+          setShowOverlapping(true);
+          console.log("Överlappning hittad");
+          return; // Avbryter loopen om en överlappning hittas
+        }
+        console.log("Ingen överlappning hittad");
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 

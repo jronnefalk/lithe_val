@@ -72,7 +72,7 @@ export default function Schema(props) {
               </SpeechBubble>
             </OmsluterBubble>
 
-            <Titel>Poäng inom medieteknik: {counts.medieteknik * 6} hp</Titel>
+            <Titel>Poäng inom Medieteknik: {counts.medieteknik * 6} hp</Titel>
             <OmsluterBubble>
               <Progressbar value={medieteknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n2">
@@ -80,7 +80,7 @@ export default function Schema(props) {
               </SpeechBubble>
             </OmsluterBubble>
 
-            <Titel>Poäng inom datateknik: {counts.datateknik * 6} hp</Titel>
+            <Titel>Poäng inom Datateknik: {counts.datateknik * 6} hp</Titel>
             <OmsluterBubble>
               <Progressbar value={datateknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n3">

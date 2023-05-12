@@ -80,7 +80,6 @@ export const TitelSOchV = styled.h1`
   font-size: 40px;
   color: #317773;
   text-align: center;
-  margin-top: 1%;
 `;
 
 //Visulaiseringar text
@@ -104,6 +103,7 @@ export const PeriodSchema = styled(Text)`
 `;
 export const FlyttaSchemaText = styled(Text)`
   font-size: 70%;
+  font-weight: 900;
 `;
 export const SchemaTitelKurs = styled(Titel)`
   font-size: 1rem;

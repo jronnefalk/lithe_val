@@ -70,8 +70,15 @@ export default function KursSchema(props) {
 
         {isReadMore && (
           <SchemaTextInfo>
+            <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
+            {props.courseData.studietakt}
+          </SchemaTextInfo>
+        )}
+
+        {isReadMore && (
+          <SchemaTextInfo>
             {" "}
-            <span style={{ fontWeight: "bold" }}>HP:</span>{" "}
+            <span style={{ fontWeight: "bold" }}>Antal hp:</span>{" "}
             {props.courseData.hp}
           </SchemaTextInfo>
         )}
@@ -79,17 +86,8 @@ export default function KursSchema(props) {
         {isReadMore && (
           <SchemaTextInfo>
             {" "}
-            <span style={{ fontWeight: "bold" }}>Ort:</span>{" "}
+            <span style={{ fontWeight: "bold" }}>Plats:</span>{" "}
             {props.courseData.ort}
-          </SchemaTextInfo>
-        )}
-
-        {isReadMore && (
-          <SchemaTextInfo>
-            <span style={{ fontWeight: "bold" }}> Huvudområde:</span>
-            {props.courseData.huvudomrade.map((prop) => {
-              return <span key={uuidv4()}> {prop} </span>;
-            })}
           </SchemaTextInfo>
         )}
         {isReadMore && (
@@ -114,7 +112,7 @@ export default function KursSchema(props) {
             onClick={() => props.handleMove(props.kurs)}
           >
             <FlyttaSchemaText>
-              Flytta kurs från termin {props.courseData.termin} till termin
+              Flytta kurs från Termin {props.courseData.termin} till Termin{" "}
               {Object.values(getData(props.courseData.kurskod).termin)
                 .filter((term) => term !== props.courseData.termin)
                 .map((term) => (

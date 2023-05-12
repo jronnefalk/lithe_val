@@ -103,7 +103,7 @@ export function MinSida() {
     <>
       <GlobalStyles />
       <Visualisering courseData={courseData} />
-      <TitelSOchV>My Courses</TitelSOchV>
+      <TitelSOchV>Mina kurser</TitelSOchV>
       <HelaSchemaCont>
         <Schema
           FireBaseData={FireBaseData}

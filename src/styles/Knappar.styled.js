@@ -54,7 +54,7 @@ export const SökIcont = styled.span`
 
 export const FlyttaKnappSchema = styled.button`
   margin-right: auto;
-  margin-top: 7%;
+  margin-top: 3%;
   background-color: #b7e1df;
   border: none;
   border-radius: 20px;

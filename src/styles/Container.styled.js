@@ -37,7 +37,7 @@ export const KursCont = styled.div`
   border: 0.5px solid black;
   border-radius: 20px;
   margin-top: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   padding-left: 1.3rem;
   padding-top: 1.3rem;
   padding-bottom: 1rem;
@@ -107,11 +107,6 @@ export const FilterBlock = styled.div`
   }
 `;
 
-export const MinSidaCont = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 //schema
 export const HelaSchemaCont = styled.div`
   display: flex;
@@ -140,7 +135,7 @@ export const SchemaKurserCont = styled.div`
   gap: 1rem;
 `;
 export const SchemaKursInfoCont = styled(KursCont)`
-  width: min(136%, 100%);
+  width: min(18rem, 17rem);
   background-color: white;
   padding-left: 0.6rem;
   padding-top: 0.6rem;

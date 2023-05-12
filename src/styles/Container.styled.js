@@ -37,7 +37,7 @@ export const KursCont = styled.div`
   border: 0.5px solid black;
   border-radius: 20px;
   margin-top: 1%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   padding-left: 1.3rem;
   padding-top: 1.3rem;
   padding-bottom: 1rem;
@@ -48,7 +48,7 @@ export const SökCont = styled.div`
   display: flex;
   margin-bottom: 20px;
   margin-top: 20px;
-  padding: 5px 20px;
+  padding: 10px 20px;
   width: 70%;
   border: 0.5px solid black;
   border-radius: 30px;
@@ -83,7 +83,7 @@ export const Filter = styled.div`
   width: 16%;
   margin-right: auto;
   margin-left: 10%;
-  top: 18.5%;
+  top: 20%;
   position: absolute;
   background-color: #ffffff;
   border-radius: 20px;

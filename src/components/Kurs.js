@@ -45,6 +45,7 @@ export default function Kurs(props) {
     let nr = 0;
     saveKurs(kurs, nr);
     setAddKurs(true);
+    handleOverlappningPopup();
   }
 
   //sparar om man väljer termin 9
@@ -52,6 +53,7 @@ export default function Kurs(props) {
     let nr = 1;
     saveKurs(kurs, nr);
     setAddKurs(true);
+    handleOverlappningPopup();
   }
 
   function handleDelete() {
@@ -60,22 +62,17 @@ export default function Kurs(props) {
   }
 
   // Hanterar popupen ifall en överlappning noteras WIP
-  async function handleOverlappningPopup(kurs) {
+  async function handleOverlappningPopup() {
+    const kurs = await props.kursdata; // Wait for props.kursdata to be retrieved
+
     try {
       const userCourseCodes = await getUserData();
 
       for (const courseCode of userCourseCodes) {
-        // DEBUG
-        console.log("courseCode:", courseCode);
-        console.log("kurs:", kurs); // Hittar inte kurs - LÖS!
-        console.log("kurs.overlappning:", kurs.overlappning);
-
         if (kurs.overlappning === courseCode) {
           setShowOverlapping(true);
-          console.log("Överlappning hittad");
           return; // Avbryter loopen om en överlappning hittas
         }
-        console.log("Ingen överlappning hittad");
       }
     } catch (error) {
       console.error(error);
@@ -137,7 +134,7 @@ export default function Kurs(props) {
       </SecondInfoCont>
 
       {!addkurs && (
-        <Dropdown onClick={handleOverlappningPopup}>
+        <Dropdown>
           <LäggaTillDroppD>
             <BsFolderPlus size={20} />
             <InfoTextKnapp>Lägg till</InfoTextKnapp>

@@ -17,15 +17,14 @@ export const Cont = styled.div`
   flex-direction: column;
   align-items: center;
   margin-right: auto;
-  margin-left: 20%;
-  width: 100%;
-  max-width: 80%;
+  margin-left: 31%;
+  max-width: 57%;
 `;
 
 export const KursContWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   padding: 20px;
   border-radius: 20px;
   background-color: #f3f3f0;
@@ -44,12 +43,17 @@ export const KursCont = styled.div`
   background-color: #ffffff;
 `;
 // Sökfunktionen
+export const SökochTextCont = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+`;
 export const SökCont = styled.div`
   display: flex;
-  margin-bottom: 20px;
   margin-top: 20px;
   padding: 10px 20px;
-  width: 70%;
+  width: 100%;
   border: 0.5px solid black;
   border-radius: 30px;
   box-sizing: border-box;
@@ -83,7 +87,7 @@ export const Filter = styled.div`
   width: 16%;
   margin-right: auto;
   margin-left: 10%;
-  top: 20%;
+  top: 12.8rem;
   position: absolute;
   background-color: #ffffff;
   border-radius: 20px;

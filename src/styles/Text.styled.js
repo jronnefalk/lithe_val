@@ -53,6 +53,9 @@ export const SökText = styled.input`
   outline: none;
   width: 90%;
 `;
+export const AntalSökResultat = styled(Text)`
+  padding-left: 20px;
+`;
 
 // Meny text
 //Rubriken på sidan

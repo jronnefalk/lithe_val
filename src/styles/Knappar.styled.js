@@ -1,4 +1,3 @@
-//import Dropdown from "react-bootstrap/Dropdown";
 import styled from "styled-components";
 
 //lägga  till kurser knappen

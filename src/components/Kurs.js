@@ -25,7 +25,13 @@ import {
   SecondInfoCont,
 } from "../styles/Container.styled.js";
 
-import { TaBort, DropdownB } from "../styles/Knappar.styled.js";
+import {
+  TaBort,
+  DropdownB,
+  DropdownItem,
+  DropdownMenu,
+  Dropdown,
+} from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";

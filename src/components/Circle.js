@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
+import { VictoryPie, VictoryLabel } from "victory";
 
 const Circle = ({ hp }) => {
   const [percent, setPercent] = useState(0);

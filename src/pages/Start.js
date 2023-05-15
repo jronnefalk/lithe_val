@@ -16,8 +16,9 @@ import {
   Cont,
   SökCont,
   Filter,
+  SökochTextCont,
 } from "../styles/Container.styled";
-import { SökText } from "../styles/Text.styled";
+import { SökText, AntalSökResultat } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
 import { GlobalStyles } from "../styles/General.styled";
 
@@ -28,46 +29,27 @@ export function Start() {
 
   useEffect(() => {
     localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
-    // Filtret, en påbörjad övergång mellan fixed och absolute
-    /** 
-    const filter = document.querySelector(".filter");
-    const filterTop = filter.getBoundingClientRect().top;
-
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > filterTop) {
-        filter.style.position = "fixed";
-      } else {
-        filter.style.position = "absolute";
-      }
-    });
-
-    return () => {
-      window.removeEventListener("scroll", () => {});
-    };
-
-    */
   }, [activeFilters]);
 
   return (
     <div className="App">
-      <SökCont>
-        <SökIcont>
-          <BsSearch size={12} />
-        </SökIcont>
-        <SökText
-          type="text"
-          placeholder="Sök"
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </SökCont>
-      <p>Antal sökresultat: {filteredKurser.length}</p>
-
+      <GlobalStyles />
       <Cont>
-        <Filters
-          activeFilters={activeFilters}
-          setActiveFilters={setActiveFilters}
-        />
-
+        <SökochTextCont>
+          <SökCont>
+            <SökIcont>
+              <BsSearch size={12} />
+            </SökIcont>
+            <SökText
+              type="text"
+              placeholder="Sök"
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </SökCont>
+          <AntalSökResultat>
+            Antal sökresultat: {filteredKurser.length}
+          </AntalSökResultat>
+        </SökochTextCont>
         <KursContWrapper>
           {filteredKurser.map((kurs) => (
             <KursCont key={uuidv4()}>
@@ -76,6 +58,13 @@ export function Start() {
           ))}
         </KursContWrapper>
       </Cont>
+
+      <Filter>
+        <Filters
+          activeFilters={activeFilters}
+          setActiveFilters={setActiveFilters}
+        />
+      </Filter>
     </div>
   );
 }

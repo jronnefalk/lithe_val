@@ -36,8 +36,20 @@ class Kurs {
   }
 }
 
-// Läser filen kurser.txt och påbörjar "scraping"
-fs.readFile("kurser.txt", "utf8", (err, data) => {
+/*
+  README
+
+  Kontrollera att rad 11, 120 och 257 är justerad till rätt program.
+  database.json är sammanfogad manuellt. Detta kan göras automatiskt i framtiden.
+  Notera även att skriptet skrapar 99% rätt. Vissa kurser kan bli "null".
+  Kontrollera detta i databasfilen. Just nu är kurser som har värden "null" borttagna
+  från databasen. Detta kan ändras i framtiden.
+
+
+*/
+
+// Läser filen kurser.txt och påbörjar "scraping". OBS! justera för datateknik (kurserData) eller medieteknik (kurserMedia)
+fs.readFile("kurserData.txt", "utf8", (err, data) => {
   if (err) throw err;
   const lines = data.split("\n");
   const addresses = lines.map((line) => line.replace("\r", ""));
@@ -109,10 +121,10 @@ async function scrape(addresses) {
     const [termin, period, block, ort] = await page.evaluate(() => {
       const rows = document.querySelectorAll("table tr");
 
-      // letar igenom tabell i botten av hemsidan
+      // letar igenom tabell i botten av hemsidan. OBS! justera för datateknik (6CDDD) eller medieteknik (6CMEN)
       for (const row of rows) {
         const program = row.querySelector("td:first-child");
-        if (program && program.textContent.trim() === "6CMEN") {
+        if (program && program.textContent.trim() === "6CDDD") {
           const termin = row.querySelector("td:nth-child(3)");
           const period = row.querySelector("td:nth-child(4)");
           const block = row.querySelector("td:nth-child(5)");
@@ -139,15 +151,21 @@ async function scrape(addresses) {
           ];
         }
       }
+
+      // om kursen inte finns i tabellen
+      return [null, null, null, null];
     });
 
     // Bestämmer studietakt utifrån antal perioder
-    let studietakt;
-    if (period.length === 2) {
-      studietakt = "Halvfart";
-    } else {
-      studietakt = "Helfart";
-    }
+    let studietakt = "null";
+
+    try {
+      if (period.length === 2) {
+        studietakt = "Halvfart";
+      } else {
+        studietakt = "Helfart";
+      }
+    } catch (error) {}
 
     // hämtar alla examinationer
     const table = await page.$("table.table-striped.examinations-codes-table");
@@ -233,15 +251,17 @@ async function scrape(addresses) {
     kurser.push(tempKurs);
 
     // skriv ut kursens som skrapats i terminalen
-    console.log(
-      "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.studietakt
-    );
+    try {
+      console.log(
+        "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.period.join(", ")
+      );
+    } catch (error) {}
 
     await browser.close();
   }
 
-  // skriv till database.json
-  fs.writeFile("database.json", JSON.stringify(kurser, null, 2), (err) => {
+  // skriv till databas. OBS! skriv om till rätt databas
+  fs.writeFile("databaseData.json", JSON.stringify(kurser, null, 2), (err) => {
     if (err) throw err;
     console.log("Kurser är skrivna till database.json\n");
   });

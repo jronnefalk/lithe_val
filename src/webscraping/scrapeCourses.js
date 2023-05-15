@@ -5,7 +5,8 @@ const fs = require("fs");
   // Kopplar upp sig
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto("https://studieinfo.liu.se/program/6CMEN/4641");
+  await page.goto("https://studieinfo.liu.se/program/6CMEN/4641"); // Medieteknik
+  // await page.goto("https://studieinfo.liu.se/program/6CDDD/5440"); // Datateknik
 
   const links = [];
 
@@ -33,7 +34,7 @@ const fs = require("fs");
   console.log(uniqueLinks);
 
   // Skriver alla länkar till kurser.txt
-  fs.writeFile("kurser.txt", uniqueLinks.join("\n"), (err) => {
+  fs.writeFile("kurserMedia.txt", uniqueLinks.join("\n"), (err) => {
     if (err) throw err;
     console.log("Länkar sparade till kurser.txt filen.\n");
   });

@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-export const Minsida = styled.div`
-  float: left;
-  margin-left: 2%;
-  display: flex;
-  flex-direction: column;
-`;
-
+//Hela visualiseringsdelen
 export const Visualiseringar = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -14,13 +8,15 @@ export const Visualiseringar = styled.div`
   justify-content: center;
   gap: 3rem;
 `;
+
 //cirkelbar
-export const Cirkelochrubrik = styled.div``;
+//För cirkel och text
 export const CirkelWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
 `;
+//Cirkeln
 export const Cirkel = styled.progress`
   width: 10rem;
   height: 20rem;
@@ -33,9 +29,11 @@ export const Cirkel = styled.progress`
       border-radius: inherit;
     }
     transform: rotate(-90deg);
-  `;
+`;
 
 //progressbars
+
+//Bubblan som kommer upp när man hoverar
 export const OmsluterBubble = styled.div`
   display: flex;
   flex-direction: column-reverse;
@@ -70,6 +68,8 @@ export const SpeechBubble = styled.div`
     transform: translateX(-50%);
   }
 `;
+
+//Progressbar
 export const Progressbar = styled.progress`
   border-radius: 2rem;
   overflow: hidden;
@@ -83,7 +83,7 @@ export const Progressbar = styled.progress`
     background-color: #317773; /* ändra färgen här */
   }
   &::-webkit-progress-bar {
-    background-color: #d9d9d9;
+    background-color: #ffffff;
   }
   &::before {
     content: "";
@@ -92,7 +92,7 @@ export const Progressbar = styled.progress`
     bottom: 0;
     left: 83.3%; /* position the vertical line in the the progress bar */
     width: 4px; /* set the width of the vertical line */
-    background-color: white; /* set the color of the vertical line */
+    background-color: black; /* set the color of the vertical line */
   }
 
   &:hover ~ ${SpeechBubble} {

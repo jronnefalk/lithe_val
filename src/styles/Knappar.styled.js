@@ -19,6 +19,15 @@ export const TaBort = styled.button`
 export const MenyKnapp = styled.button`
   border: none;
   background: none;
+  &:hover {
+    background-color: #ededed;
+    border-radius: 20%;
+  }
+`;
+export const MenyKnappLITHEVAL = styled.button`
+  border: none;
+  background: none;
+  }
 `;
 
 //Ikone
@@ -33,7 +42,7 @@ export const SökIcont = styled.span`
 
 export const FlyttaKnappSchema = styled.button`
   margin-right: auto;
-  margin-top: 7%;
+  margin-top: 3%;
   background-color: #b7e1df;
   border: none;
   border-radius: 20px;
@@ -95,4 +104,9 @@ export const DropdownB = styled.button`
   ${Dropdown}:hover & {
     background-color: lightgrey;
   }
+`;
+
+// Filtret
+export const StyledCheckbox = styled.input`
+  background-color: #317773;
 `;

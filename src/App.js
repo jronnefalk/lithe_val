@@ -5,13 +5,13 @@ import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
 
 //style
-import { MenyCont } from "./styles/Container.styled";
-import { MenyKnapp } from "./styles/Knappar.styled";
-import { Titel, MenyText } from "./styles/Text.styled";
+import { MenyCont, MinaSidorCont } from "./styles/Container.styled";
+import { MenyKnapp, MenyKnappLITHEVAL } from "./styles/Knappar.styled";
+import { MenyText, RubrikHemsida } from "./styles/Text.styled";
 
 //icons
-import { BsHouseDoorFill } from "react-icons/bs";
-import { BsHouseDoor } from "react-icons/bs";
+//import { BsHouseDoorFill } from "react-icons/bs";
+//import { BsHouseDoor } from "react-icons/bs";
 import { BsFolder } from "react-icons/bs";
 import { BsFolderFill } from "react-icons/bs";
 
@@ -50,33 +50,25 @@ export default function App() {
     <>
       <MenyCont>
         <Link to="">
-          {" "}
-          <span>
-            {" "}
-            <MenyKnapp onClick={handleClickHouse}>
-              {isFilled ? (
-                <BsHouseDoorFill size={30} />
-              ) : (
-                <BsHouseDoor size={30} />
-              )}
-
-              <MenyText>Startsida</MenyText>
-            </MenyKnapp>{" "}
-          </span>
+          <MenyKnappLITHEVAL onClick={handleClickHouse}>
+            <RubrikHemsida>
+              {" "}
+              {isFilled ? " LITHEVAL" : "LITHEVAL"}
+            </RubrikHemsida>
+          </MenyKnappLITHEVAL>
         </Link>
 
-        <Titel>LITHEVAL</Titel>
-
-        <Link to="/minasidor">
-          <span>
-            {" "}
-            <MenyKnapp onClick={handleClickMyPage}>
-              {isFilled ? <BsFolder size={30} /> : <BsFolderFill size={30} />}
-              <MenyText>Min sida</MenyText>
-            </MenyKnapp>{" "}
-          </span>
-        </Link>
-
+        <MinaSidorCont>
+          <Link to="/minasidor">
+            <span>
+              {" "}
+              <MenyKnapp onClick={handleClickMyPage}>
+                {isFilled ? <BsFolder size={31} /> : <BsFolderFill size={30} />}
+                <MenyText>Min sida</MenyText>
+              </MenyKnapp>{" "}
+            </span>
+          </Link>
+        </MinaSidorCont>
         <GoogleAuth />
       </MenyCont>
 

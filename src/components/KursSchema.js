@@ -17,7 +17,7 @@ import {
 } from "../styles/Container.styled";
 import {
   FlyttaSchemaText,
-  SchemaInfoText2,
+  SchemaTextUtbildningsnivå,
   SchemaLäsMerText,
   SchemaTextInfo,
   SchemaTitelKurs,
@@ -35,6 +35,7 @@ export default function KursSchema(props) {
     <>
       <TitelKnappCont>
         <SchemaTitelKurs>{props.courseData.kursnamn}</SchemaTitelKurs>
+
         <TaBort // delete knapp
           onClick={() => props.handleDelete(props.courseData.kurskod)}
         >
@@ -52,7 +53,10 @@ export default function KursSchema(props) {
         <SchemaTextInfo>|</SchemaTextInfo>
       </FirstInfoCont>
       <SecondInfoCont>
-        <SchemaInfoText2> {props.courseData.utbildningsniva}</SchemaInfoText2>
+        <SchemaTextUtbildningsnivå>
+          {" "}
+          {props.courseData.utbildningsniva}
+        </SchemaTextUtbildningsnivå>
       </SecondInfoCont>
       <SchemaMerInfo>
         <span onClick={toggleReadMore}>
@@ -69,8 +73,15 @@ export default function KursSchema(props) {
 
         {isReadMore && (
           <SchemaTextInfo>
+            <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
+            {props.courseData.studietakt}
+          </SchemaTextInfo>
+        )}
+
+        {isReadMore && (
+          <SchemaTextInfo>
             {" "}
-            <span style={{ fontWeight: "bold" }}>HP:</span>{" "}
+            <span style={{ fontWeight: "bold" }}>Antal hp:</span>{" "}
             {props.courseData.hp}
           </SchemaTextInfo>
         )}
@@ -78,17 +89,8 @@ export default function KursSchema(props) {
         {isReadMore && (
           <SchemaTextInfo>
             {" "}
-            <span style={{ fontWeight: "bold" }}>Ort:</span>{" "}
+            <span style={{ fontWeight: "bold" }}>Plats:</span>{" "}
             {props.courseData.ort}
-          </SchemaTextInfo>
-        )}
-
-        {isReadMore && (
-          <SchemaTextInfo>
-            <span style={{ fontWeight: "bold" }}> Huvudområde:</span>
-            {props.courseData.huvudomrade.map((prop) => {
-              return <span key={uuidv4()}> {prop} </span>;
-            })}
           </SchemaTextInfo>
         )}
         {isReadMore && (
@@ -113,7 +115,7 @@ export default function KursSchema(props) {
             onClick={() => props.handleMove(props.kurs)}
           >
             <FlyttaSchemaText>
-              Flytta kurs från termin {props.courseData.termin} till termin
+              Flytta kurs från Termin {props.courseData.termin} till Termin{" "}
               {Object.values(getData(props.courseData.kurskod).termin)
                 .filter((term) => term !== props.courseData.termin)
                 .map((term) => (

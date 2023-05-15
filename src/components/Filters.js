@@ -13,7 +13,7 @@ import {
 import { FilterCont, FilterBlock } from "../styles/Container.styled";
 
 //Style (knappar)
-//import { BlockInput } from "../styles/Knappar.styled";
+import { StyledCheckbox } from "../styles/Knappar.styled";
 
 export default function Filters({ activeFilters, setActiveFilters }) {
   const filters = [
@@ -83,7 +83,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterBlock>
         {blocks.map((filter) => (
           <FilterTextBlock key={uuidv4()}>
-            <input
+            <StyledCheckbox
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
               checked={activeFilters.some(

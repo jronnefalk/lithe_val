@@ -12,6 +12,7 @@ import {
   InfoTextKnapp,
   LäsMerText,
   TextUnderLäsMer,
+  TextUtbildningsnivå,
 } from "../styles/Text.styled.js";
 import {
   FirstInfoCont,
@@ -19,13 +20,7 @@ import {
   SecondInfoCont,
 } from "../styles/Container.styled.js";
 
-import {
-  TaBort,
-  Dropdown,
-  DropdownItem,
-  DropdownB,
-  DropdownMenu,
-} from "../styles/Knappar.styled.js";
+import { TaBort, DropdownB } from "../styles/Knappar.styled.js";
 
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
@@ -142,7 +137,7 @@ export default function Kurs(props) {
         <Text>|</Text>
       </FirstInfoCont>
       <SecondInfoCont>
-        <TextHuvudnivå>{kurs.utbildningsniva}</TextHuvudnivå>{" "}
+        <TextUtbildningsnivå>{kurs.utbildningsniva}</TextUtbildningsnivå>{" "}
         {kurs.huvudomrade !== undefined &&
           kurs.huvudomrade !== null &&
           kurs.huvudomrade.map((prop) => {
@@ -182,7 +177,7 @@ export default function Kurs(props) {
         <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Examination:</span>{" "}
           {kurs.examination.map((prop) => {
-            return <span key={uuidv4()}>{prop.benamning}</span>;
+            return <span key={uuidv4()}>{prop.benamning}, </span>;
           })}
         </TextUnderLäsMer>
       )}

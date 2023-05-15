@@ -38,15 +38,13 @@ class Circle extends React.Component {
     let y2 = 0;
 
     if (percent > 100) {
-      color = "red";
       y1 = 100;
       y2 = percent - 100;
     }
-
     return [
       { x: 1, y: y1, fill: color },
       { x: 2, y: -y2, fill: color },
-      { x: 3, y: 100 - y1, fill: "gray" },
+      { x: 3, y: 100 - y1, fill: "#ffffff" },
     ];
   }
 
@@ -62,12 +60,11 @@ class Circle extends React.Component {
           data={[
             { x: 1, y: 100 },
             { x: 2, y: 0 },
-          ]} // Gray background
+          ]} // White background
           innerRadius={120}
           style={{
             data: {
-              fill: "gray",
-
+              fill: "#ffffff",
               stroke: "none",
             },
           }}

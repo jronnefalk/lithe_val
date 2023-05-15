@@ -179,7 +179,7 @@ export default function Kurs(props) {
         <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Examination:</span>{" "}
           {kurs.examination.map((prop) => {
-            return <span key={uuidv4()}>{prop.benamning}</span>;
+            return <span key={uuidv4()}>{prop.benamning}, </span>;
           })}
         </TextUnderLäsMer>
       )}

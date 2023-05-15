@@ -69,3 +69,8 @@ export const DropdownB = styled(Dropdown.Toggle)`
   border: none;
   background: none;
 `;
+
+// Filtret
+export const StyledCheckbox = styled.input`
+  background-color: #317773;
+`;

@@ -89,11 +89,14 @@ export const Filter = styled.div`
   border-radius: 20px;
   background-clip: padding-box;
   transition: top 0.5s ease, position 0.5s ease;
-
-  @media (min-height: 1000px) {
-    position: fixed;
-  }
 `;
+
+// Övergång från absolute till fixed, kanske ska användas
+/** 
+@media (min-height: 1000px) {
+  position: fixed;
+}
+*/
 
 // Justerar enbart blocken i filtret
 export const FilterBlock = styled.div`

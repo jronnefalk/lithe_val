@@ -37,7 +37,7 @@ export const KursCont = styled.div`
   border: 0.5px solid black;
   border-radius: 20px;
   margin-top: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   padding-left: 1.3rem;
   padding-top: 1.3rem;
   padding-bottom: 1rem;
@@ -89,11 +89,14 @@ export const Filter = styled.div`
   border-radius: 20px;
   background-clip: padding-box;
   transition: top 0.5s ease, position 0.5s ease;
-
-  @media (min-height: 1000px) {
-    position: fixed;
-  }
 `;
+
+// Övergång från absolute till fixed, kanske ska användas
+/** 
+@media (min-height: 1000px) {
+  position: fixed;
+}
+*/
 
 // Justerar enbart blocken i filtret
 export const FilterBlock = styled.div`

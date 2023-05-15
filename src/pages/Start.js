@@ -28,7 +28,8 @@ export function Start() {
 
   useEffect(() => {
     localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
-
+    // Filtret, en påbörjad övergång mellan fixed och absolute
+    /** 
     const filter = document.querySelector(".filter");
     const filterTop = filter.getBoundingClientRect().top;
 
@@ -43,6 +44,8 @@ export function Start() {
     return () => {
       window.removeEventListener("scroll", () => {});
     };
+
+    */
   }, [activeFilters]);
 
   return (

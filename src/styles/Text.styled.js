@@ -11,7 +11,6 @@ export const Text = styled.p`
 export const Titel = styled.h1`
   font-family: "Montserrat", sans-serif;
   font-size: 1.05rem;
-  margin-bottom: 3%;
 `;
 //Texten som syns när man har tryckt på läs mer
 export const TextUnderLäsMer = styled(Text)`

@@ -98,5 +98,5 @@ const getKurs = async (kurskod) => {
   }
 };
 
-export { saveKurs, deleteKurs, moveKurs, database, getKurs };
+export { saveKurs, deleteKurs, moveKurs, database, getKurs, auth };
 export default app;

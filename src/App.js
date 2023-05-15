@@ -1,5 +1,5 @@
 // Externa bibliotek
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { MinSida } from "./pages/MinSida";
 import { Start } from "./pages/Start";
@@ -20,15 +20,24 @@ import GoogleAuth from "./components/GoogleAuth";
 
 export default function App() {
   const [isFilled, setFilled] = useState();
+  const [isAuthLoaded, setIsAuthLoaded] = useState(false);
 
-  //kollar var den är när man uppdaterar sidan
-  useState(() => {
+  useEffect(() => {
+    const loadAuthState = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setIsAuthLoaded(true);
+    };
+
+    loadAuthState();
+  }, []);
+
+  useEffect(() => {
     if (window.location.pathname === "/") {
       setFilled(true);
     } else {
       setFilled(false);
     }
-  });
+  }, []);
 
   // fyll i husknappen när man klickar på den
   function handleClickHouse() {
@@ -46,8 +55,15 @@ export default function App() {
     setFilled((isFilled) => false);
   }
 
+  // Render the component when the authentication state is loaded
+  if (!isAuthLoaded) {
+    return null; // or return a loading component
+  }
+
   return (
     <>
+      <GoogleAuth />
+
       <MenyCont>
         <Link to="">
           {" "}
@@ -78,13 +94,14 @@ export default function App() {
             </span>
           </Link>
         </MinaSidorCont>
-        <GoogleAuth />
       </MenyCont>
 
-      <Routes>
-        <Route path="/" element={<Start />} />
-        <Route path="/minasidor" element={<MinSida />} />
-      </Routes>
+      {isAuthLoaded && (
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/minasidor" element={<MinSida />} />
+        </Routes>
+      )}
     </>
   );
 }

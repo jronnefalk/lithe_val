@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { saveKurs, deleteKurs, getKurs } from "../firebase_setup/firebase.js";
+import { saveKurs, deleteKurs, database } from "../firebase_setup/firebase.js";
+import { ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -24,62 +26,51 @@ import { BsFolderPlus } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
-  // Creates variables for the course data and course code by
-  // extracting them from the props passed down to the component.
+  const { kursdata, FireBaseData } = props;
+  const { currentUser } = getAuth();
+
   const kurs = props.kursdata;
   const kurskod = kurs.kurskod;
 
-  // Creates state variables for toggling the
-  // read more/less feature in the course description.
   const [isReadMore, setIsReadMore] = useState(false);
-
-  // Creates a state variable for checking if the course is already saved in Firebase.
   const [isInFirebase, setIsInFirebase] = useState(false);
 
-  // Creates a state variable for keeping track of whether the course has been
-  // added to the user's list of saved courses in localStorage, with an initial
-  // value of "0". If the course code is already in localStorage, it sets the
-  // initial value to the existing value in localStorage.
-  const [addedKurs, setAddedKurs] = useState(
-    localStorage.getItem(kurskod) || "0"
-  );
-
-  // Effect hook that runs when the course code changes, and checks if the
-  // course data is already saved in Firebase. If the course data exists
-  // in Firebase, it sets the state variable isInFirebase to true.
   useEffect(() => {
-    async function checkKurs() {
-      const kursData = await getKurs(kurskod);
-      setIsInFirebase(kursData !== null);
+    if (currentUser) {
+      const kursRef = ref(
+        database,
+        `users/${currentUser.uid}/Kurser/${kurskod}`
+      );
+      const unsubscribe = onValue(kursRef, (snapshot) => {
+        setIsInFirebase(snapshot.exists());
+      });
+
+      return () => unsubscribe();
     }
-    checkKurs();
-  }, [kurskod]);
+  }, [currentUser, kurskod]);
 
-  // Effect hook that runs whenever the addedKurs or kurskod variables change.
-  // It saves the current addedKurs value to localStorage under the kurskod key.
   useEffect(() => {
-    localStorage.setItem(kurskod, addedKurs);
-  }, [addedKurs, kurskod]);
+    if (FireBaseData && Array.isArray(FireBaseData)) {
+      const courseInFirebase = FireBaseData.find(
+        (course) => course.kurskod === kurskod
+      );
+      console.log("courseInFirebase:", courseInFirebase);
+      setIsInFirebase(!!courseInFirebase);
+    }
+  }, [kurskod, FireBaseData]);
 
-  // Event handlers for clicking the "Add course" and "Remove course" buttons.
-  // handleClick1() and handleClick2() add the course to localStorage with the
-  // value "1", while handleDelete() removes the course from localStorage
-  // with the value "0".
-  function handleClick1() {
-    setAddedKurs("1");
-    let nr = 0;
-    saveKurs(kurs, nr);
+  async function handleClick(nr) {
+    await saveKurs(kursdata, nr);
+    setIsInFirebase(true);
   }
 
-  function handleClick2() {
-    setAddedKurs("1");
-    let nr = 1;
-    saveKurs(kurs, nr);
-  }
+  async function handleDelete() {
+    await deleteKurs(kursdata);
+    setIsInFirebase(false);
 
-  function handleDelete() {
-    setAddedKurs("0");
-    deleteKurs(kurs);
+    if (props.onDelete) {
+      props.onDelete(kurs);
+    }
   }
 
   const toggleReadMore = () => {
@@ -128,7 +119,7 @@ export default function Kurs(props) {
         })}
       </SecondInfoCont>
 
-      {isInFirebase || addedKurs === "1" ? (
+      {isInFirebase ? (
         <TaBort onClick={handleDelete}>
           <BsTrash3 size={20} />
           <p>Ta bort kurs</p>
@@ -140,21 +131,18 @@ export default function Kurs(props) {
           </LäggaTillDroppD>
           <Dropdown.Menu>
             <Dropdown.Item
-              onClick={handleClick1}
+              onClick={() => handleClick(0)}
               style={{ textDecoration: "none" }}
             >
-              {" "}
               <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
             </Dropdown.Item>
             {kurs.termin.length === 2 && (
-              <>
-                <Dropdown.Item
-                  onClick={handleClick2}
-                  style={{ textDecoration: "none" }}
-                >
-                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                </Dropdown.Item>
-              </>
+              <Dropdown.Item
+                onClick={() => handleClick(1)}
+                style={{ textDecoration: "none" }}
+              >
+                <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+              </Dropdown.Item>
             )}
           </Dropdown.Menu>
         </Dropdown>

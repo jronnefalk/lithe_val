@@ -92,7 +92,7 @@ export const Progressbar = styled.progress`
     bottom: 0;
     left: 83.3%; /* position the vertical line in the the progress bar */
     width: 4px; /* set the width of the vertical line */
-    background-color: #317773; /* set the color of the vertical line */
+    background-color: black; /* set the color of the vertical line */
   }
 
   &:hover ~ ${SpeechBubble} {

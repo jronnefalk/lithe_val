@@ -49,37 +49,33 @@ export function Start() {
   }, [activeFilters]);
 
   return (
-    <>
-      <div className="App">
-        <GlobalStyles />
-        <Cont>
-          <SökCont>
-            <SökIcont>
-              <BsSearch size={12} />
-            </SökIcont>
-            <SökText
-              type="text"
-              placeholder="Sök Kursnamn eller Kurskod"
-              onChange={(event) => setQuery(event.target.value)}
-            />
-          </SökCont>
+    <div className="App">
+      <SökCont>
+        <SökIcont>
+          <BsSearch size={12} />
+        </SökIcont>
+        <SökText
+          type="text"
+          placeholder="Sök"
+          onChange={(event) => setQuery(event.target.value)}
+        />
+      </SökCont>
+      <p>Antal sökresultat: {filteredKurser.length}</p>
 
-          <KursContWrapper>
-            {filteredKurser.map((kurs) => (
-              <KursCont key={uuidv4()}>
-                <Kurs key={uuidv4()} kursdata={kurs} />
-              </KursCont>
-            ))}
-          </KursContWrapper>
-        </Cont>
+      <Cont>
+        <Filters
+          activeFilters={activeFilters}
+          setActiveFilters={setActiveFilters}
+        />
 
-        <Filter className="filter">
-          <Filters
-            activeFilters={activeFilters}
-            setActiveFilters={setActiveFilters}
-          />
-        </Filter>
-      </div>
-    </>
+        <KursContWrapper>
+          {filteredKurser.map((kurs) => (
+            <KursCont key={uuidv4()}>
+              <Kurs key={uuidv4()} kursdata={kurs} />
+            </KursCont>
+          ))}
+        </KursContWrapper>
+      </Cont>
+    </div>
   );
 }

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { saveKurs, deleteKurs } from "../firebase_setup/firebase.js";
+import {
+  saveKurs,
+  deleteKurs,
+  getUserData,
+} from "../firebase_setup/firebase.js";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
-// import Dropdown from "react-bootstrap/Dropdown";
+//import Dropdown from "react-bootstrap/Dropdown";
+import OverlappningPopup from "./OverlappningPopup";
 
 //style
 import {
@@ -37,6 +42,7 @@ export default function Kurs(props) {
     localStorage.getItem(kurs.kurskod) === "true"
   );
   const [isReadMore, setIsReadMore] = useState(false);
+  const [showOverlapping, setShowOverlapping] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(kurs.kurskod, addkurs);
@@ -46,12 +52,15 @@ export default function Kurs(props) {
     let nr = 0;
     saveKurs(kurs, nr);
     setAddKurs(true);
+    handleOverlappningPopup();
   }
+
   //sparar om man väljer termin 9
   function handleClick2() {
     let nr = 1;
     saveKurs(kurs, nr);
     setAddKurs(true);
+    handleOverlappningPopup();
   }
 
   function handleDelete() {
@@ -59,9 +68,36 @@ export default function Kurs(props) {
     setAddKurs(false);
   }
 
+  // Hanterar popupen ifall en överlappning noteras WIP
+  async function handleOverlappningPopup() {
+    const kurs = await props.kursdata; // Wait for props.kursdata to be retrieved
+
+    try {
+      const userCourseCodes = await getUserData();
+
+      for (const courseCode of userCourseCodes) {
+        if (kurs.overlappning === courseCode) {
+          setShowOverlapping(true);
+          return; // Avbryter loopen om en överlappning hittas
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  // Avgör om en överlappningskurs ska skrivas ut eller inte i kurs-komponent
+  const [hasOverlappning, setHasOverlappning] = useState(false);
+  useEffect(() => {
+    if (kurs.overlappning !== "Ingen överlappning") {
+      setHasOverlappning(true);
+    }
+  }, [kurs.overlappning]);
+
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+
   return (
     <>
       <TitelKnappCont>
@@ -168,6 +204,14 @@ export default function Kurs(props) {
           <span style={{ fontWeight: "bold" }}>Antal hp:</span> {kurs.hp}
         </TextUnderLäsMer>
       )}
+      {isReadMore && hasOverlappning && (
+        <TextUnderLäsMer>
+          <span style={{ fontWeight: "bold" }}>
+            Kursen får ej ingå i examen tillsammans med
+          </span>{" "}
+          {kurs.overlappning}
+        </TextUnderLäsMer>
+      )}
       {isReadMore && (
         <TextUnderLäsMer>
           <span style={{ fontWeight: "bold" }}>Plats:</span> {kurs.ort}
@@ -189,6 +233,10 @@ export default function Kurs(props) {
             Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
           </TextUnderLäsMer>
         </a>
+      )}
+
+      {showOverlapping && (
+        <OverlappningPopup setShowOverlapping={setShowOverlapping} />
       )}
     </>
   );

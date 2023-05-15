@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, remove, update } from "firebase/database";
+import { getDatabase, ref, set, remove, update, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -45,7 +45,7 @@ const saveKurs = (kurs, nr) => {
 const deleteKurs = (kurs) => {
   const user = auth.currentUser;
   if (user) {
-    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
+    const kursRef = ref(database, `users/${user.uid}`);
 
     remove(kursRef)
       .then(() => {
@@ -59,6 +59,7 @@ const deleteKurs = (kurs) => {
     console.log("No user is signed in");
   }
 };
+
 const moveKurs = (kurs, ny) => {
   const user = auth.currentUser;
   if (user) {
@@ -76,5 +77,30 @@ const moveKurs = (kurs, ny) => {
   }
 };
 
-export { saveKurs, deleteKurs, moveKurs };
+// En funktion som samlar alla kurser en användare har valt WIP
+async function getUserData() {
+  const user = auth.currentUser;
+  if (user) {
+    const kursRef = ref(database, `users/${user.uid}/Kurser/`);
+
+    try {
+      const kursSnapshot = await get(kursRef);
+      const kursData = kursSnapshot.val(); // kursData är ett objekt med alla kurser
+      let kursArray = [];
+
+      // Omvandlar objektet till en array
+      for (const courseCode in kursData) {
+        kursArray.push(courseCode);
+      }
+
+      return kursArray;
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    console.log("No user is signed in");
+  }
+}
+
+export { saveKurs, deleteKurs, moveKurs, getUserData };
 export default app;

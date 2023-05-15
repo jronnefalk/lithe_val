@@ -45,7 +45,7 @@ const Circle = ({ hp }) => {
   }
 
   return (
-    <svg viewBox="0 0 400 400" width="40%" height="40%">
+    <svg viewBox="0 0 400 400" width="100%" height="100%">
       <VictoryPie
         duration={1000}
         standalone={false}

@@ -22,7 +22,7 @@ import {
   SchemaTextInfo,
   SchemaTitelKurs,
 } from "../styles/Text.styled";
-import { FlyttaKnappSchema, TaBort } from "../styles/Knappar.styled";
+import { FlyttaKnappSchema, TaBortSchema } from "../styles/Knappar.styled";
 
 export default function KursSchema(props) {
   const [isReadMore, setIsReadMore] = useState(false);
@@ -36,12 +36,12 @@ export default function KursSchema(props) {
       <TitelKnappCont>
         <SchemaTitelKurs>{props.courseData.kursnamn}</SchemaTitelKurs>
 
-        <TaBort // delete knapp
+        <TaBortSchema // delete knapp
           onClick={() => props.handleDelete(props.courseData.kurskod)}
         >
           {" "}
           <BsTrash3 size={13} />
-        </TaBort>
+        </TaBortSchema>
       </TitelKnappCont>
       <FirstInfoCont key={props.courseData.kurskod}>
         <SchemaTextInfo> |{props.courseData.kurskod}</SchemaTextInfo>

@@ -132,6 +132,7 @@ export const TerminWrapperSchema = styled.div`
   padding-bottom: 2%;
   padding-top: 1%;
   padding-right: 3%;
+  padding-bottom: 2%;
   background-color: #f3f3f0;
   border-radius: 20px;
 `;

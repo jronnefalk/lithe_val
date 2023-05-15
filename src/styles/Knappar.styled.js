@@ -2,17 +2,20 @@ import styled from "styled-components";
 
 //lägga  till kurser knappen
 
-export const TaBort = styled.button`
+export const TaBortSchema = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
   background: none;
-  margin-right: 1.8rem;
+
   &:hover {
     background-color: none;
     border-radius: 20%;
   }
+`;
+export const TaBort = styled(TaBortSchema)`
+  margin-right: 1.8rem;
 `;
 //Meny
 export const MenyKnapp = styled.button`

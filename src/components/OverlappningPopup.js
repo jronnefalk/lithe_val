@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function OverlappningPopup({ setShowOverlapping }) {
+export default function OverlappningPopup({
+  setShowOverlapping,
+  foundOverlappningCourse,
+}) {
   const popupStyle = {
     position: "fixed",
     top: "0",
@@ -36,12 +39,14 @@ export default function OverlappningPopup({ setShowOverlapping }) {
     setShowOverlapping(false);
   }
 
+  console.log(foundOverlappningCourse);
+
   return (
     <div style={popupStyle}>
       <div style={messageStyle}>
         <p>
-          Detta är en överlaps kurs med kurskod .... Kurserna får inte ingå i en
-          examen tillsammans
+          Den valda kursen överlappar med {foundOverlappningCourse}. Kurserna
+          får inte ingå i en examen tillsammans.
         </p>
         <button style={buttonStyle} onClick={handlePopup}>
           OK

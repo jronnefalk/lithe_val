@@ -26,6 +26,7 @@ export function MinSida() {
   // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
     // Remove the kurs from the database
+
     deleteKurs(kurs);
     // Update the kursData state variable
     setFireBaseData(FireBaseData.filter((k) => k.kurskod !== kurs));

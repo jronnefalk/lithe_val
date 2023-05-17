@@ -74,6 +74,7 @@ export default function Kurs(props) {
     setAddKurs(false);
   }
 
+  const [foundOverlappningCourse, setFoundOverlappningCourse] = useState("");
   // Hanterar popupen ifall en överlappning noteras WIP
   async function handleOverlappningPopup() {
     const kurs = await props.kursdata; // Wait for props.kursdata to be retrieved
@@ -82,9 +83,12 @@ export default function Kurs(props) {
       const userCourseCodes = await getUserData();
 
       for (const userCourseCode of userCourseCodes) {
-        if (kurs.overlappning === userCourseCode) {
-          setShowOverlapping(true);
-          return; // Avbryter loopen om en överlappning hittas
+        for (const kursOverlappning of kurs.overlappning) {
+          if (kursOverlappning === userCourseCode) {
+            setShowOverlapping(true);
+            setFoundOverlappningCourse(kursOverlappning);
+            return; // Avbryter loopen om en överlappning hittas
+          }
         }
       }
     } catch (error) {
@@ -242,7 +246,10 @@ export default function Kurs(props) {
       )}
 
       {showOverlapping && (
-        <OverlappningPopup setShowOverlapping={setShowOverlapping} />
+        <OverlappningPopup
+          setShowOverlapping={setShowOverlapping}
+          foundOverlappningCourse={foundOverlappningCourse}
+        />
       )}
     </>
   );

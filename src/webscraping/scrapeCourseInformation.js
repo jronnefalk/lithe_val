@@ -227,13 +227,18 @@ async function scrape(addresses) {
 
       if (p) {
         const text = p.textContent;
-        // returnerar all text efter "med" och tar bort punkt
-        return text
+        // returnerar all text efter "med" och innan punkten i en array
+        const kurskoder = text
           .slice(text.indexOf("med") + 4)
           .trim()
-          .replace(/\.$/, "");
+          .replace(/\.$/, "") // tar bort punkt
+          .replace(/ eller /g, ", ") // byter ut "eller" mot kommatecken
+          .split(", ") // splittar vid varje kommatecken
+          .map((kurskod) => kurskod.trim()); // tar bort eventuella mellanslag runt kurskoderna
+
+        return kurskoder;
       } else {
-        return "Ingen överlappning";
+        return ["Ingen överlappning"];
       }
     });
 
@@ -262,7 +267,10 @@ async function scrape(addresses) {
       // skriv ut kursens som skrapats i terminalen
       try {
         console.log(
-          "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.overlappning
+          "\x1b[1m" +
+            tempKurs.kurskod +
+            "\x1b[0m: " +
+            tempKurs.overlappning.join(", ")
         );
       } catch (error) {}
     }

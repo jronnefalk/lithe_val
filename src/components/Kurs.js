@@ -81,8 +81,8 @@ export default function Kurs(props) {
     try {
       const userCourseCodes = await getUserData();
 
-      for (const courseCode of userCourseCodes) {
-        if (kurs.overlappning === courseCode) {
+      for (const userCourseCode of userCourseCodes) {
+        if (kurs.overlappning === userCourseCode) {
           setShowOverlapping(true);
           return; // Avbryter loopen om en överlappning hittas
         }

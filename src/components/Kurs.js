@@ -100,7 +100,7 @@ export default function Kurs(props) {
   const [hasOverlappning, setHasOverlappning] = useState(false);
   useEffect(() => {
     if (kurs.overlappning.length !== 0) {
-      setHasOverlappning(false);
+      setHasOverlappning(true);
     }
   }, [kurs.overlappning]);
 

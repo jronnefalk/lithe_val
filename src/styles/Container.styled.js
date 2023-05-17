@@ -12,19 +12,16 @@ export const SecondInfoCont = styled(FirstInfoCont)`
 
 //Kurser hur de ligger divar
 export const Cont = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  margin-right: auto;
-  margin-left: 31%;
-  max-width: 57%;
+  display: grid;
+  margin: 0 10vw;
+  gap: 20px 20px;
+
+  grid-template-columns: [first] 16vw [line] auto [end];
 `;
 
 export const KursContWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding: 20px;
   border-radius: 20px;
   background-color: #f3f3f0;
@@ -51,9 +48,7 @@ export const SökochTextCont = styled.div`
 `;
 export const SökCont = styled.div`
   display: flex;
-  margin-top: 20px;
   padding: 10px 20px;
-  width: 100%;
   border: 0.5px solid black;
   border-radius: 30px;
   box-sizing: border-box;
@@ -81,15 +76,12 @@ export const FilterCont = styled.div`
   padding: 16px;
   border-radius: 20px;
   border: 0.5px solid black;
+  background-color: #ffffff;
 `;
 
 export const Filter = styled.div`
-  width: 16%;
+  width: 100%;
   margin-right: auto;
-  margin-left: 10%;
-  top: 12.8rem;
-  position: absolute;
-  background-color: #ffffff;
   border-radius: 20px;
   background-clip: padding-box;
   transition: top 0.5s ease, position 0.5s ease;
@@ -101,6 +93,8 @@ export const Filter = styled.div`
   position: fixed;
 }
 */
+
+export const Grid = styled.div``;
 
 // Justerar enbart blocken i filtret
 export const FilterBlock = styled.div`

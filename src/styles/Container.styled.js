@@ -137,7 +137,7 @@ export const SchemaKurserCont = styled.div`
   gap: 1rem;
 `;
 export const SchemaKursInfoCont = styled(KursCont)`
-  width: min(18rem, 17rem);
+  width: 100%;
   background-color: white;
   padding-left: 0.6rem;
   padding-top: 0.6rem;

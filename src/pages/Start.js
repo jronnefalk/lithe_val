@@ -20,6 +20,7 @@ import {
 import { SökText } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
 import { GlobalStyles } from "../styles/General.styled";
+import styled from "styled-components";
 
 export function Start() {
   const [query, setQuery] = useState("");
@@ -53,6 +54,8 @@ export function Start() {
       <div className="App">
         <GlobalStyles />
         <Cont>
+          <div></div>
+
           <SökCont>
             <SökIcont>
               <BsSearch size={12} />
@@ -64,21 +67,23 @@ export function Start() {
             />
           </SökCont>
 
-          <KursContWrapper>
-            {filteredKurser.map((kurs) => (
-              <KursCont key={uuidv4()}>
-                <Kurs key={uuidv4()} kursdata={kurs} />
-              </KursCont>
-            ))}
-          </KursContWrapper>
-        </Cont>
+          <Filter className="filter">
+            <Filters
+              activeFilters={activeFilters}
+              setActiveFilters={setActiveFilters}
+            />
+          </Filter>
 
-        <Filter className="filter">
-          <Filters
-            activeFilters={activeFilters}
-            setActiveFilters={setActiveFilters}
-          />
-        </Filter>
+          <div style={{}}>
+            <KursContWrapper>
+              {filteredKurser.map((kurs) => (
+                <KursCont key={uuidv4()}>
+                  <Kurs key={uuidv4()} kursdata={kurs} />
+                </KursCont>
+              ))}
+            </KursContWrapper>
+          </div>
+        </Cont>
       </div>
     </>
   );

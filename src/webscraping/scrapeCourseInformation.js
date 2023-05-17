@@ -40,6 +40,7 @@ class Kurs {
   README
   1. Kör scrapeCourses.js för att skapa en fil med alla kurser
   2. Kör scrapeCourseInformation.js för att skrapa information om kurserna
+  3. Kör overlapDetection.js för att hantera överlappningar så att de går åt båda hållen
   
   Notera att skriptet skrapar 99% rätt. Vissa kurser kan bli "null".
   Kontrollera detta i databasfilen. Just nu är kurser som har värden "null" borttagna
@@ -238,7 +239,7 @@ async function scrape(addresses) {
 
         return kurskoder;
       } else {
-        return ["Ingen överlappning"];
+        return [];
       }
     });
 

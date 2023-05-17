@@ -99,7 +99,7 @@ export default function Kurs(props) {
   // Avgör om en överlappningskurs ska skrivas ut eller inte i kurs-komponent
   const [hasOverlappning, setHasOverlappning] = useState(false);
   useEffect(() => {
-    if (kurs.overlappning !== "Ingen överlappning") {
+    if (kurs.overlappning.length !== 0) {
       setHasOverlappning(true);
     }
   }, [kurs.overlappning]);
@@ -219,7 +219,7 @@ export default function Kurs(props) {
           <span style={{ fontWeight: "bold" }}>
             Kursen får ej ingå i examen tillsammans med
           </span>{" "}
-          {kurs.overlappning}
+          {kurs.overlappning.join(", ")}
         </TextUnderLäsMer>
       )}
       {isReadMore && (

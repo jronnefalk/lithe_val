@@ -37,7 +37,7 @@ export default function KursSchema(props) {
         <SchemaTitelKurs>{props.courseData.kursnamn}</SchemaTitelKurs>
 
         <TaBortSchema // delete knapp
-          onClick={() => props.handleDelete(props.courseData.kurskod)}
+          onClick={() => props.handleDelete(props.kurs)}
         >
           {" "}
           <BsTrash3 size={13} />

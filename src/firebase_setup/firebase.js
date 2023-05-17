@@ -45,7 +45,7 @@ const saveKurs = (kurs, nr) => {
 const deleteKurs = (kurs) => {
   const user = auth.currentUser;
   if (user) {
-    const kursRef = ref(database, `users/${user.uid}`);
+    const kursRef = ref(database, `users/${user.uid}/Kurser/${kurs.kurskod}`);
 
     remove(kursRef)
       .then(() => {

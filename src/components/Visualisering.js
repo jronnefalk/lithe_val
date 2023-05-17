@@ -37,12 +37,13 @@ export default function Schema(props) {
       acc.avancerad++;
     }
     const countMedieteknik =
-      (curr.huvudomrade &&
-        curr.huvudomrade.filter((item) => item === "Medieteknik").length) ||
-      0;
+      curr.huvudomrade &&
+      curr.utbildningsniva === "Avancerad nivå" &&
+      (curr.huvudomrade.filter((item) => item === "Medieteknik").length || 0);
     acc.medieteknik += countMedieteknik;
     const countDatateknik =
       (curr.huvudomrade &&
+        curr.utbildningsniva === "Avancerad nivå" &&
         curr.huvudomrade.filter((item) => item === "Datateknik").length) ||
       0;
     acc.datateknik += countDatateknik;
@@ -72,7 +73,10 @@ export default function Schema(props) {
               </SpeechBubble>
             </OmsluterBubble>
 
-            <Titel>Poäng inom Medieteknik: {counts.medieteknik * 6} hp</Titel>
+            <Titel>
+              Poäng inom avancerade kurser i Medieteknik:{" "}
+              {counts.medieteknik * 6} hp
+            </Titel>
             <OmsluterBubble>
               <Progressbar value={medieteknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n2">
@@ -80,7 +84,10 @@ export default function Schema(props) {
               </SpeechBubble>
             </OmsluterBubble>
 
-            <Titel>Poäng inom Datateknik: {counts.datateknik * 6} hp</Titel>
+            <Titel>
+              Poäng inom avancerade kurser i Datateknik: {counts.datateknik * 6}{" "}
+              hp
+            </Titel>
             <OmsluterBubble>
               <Progressbar value={datateknikPercent} max="6"></Progressbar>
               <SpeechBubble data-id="n3">

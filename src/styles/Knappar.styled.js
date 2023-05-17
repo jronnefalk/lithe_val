@@ -8,6 +8,7 @@ export const TaBortSchema = styled.button`
   align-items: center;
   border: none;
   background: none;
+  cursor: pointer;
 
   &:hover {
     background-color: none;
@@ -21,6 +22,7 @@ export const TaBort = styled(TaBortSchema)`
 export const MenyKnapp = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
   &:hover {
     background-color: #ededed;
     border-radius: 20%;
@@ -29,6 +31,7 @@ export const MenyKnapp = styled.button`
 export const MenyKnappLITHEVAL = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
   }
 `;
 
@@ -39,6 +42,7 @@ export const SökIcont = styled.span`
   margin-right: 5px;
   top: -65px;
   left: 650px;
+  cursor: pointer;
 `;
 //Schema
 
@@ -49,6 +53,7 @@ export const FlyttaKnappSchema = styled.button`
   border: none;
   border-radius: 20px;
   box-shadow: 1px 1px 1px #317773;
+  cursor: pointer;
 
   &:hover {
     background-color: #f1f9f9;
@@ -65,6 +70,7 @@ export const DropdownMenu = styled.div`
   border-top-right-radius: 4px;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  cursor: pointer;
 `;
 
 export const Dropdown = styled.div`
@@ -72,6 +78,7 @@ export const Dropdown = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   &:hover ${DropdownMenu} {
     display: flex;
@@ -82,6 +89,7 @@ export const Dropdown = styled.div`
 
 export const DropdownItem = styled.button`
   border: none;
+  cursor: pointer;
 
 
   &:hover {
@@ -98,6 +106,7 @@ export const DropdownB = styled.button`
   margin-right: 1.8rem;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  cursor: pointer;
 
   &:hover {
     background-color: lightgrey;

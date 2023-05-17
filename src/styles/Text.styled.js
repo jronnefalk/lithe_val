@@ -56,6 +56,7 @@ export const SökText = styled.input`
 `;
 export const AntalSökResultat = styled(Text)`
   padding-left: 20px;
+  font-size: 0.7rem;
 `;
 
 // Meny text

@@ -59,6 +59,9 @@ export function Start() {
 
           <div style={{}}>
             <KursContWrapper>
+              <AntalSökResultat>
+                Antal sökresultat: {filteredKurser.length}
+              </AntalSökResultat>
               {filteredKurser.map((kurs) => (
                 <KursCont key={uuidv4()}>
                   <Kurs key={uuidv4()} kursdata={kurs} />

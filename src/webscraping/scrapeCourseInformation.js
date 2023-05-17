@@ -38,16 +38,16 @@ class Kurs {
 
 /*
   README
-
-  Kontrollera att rad 11, 120 och 257 är justerad till rätt program.
-  database.json är sammanfogad manuellt. Detta kan göras automatiskt i framtiden.
-  Notera även att skriptet skrapar 99% rätt. Vissa kurser kan bli "null".
+  1. Kör scrapeCourses.js för att skapa en fil med alla kurser
+  2. Kör scrapeCourseInformation.js för att skrapa information om kurserna
+  
+  Notera att skriptet skrapar 99% rätt. Vissa kurser kan bli "null".
   Kontrollera detta i databasfilen. Just nu är kurser som har värden "null" borttagna
   från databasen. Detta kan ändras i framtiden.
 */
 
 // Läser filen kurser.txt och påbörjar "scraping". OBS! justera för datateknik (kurserData) eller medieteknik (kurserMedia)
-fs.readFile("kurserData.txt", "utf8", (err, data) => {
+fs.readFile("kurser.txt", "utf8", (err, data) => {
   if (err) throw err;
   const lines = data.split("\n");
   const addresses = lines.map((line) => line.replace("\r", ""));
@@ -56,14 +56,17 @@ fs.readFile("kurserData.txt", "utf8", (err, data) => {
 
 // Scrape-funktion
 async function scrape(addresses) {
-  // array där alla kurser läggs till
   let kurser = [];
+
+  const browser = await puppeteer.launch({
+    headless: "new",
+  });
+  const page = await browser.newPage();
 
   // går igenom alla addresser i kurser.txt
   for (let i = 0; i < addresses.length; i++) {
     // Kopplar upp sig
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+
     await page.goto(addresses[i]);
 
     // hämtar kursnamn och hp
@@ -119,10 +122,15 @@ async function scrape(addresses) {
     const [termin, period, block, ort] = await page.evaluate(() => {
       const rows = document.querySelectorAll("table tr");
 
-      // letar igenom tabell i botten av hemsidan. OBS! justera för datateknik (6CDDD) eller medieteknik (6CMEN)
+      // letar igenom tabell i botten av hemsidan. OBS! 6CMEN är för medieteknik och 6CDDD är för datateknik
       for (const row of rows) {
         const program = row.querySelector("td:first-child");
-        if (program && program.textContent.trim() === "6CDDD") {
+        const programCode = program && program.textContent.trim();
+
+        if (
+          programCode &&
+          (programCode === "6CDDD" || programCode === "6CMEN")
+        ) {
           const termin = row.querySelector("td:nth-child(3)");
           const period = row.querySelector("td:nth-child(4)");
           const block = row.querySelector("td:nth-child(5)");
@@ -212,7 +220,9 @@ async function scrape(addresses) {
     const overlappning = await page.evaluate(() => {
       // letar efter texten "Kursen får ej ingå i examen tillsammans med"
       const p = Array.from(document.querySelectorAll("p")).find((el) =>
-        el.textContent.includes("Kursen får ej ingå i examen tillsammans med")
+        el.textContent
+          .toLowerCase()
+          .includes("får ej ingå i examen tillsammans med")
       );
 
       if (p) {
@@ -251,15 +261,14 @@ async function scrape(addresses) {
     // skriv ut kursens som skrapats i terminalen
     try {
       console.log(
-        "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.period.join(", ")
+        "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.overlappning
       );
     } catch (error) {}
-
-    await browser.close();
   }
+  await browser.close();
 
   // skriv till databas. OBS! skriv om till rätt databas
-  fs.writeFile("databaseData.json", JSON.stringify(kurser, null, 2), (err) => {
+  fs.writeFile("database.json", JSON.stringify(kurser, null, 2), (err) => {
     if (err) throw err;
     console.log("Kurser är skrivna till database.json\n");
   });

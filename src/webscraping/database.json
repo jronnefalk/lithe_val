@@ -29,35 +29,6 @@
     ]
   },
   {
-    "kursnamn": "Teknik och etik",
-    "hp": "6",
-    "kurskod": "TGTU94",
-    "huvudomrade": [],
-    "utbildningsniva": "Grundnivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["4"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TGTU94",
-    "forkunskaper": "Inga rekommenderade förkunskaper",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "UPG1",
-        "benamning": "Mindre uppsats, seminarie",
-        "omfattning": "1.5 hp",
-        "betygsskala": "U, G"
-      },
-      {
-        "kod": "HEM1",
-        "benamning": "Hemtentamen",
-        "omfattning": "4.5 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Advanced English",
     "hp": "6",
     "kurskod": "THEN09",
@@ -82,29 +53,6 @@
         "kod": "TEN1",
         "benamning": "Skriftlig tentamen",
         "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Advanced Global Illumination and Rendering",
-    "hp": "6",
-    "kurskod": "TNCG15",
-    "huvudomrade": ["Datateknik", "Datavetenskap", "Medieteknik"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["4"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNCG15",
-    "forkunskaper": "Datorgrafik, 3D datorgrafik och animering.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "UPG1",
-        "benamning": "Projektarbete med muntlig och skriftlig presentation",
-        "omfattning": "6 hp",
         "betygsskala": "U, 3, 4, 5"
       }
     ]
@@ -643,35 +591,6 @@
     ]
   },
   {
-    "kursnamn": "Modellering och animering",
-    "hp": "6",
-    "kurskod": "TNM079",
-    "huvudomrade": ["Datateknik", "Datavetenskap", "Medieteknik"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["8"],
-    "period": ["2"],
-    "block": ["2"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNM079",
-    "forkunskaper": "Datorgrafik, 3-D Datorgrafik och animering, Linjär algebra, Flervariabelanalys, Programmering",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "LAB4",
-        "benamning": "Laborationer",
-        "omfattning": "4 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "TEN3",
-        "benamning": "Skriftlig tentamen",
-        "omfattning": "2 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Artificiell intelligens - principer och tekniker",
     "hp": "6",
     "kurskod": "TNM096",
@@ -753,41 +672,6 @@
     ]
   },
   {
-    "kursnamn": "Avancerad programvarudesign",
-    "hp": "6",
-    "kurskod": "TDDE45",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Datavetenskap"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["4"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDE45",
-    "forkunskaper": "Programutvecklingsmetodik (inkl. UML)\n\tKunskaper i programmering i flera språk (inkl. objektorienterad programmering och hantering av pekare)\n\tDatastrukturer\n\tKunna läsa forskningsartiklar inom programvarukonstruktion (software engineering) och söka information i nya ämnesområden självständigt och kritiskt",
-    "overlappning": "TDDB84",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "DAT1",
-        "benamning": "Datortentamen",
-        "omfattning": "2 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "LAB1",
-        "benamning": "Laborationer",
-        "omfattning": "3 hp",
-        "betygsskala": "U, G"
-      },
-      {
-        "kod": "UPG1",
-        "benamning": "Uppgift",
-        "omfattning": "1 hp",
-        "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
     "kursnamn": "Bildteknik",
     "hp": "6",
     "kurskod": "TNM089",
@@ -807,34 +691,6 @@
         "benamning": "Projektarbete med muntlig och skriftlig redovisning",
         "omfattning": "6 hp",
         "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Artificiell intelligens för interaktiv media, projektkurs",
-    "hp": "6",
-    "kurskod": "TNM114",
-    "huvudomrade": [
-      "Informationsteknologi",
-      "Datateknik",
-      "Datavetenskap",
-      "Medieteknik"
-    ],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["2"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNM114",
-    "forkunskaper": "Artificiell intelligens",
-    "overlappning": "TNM095",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "PRA1",
-        "benamning": "Projektarbete",
-        "omfattning": "6 hp",
-        "betygsskala": "U, G"
       }
     ]
   },
@@ -925,40 +781,6 @@
     ]
   },
   {
-    "kursnamn": "Multicore- och GPU-Programmering",
-    "hp": "6",
-    "kurskod": "TDDD56",
-    "huvudomrade": [
-      "Informationsteknologi",
-      "Datateknik",
-      "Datavetenskap",
-      "Medieteknik"
-    ],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["2"],
-    "block": ["2"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDD56",
-    "forkunskaper": "Datorteknik. Datastrukturer och algoritmer. Processprogrammering och operativsystem. Programmering i C, viss kunskap i C++ rekommenderas.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "LAB1",
-        "benamning": "Datorlabbar",
-        "omfattning": "3 hp",
-        "betygsskala": "U, G"
-      },
-      {
-        "kod": "TEN1",
-        "benamning": "Skriftlig examination",
-        "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Deep Learning för medieteknik",
     "hp": "6",
     "kurskod": "TNM112",
@@ -984,34 +806,6 @@
         "benamning": "Laborationskurs",
         "omfattning": "3 hp",
         "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Design och programmering av datorspel",
-    "hp": "6",
-    "kurskod": "TDDD23",
-    "huvudomrade": [
-      "Informationsteknologi",
-      "Datateknik",
-      "Datavetenskap",
-      "Programmering"
-    ],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["2"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDD23",
-    "forkunskaper": "Programmering 10hp (varav minst 6hp objektorienterad programmering), Grundkurs i Användbara/interaktiva system eller liknande.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "PRA2",
-        "benamning": "Projekt",
-        "omfattning": "6 hp",
-        "betygsskala": "U, 3, 4, 5"
       }
     ]
   },
@@ -1044,30 +838,6 @@
       }
     ]
   },
-  {
-    "kursnamn": "Mjukvarutekniskt entreprenörskap",
-    "hp": "6",
-    "kurskod": "TDDE02",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Datavetenskap"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["2"],
-    "block": ["2"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDE02",
-    "forkunskaper": "Kursen förutsätter att studenten har avancerade programmeringskunskaper samt goda kunskaper inom något mjukvarurelaterat teknikområde (exempelvis datornät, säkerhet, mobila och sociala applikationer, AI, signalbehandling och datorgrafik). Studenten ska också ha erfarenhet från programmeringsprojekt i grupp. Studenten ska dessutom självständigt kunna söka och strukturera information, samt kommunicera muntligen och skriftligen.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "UPG1",
-        "benamning": "Projektarbete",
-        "omfattning": "6 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-
   {
     "kursnamn": "Beräkningsmatematik",
     "hp": "6",
@@ -2265,29 +2035,6 @@
         "kod": "UPG5",
         "benamning": "Individuella inlämningsuppgifter",
         "omfattning": "4 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Interaktionsprogrammering",
-    "hp": "6",
-    "kurskod": "TDDC73",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Datavetenskap"],
-    "utbildningsniva": "Grundnivå",
-    "termin": ["7", "9"],
-    "period": ["2"],
-    "block": ["1"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDC73",
-    "forkunskaper": "Programmering 15hp, varav minst 6hp objektorienterad programmering",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "PRA1",
-        "benamning": "Projektarbete",
-        "omfattning": "6 hp",
         "betygsskala": "U, 3, 4, 5"
       }
     ]
@@ -3892,35 +3639,6 @@
     ]
   },
   {
-    "kursnamn": "Informationsvisualisering",
-    "hp": "6",
-    "kurskod": "TNM111",
-    "huvudomrade": ["Datateknik", "Medieteknik"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["8"],
-    "period": ["1"],
-    "block": ["3"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNM111",
-    "forkunskaper": "Programmering.",
-    "overlappning": "TNM048",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "UPG1",
-        "benamning": "Inlämningsuppgifter med muntlig och skriftlig presentation",
-        "omfattning": "3 hp",
-        "betygsskala": "U, G"
-      },
-      {
-        "kod": "MUN1",
-        "benamning": "Muntlig examination",
-        "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Datorseende för videoanalys",
     "hp": "6",
     "kurskod": "TSBB34",
@@ -4333,29 +4051,6 @@
     ]
   },
   {
-    "kursnamn": "Avancerad webbprogrammering",
-    "hp": "6",
-    "kurskod": "TDDD27",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Datavetenskap"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["8"],
-    "period": ["2"],
-    "block": ["3"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDD27",
-    "forkunskaper": "God programmeringsförmåga och förmåga att arbeta med ramverk. \nGod förståelse för hur HTML/CSS/Javascript utgör grunden för systemutveckling i webbläsaren.  \nGoda JavaScript kunskaper och kunskap om asynkron kommunikation med server och användning av ROUTS och JSON.  \nGod förståelse för webbens tekniker REST, microramverk som Flask och Express.js, integration av externa tjänster via REST-API. \nFörmåga att bygga större webbaserade interaktiva system och till att självständig driva mjukvaruprojekt.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "PRA1",
-        "benamning": "Seminarier och projekt",
-        "omfattning": "6 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Automatisk planering",
     "hp": "6",
     "kurskod": "TDDD48",
@@ -4728,35 +4423,6 @@
         "kod": "LAB1",
         "benamning": "Laborationer",
         "omfattning": "1 hp",
-        "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Bild- och ljudkompression",
-    "hp": "6",
-    "kurskod": "TSBK38",
-    "huvudomrade": ["Elektroteknik", "Medieteknik"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["8"],
-    "period": ["2"],
-    "block": ["4"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TSBK38",
-    "forkunskaper": "Sannolikhetslära, grundläggande signalbehandling, grundläggande transformteori.",
-    "overlappning": "TSBK02 eller TSBK35",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "TEN1",
-        "benamning": "Skriftlig tentamen",
-        "omfattning": "4 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "LAB1",
-        "benamning": "En laborationskurs",
-        "omfattning": "2 hp",
         "betygsskala": "U, G"
       }
     ]
@@ -5353,40 +5019,6 @@
     ]
   },
   {
-    "kursnamn": "Vetenskaplig visualisering",
-    "hp": "6",
-    "kurskod": "TNM067",
-    "huvudomrade": [
-      "Informationsteknologi",
-      "Datateknik",
-      "Datavetenskap",
-      "Medieteknik"
-    ],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1"],
-    "block": ["3"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNM067",
-    "forkunskaper": "Datorgrafik, Fysikaliska modeller",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "MUN1",
-        "benamning": "Muntlig examination",
-        "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "LAB1",
-        "benamning": "Laborationskurs",
-        "omfattning": "3 hp",
-        "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
     "kursnamn": "Artificiell intelligens för interaktiv media, projektkurs",
     "hp": "6",
     "kurskod": "TNM114",
@@ -5469,40 +5101,6 @@
         "benamning": "Skriftlig tentamen",
         "omfattning": "3 hp",
         "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
-    "kursnamn": "Teknik för avancerade datorspel",
-    "hp": "6",
-    "kurskod": "TSBK03",
-    "huvudomrade": [
-      "Informationsteknologi",
-      "Datateknik",
-      "Datavetenskap",
-      "Medieteknik"
-    ],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["1", "2"],
-    "block": ["1", "-"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TSBK03",
-    "forkunskaper": "Programmeringskunskaper. Datorgrafik. Linjär algebra. Grundkurs i fysik.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Halvfart",
-    "examination": [
-      {
-        "kod": "PRA1",
-        "benamning": "Projektuppgift",
-        "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "LAB1",
-        "benamning": "Laborationskurs med duggor",
-        "omfattning": "3 hp",
-        "betygsskala": "U, G"
       }
     ]
   },
@@ -5745,35 +5343,6 @@
     ]
   },
   {
-    "kursnamn": "Vetenskaplig metod",
-    "hp": "6",
-    "kurskod": "TDDD89",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Datavetenskap"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["2"],
-    "block": ["3"],
-    "ort": "Linköping",
-    "url": "https://studieinfo.liu.se/kurs/TDDD89",
-    "forkunskaper": "30 hp på avancerad nivå inom sitt huvudområde. Erfarenhet av att läsa vetenskapliga, granskade artiklar inom sitt huvudområde.",
-    "overlappning": "TNM107",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "UPG2",
-        "benamning": "Seminarier",
-        "omfattning": "2 hp",
-        "betygsskala": "U, G"
-      },
-      {
-        "kod": "UPG1",
-        "benamning": "Inlämningsuppgifter",
-        "omfattning": "4 hp",
-        "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
     "kursnamn": "Medicinsk bildanalys",
     "hp": "6",
     "kurskod": "TBMI02",
@@ -5920,35 +5489,6 @@
         "kod": "UPG1",
         "benamning": "Projektarbete",
         "omfattning": "2 hp",
-        "betygsskala": "U, G"
-      }
-    ]
-  },
-  {
-    "kursnamn": "VR-teknik",
-    "hp": "6",
-    "kurskod": "TNM086",
-    "huvudomrade": ["Informationsteknologi", "Datateknik", "Medieteknik"],
-    "utbildningsniva": "Avancerad nivå",
-    "termin": ["7", "9"],
-    "period": ["2"],
-    "block": ["2"],
-    "ort": "Norrköping",
-    "url": "https://studieinfo.liu.se/kurs/TNM086",
-    "forkunskaper": "3D-datorgrafik, linjär algebra, programmering C++, OpenGL",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "Helfart",
-    "examination": [
-      {
-        "kod": "MUN1",
-        "benamning": "Muntlig examination",
-        "omfattning": "2 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "LAB1",
-        "benamning": "Laborationskurs",
-        "omfattning": "4 hp",
         "betygsskala": "U, G"
       }
     ]

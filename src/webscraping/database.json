@@ -3692,41 +3692,6 @@
     ]
   },
   {
-    "kursnamn": "Entreprenörskap och idéutveckling",
-    "hp": "6",
-    "kurskod": "TEIO94",
-    "huvudomrade": ["Industriell ekonomi"],
-    "utbildningsniva": "Grundnivå",
-    "termin": null,
-    "period": null,
-    "block": null,
-    "ort": null,
-    "url": "https://studieinfo.liu.se/kurs/TEIO94",
-    "forkunskaper": "Åtminstone två års studier på teknisk högskola (120hp). Kursen förutsätter att studenten kan söka och strukturera information självständigt, kommunicera muntligen och skriftligen, planera och utföra ett projektarbete i grupp, göra enklare matematiska beräkningar samt har viss förmåga till kritiskt och kreativt tänkande.",
-    "overlappning": "Ingen överlappning",
-    "studietakt": "null",
-    "examination": [
-      {
-        "kod": "UPG2",
-        "benamning": "Projektarbete i grupp",
-        "omfattning": "3 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "UPG1",
-        "benamning": "Individuell/parvis reflektion",
-        "omfattning": "0.5 hp",
-        "betygsskala": "U, 3, 4, 5"
-      },
-      {
-        "kod": "HEM1",
-        "benamning": "Hemtentamen",
-        "omfattning": "2.5 hp",
-        "betygsskala": "U, 3, 4, 5"
-      }
-    ]
-  },
-  {
     "kursnamn": "Fysikaliska utblickar",
     "hp": "2",
     "kurskod": "TFFM12",

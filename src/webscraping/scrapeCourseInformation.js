@@ -237,33 +237,35 @@ async function scrape(addresses) {
       }
     });
 
-    // lägg till all information i en kurs
-    let tempKurs = new Kurs(
-      kursnamn,
-      hp,
-      kurskod,
-      huvudomrade,
-      utbildningsniva,
-      termin,
-      period,
-      block,
-      ort,
-      addresses[i],
-      forkunskaperText,
-      overlappning,
-      studietakt,
-      examination
-    );
-
-    // lägg till kursen i arrayen med alla kurser
-    kurser.push(tempKurs);
-
-    // skriv ut kursens som skrapats i terminalen
-    try {
-      console.log(
-        "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.overlappning
+    // lägg till all information i en kurs om den inte är null
+    if (termin && period && block && ort) {
+      let tempKurs = new Kurs(
+        kursnamn,
+        hp,
+        kurskod,
+        huvudomrade,
+        utbildningsniva,
+        termin,
+        period,
+        block,
+        ort,
+        addresses[i],
+        forkunskaperText,
+        overlappning,
+        studietakt,
+        examination
       );
-    } catch (error) {}
+
+      // lägg till kursen i arrayen med alla kurser
+      kurser.push(tempKurs);
+
+      // skriv ut kursens som skrapats i terminalen
+      try {
+        console.log(
+          "\x1b[1m" + tempKurs.kurskod + "\x1b[0m: " + tempKurs.overlappning
+        );
+      } catch (error) {}
+    }
   }
   await browser.close();
 

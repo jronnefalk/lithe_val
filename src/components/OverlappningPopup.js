@@ -40,8 +40,8 @@ export default function OverlappningPopup({ setShowOverlapping }) {
     <div style={popupStyle}>
       <div style={messageStyle}>
         <p>
-          Denna kurs får inte ingå i examen med en annan kurs som redan är
-          tillagd.
+          Detta är en överlaps kurs med kurskod .... Kurserna får inte ingå i en
+          examen tillsammans
         </p>
         <button style={buttonStyle} onClick={handlePopup}>
           OK

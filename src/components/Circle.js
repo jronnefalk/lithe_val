@@ -14,8 +14,8 @@ const Circle = ({ hp }) => {
         setData(getData(newPercent));
         setAnimate({ duration: 1000 });
       } else {
-        setPercent(1);
-        setData(getData(1)); // set an initial value to avoid animation starting from 0
+        setPercent(0);
+        setData(getData(0)); // set an initial value to avoid animation starting from 0
         setAnimate({ duration: 0 }); // set animation duration to 0 for first lap
       }
     };
@@ -25,7 +25,7 @@ const Circle = ({ hp }) => {
 
   function getData(percent) {
     let color = "#317773";
-    let fill1 = "gray";
+    let fill1 = "white";
     let fill2 = "transparent";
     let y1 = percent;
     let y2 = 0;
@@ -60,7 +60,7 @@ const Circle = ({ hp }) => {
         innerRadius={120}
         style={{
           data: {
-            fill: "gray",
+            fill: "white",
             stroke: "none",
           },
         }}

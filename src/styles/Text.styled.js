@@ -33,6 +33,7 @@ export const LäsMerText = styled(Text)`
   align-items: end;
   margin-top: 5%;
   text-decoration-line: underline;
+  cursor: pointer;
 `;
 
 // texten som ligger på lägg till knappen i droppdown

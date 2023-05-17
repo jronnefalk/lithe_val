@@ -90,7 +90,7 @@ export default function Schema(props) {
           </Bubble>
         </Progressbarochrubrik>{" "}
         <CirkelWrapper>
-          <Titel>Totalt antal hp: {counts.hp}</Titel>
+          <Titel>Totalpoäng: {counts.hp} hp</Titel>
           <Circle hp={hpPercent}></Circle>
         </CirkelWrapper>
       </Visualiseringar>

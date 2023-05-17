@@ -42,7 +42,7 @@ export function Start() {
             </SökIcont>
             <SökText
               type="text"
-              placeholder="Sök"
+              placeholder="Sök Kursnamn eller Kurskod"
               onChange={(event) => setQuery(event.target.value)}
             />
           </SökCont>

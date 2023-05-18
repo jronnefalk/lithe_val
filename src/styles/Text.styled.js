@@ -10,7 +10,7 @@ export const Text = styled.p`
 // Standard text för alla rubriker på sidan
 export const Titel = styled.h1`
   font-family: "Montserrat", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.4rem;
 `;
 //Texten som syns när man har tryckt på läs mer
 export const TextUnderLäsMer = styled(Text)`
@@ -38,7 +38,7 @@ export const LäsMerText = styled(Text)`
 
 // texten som ligger på lägg till knappen i droppdown
 export const InfoTextKnapp = styled(Text)`
-  font-size: 85%;
+  font-size: 90%;
   color: black;
   text-decoration: none;
   margin-bottom: 8px;
@@ -70,7 +70,7 @@ export const RubrikHemsida = styled.h1`
 //Text på menyknapparna
 export const MenyText = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   margin-top: 0;
 `;
 
@@ -91,7 +91,7 @@ export const RubrikProgressbar = styled(Titel)`
 `;
 // Minimumkraven
 export const BubbleText = styled(Text)`
-  font-size: 80%;
+  font-size: 0.9rem%;
 `;
 
 //Schema
@@ -121,7 +121,7 @@ export const SchemaTextUtbildningsnivå = styled(TextUtbildningsnivå)`
 //Filter
 //Rubrik i filtret
 export const FilterHeader = styled(Titel)`
-  font-size: 0.8rem;
+  font-size: 1rem;
 `;
 // texten till alla andra alternativ i Filter
 export const FilterText = styled(Text)`

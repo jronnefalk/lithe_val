@@ -3,32 +3,36 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-//Style
 import { MenyKnapp } from "../styles/Knappar.styled";
 import { MenyText } from "../styles/Text.styled";
+import { BsPerson, BsPersonFill } from "react-icons/bs";
 
-//ikon
-import { BsPerson } from "react-icons/bs";
-import { BsPersonFill } from "react-icons/bs";
-
-var provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
-function GoogleAuth() {
+const GoogleAuth = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn(true);
+        console.log("User is logged in.");
       } else {
         setLoggedIn(false);
+        console.log("User is not logged in.");
       }
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-  function googleSignin() {
+  const googleSignin = () => {
     provider.setCustomParameters({ prompt: "select_account" });
     signInWithPopup(auth, provider)
       .then(function (result) {
@@ -43,9 +47,9 @@ function GoogleAuth() {
         console.log(errorCode);
         console.log(errorMessage);
       });
-  }
+  };
 
-  function googleSignout() {
+  const googleSignout = () => {
     if (auth.currentUser) {
       signOut(auth)
         .then(function () {
@@ -58,7 +62,7 @@ function GoogleAuth() {
     } else {
       console.log("No user signed in");
     }
-  }
+  };
 
   return (
     <>
@@ -75,6 +79,6 @@ function GoogleAuth() {
       )}
     </>
   );
-}
+};
 
-export default GoogleAuth;
+export default React.memo(GoogleAuth);

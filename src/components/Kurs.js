@@ -3,7 +3,10 @@ import {
   saveKurs,
   deleteKurs,
   getUserData,
+  database,
 } from "../firebase_setup/firebase.js";
+import { ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
 import "firebase/compat/database";
 import { v4 as uuidv4 } from "uuid";
 //import Dropdown from "react-bootstrap/Dropdown";
@@ -41,37 +44,53 @@ import { BsFolderPlus } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
-  const kurs = props.kursdata;
+  const { kursdata, FireBaseData } = props;
+  const { currentUser } = getAuth();
 
-  // Sparar info om "lägg till kurs" och "radera kurs" mha localstorage
-  const [addkurs, setAddKurs] = useState(
-    localStorage.getItem(kurs.kurskod) === "true"
-  );
+  const kurs = props.kursdata;
+  const kurskod = kurs.kurskod;
+
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isInFirebase, setIsInFirebase] = useState(false);
   const [showOverlapping, setShowOverlapping] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem(kurs.kurskod, addkurs);
-  }, [addkurs, kurs.kurskod]);
-  //sparar om man väljer termin 7 eller 8
-  function handleClick1() {
-    let nr = 0;
-    saveKurs(kurs, nr);
-    setAddKurs(true);
+    if (currentUser) {
+      const kursRef = ref(
+        database,
+        `users/${currentUser.uid}/Kurser/${kurskod}`
+      );
+      const unsubscribe = onValue(kursRef, (snapshot) => {
+        setIsInFirebase(snapshot.exists());
+      });
+
+      return () => unsubscribe();
+    }
+  }, [currentUser, kurskod]);
+
+  useEffect(() => {
+    if (FireBaseData && Array.isArray(FireBaseData)) {
+      const courseInFirebase = FireBaseData.find(
+        (course) => course.kurskod === kurskod
+      );
+      console.log("courseInFirebase:", courseInFirebase);
+      setIsInFirebase(!!courseInFirebase);
+    }
+  }, [kurskod, FireBaseData]);
+
+  async function handleClick(nr) {
+    await saveKurs(kursdata, nr);
+    setIsInFirebase(true);
     handleOverlappningPopup();
   }
 
-  //sparar om man väljer termin 9
-  function handleClick2() {
-    let nr = 1;
-    saveKurs(kurs, nr);
-    setAddKurs(true);
-    handleOverlappningPopup();
-  }
+  async function handleDelete() {
+    await deleteKurs(kursdata);
+    setIsInFirebase(false);
 
-  function handleDelete() {
-    deleteKurs(kurs);
-    setAddKurs(false);
+    if (props.onDelete) {
+      props.onDelete(kurs);
+    }
   }
 
   const [foundOverlappningCourse, setFoundOverlappningCourse] = useState("");
@@ -113,40 +132,33 @@ export default function Kurs(props) {
       <TitelKnappCont>
         <Titel>{kurs.kursnamn}</Titel>
 
-        {!addkurs && (
+        {isInFirebase ? (
+          <TaBort onClick={handleDelete}>
+            <BsTrash3 size={20} />
+            <p>Ta bort kurs</p>
+          </TaBort>
+        ) : (
           <Dropdown>
             <DropdownB>
               <BsFolderPlus size={20} />
             </DropdownB>
-
             <DropdownMenu>
               <DropdownItem
-                onClick={handleClick1}
+                onClick={() => handleClick(0)}
                 style={{ textDecoration: "none" }}
               >
-                {" "}
                 <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
               </DropdownItem>
               {kurs.termin.length === 2 && (
-                <>
-                  <DropdownItem
-                    onClick={handleClick2}
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
-                  </DropdownItem>
-                </>
+                <DropdownItem
+                  onClick={() => handleClick(1)}
+                  style={{ textDecoration: "none" }}
+                >
+                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                </DropdownItem>
               )}
             </DropdownMenu>
           </Dropdown>
-        )}
-
-        {addkurs && (
-          <TaBort onClick={handleDelete}>
-            {" "}
-            <BsTrash3 size={20} />
-          </TaBort>
         )}
       </TitelKnappCont>
 
@@ -240,7 +252,7 @@ export default function Kurs(props) {
         <a href={kurs.url}>
           {" "}
           <TextUnderLäsMer>
-            Linköpings univeristet- Läs mer om kurser <BsBoxArrowUpRight />
+            Linköpings universitet - Läs mer om kurser <BsBoxArrowUpRight />
           </TextUnderLäsMer>
         </a>
       )}

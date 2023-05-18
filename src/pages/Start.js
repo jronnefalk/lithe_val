@@ -24,11 +24,15 @@ import { GlobalStyles } from "../styles/General.styled";
 
 export function Start() {
   const [query, setQuery] = useState("");
-  const [activeFilters, setActiveFilters] = useState([]);
+
+  // Sparar filtervalen mha session storage
+  const [activeFilters, setActiveFilters] = useState(
+    JSON.parse(sessionStorage.getItem("activeFilters")) || []
+  );
   const filteredKurser = filterKurser(kurser, query, activeFilters);
 
   useEffect(() => {
-    localStorage.setItem("activeFilters", JSON.stringify(activeFilters));
+    sessionStorage.setItem("activeFilters", JSON.stringify(activeFilters));
   }, [activeFilters]);
 
   return (

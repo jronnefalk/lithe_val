@@ -9,6 +9,7 @@ export const TaBortSchema = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  color: rgb(255, 92, 100);
 
   &:hover {
     background-color: none;
@@ -19,13 +20,14 @@ export const TaBort = styled(TaBortSchema)`
   margin-right: 1.8rem;
   color: rgb(255, 92, 100);
 `;
+
 //Meny
 export const MenyKnapp = styled.button`
   border: none;
   background: none;
   cursor: pointer;
   &:hover {
-    color: #f3f3f0;
+    color: #e8e8e5;
   }
 `;
 export const MenyKnappLITHEVAL = styled.button`

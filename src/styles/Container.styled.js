@@ -117,11 +117,13 @@ export const HelaSchemaCont = styled.div`
   gap: 0.5rem;
   justify-content: center;
 `;
+
 export const TerminWrapperSchema = styled.div`
   width: 22%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding-left: 2%;
   padding-bottom: 2%;
   padding-top: 1%;
@@ -131,12 +133,15 @@ export const TerminWrapperSchema = styled.div`
   border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
+
 export const SchemaKurserCont = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 `;
+
 export const SchemaKursInfoCont = styled(KursCont)`
   width: min(18rem, 17rem);
   background-color: white;
@@ -144,6 +149,7 @@ export const SchemaKursInfoCont = styled(KursCont)`
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
 `;
+
 export const TitelKnappCont = styled.div`
   display: flex;
   flex-direction: row;

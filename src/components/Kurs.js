@@ -146,12 +146,12 @@ export default function Kurs(props) {
 
         {isInFirebase ? (
           <TaBort onClick={handleDelete}>
-            <BsTrash3Fill size={20} />
+            <BsTrash3Fill size={24} />
           </TaBort>
         ) : (
           <Dropdown>
             <DropdownB>
-              <BsFolderPlus size={20} />
+              <BsFolderPlus size={24} />
             </DropdownB>
             <DropdownMenu>
               <DropdownItem

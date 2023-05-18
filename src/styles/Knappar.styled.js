@@ -65,6 +65,7 @@ export const FlyttaKnappSchema = styled.button`
 
 export const DropdownMenu = styled.div`
   display: none;
+  position: absolute;
   width: 100%;
   box-sizing: border-box;
   padding: 2px 2px;
@@ -76,10 +77,9 @@ export const DropdownMenu = styled.div`
 `;
 
 export const Dropdown = styled.div`
+  position: relative;
   border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline-block; /* Changed display to inline-block */
   cursor: pointer;
 
   &:hover ${DropdownMenu} {
@@ -98,6 +98,7 @@ export const DropdownItem = styled.button`
     background-color: #bbdbd7;
   }
 `;
+
 export const DropdownB = styled.button`
   display: flex;
   align-items: center;
@@ -113,7 +114,6 @@ export const DropdownB = styled.button`
   &:hover {
     background-color: #f3f3f0;
   }
-
   ${Dropdown}:hover & {
     background-color: #f3f3f0;
   }

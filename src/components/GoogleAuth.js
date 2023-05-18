@@ -68,13 +68,13 @@ const GoogleAuth = () => {
     <>
       {!loggedIn && (
         <MenyKnapp onClick={googleSignin}>
-          <BsPerson size={32} /> <MenyText>Logga in</MenyText>
+          <BsPerson size={33} /> <MenyText>Logga in</MenyText>
         </MenyKnapp>
       )}
       {loggedIn && (
         <MenyKnapp onClick={googleSignout}>
           {" "}
-          <BsPersonFill size={32} /> <MenyText>Logga ut</MenyText>
+          <BsPersonFill size={33} /> <MenyText>Logga ut</MenyText>
         </MenyKnapp>
       )}
     </>

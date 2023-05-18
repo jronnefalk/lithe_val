@@ -65,10 +65,11 @@ export const MenyCont = styled.div`
   max-width: 100%;
   flex-direction: row;
   text-decoration: none;
+  margin: 0.8%;
 `;
 export const MinaSidorCont = styled.div`
   margin-left: auto;
-  margin-right: 1%;
+  margin-right: 0.9%;
 `;
 
 // Filter

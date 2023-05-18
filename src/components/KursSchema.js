@@ -1,6 +1,6 @@
 import getData from "../functions/getData";
 import { v4 as uuidv4 } from "uuid";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //Iconer
 import { BsTrash3Fill } from "react-icons/bs";
@@ -30,11 +30,31 @@ export default function KursSchema(props) {
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
+  // Avgör om en överlappningskurs ska skrivas ut eller inte i kurs-komponent
+  const [hasOverlappning, setHasOverlappning] = useState(false);
+  useEffect(() => {
+    if (props.courseData.overlappning.length !== 0) {
+      setHasOverlappning(true);
+    }
+  }, [props.courseData.overlappning]);
 
   return (
     <>
       <TitelKnappCont>
-        <SchemaTitelKurs>{props.courseData.kursnamn}</SchemaTitelKurs>
+        <SchemaTitelKurs>
+          {props.courseData.kursnamn}{" "}
+          {hasOverlappning && (
+            <span
+              style={{
+                color: "rgb(255, 92, 100)",
+                paddingLeft: "15px",
+                fontSize: "22px",
+              }}
+            >
+              !
+            </span>
+          )}
+        </SchemaTitelKurs>
 
         <TaBortSchema // delete knapp
           onClick={() => props.handleDelete(props.kurs)}
@@ -83,6 +103,17 @@ export default function KursSchema(props) {
             {" "}
             <span style={{ fontWeight: "bold" }}>Antal hp:</span>{" "}
             {props.courseData.hp}
+          </SchemaTextInfo>
+        )}
+        {isReadMore && hasOverlappning && (
+          <SchemaTextInfo>
+            <span style={{ fontWeight: "bold", color: "rgb(255, 92, 100)" }}>
+              Kursen får ej ingå i examen med:
+            </span>{" "}
+            <span style={{ color: "rgb(255, 92, 100)" }}>
+              {" "}
+              {props.courseData.overlappning.join(", ")}{" "}
+            </span>
           </SchemaTextInfo>
         )}
 

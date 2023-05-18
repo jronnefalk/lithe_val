@@ -118,9 +118,6 @@ export const DropdownB = styled.button`
 `;
 
 // Filtret
-// export const StyledCheckbox = styled.input`
-//   background-color: #bbdbd7;
-// `;
 export const StyledCheckbox = styled.input`
   appearance: none;
   position: relative;
@@ -136,7 +133,7 @@ export const StyledCheckbox = styled.input`
   }
 
   &:checked:after {
-    content: "";
+    content: "✓"; /* Unicode character for checkmark */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -148,4 +145,10 @@ export const StyledCheckbox = styled.input`
     justify-content: center;
     color: white;
   }
+`;
+
+export const CheckboxLabel = styled.label`
+  display: flex; /* Display the label and checkbox as flex items */
+  align-items: center; /* Align the items vertically */
+  cursor: pointer;
 `;

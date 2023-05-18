@@ -1,4 +1,5 @@
 import React from "react";
+import { RubrikProgressbar } from "../styles/Text.styled";
 
 export default function OverlappningPopup({
   setShowOverlapping,
@@ -30,9 +31,12 @@ export default function OverlappningPopup({
     padding: "0.5rem 1rem",
     borderRadius: "0.5rem",
     border: "none",
-    backgroundColor: "#000",
-    color: "#fff",
+    backgroundColor: "#fff",
+    color: "rgb(255,92,100)",
     cursor: "pointer",
+  };
+  const kursnamn = {
+    fontWeight: "bold",
   };
 
   function handlePopup() {
@@ -45,8 +49,10 @@ export default function OverlappningPopup({
     <div style={popupStyle}>
       <div style={messageStyle}>
         <p>
-          Den valda kursen överlappar med {foundOverlappningCourse}. Kurserna
-          får inte ingå i en examen tillsammans.
+          Den valda kursen överlappar med{" "}
+          <span style={kursnamn}>{foundOverlappningCourse}</span>.
+          <br />
+          Kurserna får inte ingå i en examen tillsammans.
         </p>
         <button style={buttonStyle} onClick={handlePopup}>
           OK

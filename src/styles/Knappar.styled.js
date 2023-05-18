@@ -29,6 +29,16 @@ export const MenyKnapp = styled.button`
   &:hover {
     color: #e8e8e5;
   }
+  position: relative;
+`;
+export const RedDot = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
 `;
 export const MenyKnappLITHEVAL = styled.button`
   border: none;

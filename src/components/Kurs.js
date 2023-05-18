@@ -52,6 +52,7 @@ export default function Kurs(props) {
   const [isReadMore, setIsReadMore] = useState(false);
   const [isInFirebase, setIsInFirebase] = useState(false);
   const [showOverlapping, setShowOverlapping] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -77,6 +78,10 @@ export default function Kurs(props) {
     }
   }, [kurskod, FireBaseData]);
 
+  const handleAddClick = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
   async function handleClick(nr) {
     await saveKurs(kursdata, nr);
     setIsInFirebase(true);
@@ -84,6 +89,7 @@ export default function Kurs(props) {
   }
 
   async function handleDelete() {
+    setDropdownVisible(false);
     await deleteKurs(kursdata);
     setIsInFirebase(false);
 
@@ -91,6 +97,10 @@ export default function Kurs(props) {
       props.onDelete(kurs);
     }
   }
+
+  const handleMouseLeave = () => {
+    setDropdownVisible(false);
+  };
 
   const [foundOverlappningCourse, setFoundOverlappningCourse] = useState("");
   // Hanterar popupen ifall en överlappning noteras WIP
@@ -149,26 +159,28 @@ export default function Kurs(props) {
             <BsTrash3Fill size={24} />
           </TaBort>
         ) : (
-          <Dropdown>
-            <DropdownB>
+          <Dropdown onMouseLeave={handleMouseLeave}>
+            <DropdownB onClick={handleAddClick}>
               <BsFolderPlus size={24} />
             </DropdownB>
-            <DropdownMenu>
-              <DropdownItem
-                onClick={() => handleClick(0)}
-                style={{ textDecoration: "none" }}
-              >
-                <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
-              </DropdownItem>
-              {kurs.termin.length === 2 && (
+            {dropdownVisible && (
+              <DropdownMenu>
                 <DropdownItem
-                  onClick={() => handleClick(1)}
+                  onClick={() => handleClick(0)}
                   style={{ textDecoration: "none" }}
                 >
-                  <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  <InfoTextKnapp>Termin: {kurs.termin[0]}</InfoTextKnapp>
                 </DropdownItem>
-              )}
-            </DropdownMenu>
+                {kurs.termin.length === 2 && (
+                  <DropdownItem
+                    onClick={() => handleClick(1)}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <InfoTextKnapp>Termin: {kurs.termin[1]}</InfoTextKnapp>
+                  </DropdownItem>
+                )}
+              </DropdownMenu>
+            )}
           </Dropdown>
         )}
       </TitelKnappCont>
@@ -217,11 +229,11 @@ export default function Kurs(props) {
       <span onClick={toggleReadMore}>
         {isReadMore ? (
           <LäsMerText>
-            Läs mindre <AiOutlineUp />{" "}
+            <AiOutlineUp />{" "}
           </LäsMerText>
         ) : (
           <LäsMerText>
-            Läs mer <AiOutlineDown />{" "}
+            <AiOutlineDown />{" "}
           </LäsMerText>
         )}
       </span>

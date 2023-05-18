@@ -31,7 +31,7 @@ const Circle = ({ hp }) => {
     let y2 = 0;
 
     if (percent > 100) {
-      color = "red";
+      color = "rgb(255, 92, 100)";
       fill1 = "transparent";
       fill2 = "green";
       y1 = 100;

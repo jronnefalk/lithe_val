@@ -129,7 +129,20 @@ export default function Kurs(props) {
   return (
     <>
       <TitelKnappCont>
-        <Titel>{kurs.kursnamn}</Titel>
+        <Titel>
+          {kurs.kursnamn}
+          {hasOverlappning && (
+            <span
+              style={{
+                color: "rgb(255, 92, 100)",
+                paddingLeft: "15px",
+                fontSize: "22px",
+              }}
+            >
+              !
+            </span>
+          )}
+        </Titel>
 
         {isInFirebase ? (
           <TaBort onClick={handleDelete}>
@@ -226,10 +239,13 @@ export default function Kurs(props) {
       )}
       {isReadMore && hasOverlappning && (
         <TextUnderLäsMer>
-          <span style={{ fontWeight: "bold" }}>
-            Kursen får ej ingå i examen tillsammans med
+          <span style={{ fontWeight: "bold", color: "rgb(255, 92, 100)" }}>
+            Kursen får ej ingå i examen tillsammans med:
           </span>{" "}
-          {kurs.overlappning.join(", ")}
+          <span style={{ color: "rgb(255, 92, 100)" }}>
+            {" "}
+            {kurs.overlappning.join(", ")}{" "}
+          </span>
         </TextUnderLäsMer>
       )}
       {isReadMore && (

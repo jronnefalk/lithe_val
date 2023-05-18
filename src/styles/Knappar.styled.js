@@ -25,8 +25,7 @@ export const MenyKnapp = styled.button`
   background: none;
   cursor: pointer;
   &:hover {
-    background-color: #ededed;
-    border-radius: 20%;
+    color: #f3f3f0;
   }
 `;
 export const MenyKnappLITHEVAL = styled.button`
@@ -94,9 +93,8 @@ export const DropdownItem = styled.button`
   background-color: #f3f3f0;
 
   &:hover {
-    background-color: #BBDBD7;
+    background-color: #bbdbd7;
   }
-}
 `;
 export const DropdownB = styled.button`
   display: flex;

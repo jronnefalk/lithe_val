@@ -42,7 +42,6 @@ import { AiOutlineUp } from "react-icons/ai";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BsFolderPlus } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
-import { BsExclamationLg } from "react-icons/bs";
 
 export default function Kurs(props) {
   const { kursdata, FireBaseData } = props;

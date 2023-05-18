@@ -102,5 +102,5 @@ async function getUserData() {
   }
 }
 
-export { saveKurs, deleteKurs, moveKurs, getUserData };
+export { saveKurs, deleteKurs, moveKurs, getUserData, database, auth };
 export default app;

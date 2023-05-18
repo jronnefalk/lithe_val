@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth } from "firebase/auth";
+import { ref, onValue } from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import getData from "../functions/getData";
-import { deleteKurs, moveKurs } from "../firebase_setup/firebase.js";
+import {
+  database,
+  deleteKurs,
+  moveKurs,
+  auth,
+} from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 import Visualisering from "../components/Visualisering.js";
 //Style
@@ -14,14 +19,12 @@ import { GlobalStyles } from "../styles/General.styled";
 export function MinSida() {
   // skapar variabler för att spara data i
   const { currentUser } = getAuth();
+
   // Kursdata innehåller kurser från firebase sparade kurskod och termin där indexen är 0,1,2 osv
-  const [FireBaseData, setFireBaseData] = useState(
-    JSON.parse(localStorage.getItem("kursData")) || []
-  );
+  const [FireBaseData, setFireBaseData] = useState([]);
+
   // courseData innehåller alla kursers information från getData() med index i kurskod
-  const [courseData, setCourseData] = useState(
-    JSON.parse(localStorage.getItem("courseData")) || {}
-  );
+  const [courseData, setCourseData] = useState({});
 
   // funtioner för att ta bort och flytta kurser
   function handleDelete(kurs) {
@@ -53,50 +56,61 @@ export function MinSida() {
   // hämtar data från firebase och lägger in i variablerna
 
   useEffect(() => {
-    if (currentUser) {
-      const db = getDatabase();
-      const kursRef = ref(db, `users/${currentUser.uid}/Kurser`);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("User logged in:", user);
+      if (user) {
+        if (currentUser) {
+          const kursRef = ref(database, `users/${currentUser.uid}/Kurser`);
 
-      onValue(kursRef, async (snapshot) => {
-        const data = snapshot.val();
+          onValue(kursRef, async (snapshot) => {
+            const data = snapshot.val();
+            console.log("Firebase data:", data);
 
-        if (data) {
-          const kursArray = Object.keys(data).map((key) => ({
-            kurskod: key,
-            termin: data[key].Termin,
-          }));
-          setFireBaseData(kursArray);
+            if (data) {
+              const kursArray = Object.keys(data).map((key) => ({
+                kurskod: key,
+                termin: data[key].Termin,
+              }));
 
-          // Call getData for each kursKod in kursArray and wait for all the promises to resolve
-          const courseDataArray = await Promise.all(
-            kursArray.map(async (kurs) => {
-              const data = await getData(kurs.kurskod);
-              data.termin = kurs.termin;
-              return { [kurs.kurskod]: data };
-            })
-          );
+              setFireBaseData(kursArray);
+              console.log("FireBaseData:", kursArray);
 
-          // Combine all the course data into a single object
-          const newCourseData = courseDataArray.reduce(
-            (accumulator, currentValue) => ({
-              ...accumulator,
-              ...currentValue,
-            }),
-            {}
-          );
+              const courseDataArray = await Promise.all(
+                kursArray.map(async (kurs) => {
+                  const data = await getData(kurs.kurskod);
+                  data.termin = kurs.termin;
+                  return { [kurs.kurskod]: data };
+                })
+              );
 
-          setCourseData(newCourseData);
+              const newCourseData = courseDataArray.reduce(
+                (accumulator, currentValue) => ({
+                  ...accumulator,
+                  ...currentValue,
+                }),
+                {}
+              );
 
-          localStorage.setItem("kursData", JSON.stringify(kursArray));
-          localStorage.setItem("courseData", JSON.stringify(newCourseData));
+              setCourseData(newCourseData);
+              console.log("courseData:", newCourseData);
+            } else {
+              setFireBaseData([]);
+              setCourseData({});
+            }
+          });
         } else {
           setFireBaseData([]);
           setCourseData({});
-          localStorage.removeItem("kursData");
-          localStorage.removeItem("courseData");
         }
-      });
-    }
+      } else {
+        // User is not logged in, handle accordingly
+        setFireBaseData([]);
+        setCourseData({});
+      }
+    });
+
+    // Clean up the subscription
+    return () => unsubscribe();
   }, [currentUser]);
 
   // mappar ut visualisering och kurserna

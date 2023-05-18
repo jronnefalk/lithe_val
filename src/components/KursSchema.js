@@ -73,6 +73,13 @@ export default function KursSchema(props) {
 
         {isReadMore && (
           <SchemaTextInfo>
+            <span style={{ fontWeight: "bold" }}>Huvudområde:</span>{" "}
+            {props.courseData.huvudomrade.join(", ")}
+          </SchemaTextInfo>
+        )}
+
+        {isReadMore && (
+          <SchemaTextInfo>
             <span style={{ fontWeight: "bold" }}>Studietakt:</span>{" "}
             {props.courseData.studietakt}
           </SchemaTextInfo>

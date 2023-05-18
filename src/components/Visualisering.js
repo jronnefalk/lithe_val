@@ -64,7 +64,7 @@ export default function Schema(props) {
         <Progressbarochrubrik>
           <Bubble>
             <Titel>
-              Poäng inom avancerade kurser: {counts.avancerad * 6} hp
+              Poäng inom avancerade kurser: {counts.avancerad * 6}/60hp
             </Titel>
             <OmsluterBubble>
               <Progressbar value={avanceradPercent} max="12"></Progressbar>
@@ -75,7 +75,7 @@ export default function Schema(props) {
 
             <Titel>
               Poäng inom avancerade kurser i Medieteknik:{" "}
-              {counts.medieteknik * 6} hp
+              {counts.medieteknik * 6}/30hp
             </Titel>
             <OmsluterBubble>
               <Progressbar value={medieteknikPercent} max="6"></Progressbar>
@@ -85,8 +85,8 @@ export default function Schema(props) {
             </OmsluterBubble>
 
             <Titel>
-              Poäng inom avancerade kurser i Datateknik: {counts.datateknik * 6}{" "}
-              hp
+              Poäng inom avancerade kurser i Datateknik: {counts.datateknik * 6}
+              /30hp
             </Titel>
             <OmsluterBubble>
               <Progressbar value={datateknikPercent} max="6"></Progressbar>
@@ -97,7 +97,7 @@ export default function Schema(props) {
           </Bubble>
         </Progressbarochrubrik>{" "}
         <CirkelWrapper>
-          <Titel>Totalpoäng: {counts.hp} hp</Titel>
+          <Titel>Totalpoäng: {counts.hp}/90hp</Titel>
           <Circle hp={hpPercent}></Circle>
         </CirkelWrapper>
       </Visualiseringar>

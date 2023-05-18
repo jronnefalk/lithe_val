@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Standard text för all liten text
 export const Text = styled.p`
   font-family: "Lato", sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 0;
 `;
 // Standard text för alla rubriker på sidan

@@ -17,6 +17,7 @@ export default function getData(key) {
     huvudomrade: result.huvudomrade,
     termin: result.termin,
     period: result.period,
+    overlappning: result.overlappning,
     ort: result.ort,
     url: result.url,
     examination: result.examination,

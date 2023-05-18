@@ -13,7 +13,7 @@ import {
 import { FilterCont, FilterBlock } from "../styles/Container.styled";
 
 //Style (knappar)
-import { StyledCheckbox } from "../styles/Knappar.styled";
+import { StyledCheckbox, CheckboxLabel } from "../styles/Knappar.styled";
 
 export default function Filters({ activeFilters, setActiveFilters }) {
   const filters = [
@@ -83,6 +83,24 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterBlock>
         {blocks.map((filter) => (
           <FilterTextBlock key={uuidv4()}>
+            <CheckboxLabel>
+              <StyledCheckbox
+                type="checkbox"
+                onChange={() => handleFilterChange(filter)}
+                checked={activeFilters.some(
+                  (f) => f.key === filter.key && f.value === filter.value
+                )}
+              />
+              {filter.label}
+            </CheckboxLabel>
+          </FilterTextBlock>
+        ))}
+      </FilterBlock>
+
+      <FilterHeader> Period </FilterHeader>
+      {perioder.map((filter) => (
+        <FilterText key={uuidv4()}>
+          <CheckboxLabel>
             <StyledCheckbox
               type="checkbox"
               onChange={() => handleFilterChange(filter)}
@@ -91,99 +109,97 @@ export default function Filters({ activeFilters, setActiveFilters }) {
               )}
             />
             {filter.label}
-          </FilterTextBlock>
-        ))}
-      </FilterBlock>
-
-      <FilterHeader> Period </FilterHeader>
-      {perioder.map((filter) => (
-        <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Termin </FilterHeader>
       {terminer.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Studietakt </FilterHeader>
       {studietakt.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Kursnivå </FilterHeader>
       {utbildningsnivaer.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Huvudområde </FilterHeader>
       {huvudomraden.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Examination </FilterHeader>
       {examination.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
       <FilterHeader> Plats </FilterHeader>
       {orter.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
-            type="checkbox"
-            onChange={() => handleFilterChange(filter)}
-            checked={activeFilters.some(
-              (f) => f.key === filter.key && f.value === filter.value
-            )}
-          />
-          {filter.label}
+          <CheckboxLabel>
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => handleFilterChange(filter)}
+              checked={activeFilters.some(
+                (f) => f.key === filter.key && f.value === filter.value
+              )}
+            />
+            {filter.label}
+          </CheckboxLabel>
         </FilterText>
       ))}
     </FilterCont>

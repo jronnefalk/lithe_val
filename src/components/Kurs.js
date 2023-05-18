@@ -39,9 +39,8 @@ import {
 //ikoner
 import { AiOutlineDown } from "react-icons/ai";
 import { AiOutlineUp } from "react-icons/ai";
-import { BsBoxArrowUpRight } from "react-icons/bs";
+import { BsBoxArrowUpRight, BsTrash3Fill } from "react-icons/bs";
 import { BsFolderPlus } from "react-icons/bs";
-import { BsTrash3 } from "react-icons/bs";
 
 export default function Kurs(props) {
   const { kursdata, FireBaseData } = props;
@@ -130,11 +129,24 @@ export default function Kurs(props) {
   return (
     <>
       <TitelKnappCont>
-        <Titel>{kurs.kursnamn}</Titel>
+        <Titel>
+          {kurs.kursnamn}
+          {hasOverlappning && (
+            <span
+              style={{
+                color: "rgb(255, 92, 100)",
+                paddingLeft: "15px",
+                fontSize: "22px",
+              }}
+            >
+              !
+            </span>
+          )}
+        </Titel>
 
         {isInFirebase ? (
           <TaBort onClick={handleDelete}>
-            <BsTrash3 size={20} />
+            <BsTrash3Fill size={20} />
           </TaBort>
         ) : (
           <Dropdown>
@@ -227,10 +239,13 @@ export default function Kurs(props) {
       )}
       {isReadMore && hasOverlappning && (
         <TextUnderLäsMer>
-          <span style={{ fontWeight: "bold" }}>
-            Kursen får ej ingå i examen tillsammans med
+          <span style={{ fontWeight: "bold", color: "rgb(255, 92, 100)" }}>
+            Kursen får ej ingå i examen tillsammans med:
           </span>{" "}
-          {kurs.overlappning.join(", ")}
+          <span style={{ color: "rgb(255, 92, 100)" }}>
+            {" "}
+            {kurs.overlappning.join(", ")}{" "}
+          </span>
         </TextUnderLäsMer>
       )}
       {isReadMore && (

@@ -25,12 +25,12 @@ export const KursContWrapper = styled.div`
   padding: 20px;
   border-radius: 20px;
   background-color: #f3f3f0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const KursCont = styled.div`
   display: flex;
   flex-direction: column;
-  border: 0.5px solid black;
   border-radius: 20px;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -38,6 +38,7 @@ export const KursCont = styled.div`
   padding-top: 1.3rem;
   padding-bottom: 1rem;
   background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 // Sökfunktionen
 export const SökochTextCont = styled.div`
@@ -49,10 +50,10 @@ export const SökochTextCont = styled.div`
 export const SökCont = styled.div`
   display: flex;
   padding: 10px 20px;
-  border: 0.5px solid black;
   border-radius: 30px;
   box-sizing: border-box;
   background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 //Menyn
@@ -75,8 +76,8 @@ export const MinaSidorCont = styled.div`
 export const FilterCont = styled.div`
   padding: 16px;
   border-radius: 20px;
-  border: 0.5px solid black;
   background-color: #ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const Filter = styled.div`
@@ -122,13 +123,13 @@ export const TerminWrapperSchema = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding-left: 2%;
-  background-color: 
   padding-bottom: 2%;
   padding-top: 1%;
   padding-right: 3%;
   padding-bottom: 2%;
   background-color: #f3f3f0;
   border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 export const SchemaKurserCont = styled.div`
   display: flex;
@@ -146,7 +147,7 @@ export const SchemaKursInfoCont = styled(KursCont)`
 export const TitelKnappCont = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   width: 99%;
   height: 3rem;

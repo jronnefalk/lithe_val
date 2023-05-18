@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 
 //Iconer
-import { BsTrash3 } from "react-icons/bs";
+import { BsTrash3Fill } from "react-icons/bs";
 import { AiOutlineDown } from "react-icons/ai";
 import { AiOutlineUp } from "react-icons/ai";
 import { BsBoxArrowUpRight } from "react-icons/bs";
@@ -40,7 +40,7 @@ export default function KursSchema(props) {
           onClick={() => props.handleDelete(props.kurs)}
         >
           {" "}
-          <BsTrash3 size={13} />
+          <BsTrash3Fill size={13} />
         </TaBortSchema>
       </TitelKnappCont>
       <FirstInfoCont key={props.courseData.kurskod}>

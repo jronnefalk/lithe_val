@@ -17,6 +17,7 @@ export const TaBortSchema = styled.button`
 `;
 export const TaBort = styled(TaBortSchema)`
   margin-right: 1.8rem;
+  color: rgb(255, 92, 100);
 `;
 //Meny
 export const MenyKnapp = styled.button`
@@ -83,17 +84,17 @@ export const Dropdown = styled.div`
   &:hover ${DropdownMenu} {
     display: flex;
     flex-direction: column;
-    background-color: lightgrey;
+    background-color: #f3f3f0;
   }
 `;
 
 export const DropdownItem = styled.button`
   border: none;
   cursor: pointer;
-
+  background-color: #f3f3f0;
 
   &:hover {
-    background-color: lightgrey;
+    background-color: #BBDBD7;
   }
 }
 `;
@@ -102,6 +103,7 @@ export const DropdownB = styled.button`
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  color: #317773;
   border: none;
   margin-right: 1.8rem;
   border-top-left-radius: 4px;
@@ -109,15 +111,43 @@ export const DropdownB = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: lightgrey;
+    background-color: #f3f3f0;
   }
 
   ${Dropdown}:hover & {
-    background-color: lightgrey;
+    background-color: #f3f3f0;
   }
 `;
 
 // Filtret
+// export const StyledCheckbox = styled.input`
+//   background-color: #bbdbd7;
+// `;
 export const StyledCheckbox = styled.input`
-  background-color: #317773;
+  appearance: none;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #bbb;
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+
+  &:checked {
+    background-color: #317773;
+  }
+
+  &:checked:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
 `;

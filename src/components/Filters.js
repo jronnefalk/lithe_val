@@ -98,7 +98,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Period </FilterHeader>
       {perioder.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -111,7 +111,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Termin </FilterHeader>
       {terminer.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -124,7 +124,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Studietakt </FilterHeader>
       {studietakt.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -137,7 +137,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Kursnivå </FilterHeader>
       {utbildningsnivaer.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -150,7 +150,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Huvudområde </FilterHeader>
       {huvudomraden.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -163,7 +163,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Examination </FilterHeader>
       {examination.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(
@@ -176,7 +176,7 @@ export default function Filters({ activeFilters, setActiveFilters }) {
       <FilterHeader> Plats </FilterHeader>
       {orter.map((filter) => (
         <FilterText key={uuidv4()}>
-          <input
+          <StyledCheckbox
             type="checkbox"
             onChange={() => handleFilterChange(filter)}
             checked={activeFilters.some(

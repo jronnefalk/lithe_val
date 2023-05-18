@@ -26,6 +26,7 @@ export const MenyKnapp = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  color: #317773;
   &:hover {
     color: #e8e8e5;
   }
@@ -129,6 +130,7 @@ export const StyledCheckbox = styled.input`
   border-radius: 4px;
   outline: none;
   transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
 
   &:checked {
     background-color: #317773;

@@ -62,8 +62,6 @@ export default function App() {
 
   return (
     <>
-      <GoogleAuth />
-
       <MenyCont>
         <Link to="">
           <MenyKnappLITHEVAL onClick={handleClickHouse}>
@@ -85,6 +83,7 @@ export default function App() {
             </span>
           </Link>
         </MinaSidorCont>
+        <GoogleAuth />
       </MenyCont>
 
       {isAuthLoaded && (

@@ -135,7 +135,6 @@ export default function Kurs(props) {
         {isInFirebase ? (
           <TaBort onClick={handleDelete}>
             <BsTrash3 size={20} />
-            <p>Ta bort kurs</p>
           </TaBort>
         ) : (
           <Dropdown>

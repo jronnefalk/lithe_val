@@ -66,6 +66,7 @@ export const RubrikHemsida = styled.h1`
   font-family: "Futura-Bold", arial;
   font-size: 40px;
   margin-top: 0%;
+  text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.3);
 `;
 //Text på menyknapparna
 export const MenyText = styled.p`

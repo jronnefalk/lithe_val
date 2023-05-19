@@ -114,6 +114,7 @@ export const FilterBlock = styled.div`
 export const HelaSchemaCont = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.5rem;
   justify-content: center;
@@ -125,18 +126,14 @@ export const TerminWrapperSchema = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-left: 2%;
-  padding-bottom: 2%;
-  padding-top: 1%;
-  padding-right: 3%;
-  padding-bottom: 2%;
+  padding-bottom: 10px;
   background-color: #f3f3f0;
   border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const SchemaKurserCont = styled.div`
-  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -26,9 +26,20 @@ export const MenyKnapp = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  color: #317773;
   &:hover {
     color: #e8e8e5;
   }
+  position: relative;
+`;
+export const RedDot = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
 `;
 export const MenyKnappLITHEVAL = styled.button`
   border: none;
@@ -96,6 +107,10 @@ export const DropdownItem = styled.button`
 
   &:hover {
     background-color: #bbdbd7;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 `;
 
@@ -129,6 +144,7 @@ export const StyledCheckbox = styled.input`
   border-radius: 4px;
   outline: none;
   transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
 
   &:checked {
     background-color: #317773;

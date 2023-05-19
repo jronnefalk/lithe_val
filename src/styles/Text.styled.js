@@ -27,11 +27,14 @@ export const TextHuvudnivå = styled(Text)`
 export const TextUtbildningsnivå = styled(TextHuvudnivå)`
   background-color: #e2f3f2;
 `;
+
 //Texten på Knappen läsa mer
 export const LäsMerText = styled(Text)`
   display: flex;
-  align-items: end;
-  margin-top: 5%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
+  color: #317773;
   text-decoration-line: underline;
   cursor: pointer;
 `;
@@ -56,14 +59,16 @@ export const SökText = styled.input`
 `;
 export const AntalSökResultat = styled(Text)`
   padding-left: 20px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  color: #317773;
+  font-family: "Futura", arial;
 `;
 
 // Meny text
 //Rubriken på sidan
 export const RubrikHemsida = styled.h1`
   color: #317773;
-  font-family: "Futura-Bold", arial;
+  font-family: "Futura", arial;
   font-size: 40px;
   margin-top: 0%;
   text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.3);

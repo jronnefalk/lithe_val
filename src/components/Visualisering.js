@@ -59,7 +59,7 @@ export default function Schema(props) {
 
   return (
     <>
-      <TitelSOchV>Visualisering</TitelSOchV>
+      <TitelSOchV>Min sida</TitelSOchV>
       <Visualiseringar>
         <Progressbarochrubrik>
           <Bubble>

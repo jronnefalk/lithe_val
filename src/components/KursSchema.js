@@ -82,11 +82,11 @@ export default function KursSchema(props) {
         <span onClick={toggleReadMore}>
           {isReadMore ? (
             <SchemaLäsMerText>
-              Läs mindre <AiOutlineUp />{" "}
+              <AiOutlineUp />{" "}
             </SchemaLäsMerText>
           ) : (
             <SchemaLäsMerText>
-              Läs mer <AiOutlineDown />{" "}
+              <AiOutlineDown />{" "}
             </SchemaLäsMerText>
           )}
         </span>

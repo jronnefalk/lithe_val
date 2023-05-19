@@ -48,7 +48,7 @@ export const SpeechBubble = styled.div`
   max-width: 70%;
   position: absolute;
   top: -3.3rem;
-  left: 80.5%;
+  left: 72.6%;
   background: rgb(255, 92, 100);
   padding: 0.3rem 0.8rem;
   text-align: center;

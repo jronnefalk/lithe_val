@@ -29,7 +29,7 @@ export const MenyKnapp = styled.button`
   color: #317773;
 
   &:hover {
-    color: #e8e8e5;
+    color: rgb(226, 243, 242);
   }
   position: relative;
 `;

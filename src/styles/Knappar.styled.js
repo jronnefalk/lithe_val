@@ -27,6 +27,7 @@ export const MenyKnapp = styled.button`
   background: none;
   cursor: pointer;
   color: #317773;
+
   &:hover {
     color: #e8e8e5;
   }
@@ -45,6 +46,15 @@ export const MenyKnappLITHEVAL = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  transform: scale(1);
+  transition-duration: 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:not(:hover) {
+    transform: scale(1);
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 //lägga  till kurser knappen
 
@@ -179,4 +180,29 @@ export const CheckboxLabel = styled.label`
   display: flex; /* Display the label and checkbox as flex items */
   align-items: center; /* Align the items vertically */
   cursor: pointer;
+`;
+
+export const BackToTopButton = styled.button`
+  position: fixed;
+  bottom: 20px;
+  right: 2.5rem;
+  z-index: 999;
+  background-color: transparent;
+  color: #e8e8e5;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BackToStartLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #317773;
+  font-size: 16px; /* Set your desired font size */
+  /* Add any additional styles as needed */
 `;

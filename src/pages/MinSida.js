@@ -119,12 +119,12 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
-      <BackToStartLink to="/">
-        <BsArrowLeft size={35} />
-      </BackToStartLink>
       <GlobalStyles />
       <Visualisering courseData={courseData} />
       <TitelSOchV>Schema</TitelSOchV>
+      <BackToStartLink to="/">
+        <BsArrowLeft size={35} />
+      </BackToStartLink>
       <HelaSchemaCont>
         <Schema
           FireBaseData={FireBaseData}

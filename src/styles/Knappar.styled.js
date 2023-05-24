@@ -200,9 +200,9 @@ export const BackToTopButton = styled.button`
 
 export const BackToStartLink = styled(Link)`
   display: flex;
-  align-items: center;
+  align-items: first;
   text-decoration: none;
   color: #317773;
-  font-size: 16px; /* Set your desired font size */
-  /* Add any additional styles as needed */
+  font-size: 16px;
+  padding-left: 7%;
 `;

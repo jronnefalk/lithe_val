@@ -10,11 +10,14 @@ import {
 } from "../firebase_setup/firebase.js";
 import Schema from "../components/Schema";
 import Visualisering from "../components/Visualisering.js";
+
 //Style
 
 import { HelaSchemaCont } from "../styles/Container.styled";
 import { TitelSOchV } from "../styles/Text.styled";
 import { GlobalStyles } from "../styles/General.styled";
+import { BsArrowLeft } from "react-icons/bs";
+import { BackToStartLink } from "../styles/Knappar.styled";
 
 export function MinSida() {
   // skapar variabler för att spara data i
@@ -116,6 +119,9 @@ export function MinSida() {
   // mappar ut visualisering och kurserna
   return (
     <>
+      <BackToStartLink to="/">
+        <BsArrowLeft size={35} />
+      </BackToStartLink>
       <GlobalStyles />
       <Visualisering courseData={courseData} />
       <TitelSOchV>Schema</TitelSOchV>

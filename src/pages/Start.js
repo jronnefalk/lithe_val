@@ -21,10 +21,15 @@ import {
 import { SökText, AntalSökResultat } from "../styles/Text.styled";
 import { SökIcont } from "../styles/Knappar.styled";
 import { GlobalStyles } from "../styles/General.styled";
+import { BackToTopButton } from "../styles/Knappar.styled";
+import { BsArrowUpSquareFill } from "react-icons/bs";
+
 import styled from "styled-components";
+import { icons } from "react-icons";
 
 export function Start() {
   const [query, setQuery] = useState("");
+  const [showButton, setShowButton] = useState(false);
 
   // Sparar filtervalen mha session storage
   const [activeFilters, setActiveFilters] = useState(
@@ -36,20 +41,43 @@ export function Start() {
     sessionStorage.setItem("activeFilters", JSON.stringify(activeFilters));
   }, [activeFilters]);
 
+  // Scrolla upp-knapp
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 200) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleBackToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <div className="App">
         <GlobalStyles />
         <Cont>
           <div></div>
-
           <SökCont>
             <SökIcont>
               <BsSearch size={12} />
             </SökIcont>
             <SökText
               type="text"
-              placeholder="Sök Kursnamn eller Kurskod"
+              placeholder="Sök kursnamn eller kurskod"
               onChange={(event) => setQuery(event.target.value)}
             />
           </SökCont>
@@ -74,6 +102,11 @@ export function Start() {
             </KursContWrapper>
           </div>
         </Cont>
+        {showButton && (
+          <BackToTopButton onClick={handleBackToTop}>
+            <BsArrowUpSquareFill size={35} />
+          </BackToTopButton>
+        )}
       </div>
     </>
   );

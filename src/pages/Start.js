@@ -5,6 +5,7 @@ import kurser from "../webscraping/database.json";
 import filterKurser from "../functions/filterKurser";
 import Kurs from "../components/Kurs";
 import Filters from "../components/Filters";
+import Pagination from "../components/Pagination";
 
 // Ikoner
 import { BsSearch } from "react-icons/bs";
@@ -30,18 +31,20 @@ import { icons } from "react-icons";
 export function Start() {
   const [query, setQuery] = useState("");
   const [showButton, setShowButton] = useState(false);
-
-  // Sparar filtervalen mha session storage
   const [activeFilters, setActiveFilters] = useState(
     JSON.parse(sessionStorage.getItem("activeFilters")) || []
   );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(10); // Number of items per page
+
   const filteredKurser = filterKurser(kurser, query, activeFilters);
+  const totalPages = Math.ceil(filteredKurser.length / perPage);
 
   useEffect(() => {
     sessionStorage.setItem("activeFilters", JSON.stringify(activeFilters));
   }, [activeFilters]);
 
-  // Scrolla upp-knapp
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 200) {
@@ -64,6 +67,14 @@ export function Start() {
       behavior: "smooth",
     });
   };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  const currentCourses = filteredKurser.slice(startIndex, endIndex);
 
   return (
     <>
@@ -92,13 +103,19 @@ export function Start() {
           <div style={{}}>
             <KursContWrapper>
               <AntalSökResultat>
-                Antal sökresultat: {filteredKurser.length}
+                Visar {currentCourses.length} av {filteredKurser.length}{" "}
+                sökträffar
               </AntalSökResultat>
-              {filteredKurser.map((kurs) => (
+              {currentCourses.map((kurs) => (
                 <KursCont key={uuidv4()}>
                   <Kurs key={uuidv4()} kursdata={kurs} />
                 </KursCont>
               ))}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
             </KursContWrapper>
           </div>
         </Cont>

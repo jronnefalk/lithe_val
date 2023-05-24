@@ -148,7 +148,7 @@ export default function KursSchema(props) {
           </a>
         )}
 
-        {props.courseData.termin != 8 && isReadMore && (
+        {props.courseData.termin !== 8 && isReadMore && (
           <FlyttaKnappSchema // om terminen inte är 8 visas flytta-knappen
             onClick={() => props.handleMove(props.kurs)}
           >

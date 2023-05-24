@@ -10,7 +10,7 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCNXZdYpF7C82lV5hOlre-jWoLDosNLdjY",
-  authDomain: "liteval.firebaseapp.com",
+  authDomain: "litheval.vercel.app",
   databaseURL: "https://liteval-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "liteval",
   storageBucket: "liteval.appspot.com",

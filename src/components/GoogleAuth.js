@@ -64,6 +64,34 @@ const GoogleAuth = () => {
     }
   };
 
+  useEffect(() => {
+    const checkAuthTimeout = () => {
+      const user = auth.currentUser;
+      if (user) {
+        user
+          .getIdTokenResult()
+          .then((idTokenResult) => {
+            const issuedAtTime = idTokenResult.claims.iat * 1000; // Konvertera till millisekunder
+            const expirationTime = issuedAtTime + 60 * 60 * 1000; // Lägg till en timme
+            const currentTime = new Date().getTime();
+
+            if (currentTime > expirationTime) {
+              signOut(auth); // Logga ut användaren om en timme har passerat
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching ID token:", error);
+          });
+      }
+    };
+
+    const interval = setInterval(checkAuthTimeout, 5000); // Kör kontrollen var 5:e sekund
+
+    return () => {
+      clearInterval(interval); // Rensa intervallet när komponenten avmonteras
+    };
+  }, []);
+
   return (
     <>
       {!loggedIn && (

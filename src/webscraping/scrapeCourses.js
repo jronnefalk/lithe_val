@@ -34,7 +34,7 @@ const fs = require("fs");
         ).jsonValue();
 
         // ta bort "/ht-2023" från länken
-        const cleanLink = link.replace("/ht-2023", "");
+        const cleanLink = link.replace(/\/(ht|vt)-(2023|2024)/g, "");
         courseLinks.push(cleanLink);
       }
     }

@@ -17,6 +17,8 @@ LitheVal is a web application designed for students at Linköping University to 
 - **Web Scraping**: Custom scraping tools to extract course data from the Linköping University.
 - **Deployment**: Vercel
 
+![LiTHeVal Demo](public/litheval_demo.png)
+
 ## Setup Instructions
 
 1. Clone the repository:

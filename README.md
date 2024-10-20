@@ -14,6 +14,7 @@ LitheVal is a web application designed for students at Linköping University to 
 - **Frontend**: React
 - **Backend**: Node.js
 - **Database**: Firebase
+- **Web Scraping**: Custom scraping tools to extract course data from the Linköping University.
 - **Deployment**: Vercel
 
 ## Setup Instructions
